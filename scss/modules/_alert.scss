@@ -1,0 +1,38 @@
+// alert
+.alert {
+	display: inline-flex;
+	position: relative;
+	justify-content:space-between;
+	border-radius: .2rem;
+	&_message {
+		width: 90%;
+		padding: .5rem;
+	}
+
+	&_close {
+		@extend .message_close;
+		width: 10%;
+		text-align: right;
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		right: 0;
+		padding: .5rem;
+	}
+}
+
+// toast message estilo android
+.toast {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 6500;
+	opacity: .9;
+	& .alert {
+		display: flex;
+		border-radius: 0;
+		padding: .5rem 0;
+	}
+}

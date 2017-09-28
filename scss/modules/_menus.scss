@@ -1,0 +1,50 @@
+/* clase generica menu */
+
+.menu {
+	&, &_label {
+		display: flex;
+		width: 100%;
+	}
+	height: 100%;
+	position: relative;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow-x: hidden;
+	@extend .hide-scrolling;
+
+	a:not([class]) {
+		color: inherit;
+	}
+	
+	.icon--left {
+		margin: 0 1rem;
+	}
+	&_label {
+		text-transform: uppercase;
+		font-size: $text-small;
+		opacity: .7;
+		padding: 0 .5rem;
+		margin: .5rem 0;
+	}
+
+	&_list, &_list ul {
+		list-style: none;
+		margin: 0;
+		padding: .5rem 0;
+
+		& li {
+			display: flex;
+			line-height: 2rem;
+			flex: auto;
+			padding: .5rem;
+			cursor: pointer;
+			justify-content: space-between;
+			&:not(.is-active):hover {
+				background-color: whitesmoke;
+			}
+		}
+	}
+}
+.is-active {
+	@extend .is-primary;
+}

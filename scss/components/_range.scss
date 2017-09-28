@@ -1,0 +1,42 @@
+//*********  Inicio Estilos input range  ***********
+.range{
+	display: block;
+	margin: 1.5rem auto;
+	width: 95%;
+	height: 2px;
+	background-color: rgba($dark, .5);
+	position:relative;
+	&:before {
+		content: '';
+		position: absolute;
+		width: 1.25rem;
+		height: 1.25rem;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		border-radius: 100%;
+		background-color: $dark;
+		cursor: pointer;
+		transition: all .2s ease-out;
+	}
+	&:hover::before {
+		box-shadow: 0 0 5px 1px rgba($dark, .2);
+		width: 1.4rem;
+		height: 1.4rem;
+		left: -.15rem;
+	}
+}
+@include color-input-range(is-primary, $primary);
+@include color-input-range(is-info, $info);
+@include color-input-range(is-success, $success);
+@include color-input-range(is-warning, $warning);
+@include color-input-range(is-danger, $danger);
+/* disabled*/
+
+.range.disabled{
+	&, &:before, &:hover::before {
+		background-color:#bbb;
+		box-shadow:none;
+		pointer-events:none;
+	}
+}

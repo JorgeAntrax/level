@@ -1,0 +1,70 @@
+// menu acordeon
+.acordeon{
+	display: flex;
+	flex-direction:column;
+	flex:auto;
+	max-width:25rem;
+	overflow: hidden;
+	box-shadow:inset 0 0 0 1px rgba(#000, .3);
+	a{
+		display: flex;
+		justify-content:space-between;
+		padding:.5rem;
+		background-color:rgba(#000, .1);
+		color:rgba(#000, .7);
+	}
+	p{
+		padding:.5rem;
+	}
+}
+
+// elemento card
+.card{
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	max-width:20rem;
+	border:1px solid rgba($dark, .4);
+	overflow: hidden;
+	& .button{
+		justify-content:center;
+	}
+	&_header{
+		position:relative;
+		.card_title{
+			color:rgba(#fff, .7);
+			display: flex;
+			width: 100%;
+			justify-content:space-between;
+			padding:1rem .5rem;
+			position:absolute;
+			bottom:0;
+			transition:all .2s;
+			&:hover{
+				color:#fff;
+			}
+		}
+	}
+	&_content{
+		padding:.5rem;
+	}
+	&_footer{
+		display: flex;
+		border-top:1px solid rgba(#000, .5);
+		a{
+			color:#333;
+			display: block;
+			flex:auto;
+			text-align:center;
+			padding:.5rem 0;
+			transition:all .2s;
+			&:hover{
+				background-color:rgba(#000, .05);
+				color:$primary;
+			}
+		}
+		&:hover{
+			border-top:1px solid rgba($primary, 1);
+		}
+	}
+}

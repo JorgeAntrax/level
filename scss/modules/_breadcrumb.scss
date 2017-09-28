@@ -1,0 +1,106 @@
+.breadcrumb {
+	color: rgba($dark, .7);
+	overflow-x: auto;
+	overflow-y: hidden;
+	@extend .hide-scrolling;
+	&, &_item, &_item a {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		margin: 0;
+		line-height: 2rem;
+	}
+	&.is-center {
+		justify-content: center;
+	}
+	
+	//ok no problemas
+	&.is-right{
+		overflow-x: auto;
+		&, & .breadcrumb_item {
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+		}
+		& .breadcrumb_item:before,& .breadcrumb_item:last-child:before {
+			content: '/';
+		}
+		& .breadcrumb_item:first-child, &[class] .breadcrumb_item:first-child{
+			padding-left: .7rem;
+			&, & a {
+				padding-right: 0;
+			}
+			&:before {
+				content: '';
+			}
+		}
+	}
+	& &_item:last-child, &[class] &_item:last-child {
+		color: #000;
+		&:before {
+			content:'';
+		}
+	}
+}
+
+
+.breadcrumb_item {
+	position: relative;
+	cursor: pointer;
+	&, & a{
+		padding: 0 .7rem;
+		color: inherit;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+	a {
+		.icon {
+			margin-right: .3rem;
+		}
+		&:hover {
+			color: #000;
+		}
+	}
+	&:before {
+		// enlace al fuente de iconos en _variables.scss
+		font-family: $family-icons;
+	 	//contenido por default
+	 	content: '\\';
+	 	// posicionamiento
+		position: absolute;
+		right: .2rem;
+	}
+}
+.breadcrumb {
+	&.divider-is-angle &_item:before {
+		content: '\f105';
+	}
+	&.divider-is-angle.is-right &_item:before, &.divider-is-angle.is-right &_item:last-child:before {
+		content: '\f104';
+	}
+	//flecha ->
+	&.divider-is-arrow &_item:before {
+		content: '\f178';
+	}
+	&.divider-is-arrow.is-right &_item:before, &.divider-is-arrow.is-right &_item:last-child:before {
+		content: '\f177';
+	}
+	&.divider-is-arrow.large &_item:before {
+		font-size: $text-default;
+		margin-top: .15rem;
+	}
+	&.large &_item:before {
+		right: 0;
+	}
+	&.large &_item, &_item a {
+		padding: 0 1rem;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+	// circulo pequeño
+	&.divider-is-circle &_item:before, &.divider-is-circle.is-right &_item:last-child:before {
+		content: '\f111';
+		font-size: .4rem;
+	}
+}

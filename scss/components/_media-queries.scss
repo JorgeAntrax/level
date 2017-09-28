@@ -1,0 +1,80 @@
+// de 0 a 699 px es mobile first
+//breakpoints
+/* mobile first > 0 699px
+tablet > 700 > 899
+desktop > 900 > 1199
+full desktop > 1200 >> */
+//media querie para tablets
+@media(min-width:760px) {
+	.hide-in-desktop {
+		display: none;
+	}
+	.navbar_menu{
+ 		display: flex;
+		flex-direction:row;
+		align-items: center;
+	}
+
+	//modal windows
+	.modal_container {
+		max-width: 95%;
+	}
+
+	//alert dexktop toast
+
+	.toast {
+		max-width: 500px;
+		margin-right: auto;
+		margin-left: auto;
+		&.left, &.right {
+			margin: 0;
+		}
+		&.left {
+			left: 0;
+		}
+		&.right {
+			left: initial;
+			width: 500px;
+			right: 0;
+		}
+	}
+	.breadcrumb.is-right, .breadcrumb.is-right .breadcrumb_item {
+		justify-content:flex-start;
+	}
+}
+//media querie en desktop
+@media(min-width:960px) {
+	.navbar {
+		flex-direction: row;
+		&_header {
+			justify-content: flex-start;
+		}
+		&_menu {
+			justify-content: flex-end;
+		}
+	}
+	//modal window
+	.modal_container {
+		max-width: 70%;
+		width: 55%;
+	}
+
+}
+//desktop hd
+@media(min-width:1200px) {
+
+}
+
+//********************************************************************
+//media querie para tablets
+@media(max-width:760px) {	
+
+}
+//media querie en desktop
+@media(min-width:960px) {
+	// center container
+	.container {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

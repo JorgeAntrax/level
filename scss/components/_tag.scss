@@ -1,0 +1,72 @@
+// component tag
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	line-height: 1.1rem;
+
+	&.has-small, .tag.has-small {
+		line-height: .9rem;
+	}
+	&.has-medium, .tag.has-small {
+		line-height: 1.3rem;
+	}
+
+	&--group {
+		@extend .tags;
+		display: inline-flex;
+		flex: 0 0 auto;
+		// crea u grupo de etiquetas en forma de bloque
+		&.is-boxed {
+			width: 100%;
+			flex-direction: column;
+			overflow-x: auto;
+			.tag {
+				line-height: 1.3rem;
+			}
+		}
+
+		margin: .2rem;
+		border-radius: .2rem;
+		overflow: hidden;
+		flex-wrap: nowrap;
+	}
+}
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: .2rem .5rem;
+	line-height: 1rem;
+	font-size: $text-small;
+	&:not([class*='is-']) {
+			background-color: whitesmoke;
+	}
+}
+.tag {
+	border-radius: .2rem;
+	margin: 1px;
+}
+.badge {
+	@extend .tag;
+	position: relative;
+	line-height: normal;
+}
+
+.tags.has-rounded .tag, .tag.has-rounded, .tags--group.has-rounded, .badge {
+	border-radius: 20rem;
+}
+.tags .tag, .tags--group.has-rounded .tag{
+	margin: 0;
+	border-radius: 0;
+}
+.tags.has-small .tag, .tag.has-small {
+	font-size: $text-x-small;
+	padding: .05rem .5rem;
+}
+.tags.has-medium .tag, .tag.has-medium {
+	font-size: $text-default;
+	padding: .2rem .5rem;
+}

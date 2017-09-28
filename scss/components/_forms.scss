@@ -1,0 +1,58 @@
+//*********  Inicio Estilos input text etc  ***********
+.input {
+	display: block;
+	position:relative;
+	outline:0;
+	padding:.4rem .5rem;
+	overflow: hidden;
+	background-color:darken(#fff, 2%);
+	border:1px solid rgba(#000, 0);
+	border-radius:.2rem;
+	letter-spacing:.08rem;
+	width: 100%;
+	transition: all .2s;
+	color: $dark;
+	font-size: $text-default;
+	// estilo transparente
+	&--transparent {
+		@extend .input;
+		border: none;
+		background-color: rgba($cloud, .2);
+		color: rgba($cloud, .7);
+		&.is-invert {
+			@extend .input--transparent;
+			background-color: rgba(#000, .2);
+		}
+		&:focus {
+			background-color: $cloud;
+			color: $dark;
+		}
+	}
+	&:focus{ box-shadow: inset 0 2px 8px -2px rgba(#000, .05);	}
+}
+
+@include input-style(is-primary, $primary);
+@include input-style(is-info, $info);
+@include input-style(is-success, $success);
+@include input-style(is-warning, $warning);
+@include input-style(is-danger, $danger);
+//############# Fin de estilos del input ###########
+
+//control group
+.field {
+	display: inline-flex;
+	align-items: stretch;
+	position: relative;
+	overflow: hidden;
+	border-radius: .2rem;
+	& *[class] {
+		border-radius: 0;
+	}
+	.field-icon {
+		width: 2.5rem;
+	}
+	&.has-two-icons input, &.has-two-icons input:focus {
+		border: none;
+		border-radius: 0;
+	}
+}

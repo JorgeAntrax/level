@@ -1,0 +1,25 @@
+// .media componente social de cometarios
+.media, .media_content {
+	display: flex;
+}
+.media {
+	position: relative;
+	padding: .5rem;
+
+	&_close {
+		margin-left: 1em;
+		opacity: .7;
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&_image {
+		width: 50%;
+	}
+
+	&_content {
+		flex-direction: column;
+		padding-left:.5rem;
+	}
+}

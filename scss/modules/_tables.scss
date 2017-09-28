@@ -1,0 +1,32 @@
+// tables
+
+.table {
+	display: table;
+	width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+	&--stripe {
+		@extend .table;
+		tr:nth-child(2n) {
+			background-color: whitesmoke;
+			&:hover {
+				background-color: darken(whitesmoke, 2); 
+			}
+		}
+	}
+
+	tr {
+		border-bottom: 1px solid rgba($dark, .2);
+		vertical-align: middle;
+		transition: all .1s ease;
+		&:hover {
+			background-color: whitesmoke;
+		}
+	}
+	td, th {
+		text-align: left;
+		padding: .5rem;
+		vertical-align: middle;
+	}
+}

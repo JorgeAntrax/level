@@ -1,0 +1,42 @@
+// snippets coding
+.snippet {
+	display: block;
+	max-width: 100%;
+	position: relative;
+	overflow: hidden;
+	background-color: whitesmoke;
+	padding: 1.5rem 1rem;
+	color: $dark;
+
+	& pre {
+		max-height: 200px;
+		overflow-y: auto;
+	}
+	.comment {
+		color: rgba($dark, .6);
+	}
+	& .tg {
+		color: #0058FF;
+	}
+	& .at {
+		color: #BE9A35;
+	}
+	& .vat {
+		color: #04BA8C;
+	}
+	.copy {
+		@extend .small;
+		position: absolute;
+		background-color: whitesmoke;
+		margin: .2rem;
+		top: 0;
+		right: 0;
+	}
+	.expand {
+		@extend .copy;
+		right: 2rem;
+	}
+	.expand:focus ~ pre {
+		max-height: 100%;
+	}
+}

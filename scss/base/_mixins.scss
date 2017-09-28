@@ -1,0 +1,87 @@
+//mixin que genera el color de fondo y texto
+@mixin colors ($font, $background) {
+	color:$font;
+	background-color: $background;
+}
+
+//mixin que genera un border con la propiedad box shadow
+@mixin border-shadow ($color, $opacity) {
+	box-shadow: inset 0 0 0 1px rgba($color, $opacity);
+}
+
+//mixin que le da estilo a los input en general
+@mixin input-style ($class, $bg-color) {
+	.input.#{$class} {
+		// en estado focus establece un color para el borde
+		&:focus { border-color: rgba($bg-color, .7); }
+	}
+}
+
+//estilos para los checkbox y radio
+@mixin radio-check-style ($class, $color) {
+	.checkbox, .radio {
+		& ~ label.#{$class} {
+			//cambia el color de borde de los checbox y radio buttons
+			border: 1px solid $color;
+		}
+		// en estado checked cambia el color de borde y fondo
+		&:checked ~ label.#{$class} {
+			border-color:$color;
+			background-color: $color;
+			// modificador que agrega un box shadow interno de color blanco dando otro efecto
+			&.outline {
+				box-shadow: inset 0 0 0 2px $cloud;
+			}
+		}
+	}
+}
+
+//style toogle input
+@mixin toogle-button($class, $color){
+	input.toogle{
+		// Establece el fondo para la barra donde se dezliza el circulo del toggle
+		& ~ label.#{$class} {
+			background-color: rgba($color, .2);
+			// establece el color del circulo del toggle
+			&::before {
+				background-color:$color;
+			}
+		}
+		// este codigo cambia los colores del toggle cuando esta en estado checked
+		&:checked ~ label.#{$class} { 
+			background-color: rgba(darken($color, 20%), .3);
+
+			&::before {
+				background-color:darken($color, 20%);
+			}
+		}
+	}
+}
+
+/*stilos para input range de color*/
+@mixin color-input-range($class, $color){
+	.range.#{$class} {
+		background-color: rgba($color, .5);
+		&:before {
+			background-color: $color;
+		}
+	}
+}
+
+// mixin para estilo de notication
+@mixin message-style($class, $color){
+	.message.#{$class} {
+		background-color: $cloud;
+		border-color: $color;
+		.message_head {
+			background-color: $color;
+			@if $class == warning{
+				color:$dark;
+			}
+		}
+		.message_content {	
+			background-color:rgba($color, .05);
+			color:darken($color, 30%);
+		}
+	}
+}

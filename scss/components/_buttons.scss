@@ -1,0 +1,148 @@
+// se manejan 5 botones precargados primary, success, info, warning, danger
+//*********  Inicio Estilos .Button  ************
+.button {
+	display: inline-flex;
+	flex-basis: auto;
+	align-items: center;
+	position: relative; // linea que mantiene el efecto del criculo
+	outline: none;
+	border: none;
+	border-radius: .2rem;
+	padding: .4rem .5em;
+	user-select: none;
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	transition: all .2s ease-in;
+	font-size: $text-default;
+	// is-icon elimina el margin right al primer span dentro del button
+
+	&.is-rounded {
+		padding: .4rem .75rem;
+		border-radius: 25rem;
+	}
+	// clase que redondea un boton con texto o texto con icono
+	&:hover {
+		box-shadow: inset 0 0 0 15em rgba($dark, .05);
+	}
+	&:active {
+		box-shadow: inset 0 0 0 15em rgba($dark, .1), 0 2px 5px -2px rgba(0, 0, 0, .15);
+	}
+	&.disabled {
+		pointer-events: none;
+		border: none;
+		opacity: .5;
+	}
+ //color de texto blanco para todos los botones
+	&.is-primary, &.is-info, &.is-success, &.is-warning, &.is-danger, &.is-dark {
+		&.is-outline:hover {
+			color: $cloud;
+		}
+	}
+	&.is-dark.is-outline {
+		&:hover {
+		background-color: $dark;
+		}
+	}
+	&.is-primary.is-outline {
+		&:hover {
+		background-color: $primary;
+		}
+	}
+	&.is-success.is-outline {
+		&:hover {
+		background-color: $success;
+		}
+	}
+	&.is-info.is-outline {
+		&:hover {
+		background-color: $info;
+		}
+	}
+	&.is-warning.is-outline {
+		&:hover {
+			background-color: $warning;
+			color: $dark;
+		}
+	}
+	&.is-danger.is-outline {
+		&:hover {
+		background-color: $danger;
+		}
+	}
+}
+
+// efecto active de circulo maerial design
+.ripple-efect::before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 50%;
+	border-radius: 100%;
+	transition: all .1s ease-out;
+	background-color: rgba($dark, .05);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.ripple-efect:active::before {
+	width: 300px;
+	height: 300px;
+}
+
+.is-invert-outline {
+	background-color: transparent;
+	border: 1px solid $cloud;
+	color: $cloud;
+	&:hover {
+		background-color: $cloud;
+		color: $dark;
+	}
+}
+
+// clase que hace un boton flotante
+.is-floating {
+	$x: .5rem;
+	$y: .5rem;
+	position: fixed;
+	&--lt, &--lb, &--rt, &--rb {
+		@extend .is-floating;
+	}
+	&--lt {
+		left: $x;
+		top:  $y;
+	}
+	&--lb {
+		left: $x;
+		bottom: $y;
+	}
+	&--rt {
+		top: $y;
+		right: $x;
+	}
+	&--rb {
+		bottom: $y;
+		right: $x;
+	}
+	z-index: 6000;
+	box-shadow: 0 1px 5px -1px rgba(#000, .2);
+	& .button {
+		padding: 1rem;
+	}
+	&:hover {	
+		box-shadow: 0 4px 15px -1px rgba(#000, .2);
+	}
+}
+
+.button--icon {
+	@extend .button;
+	padding: .4em;
+	span:first-child {
+		margin-right: 0;
+	}
+	&--circle {
+		@extend .button--icon;
+		border-radius: 25em;		
+	}
+}

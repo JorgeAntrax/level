@@ -1,0 +1,87 @@
+// barra de navegacion --menu principal
+.navbar, .navbar_header, .navbar_menu{display: flex;}
+.navbar, .navbar_menu {
+	flex-direction: column;
+}
+.navbar{
+	justify-content: center;
+	width: 100%;
+
+	&.is-mobile {
+		@extend .hide-scrolling;
+		flex-direction: row;
+		overflow-x: auto;
+		justify-content: flex-start;
+	}
+	&_header, &_menu {
+		min-height: 3rem;
+	}
+	&_header {
+		justify-content:space-between;
+	}
+	&_brand, &_burger, &_menu li, &_item {
+		display: flex;
+		position: relative;
+		height: 3rem;
+		line-height: 3rem;
+		align-items: center;
+		cursor: pointer;
+		margin: 0 .25rem;
+	}
+	&_brand, &_item {
+		padding: 0 1rem;
+	}
+	&_item:hover {
+		background-color: whitesmoke;
+		color: $black;
+	}
+	&_burger {
+		width: 3rem;
+		justify-content: center;
+	}
+	&_menu{
+		list-style: none;
+		margin: 0;
+		li {
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+	// posicionamiento de la barra de navegacion  top y bottom
+	&.has-fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		&-up {
+			@extend .has-fixed;
+			top: 0;
+		}
+		&-down {
+			@extend .has-fixed;
+			bottom: 0;
+		}
+	}
+}
+
+
+// media quieries
+
+/* nav#principal.navbar.is-white.shadow-y
+				section.navbar_header
+					span
+					a(href="#").navbar_item.navbar_burger
+						span.icon.is-text-info.large
+							i.fa.fa-bars
+				ul.navbar_menu
+					li
+						button.button.is-success(href="#")
+							span.icon--left
+								i.fa.fa-github
+							span Clone Git
+					li.navbar_item
+						a(href="#")
+							span.icon--left
+								i.fa.fa-google
+							span Google
+					li.navbar_link
+						a(href="#") Acerca De */

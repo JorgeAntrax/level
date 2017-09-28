@@ -1,0 +1,139 @@
+// replazo del scroll y ocultamiento.
+.replace-scrolling::-webkit-scrollbar {
+	background-color: rgba($dark, .1);
+	width: .5rem;
+}
+.replace-scrolling::-moz-scrollbar {
+	background-color: rgba($dark, .1);
+	width: .5rem;
+}
+.replace-scrolling::-webkit-scrollbar-thumb {
+	background-color: rgba($dark, .3);
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: all .2s ease-out;
+	&:hover, &:active {
+		background-color: rgba($dark, .5);
+	}
+}
+.replace-scrolling::-moz-scrollbar-thumb {
+	background-color: rgba($dark, .3);
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: all .2s ease-out;
+	&:hover, &:active {
+		background-color: rgba($dark, .5);
+	}
+}
+.replace-scrolling::-webkit-scrollbar-track {
+	display: none;
+}
+.ie .ms-no-scrolling, .edge .ms-no-scrolling {
+	margin: -1em;
+	padding: 1.5em;
+}
+.hide-scrolling {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	&::-moz-scrollbar {
+		display: none;
+	}
+}
+
+.is-flex, .group {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+}
+
+//contenedor que limita el ancho maximo y añade unos cuantos padding
+.container{
+	max-width:1000px;
+	width: 100%;
+	padding: .5rem;	
+}
+
+// la clase total-vh hace que el contenedor mida el 100% del viewport height
+.is-fluid-vh {
+	height: 100vh;
+}
+
+// reset de los margin
+.no-margin > *[class]{
+	margin: 0;
+}
+
+// reset de los padding
+.no-padding > *[class]{
+	padding: 0;
+}
+
+// clase is-fluid
+.is-fluid {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+// clase no-wrap para evitar que el contenido se acomode en nuevas filas y cambie a flex direction column
+.is-nowrap {
+	flex-flow: row nowrap;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+//Clases generales para tamaño de iconos botones texto en general
+
+.small { font-size: $text-small; }
+.medium { font-size: $text-medium; }
+.large { font-size: $text-large; }
+.x-large {font-size: $text-x-large; }
+
+// clase que convierte texto en uppercase
+.up-case {
+	text-transform: uppercase;
+}
+
+// clase que convierte texto en lowercase
+.low-case {
+	text-transform: lowercase;
+}
+
+//clase que pone inline block
+.inline {
+	display: inline-block;
+}
+.no-round *[class] {border-radius:0;}
+//clases genericas
+.round {
+	border-radius: 100rem;
+	overflow: hidden;
+}
+
+//genera margin de 1px
+.bordered *[class]{margin:.05rem;}
+//navegacion por tabs
+.padding-05{
+	padding: .5rem;
+}
+.padding-1{padding:1rem;}
+.padding-2{padding:2rem;}
+.padding-3{padding:3rem;}
+.padding-4{padding:4rem;}
+
+// style bycolor of text
+.is-text-dark { color: $dark; }
+.is-text-primary { color: $primary; }
+.is-text-info { color: $info; }
+.is-text-success { color: $success; }
+.is-text-warning { color: darken($warning, 20%); }
+.is-text-danger { color: $danger; }

@@ -1,0 +1,79 @@
+// ventanas modal
+.modal {
+	display: none;
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	&_close {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, .8);
+		z-index: 10;
+		cursor: pointer;
+	}
+	&_container {
+		flex-direction: column;
+		max-width: 95%;
+		max-height: 95%;
+		padding-bottom: .5rem;
+		background-color: darken($cloud, 2%);
+		border-radius: .25rem;
+		overflow: hidden;
+		z-index: 20;
+		box-shadow: 0 5px 20px -1px rgba(#000, .3);
+	}
+
+	&_container, &_header {
+		display: flex;
+	}
+
+	&, &_header {
+		align-items: center;
+	}
+	
+	&_content {
+		display: block;
+		max-width: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		@extend .hide-scrolling;
+	}
+	&_header {
+		background-color: darken($cloud, 5%);
+		justify-content: space-between;
+		padding: 0 .25em;
+		min-height: 2rem;
+	}
+
+	/* &-close {
+		color: $danger;
+	}
+
+	&-min {
+		color: $warning
+	}
+
+	&-plus {
+		color: $success;
+	}
+
+	&-close, &-min, &-plus {
+		cursor: pointer;
+		opacity: .6;
+		font-size: $text-medium;
+		transition: all .2s ease-out;
+		&:hover {
+			opacity: 1;
+		}
+	} */
+}
+
+
+

@@ -1,0 +1,53 @@
+// layout
+
+.layout {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+
+	&_head, &_navbar, &_side-menu, &_main, &_foot, &_foot--sticky {
+		width: 100%;
+	}
+
+	&_foot--sticky {
+		align-self: flex-end;
+	}
+	&.is-dashboard {
+		flex-wrap: nowrap;
+		overflow: hidden;
+		
+		& .layout_main, & .layout_side-menu {
+			height: 100vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			@extend .replace-scrolling;
+		}
+	}
+
+
+	@media screen and (min-width: 760px) {
+		&_side-menu {
+			flex: 25%;
+		}
+	}
+}
+
+//clase .main que se aplica a la etiqueta main aplicando propiedades flexibles
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	height: 100%;
+	overflow-y: auto;
+	
+	@extend .hide-scrolling;
+
+	&_content, &_footer {
+		width: 100%;
+	}
+	&_footer {
+		align-self: flex-end;
+	}
+}

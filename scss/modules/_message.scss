@@ -1,0 +1,92 @@
+//Estilos para componente resource resource
+//
+.resource{
+	display: block;
+	position: relative;
+	color: $dark;
+	background-color: transparent;
+	box-shadow: inset 0 0 0 1px $dark;
+	border-radius: 0 .2rem .2rem;
+	margin:1.5rem auto 0.5rem auto;
+	padding: .1rem;
+	&:before{
+		content: attr(value);
+		position: absolute;
+		padding: .2rem .5rem;
+		top: -1rem;
+		left: 0;
+		line-height: initial;
+		background-color: $dark;
+		color:$cloud;
+		font-weight: bold;
+		border-radius:.2rem .2rem 0 0;
+		font-size: $text-x-small;
+		text-transform: uppercase;
+	}
+	&.right{
+		border-radius:.2rem 0 .2rem .2rem;
+		&::before{
+			left:initial;
+			right: 0;
+		}
+	}
+}
+.resource.is-white{
+	background-color:rgba($cloud, .05);
+	color:$cloud;
+	box-shadow: inset 0 0 0 1px $cloud;
+	&:before{background-color: $cloud;color:$dark;}
+}
+.resource.is-primary{
+	box-shadow: inset 0 0 0 1px $primary;
+	&:before{background-color: $primary;}
+}
+.resource.is-success{
+	box-shadow: inset 0 0 0 1px $success;
+	&:before{background-color: $success;}
+}
+.resource.is-info{
+	box-shadow: inset 0 0 0 1px $info;
+	&:before{background-color: $info;}
+}
+.resource.is-warning{
+	box-shadow: inset 0 0 0 1px $warning;
+	&:before{background-color: $warning;color:$dark;}
+}
+.resource.is-danger{
+	box-shadow: inset 0 0 0 1px $danger;
+	&:before{background-color: $danger;}
+}
+
+
+// code message & alert 
+.message_close {
+	opacity:.7;
+	transition:all .2s ease-out;
+	&:hover{opacity:1;}
+}
+.message, .message_head {
+	display: flex;
+}
+.message {
+	flex-direction:column;
+	border: 1px solid $dark;
+	border-radius:.2rem;
+	overflow: hidden;
+	
+	&_head {
+		justify-content:space-between;
+		padding: .5rem;
+	}
+
+	&_content {
+		padding:.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@include message-style(is-primary, $primary);
+@include message-style(is-info, $info);
+@include message-style(is-success, $success);
+@include message-style(is-warning, $warning);
+@include message-style(is-danger, $danger);

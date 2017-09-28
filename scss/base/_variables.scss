@@ -1,0 +1,37 @@
+//Variables
+
+$line-height-default: 1.35rem;
+
+// font family
+$family-light: 'Lato-Light';
+$family-icons: 'FontAwesome';
+
+//color de texto por default
+$text-color: #555 !default;
+
+// variables para tamaño de texto
+$text-x-small: 60% !default;
+$text-small: 80% !default;
+$text-default: 100% !default;
+$text-medium: 130% !default;
+$text-large: 160% !default;
+$text-x-large: 200% !default;
+
+// Tamaño de encabezados
+$h1-size: 2em !default;
+$h2-size: 1.8em !default;
+$h3-size: 1.6em !default;
+$h4-size: 1.3em !default;
+$h5-size: .9em !default;
+$h6-size: .8em !default;
+
+//colores predefinidos
+
+$cloud: #fff !default;
+$primary: #0082ff !default;
+$info: #0050ff !default;
+$success: #23d160 !default;
+$warning: #ffdd57 !default;
+$danger: #ff3860 !default;
+$dark: #444 !default;
+$black: #000 !default;

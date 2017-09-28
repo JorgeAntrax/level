@@ -1,0 +1,4 @@
+//funcion que general el grid system
+@function grid($width, $columns: 20){
+	@return percentage($width / $columns);
+}

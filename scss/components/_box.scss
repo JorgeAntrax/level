@@ -1,0 +1,10 @@
+// component box, is a simple flexbox container  with a shadow and padding 1rem
+.box {
+	display: block;
+	padding: 1rem;
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid rgba($dark, .05);
+	border-radius: .2rem;
+	box-shadow: 0 5px 8px -2px rgba(#000, .1);
+}

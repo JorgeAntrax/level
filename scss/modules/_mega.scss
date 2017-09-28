@@ -1,0 +1,14 @@
+// mega  bloque de contenido con un encabezado grande y descripcion
+.mega {
+	display: block;
+	padding: 4rem;
+	width: 100%;
+	&_title {
+		letter-spacing: .2rem;
+	}
+	&_content {
+		text-align: justify;
+		letter-spacing: .05rem;
+		opacity: .8;
+	}
+}
