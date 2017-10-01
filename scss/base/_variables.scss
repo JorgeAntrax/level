@@ -1,20 +1,31 @@
 //Variables
 
-$line-height-default: 1.35rem;
+//breakpoints
+$touch: '768px';
+$tablet: '769px';
+$desktop: '1024px';
+$widescreen: '1300px';
+
+//breakpoints entre min y max width
+$only-touch: '(min-width:480px) and (max-width: 768px)';
+$only-tablet: '(min-width:769px) and (max-width: 1023px)';
+$only-desktop: '(min-width:1024px) and (max-width: 1299px)';
+
+$line-height-default: 1.5rem; // line-height initial
 
 // font family
-$family-light: 'Lato-Light';
+$family-light: $family;
 $family-icons: 'FontAwesome';
 
 //color de texto por default
 $text-color: #555 !default;
 
 // variables para tamaño de texto
-$text-x-small: 60% !default;
-$text-small: 80% !default;
-$text-default: 100% !default;
-$text-medium: 130% !default;
-$text-large: 160% !default;
+$text-x-small: 0.675rem !default;
+$text-small: 0.875rem !default;
+$text-default: 16px !default;
+$text-medium: 1.3rem !default;
+$text-large: 1.6rem !default;
 $text-x-large: 200% !default;
 
 // Tamaño de encabezados
@@ -28,10 +39,15 @@ $h6-size: .8em !default;
 //colores predefinidos
 
 $cloud: #fff !default;
-$primary: #0082ff !default;
-$info: #0050ff !default;
+$primary: #00C2FF !default;
+$info: #0082ff !default;
 $success: #23d160 !default;
 $warning: #ffdd57 !default;
 $danger: #ff3860 !default;
-$dark: #444 !default;
+$dark: #333 !default;
 $black: #000 !default;
+
+//color link
+$color-link: $primary;
+$color-link-hover: $dark;
+

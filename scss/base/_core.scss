@@ -1,18 +1,9 @@
-// establecer codificacion utf-8
-@charset "utf-8";
-
-// importacion de fuente tipografica...
-@font-face {
-  font-family: 'Lato-Light';
-  src:url('../font/Lato-Light.ttf') format('truetype');
-}
-
 // html basico
 html {
-  font-size: 16px;
+  font-size: rem(16px);
   box-sizing: border-box;
   min-height: 100vh;
-  min-width: 300px;
+  min-width: rem(300px);
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -25,31 +16,36 @@ html {
 }
 
 * {
-  box-sizing: inherit;
-  font-family: $family-light, sans-serif;
   letter-spacing: 0.04rem;
   padding: 0;
   margin: 0;
 }
 
-::before, ::after { box-sizing: inherit; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body, li, p , code, pre, a {
+  line-height: $line-height-default;
+}
 
 body {
   height: 100%;
   background-color: #fff;
-  font-size: 100%;
   color: $dark;
-  line-height: $line-height-default;
   @extend .replace-scrolling;
+}
+
+body, input, button, span, label, b, strong, samp, p {
+  font-family: $family, sans-serif, monospace; 
 }
 
 a {
   text-decoration: none;
   transition:all .2s ease-out;
-  color: $primary;
+  color: $color-link;
   cursor: pointer;
+  word-break: break-word;
   &:hover {
-    color: $dark;
+    color: $color-link-hover;
   }
 }
 
@@ -72,10 +68,9 @@ hr {
   height: 1px; /* 1 */
   outline: none;
   border: 0;
+  margin: 0.25rem 0;
+  opacity: 0.2;
   background-color: $black;
-  overflow: hidden;
-  margin: .5rem 0;
-  opacity: .2;
 }
 
 abbr[title] {
@@ -112,7 +107,6 @@ audio:not([controls]) {
 }
 
 img {
-  width: 100%;
   height: auto;
   border-style: none;
 }
@@ -133,6 +127,10 @@ html [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; /* 2 */
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 button::-moz-focus-inner,
@@ -178,24 +176,15 @@ textarea {
   -webkit-appearance: none;
 }
 
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
 summary {
   display: list-item;
 }
 
-template {
+[hidden], template {
   display: none;
 }
 
-[hidden] {
-  display: none;
-}
-
-[disabled] {
+[disabled], .is-disabled {
   pointer-events: none;
   opacity: .7;
 }
@@ -207,6 +196,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
+  & small {
+    fotn-size: 70%;
+  }
 }
 
 h1 { font-size: $h1-size; }
@@ -219,18 +212,14 @@ h6 { font-size: $h6-size; }
 // listas
 ol, ul { 
   margin-left: 1rem; 
-  & li {
-    line-height: 1.5rem;
-  }
 }
 
 p {
 	display: block;
-	margin: 0.5rem 0;
-  line-height: $line-height-default;
+	margin: 0.25rem 0;
 	padding: 0;
 	text-align: justify;
-  font-size: $text-default;
+  font-size: rem($text-default);
 }
 
 blockquote, cite, address{
@@ -243,32 +232,31 @@ blockquote{
 	margin-left:auto;
 	margin-right:auto;
 	padding:2rem .5rem .5rem;
-	border-left:4px solid rgba($dark, .3);
+	border-left:rem(4px) solid rgba($dark, .3);
 	background-color:rgba($dark, .1);
 	font-style: italic;
 	&:before {
 		content: '\f10d';
-		opacity: .6;
+		opacity: .75;
 		font-family: $family-icons;
 		position: absolute;
 		top: .5rem;
 		left: .5rem;
 	}	
 }
-cite, address {
-	font-size: 80%;
-	opacity: 0.8;
+small code, cite, address {
+  font-size: $text-small;
+  font-weight: normal;
 }
-cite::before{
-	content: ' \2014\2009';
-}
-address{font-style:normal;}
 
 /**Etiqueta small*/
-small{opacity: .7;font-size: 70%;}
+small, cite {opacity: 0.75;}
+cite::before{
+  content: ' \2014\2009';
+}
 
 //code pre
-code, pre {
+code, code > *, pre {
   -webkit-font-smoothing: auto;
   font-family: monospace;
 	@extend .hide-scrolling;
@@ -277,11 +265,11 @@ code, pre {
 code {
   background-color: whitesmoke;
   color: darken($danger, 15);
-  line-height: $text-default;
-  padding: 0.1rem .5rem;
+  padding: rem(2px) rem($text-default/2);
   margin-left: .3rem;
   margin-right: .3rem;
   border-radius: .15rem;
+  word-break: break-word;
   &.language-html {
     color: inherit;
   }
@@ -294,5 +282,5 @@ kbd{
 /*estilos de sup y sub indice*/
 sup, sub {
 	font-size: $text-x-small; 
-	padding: 0 .2rem;
+	padding: rem(2px);
 }

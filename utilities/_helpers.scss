@@ -130,10 +130,9 @@
 .padding-3{padding:3rem;}
 .padding-4{padding:4rem;}
 
-// style bycolor of text
-.is-text-dark { color: $dark; }
-.is-text-primary { color: $primary; }
-.is-text-info { color: $info; }
-.is-text-success { color: $success; }
-.is-text-warning { color: darken($warning, 20%); }
-.is-text-danger { color: $danger; }
+.has-text-center {
+	text-align: center;
+	& > * {
+		text-align: inherit;
+	}
+}

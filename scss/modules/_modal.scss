@@ -51,29 +51,15 @@
 		padding: 0 .25em;
 		min-height: 2rem;
 	}
-
-	/* &-close {
-		color: $danger;
-	}
-
-	&-min {
-		color: $warning
-	}
-
-	&-plus {
-		color: $success;
-	}
-
-	&-close, &-min, &-plus {
-		cursor: pointer;
-		opacity: .6;
-		font-size: $text-medium;
-		transition: all .2s ease-out;
-		&:hover {
-			opacity: 1;
-		}
-	} */
 }
 
+// media queries
+
+@include min-screen-media (desktop) {
+	.modal_container {
+		max-width: 80%;
+		max-height: 90%;
+	}
+}
 
 

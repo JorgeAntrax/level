@@ -1,6 +1,7 @@
 // mega  bloque de contenido con un encabezado grande y descripcion
 .mega {
 	display: block;
+	position: relative;
 	padding: 4rem;
 	width: 100%;
 	&_title {

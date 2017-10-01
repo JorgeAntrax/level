@@ -1,8 +1,14 @@
 // layout
 
+@include min-screen-media (tablet){
+	.container {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
 .layout {
-	display: flex;
-	flex-wrap: wrap;
+	@extend .row--wrap;
 	width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -15,8 +21,8 @@
 		align-self: flex-end;
 	}
 	&.is-dashboard {
-		flex-wrap: nowrap;
 		overflow: hidden;
+		flex-wrap: nowrap;
 		
 		& .layout_main, & .layout_side-menu {
 			height: 100vh;
@@ -26,8 +32,7 @@
 		}
 	}
 
-
-	@media screen and (min-width: 760px) {
+	@include min-screen-media (tablet) {
 		&_side-menu {
 			flex: 25%;
 		}

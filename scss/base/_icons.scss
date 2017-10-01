@@ -41,9 +41,16 @@
   justify-content: space-between;
   width: 1.5rem;
   height: 1.25rem;
-  & > * {
+  background-color: transparent;
+  &--cloud {
+    @extend .burger-icon;
+  }
+  & > *, &--cloud > * {
     background-color: $dark;
     height: 1px;
+  }
+  &--cloud > * {
+    background-color: $cloud;
   }
 }
 .ellipsis-icon {
@@ -55,8 +62,3 @@
     border-radius: 5em;
   }
 }
-/* 
-<span class="icon">
-  <i class="fa fa-icon"></i> 
-</span>
-*/

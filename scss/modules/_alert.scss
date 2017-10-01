@@ -36,3 +36,21 @@
 		padding: .5rem 0;
 	}
 }
+@include min-screen-media (tablet) {
+	.toast {
+		max-width: 500px;
+		margin-right: auto;
+		margin-left: auto;
+		&.left, &.right {
+			margin: 0;
+		}
+		&.left {
+			left: 0;
+		}
+		&.right {
+			left: initial;
+			width: 500px;
+			right: 0;
+		}
+	}
+}

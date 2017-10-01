@@ -1,25 +1,31 @@
-// barra de navegacion --menu principal
-.navbar, .navbar_header, .navbar_menu{display: flex;}
-.navbar, .navbar_menu {
-	flex-direction: column;
-}
 .navbar{
-	justify-content: center;
-	width: 100%;
+	&, &_header, &_menu {
+		display: flex;
+	}
 
+	width: 100%;
+	justify-content: center;
+
+	&_header, &_menu {
+		min-height: 3rem;
+	}
+
+	&_header {
+		justify-content:space-between;
+	}
+
+	&, &_menu {
+		flex-direction: column;
+	}
+	
 	&.is-mobile {
 		@extend .hide-scrolling;
 		flex-direction: row;
 		overflow-x: auto;
 		justify-content: flex-start;
 	}
-	&_header, &_menu {
-		min-height: 3rem;
-	}
-	&_header {
-		justify-content:space-between;
-	}
-	&_brand, &_burger, &_menu li, &_item {
+
+	&_brand, &_menu li, &_item {
 		display: flex;
 		position: relative;
 		height: 3rem;
@@ -28,17 +34,16 @@
 		cursor: pointer;
 		margin: 0 .25rem;
 	}
+
 	&_brand, &_item {
 		padding: 0 1rem;
 	}
+
 	&_item:hover {
 		background-color: whitesmoke;
 		color: $black;
 	}
-	&_burger {
-		width: 3rem;
-		justify-content: center;
-	}
+
 	&_menu{
 		list-style: none;
 		margin: 0;
@@ -47,41 +52,39 @@
 			flex-shrink: 0;
 		}
 	}
+
 	// posicionamiento de la barra de navegacion  top y bottom
 	&.has-fixed {
 		position: fixed;
+		top: 0;
 		left: 0;
-		right: 0;
-		&-up {
+		width: 100%;
+
+		&--down {
 			@extend .has-fixed;
-			top: 0;
-		}
-		&-down {
-			@extend .has-fixed;
+			top: initial;
 			bottom: 0;
 		}
 	}
 }
 
-
 // media quieries
+@include min-screen-media (tablet) {
+	.navbar_menu{
+ 		display: flex;
+		flex-direction:row;
+		align-items: center;
+	}
+}
 
-/* nav#principal.navbar.is-white.shadow-y
-				section.navbar_header
-					span
-					a(href="#").navbar_item.navbar_burger
-						span.icon.is-text-info.large
-							i.fa.fa-bars
-				ul.navbar_menu
-					li
-						button.button.is-success(href="#")
-							span.icon--left
-								i.fa.fa-github
-							span Clone Git
-					li.navbar_item
-						a(href="#")
-							span.icon--left
-								i.fa.fa-google
-							span Google
-					li.navbar_link
-						a(href="#") Acerca De */
+@include min-screen-media (desktop) {
+	.navbar {
+		flex-direction: row;
+		&_header {
+			justify-content: flex-start;
+		}
+		&_menu {
+			justify-content: flex-end;
+		}
+	}
+}

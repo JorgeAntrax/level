@@ -1,0 +1,43 @@
+// 
+//	@params
+//	--  @import 'name_new-file-module';
+//
+
+/* 
+
+ Name Project: Kimera
+ Autor: Leonardo Quintana
+ pseudo name: Leito Winchester Grimes Salvatore
+
+ date created: 01/06/2017
+
+ This project have a license MIT,
+ and is Open Source
+
+ Contact: spicer_94@hotmail.com or jantraxhernandez@gmail.com
+
+ Thanks for using my framework CSS. 
+
+*/
+@charset "UTF-8";
+
+/* importacion de fuente tipografica...*/
+
+$family: 'Lato-Light'; // nombre de la fuente a importar
+
+@font-face {
+  font-family: $family;
+  src:url('utilities/#{$family}.ttf') format('truetype');
+}
+
+// archivos base obligatorios.
+@import	'scss/base/_base';
+
+// modulos
+@import 'scss/modules/_modules';
+
+// componentes
+@import 'scss/components/_components';
+
+// Archivo de Helpers
+ @import 'utilities/_helpers';

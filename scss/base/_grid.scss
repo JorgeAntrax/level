@@ -1,32 +1,31 @@
 /*clases de centrado Grid Flexbox responsive*/
-
-.center {
+.is-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.center-x {
+.is-center-x {
 	justify-content: center;
 }
 
-.center-y {
+.is-center-y {
 	align-items: center;
 }
 
-.cross-start {
+.is-top {
 	align-items: flex-start;
 }
 
-.cross-end {
+.is-bottom {
 	align-items: flex-end;
 }
 
-.main-start {
+.is-left {
 	justify-content: flex-start;
 }
 
-.main-end {
+.is-right {
 	justify-content: flex-end;
 }
 
@@ -34,18 +33,18 @@
 	flex-direction: row-reverse;
 }
 
-.is-separate{
+.is-separated {
 	justify-content: space-between;
 }
 
-.distribute {
+.is-distribute {
 	justify-content: space-around;
 }
 
 /*clases flexbox fila y columna*/
-
 .row{
 	display: flex;
+	flex: auto;
 	flex-flow: column nowrap;
 	&--wrap {
 		@extend .row;
@@ -57,44 +56,132 @@
 	}
 }
 
-
 .column {
 	display: block;
 	flex-grow: 1;
-	flex-basis: auto;
 }
 
 .is-full {
 	flex: 100%;
 }
-// breakpoint >= 480px
-@media(min-width: 479px) {
 
-	@for $i from 2 through 19 {
-		.md-#{$i} {
+//media queries hidden with min width
+@include min-screen-media (touch) {
+	.is-hide-in-touch {
+		display: none;
+	}
+	.is-center-in-touch{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.is-left-in-touch {
+		justify-content: flex-start;
+	}
+	.is-right-in-touch {
+		justify-content: flex-end;
+	}
+	.is-distribute-in-touch {
+		justify-content: space-around;
+	}
+	.is-separated-in-touch {
+		justify-content: space-between;
+	}
+
+	@for $i from 1 through 18 {
+		.touch-#{$i} {
 			flex-basis: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
 	}
 }
-// breakpoint >=760
-@media(min-width: 759px) {
+@include min-screen-media (tablet) {
+	.is-hide-in-tablet {
+		display: none;
+	}
+	.is-center-in-tablet {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.is-left-in-tablet {
+		justify-content: flex-start;
+	}
+	.is-right-in-tablet {
+		justify-content: flex-end;
+	}
+	.is-distribute-in-tablet {
+		justify-content: space-around;
+	}
+	.is-separated-in-tablet {
+		justify-content: space-between;
+	}
+
 	.row, .row--wrap {
 		flex-direction: row;
 	}
-	@for $i from 2 through 19 {
-		.lg-#{$i} {
+	@for $i from 1 through 18 {
+		.tablet-#{$i} {
 			flex-basis: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
 	}
 }
-// breakpoint >= 1301px
-@media(min-width: 1301px) {
-	@for $i from 2 through 19 {
-		.hd-#{$i} {
+@include min-screen-media (desktop) {
+	.is-hide-in-desktop {
+		display: none;
+	}
+	.is-center-in-desktop {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.is-left-in-desktop {
+		justify-content: flex-start;
+	}
+	.is-right-in-desktop {
+		justify-content: flex-end;
+	}
+	.is-distribute-in-desktop {
+		justify-content: space-around;
+	}
+	.is-separated-in-desktop {
+		justify-content: space-between;
+	}
+
+	@for $i from 1 through 18 {
+		.desktop-#{$i} {
+			flex-basis: grid($i);
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+}
+@include min-screen-media (widescreen) {
+	.is-hide-in-widescreen {
+		display: none;
+	}
+	.is-center-in-widescreen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.is-left-in-widescreen {
+		justify-content: flex-start;
+	}
+	.is-right-in-widescreen {
+		justify-content: flex-end;
+	}
+	.is-distribute-in-widescreen {
+		justify-content: space-around;
+	}
+	.is-separated-in-widescreen {
+		justify-content: space-between;
+	}
+	@for $i from 1 through 18 {
+		.widescreen-#{$i} {
 			flex-basis: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
@@ -102,18 +189,47 @@
 	}
 }
 
+
+//media queries hidden with max width
+@include max-screen-media (touch) {
+	.is-hide-on-touch {
+		display: none;
+	}
+}
+@include max-screen-media (tablet) {
+	.is-hide-on-tablet {
+		display: none;
+	}
+
+}
+@include max-screen-media (desktop) {
+	.is-hide-on-desktop {
+		display: none;
+	}
+}
+.is-hide {
+	display: none;
+}
+
+//capas de contenido
+// html body
 .level-1 {
 	z-index: 10;
 }
+//modules
 .level-2 {
 	z-index: 20;
 }
+//components
 .level-3 {
 	z-index: 30;
 }
+//Menus, navbars, floating buttons etc
 .level-4 {
 	z-index: 40;
 }
+
+// ventanas modales entre otros
 .level-5 {
 	z-index: 50;
 }

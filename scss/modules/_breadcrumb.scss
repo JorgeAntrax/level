@@ -104,3 +104,10 @@
 		font-size: .4rem;
 	}
 }
+
+// media queries
+@include min-screen-media (tablet) {
+	.breadcrumb.is-right, .breadcrumb.is-right .breadcrumb_item {
+		justify-content:flex-start;
+	}
+}

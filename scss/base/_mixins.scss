@@ -1,7 +1,107 @@
+// mixin para la generación de media queries
+
+//$touch: '768px';
+//$tablet: '769px';
+//$desktop: '1024px';
+//$widescreen: '1300px';
+
+@mixin min-screen-media ($breakpoint){
+	@if $breakpoint == 'touch' {
+		@media screen and (min-width: #{$touch}){
+			@content
+		}
+	} @else if $breakpoint == 'tablet' {
+		@media screen and (min-width: #{$tablet}){
+			@content
+		}
+	} @else if $breakpoint == 'desktop' {
+		@media screen and (min-width: #{$desktop}){
+			@content
+		}			
+	} @else if $breakpoint == 'widescreen' {
+		@media screen and (min-width: #{$widescreen}){
+			@content
+		}			
+	} @else {
+		@media screen and (min-width: #{$breakpoint}){
+			@content
+		}	
+	}
+}
+//mixin media queries para puntos min & max
+
+@mixin between-screen-media ($breakpoint, $breakpoint-up: 768px){
+	@if $breakpoint == 'only-touch' {
+		@media screen and #{$only-touch} {
+			@content
+		}
+	} @else if $breakpoint == 'only-tablet' {
+		@media screen and #{$only-tablet} {
+			@content
+		}
+	} @else if $breakpoint == 'only-desktop' {
+		@media screen and #{$only-desktop} {
+			@content
+		}			
+	} @else {
+		@media screen and (min-width: #{$breakpoint}) and (max-width: #{$breakpoint-up}) {
+			@content
+		}	
+	}
+}
+// mixin para media querie con ancho maximo
+@mixin max-screen-media ($breakpoint){
+	@if $breakpoint == 'touch' {
+		@media screen and (max-width: #{$touch}){
+			@content
+		}
+	} @else if $breakpoint == 'tablet' {
+		@media screen and (max-width: #{$tablet}){
+			@content
+		}
+	} @else if $breakpoint == 'desktop' {
+		@media screen and (max-width: #{$desktop}){
+			@content
+		}			
+	} @else if $breakpoint == 'widescreen' {
+		@media screen and (max-width: #{$widescreen}){
+			@content
+		}			
+	}
+}
+
+//*****************************************************
 //mixin que genera el color de fondo y texto
-@mixin colors ($font, $background) {
-	color:$font;
-	background-color: $background;
+@mixin colors ($class, $color) {
+	.#{$class} {
+		background-color: $color;
+		@if $class == 'is-warning' {
+			@extend .is-text-dark;
+		}@else {
+			@extend .is-text-cloud;
+		}
+		&.is-invert, &.is-outline {
+			@extend .is-white;
+			color: $color;
+		}
+		&.is-outline {
+			border: 1px solid $color;
+		}
+		//lighten color base
+		&.lighten-1 { background-color: lighten($color, 5);}
+		&.lighten-2 { background-color: lighten($color, 10);}
+		&.lighten-3 { background-color: lighten($color, 15);}
+		&.lighten-4 { background-color: lighten($color, 20);}
+		// darken color base
+		&.darken-1 { background-color: darken($color, 5);}
+		&.darken-2 { background-color: darken($color, 10);}
+		&.darken-3 { background-color: darken($color, 15);}
+		&.darken-4 { background-color: darken($color, 20);}
+	}
+	.button.#{$class}.is-outline:hover {
+		@extend .is-text-cloud;
+		background-color: $color;
+	}
 }
 
 //mixin que genera un border con la propiedad box shadow

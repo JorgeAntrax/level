@@ -49,6 +49,9 @@
 		border-radius: 0;
 	}
 	.field-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: 2.5rem;
 	}
 	&.has-two-icons input, &.has-two-icons input:focus {

@@ -2,3 +2,9 @@
 @function grid($width, $columns: 20){
 	@return percentage($width / $columns);
 }
+
+// function para convertir px en rem
+@function rem ($size) {
+	$remSize: $size / $text-default;
+	@return $remSize * 1rem;
+}

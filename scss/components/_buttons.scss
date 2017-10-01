@@ -8,67 +8,32 @@
 	outline: none;
 	border: none;
 	border-radius: .2rem;
-	padding: .4rem .5em;
+	padding: 0.5em;
 	user-select: none;
 	cursor: pointer;
 	overflow: hidden;
 	-webkit-touch-callout: none;
 	transition: all .2s ease-in;
 	font-size: $text-default;
-	// is-icon elimina el margin right al primer span dentro del button
 
+	// clase que redondea un boton con texto o texto con icono
 	&.is-rounded {
 		padding: .4rem .75rem;
 		border-radius: 25rem;
 	}
-	// clase que redondea un boton con texto o texto con icono
+	&.is-boxed {
+		width: 100%;
+		justify-content: center;
+	}
 	&:hover {
 		box-shadow: inset 0 0 0 15em rgba($dark, .05);
 	}
 	&:active {
 		box-shadow: inset 0 0 0 15em rgba($dark, .1), 0 2px 5px -2px rgba(0, 0, 0, .15);
 	}
-	&.disabled {
-		pointer-events: none;
+	&.disabled, [disabled] {
 		border: none;
-		opacity: .5;
-	}
- //color de texto blanco para todos los botones
-	&.is-primary, &.is-info, &.is-success, &.is-warning, &.is-danger, &.is-dark {
-		&.is-outline:hover {
-			color: $cloud;
-		}
-	}
-	&.is-dark.is-outline {
-		&:hover {
-		background-color: $dark;
-		}
-	}
-	&.is-primary.is-outline {
-		&:hover {
-		background-color: $primary;
-		}
-	}
-	&.is-success.is-outline {
-		&:hover {
-		background-color: $success;
-		}
-	}
-	&.is-info.is-outline {
-		&:hover {
-		background-color: $info;
-		}
-	}
-	&.is-warning.is-outline {
-		&:hover {
-			background-color: $warning;
-			color: $dark;
-		}
-	}
-	&.is-danger.is-outline {
-		&:hover {
-		background-color: $danger;
-		}
+		opacity: .65;
 	}
 }
 
@@ -96,8 +61,7 @@
 	border: 1px solid $cloud;
 	color: $cloud;
 	&:hover {
-		background-color: $cloud;
-		color: $dark;
+		@extend .is-white;
 	}
 }
 
@@ -105,6 +69,7 @@
 .is-floating {
 	$x: .5rem;
 	$y: .5rem;
+	@extend .level-4;
 	position: fixed;
 	&--lt, &--lb, &--rt, &--rb {
 		@extend .is-floating;
@@ -125,7 +90,6 @@
 		bottom: $y;
 		right: $x;
 	}
-	z-index: 6000;
 	box-shadow: 0 1px 5px -1px rgba(#000, .2);
 	& .button {
 		padding: 1rem;
@@ -137,10 +101,7 @@
 
 .button--icon {
 	@extend .button;
-	padding: .4em;
-	span:first-child {
-		margin-right: 0;
-	}
+	padding: 0.5em;
 	&--circle {
 		@extend .button--icon;
 		border-radius: 25em;		

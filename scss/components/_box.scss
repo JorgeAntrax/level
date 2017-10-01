@@ -2,7 +2,7 @@
 .box {
 	display: block;
 	padding: 1rem;
-	width: 100%;
+	max-width: 100%;
 	overflow: hidden;
 	border: 1px solid rgba($dark, .05);
 	border-radius: .2rem;
