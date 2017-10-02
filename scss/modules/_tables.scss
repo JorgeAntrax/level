@@ -2,6 +2,7 @@
 
 .table {
 	display: table;
+	max-width: 100%;
 	width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -16,9 +17,7 @@
 		}
 	}
 
-	&--cell {
-		overflow: hidden;
-		
+	&--cell {		
 		@extend .table;
 		td, th {
 			border:1px solid rgba($dark, .2);
@@ -37,5 +36,6 @@
 		text-align: left;
 		padding: .5rem;
 		vertical-align: middle;
+		min-width: 10rem;
 	}
 }

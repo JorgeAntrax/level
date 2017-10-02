@@ -15,7 +15,7 @@
 
 */
 /* importacion de fuente tipografica...*/
-@font-face { font-family: "Lato-Light"; src: url("utilities/Lato-Light.ttf") format("truetype"); }
+@font-face { font-family: "Lato-Regular"; src: url("utilities/Lato-Regular.ttf") format("truetype"); }
 
 /* 
 	@params
@@ -34,7 +34,7 @@ body, li, p, code, kbd, pre, a { line-height: 1.5rem; }
 
 body { height: 100%; background-color: #fff; color: #333; }
 
-body, input, button, span, label, b, strong, samp, p { font-family: "Lato-Light", sans-serif, monospace; }
+body, input, button, span, label, b, strong, samp, p { font-family: "Lato-Regular", sans-serif; }
 
 a { text-decoration: none; transition: all .2s ease-out; color: #00C2FF; cursor: pointer; word-break: break-word; }
 
@@ -86,7 +86,7 @@ summary { display: list-item; }
 
 [disabled], .is-disabled { pointer-events: none; opacity: .7; }
 
-h1, h2, h3, h4, h5, h6 { font-size: 100%; line-height: normal; font-weight: normal; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; line-height: normal; font-weight: bold; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { fotn-size: 70%; }
 
@@ -819,13 +819,11 @@ sup, sub { font-size: 0.675rem; padding: 0.125rem; }
 
 .tabs--box a:last-child { border-right: 1px solid rgba(51, 51, 51, 0.1); border-radius: 0 .2rem .2rem 0; }
 
-.table, .table--stripe, .table--cell { display: table; width: 100%; border-collapse: collapse; border-spacing: 0; }
+.table, .table--stripe, .table--cell { display: table; max-width: 100%; width: 100%; border-collapse: collapse; border-spacing: 0; }
 
 .table--stripe tr:nth-child(2n) { background-color: whitesmoke; }
 
 .table--stripe tr:nth-child(2n):hover { background-color: #f0f0f0; }
-
-.table--cell { overflow: hidden; }
 
 .table--cell td, .table--cell th { border: 1px solid rgba(51, 51, 51, 0.2); }
 
@@ -833,7 +831,7 @@ sup, sub { font-size: 0.675rem; padding: 0.125rem; }
 
 .table tr:hover, .table--stripe tr:hover, .table--cell tr:hover { background-color: whitesmoke; }
 
-.table td, .table--stripe td, .table--cell td, .table th, .table--stripe th, .table--cell th { text-align: left; padding: .5rem; vertical-align: middle; }
+.table td, .table--stripe td, .table--cell td, .table th, .table--stripe th, .table--cell th { text-align: left; padding: .5rem; vertical-align: middle; min-width: 10rem; }
 
 /* 
 	@params

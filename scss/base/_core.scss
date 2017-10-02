@@ -35,7 +35,7 @@ body {
 }
 
 body, input, button, span, label, b, strong, samp, p {
-  font-family: $family, sans-serif, monospace; 
+  font-family: $family, sans-serif; 
 }
 
 a {
@@ -193,7 +193,7 @@ summary {
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   line-height: normal;
-	font-weight: normal;
+	font-weight: bold;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
