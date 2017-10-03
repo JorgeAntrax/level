@@ -19,7 +19,6 @@
 	}
 	
 	&.is-mobile {
-		@extend .hide-scrolling;
 		flex-direction: row;
 		overflow-x: auto;
 		justify-content: flex-start;

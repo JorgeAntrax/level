@@ -2,7 +2,6 @@
 	color: rgba($dark, .7);
 	overflow-x: auto;
 	overflow-y: hidden;
-	@extend .hide-scrolling;
 	&, &_item, &_item a {
 		display: flex;
 		align-items: center;

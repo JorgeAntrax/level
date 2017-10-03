@@ -30,6 +30,9 @@ $family: 'Lato-Regular'; // nombre de la fuente a importar
   src:url('utilities/#{$family}.ttf') format('truetype');
 }
 
+// archivo custom user
+@import 'utilities/_custom-user';
+
 // archivos base obligatorios.
 @import	'scss/base/_base';
 

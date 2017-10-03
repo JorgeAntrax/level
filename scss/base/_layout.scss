@@ -20,7 +20,8 @@
 	&_foot--sticky {
 		align-self: flex-end;
 	}
-	&.is-dashboard {
+	&[layout~='dashboard'] {
+
 		overflow: hidden;
 		flex-wrap: nowrap;
 		
@@ -28,12 +29,14 @@
 			height: 100vh;
 			overflow-x: hidden;
 			overflow-y: auto;
-			@extend .replace-scrolling;
 		}
 	}
 
 	@include min-screen-media (tablet) {
-		&_side-menu {
+		&_side-menu:not([class*='tablet']),
+		&_side-menu:not([class*='desktop']),
+		&_side-menu:not([class*='widescreen']),
+		&_side-menu:not([class*='touch']) {
 			flex: 25%;
 		}
 	}
@@ -46,8 +49,6 @@
 	justify-content: flex-start;
 	height: 100%;
 	overflow-y: auto;
-	
-	@extend .hide-scrolling;
 
 	&_content, &_footer {
 		width: 100%;

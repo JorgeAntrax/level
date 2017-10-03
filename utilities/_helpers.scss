@@ -1,46 +1,48 @@
 // replazo del scroll y ocultamiento.
-.replace-scrolling::-webkit-scrollbar {
+* ::-webkit-scrollbar {
 	background-color: rgba($dark, .1);
-	width: .5rem;
+	width: rem(8px);
+	height: rem(5px);
 }
-.replace-scrolling::-moz-scrollbar {
+@include max-screen-media (touch) {
+	* ::-webkit-scrollbar {
+		display: none;
+	}
+}
+* ::-moz-scrollbar {
 	background-color: rgba($dark, .1);
-	width: .5rem;
+	width: rem(8px);
+	height: rem(5px);
 }
-.replace-scrolling::-webkit-scrollbar-thumb {
-	background-color: rgba($dark, .3);
+@include max-screen-media (touch) {
+	* ::-moz-scrollbar {
+		display: none;
+	}
+}
+* ::-webkit-scrollbar-thumb {
+	background-color: rgba($dark, .2);
 	border-radius: 1rem;
 	cursor: pointer;
 	transition: all .2s ease-out;
 	&:hover, &:active {
-		background-color: rgba($dark, .5);
+		background-color: rgba($dark, .4);
 	}
 }
-.replace-scrolling::-moz-scrollbar-thumb {
-	background-color: rgba($dark, .3);
+* ::-moz-scrollbar-thumb {
+	background-color: rgba($dark, .2);
 	border-radius: 1rem;
 	cursor: pointer;
 	transition: all .2s ease-out;
 	&:hover, &:active {
-		background-color: rgba($dark, .5);
+		background-color: rgba($dark, .4);
 	}
 }
-.replace-scrolling::-webkit-scrollbar-track {
+* ::-webkit-scrollbar-track {
 	display: none;
 }
-.ie .ms-no-scrolling, .edge .ms-no-scrolling {
-	margin: -1em;
-	padding: 1.5em;
-}
-.hide-scrolling {
-	&::-webkit-scrollbar {
-		display: none;
-	}
-	&::-moz-scrollbar {
-		display: none;
-	}
-}
 
+
+// fin coding scroll replace
 .is-flex, .group {
 	display: flex;
 	position: relative;
@@ -55,30 +57,8 @@
 }
 
 // la clase total-vh hace que el contenedor mida el 100% del viewport height
-.is-fluid-vh {
+.is-screen-fluid {
 	height: 100vh;
-}
-
-// reset de los margin
-.no-margin > *[class]{
-	margin: 0;
-}
-
-// reset de los padding
-.no-padding > *[class]{
-	padding: 0;
-}
-
-// clase is-fluid
-.is-fluid {
-	width: 100%;
-	margin: 0;
-	overflow: hidden;
-}
-
-// clase no-wrap para evitar que el contenido se acomode en nuevas filas y cambie a flex direction column
-.is-nowrap {
-	flex-flow: row nowrap;
 }
 
 .clearfix {
@@ -102,37 +82,256 @@
 .up-case {
 	text-transform: uppercase;
 }
-
 // clase que convierte texto en lowercase
 .low-case {
 	text-transform: lowercase;
 }
-
-//clase que pone inline block
-.inline {
-	display: inline-block;
-}
-.no-round *[class] {border-radius:0;}
+.isnt-round *[class] {border-radius:0;}
 //clases genericas
-.round {
+.is-round {
 	border-radius: 100rem;
 	overflow: hidden;
 }
 
 //genera margin de 1px
 .bordered *[class]{margin:.05rem;}
-//navegacion por tabs
-.padding-05{
-	padding: .5rem;
-}
-.padding-1{padding:1rem;}
-.padding-2{padding:2rem;}
-.padding-3{padding:3rem;}
-.padding-4{padding:4rem;}
+
+//helpers padding
+[layout~="padding-05"] {	padding: 0.5rem; }
+[layout~="padding-1"] {	padding: 1rem; }
+[layout~="padding-2"] {	padding: 2rem; }
+[layout~="padding-3"] {	padding: 3rem; }
+// helpers pading vertical
+[layout~="padding-v-05"] {	padding: 0.5rem 0; }
+[layout~="padding-v-1"] {	padding: 1rem 0; }
+[layout~="padding-v-2"] {	padding: 2rem 0; }
+[layout~="padding-v-3"] {	padding: 3rem 0; }
+// helpers padding horizontal
+[layout~="padding-h-05"] {	padding: 0 0.5rem; }
+[layout~="padding-h-1"] {	padding: 0 1rem; }
+[layout~="padding-h-2"] {	padding: 0 2rem; }
+[layout~="padding-h-3"] {	padding: 0 3rem; }
+//fin helpers padding
 
 .has-text-center {
 	text-align: center;
 	& > * {
 		text-align: inherit;
 	}
+}
+
+// copiado de grid scss
+
+
+.is-full {
+	flex: 100%;
+}
+[layout~='total-viewport'] {
+	width: 100vw;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+[since-touch~='center'],
+[since-touch~='center-v'],
+[since-touch~='center-h'],
+[since-touch~='right'],
+[since-touch~='bottom'],
+[since-tablet~='center'],
+[since-tablet~='center-v'],
+[since-tablet~='center-h'],
+[since-tablet~='right'],
+[since-tablet~='bottom'],
+[since-desktop~='center'],
+[since-desktop~='center-v'],
+[since-desktop~='center-h'],
+[since-desktop~='right'],
+[since-desktop~='bottom'],
+[since-widescreen~='center'],
+[since-widescreen~='center-v'],
+[since-widescreen~='center-h'],
+[since-widescreen~='right'],
+[since-widescreen~='bottom'],
+[layout~='center'],
+[layout~='center-v'],
+[layout~='center-h'],
+[layout~='right'],
+[layout~='top'],
+[layout~='left'],
+[layout~='bottom'] {
+	display: flex;
+}
+
+[layout~='center'] {
+	align-items: center;
+	justify-content: center;
+}
+[layout~='center-v'] {
+	align-items: center;
+}
+[layout~='center-h'] {
+	justify-content: center;
+}
+[layout~='separated'] {
+	justify-content: space-between;
+}
+[layout~='distributed'] {
+	justify-content: space-around;
+}
+
+//capas de contenido
+// html body
+[layout~='level-1'] {
+	z-index: 10;
+}
+//modules
+[layout~='level-2'] {
+	z-index: 20;
+}
+//components
+[layout~='level-3'] {
+	z-index: 30;
+}
+//Menus, navbars, floating buttons etc
+[layout~='level-4'] {
+	z-index: 40;
+}
+// ventanas modales entre otros
+[layout~='level-5'] {
+	z-index: 50;
+}
+
+//media queries hidden with min width
+@include min-screen-media (touch) {
+	[since-touch~='hidden'] {
+		display: none;
+	}
+	[since-touch~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-touch~='center-v'] {
+		align-items: center;
+	}
+	[since-touch~='center-h'] {
+		justify-content: center;
+	}
+	[since-touch~='right'] {
+		justify-content: flex-end;
+	}
+	[since-touch~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-touch~='ditributed'] {
+		justify-content: space-around;
+	}
+	[since-touch~='separated'] {
+		justify-content: space-between;
+	}
+}
+@include min-screen-media (tablet) {
+	[since-tablet~='hidden'] {
+		display: none;
+	}
+	[since-tablet~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-tablet~='center-v'] {
+		align-items: center;
+	}
+	[since-tablet~='center-h'] {
+		justify-content: center;
+	}
+	[since-tablet~='right'] {
+		justify-content: flex-end;
+	}
+	[since-tablet~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-tablet~='ditributed'] {
+		justify-content: space-around;
+	}
+	[since-tablet~='separated'] {
+		justify-content: space-between;
+	}
+
+}
+@include min-screen-media (desktop) {
+	[since-desktop~='hidden']{
+		display: none;
+	}
+	[since-desktop~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-desktop~='center-v'] {
+		align-items: center;
+	}
+	[since-desktop~='center-h'] {
+		justify-content: center;
+	}
+	[since-desktop~='right'] {
+		justify-content: flex-end;
+	}
+	[since-desktop~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-desktop~='ditributed'] {
+		justify-content: space-around;
+	}
+	[since-desktop~='separated'] {
+		justify-content: space-between;
+	}
+}
+@include min-screen-media (widescreen) {
+	[since-widescreen~='hidden'] {
+		display: none;
+	}
+	[since-widescreen~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-widescreen~='center-v'] {
+		align-items: center;
+	}
+	[since-widescreen~='center-h'] {
+		justify-content: center;
+	}
+	[since-widescreen~='right'] {
+		justify-content: flex-end;
+	}
+	[since-widescreen~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-widescreen~='ditributed'] {
+		justify-content: space-around;
+	}
+	[since-widescreen~='separated'] {
+		justify-content: space-between;
+	}
+}
+
+
+//media queries hidden with max width
+@include max-screen-media (touch) {
+	[until-touch~='hidden'] {
+		display: none;
+	}
+}
+@include max-screen-media (tablet) {
+	[until-tablet~='hidden']{
+		display: none;
+	}
+
+}
+@include max-screen-media (desktop) {
+	[until-desktop~='hidden'] {
+		display: none;
+	}
+}
+
+// ocultar
+[hidden] {
+	display: none;
 }

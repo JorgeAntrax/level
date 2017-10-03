@@ -4,7 +4,6 @@
 	z-index: 100;
 	width: 100%;
 	overflow-x: auto;
-	@extend .hide-scrolling;
 	&.is-block a {
 		flex: auto;
 		justify-content: center;

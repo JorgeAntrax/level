@@ -10,7 +10,6 @@
 	flex-direction: column;
 	justify-content: space-between;
 	overflow-x: hidden;
-	@extend .hide-scrolling;
 
 	a:not([class]) {
 		color: inherit;

@@ -31,7 +31,6 @@ body {
   height: 100%;
   background-color: #fff;
   color: $dark;
-  @extend .replace-scrolling;
 }
 
 body, input, button, span, label, b, strong, samp, p {
@@ -44,7 +43,7 @@ a {
   color: $color-link;
   cursor: pointer;
   word-break: break-word;
-  &:hover {
+  &:not([class]):hover {
     color: $color-link-hover;
   }
 }
@@ -74,15 +73,14 @@ hr {
 }
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  text-decoration: underline; 
 }
 
 b,
 strong {
   font-weight: inherit;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 dfn {
@@ -158,7 +156,7 @@ legend {
 }
 
 textarea {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 [type="number"]::-webkit-inner-spin-button,
@@ -180,9 +178,7 @@ summary {
   display: list-item;
 }
 
-[hidden], template {
-  display: none;
-}
+template {display: none;}
 
 [disabled], .is-disabled {
   pointer-events: none;
@@ -259,13 +255,12 @@ cite::before{
 code, code > *, pre {
   -webkit-font-smoothing: auto;
   font-family: monospace;
-	@extend .hide-scrolling;
 }
 
 code {
   background-color: whitesmoke;
   color: darken($danger, 15);
-  padding: rem(2px) rem($text-default/2);
+  padding: rem(3px) rem($text-default/2);
   margin-left: .3rem;
   margin-right: .3rem;
   border-radius: .15rem;

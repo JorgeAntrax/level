@@ -43,7 +43,6 @@
 		max-width: 100%;
 		overflow-x: hidden;
 		overflow-y: auto;
-		@extend .hide-scrolling;
 	}
 	&_header {
 		background-color: darken($cloud, 5%);

@@ -3,11 +3,36 @@
 .table {
 	display: table;
 	max-width: 100%;
-	width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  border: 1px solid rgba($dark, .2);
+	border-left: 0;
+	border-right: 0;
 
-	&--stripe {
+	thead, tr:not(:last-child) {
+		border-bottom: 1px solid rgba($dark, .2);
+	}
+
+	tr {
+		vertical-align: middle;
+		transition: all .1s ease;
+
+		&.is-active {
+			background-color: $primary;
+			color: $cloud;
+		}
+		&:not(.is-active):hover {
+			background-color: whitesmoke;
+		}
+	}
+	td, th {
+		text-align: left;
+		padding: .5rem;
+		min-width: rem(150px);
+		vertical-align: middle;
+	}
+
+	&--striped {
 		@extend .table;
 		tr:nth-child(2n) {
 			background-color: whitesmoke;
@@ -21,21 +46,8 @@
 		@extend .table;
 		td, th {
 			border:1px solid rgba($dark, .2);
+			border-top: 0;
+			border-bottom: 0;
 		}
-	}
-
-	tr {
-		border-bottom: 1px solid rgba($dark, .2);
-		vertical-align: middle;
-		transition: all .1s ease;
-		&:hover {
-			background-color: whitesmoke;
-		}
-	}
-	td, th {
-		text-align: left;
-		padding: .5rem;
-		vertical-align: middle;
-		min-width: 10rem;
 	}
 }

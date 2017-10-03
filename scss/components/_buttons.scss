@@ -69,7 +69,7 @@
 .is-floating {
 	$x: .5rem;
 	$y: .5rem;
-	@extend .level-4;
+	z-index: 40 ;
 	position: fixed;
 	&--lt, &--lb, &--rt, &--rb {
 		@extend .is-floating;
