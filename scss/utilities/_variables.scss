@@ -1,0 +1,63 @@
+//Variables
+
+//colores predefinidos
+
+$cloud: #fff !default;
+$dark: #444 !default;
+$black: #000 !default;
+$primary: #00C2FF !default;
+$info: #0082ff !default;
+$success: #23d160 !default;
+$warning: #ffdd57 !default;
+$danger: #ff3860 !default;
+
+//color link
+$color-link: $primary;
+$color-link-hover: $dark;
+
+//breakpoints
+$touch: '480px' !default;
+$tablet: '768px' !default;
+$desktop: '1024px' !default;
+$widescreen: '1300px' !default;
+
+//breakpoints entre min y max width
+$only-touch: '768px';
+$only-tablet: '1024px';
+$only-desktop: '1300px';
+
+$line-height-default: 1.5rem !default; // line-height initial
+
+// font family
+$family: 'Lato-Regular' !default; // nombre de la fuente a importar
+$family-icons: 'FontAwesome' !default;
+$family-code: monospace !default;
+$font-space: 0.05rem !default;
+
+//color de texto por default
+$text-color: #555 !default;
+
+// variables para tamaño de texto
+$text-x-small: 0.675rem !default;
+$text-small: 0.875rem !default;
+$text-default: 16px !default;
+$text-medium: 1.3rem !default;
+$text-large: 1.6rem !default;
+$text-x-large: 200% !default;
+
+// rendering text
+$smooting-text: antialiased;
+$render-text: optimizeLegibility;
+
+// Tamaño de encabezados
+$h1-size: 2em !default;
+$h2-size: 1.8em !default;
+$h3-size: 1.6em !default;
+$h4-size: 1.3em !default;
+$h5-size: .9em !default;
+$h6-size: .8em !default;
+
+$heading-color: $black;
+
+// variables hr
+$hr-height: rem(1px);

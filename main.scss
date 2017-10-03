@@ -2,10 +2,8 @@
 //	@params
 //	--  @import 'name_new-file-module';
 //
-
-/* 
-
- Name Project: Kimera
+/*
+ Kimera 0.2.2 | MIT License | github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
 
@@ -17,30 +15,14 @@
  Contact: spicer_94@hotmail.com or jantraxhernandez@gmail.com
 
  Thanks for using my framework CSS. 
-
 */
-@charset "UTF-8";
 
-/* importacion de fuente tipografica...*/
-
-$family: 'Lato-Regular'; // nombre de la fuente a importar
-
-@font-face {
-  font-family: $family;
-  src:url('utilities/#{$family}.ttf') format('truetype');
-}
-
-// archivo custom user
-@import 'utilities/_custom-user';
-
-// archivos base obligatorios.
+@charset "utf-8";
+// utilities mixins function variables etc...
+@import 'scss/utilities/_utilities';
+// important files...
 @import	'scss/base/_base';
-
-// modulos
+// modules...
 @import 'scss/modules/_modules';
-
-// componentes
+// componentes...
 @import 'scss/components/_components';
-
-// Archivo de Helpers
- @import 'utilities/_helpers';

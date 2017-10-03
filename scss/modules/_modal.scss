@@ -54,7 +54,7 @@
 
 // media queries
 
-@include min-screen-media (desktop) {
+@include since (desktop) {
 	.modal_container {
 		max-width: 80%;
 		max-height: 90%;

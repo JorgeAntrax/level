@@ -27,7 +27,7 @@
 }
 
 //media queries hidden with min width
-@include min-screen-media (touch) {
+@include since (touch) {
 	@for $i from 1 through 18 {
 		.touch-#{$i} {
 			flex-basis: grid($i);
@@ -36,7 +36,7 @@
 		}
 	}
 }
-@include min-screen-media (tablet) {
+@include since (tablet) {
 	.row, .row--wrap {
 		flex-direction: row;
 	}
@@ -48,7 +48,7 @@
 		}
 	}
 }
-@include min-screen-media (desktop) {
+@include since (desktop) {
 	@for $i from 1 through 18 {
 		.desktop-#{$i} {
 			flex-basis: grid($i);
@@ -57,7 +57,7 @@
 		}
 	}
 }
-@include min-screen-media (widescreen) {
+@include since (widescreen) {
 	@for $i from 1 through 18 {
 		.widescreen-#{$i} {
 			flex-basis: grid($i);

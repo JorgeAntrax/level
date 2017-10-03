@@ -36,7 +36,7 @@
 		padding: .5rem 0;
 	}
 }
-@include min-screen-media (tablet) {
+@include since (tablet) {
 	.toast {
 		max-width: 500px;
 		margin-right: auto;

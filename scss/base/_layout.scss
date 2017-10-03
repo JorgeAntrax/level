@@ -1,6 +1,6 @@
 // layout
 
-@include min-screen-media (tablet){
+@include since (tablet){
 	.container {
 		margin-right: auto;
 		margin-left: auto;
@@ -32,7 +32,7 @@
 		}
 	}
 
-	@include min-screen-media (tablet) {
+	@include since (tablet) {
 		&_side-menu:not([class*='tablet']),
 		&_side-menu:not([class*='desktop']),
 		&_side-menu:not([class*='widescreen']),

@@ -5,68 +5,59 @@
 //$desktop: '1024px';
 //$widescreen: '1300px';
 
-@mixin min-screen-media ($breakpoint){
+@mixin since ($breakpoint){
 	@if $breakpoint == 'touch' {
-		@media screen and (min-width: #{$touch}){
+		@media screen and (min-width: $touch ){
 			@content
-		}
-	} @else if $breakpoint == 'tablet' {
-		@media screen and (min-width: #{$tablet}){
+		}			
+	}	@else if $breakpoint == 'tablet' {
+		@media screen and (min-width: $tablet ){
 			@content
 		}
 	} @else if $breakpoint == 'desktop' {
-		@media screen and (min-width: #{$desktop}){
+		@media screen and (min-width: $desktop ){
 			@content
 		}			
 	} @else if $breakpoint == 'widescreen' {
-		@media screen and (min-width: #{$widescreen}){
+		@media screen and (min-width: $widescreen ){
 			@content
 		}			
 	} @else {
-		@media screen and (min-width: #{$breakpoint}){
+		@media screen and (min-width: $breakpoint ){
 			@content
 		}	
 	}
 }
 //mixin media queries para puntos min & max
 
-@mixin between-screen-media ($breakpoint, $breakpoint-up: 768px){
-	@if $breakpoint == 'only-touch' {
-		@media screen and #{$only-touch} {
-			@content
-		}
-	} @else if $breakpoint == 'only-tablet' {
-		@media screen and #{$only-tablet} {
-			@content
-		}
-	} @else if $breakpoint == 'only-desktop' {
-		@media screen and #{$only-desktop} {
-			@content
-		}			
-	} @else {
-		@media screen and (min-width: #{$breakpoint}) and (max-width: #{$breakpoint-up}) {
-			@content
-		}	
+@mixin media-FromTo ($breakpoint1, $breakpoint2: $widescreen){
+	@media screen and (min-width: $breakpoint1 ) and (max-width: $breakpoint2 ) {
+		@content
 	}
 }
+
 // mixin para media querie con ancho maximo
-@mixin max-screen-media ($breakpoint){
+@mixin until ($breakpoint){
 	@if $breakpoint == 'touch' {
-		@media screen and (max-width: #{$touch}){
+		@media screen and (max-width: $touch ){
 			@content
-		}
-	} @else if $breakpoint == 'tablet' {
-		@media screen and (max-width: #{$tablet}){
+		}			
+	}	@else if $breakpoint == 'tablet' {
+		@media screen and (max-width: $tablet ){
 			@content
 		}
 	} @else if $breakpoint == 'desktop' {
-		@media screen and (max-width: #{$desktop}){
+		@media screen and (max-width: $desktop ){
 			@content
 		}			
 	} @else if $breakpoint == 'widescreen' {
-		@media screen and (max-width: #{$widescreen}){
+		@media screen and (max-width: $widescreen ){
 			@content
 		}			
+	} @else {
+		@media screen and (max-width: $breakpoint ){
+			@content
+		}	
 	}
 }
 

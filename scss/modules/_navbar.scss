@@ -68,7 +68,7 @@
 }
 
 // media quieries
-@include min-screen-media (tablet) {
+@include since (tablet) {
 	.navbar_menu{
  		display: flex;
 		flex-direction:row;
@@ -76,7 +76,7 @@
 	}
 }
 
-@include min-screen-media (desktop) {
+@include since (desktop) {
 	.navbar {
 		flex-direction: row;
 		&_header {

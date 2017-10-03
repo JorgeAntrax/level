@@ -1,40 +1,40 @@
 // replazo del scroll y ocultamiento.
 * ::-webkit-scrollbar {
-	background-color: rgba($dark, .1);
-	width: rem(8px);
+	background-color: rgba($dark, .05);
+	width: rem(5px);
 	height: rem(5px);
 }
-@include max-screen-media (touch) {
+* ::-moz-scrollbar {
+	background-color: rgba($dark, .05);
+	width: rem(5px);
+	height: rem(5px);
+}
+@include until (touch) {
 	* ::-webkit-scrollbar {
 		display: none;
 	}
 }
-* ::-moz-scrollbar {
-	background-color: rgba($dark, .1);
-	width: rem(8px);
-	height: rem(5px);
-}
-@include max-screen-media (touch) {
+@include until (touch) {
 	* ::-moz-scrollbar {
 		display: none;
 	}
 }
 * ::-webkit-scrollbar-thumb {
-	background-color: rgba($dark, .2);
+	background-color: rgba($dark, .1);
 	border-radius: 1rem;
 	cursor: pointer;
 	transition: all .2s ease-out;
 	&:hover, &:active {
-		background-color: rgba($dark, .4);
+		background-color: rgba($dark, .25);
 	}
 }
 * ::-moz-scrollbar-thumb {
-	background-color: rgba($dark, .2);
+	background-color: rgba($dark, .1);
 	border-radius: 1rem;
 	cursor: pointer;
 	transition: all .2s ease-out;
 	&:hover, &:active {
-		background-color: rgba($dark, .4);
+		background-color: rgba($dark, .25);
 	}
 }
 * ::-webkit-scrollbar-track {
@@ -56,12 +56,7 @@
 	padding: .5rem;	
 }
 
-// la clase total-vh hace que el contenedor mida el 100% del viewport height
-.is-screen-fluid {
-	height: 100vh;
-}
-
-.clearfix {
+[clearfix] {
   &:before,
   &:after {
     content: " ";
@@ -73,10 +68,6 @@
 }
 //Clases generales para tamaño de iconos botones texto en general
 
-.small { font-size: $text-small; }
-.medium { font-size: $text-medium; }
-.large { font-size: $text-large; }
-.x-large {font-size: $text-x-large; }
 
 // clase que convierte texto en uppercase
 .up-case {
@@ -96,6 +87,30 @@
 //genera margin de 1px
 .bordered *[class]{margin:.05rem;}
 
+//helpers text
+[text~="small"] {
+	font-size: $text-small;
+}
+[text~="medium"] {
+	font-size: $text-medium;
+}
+[text~="large"] {
+	font-size: $text-large;
+}
+[text~="center"] {
+	text-align: center;
+}
+[text~="right"] {
+	text-align: right;
+}
+[text~="justify"] {
+	text-align: justify;
+}
+[text~="content-center"] > * {
+	text-align: center;
+}
+.x-large {font-size: $text-x-large; }
+
 //helpers padding
 [layout~="padding-05"] {	padding: 0.5rem; }
 [layout~="padding-1"] {	padding: 1rem; }
@@ -113,12 +128,6 @@
 [layout~="padding-h-3"] {	padding: 0 3rem; }
 //fin helpers padding
 
-.has-text-center {
-	text-align: center;
-	& > * {
-		text-align: inherit;
-	}
-}
 
 // copiado de grid scss
 
@@ -129,6 +138,14 @@
 [layout~='total-viewport'] {
 	width: 100vw;
 	height: 100vh;
+	overflow-y: auto;
+}
+[layout~='full-width'] {
+	width: 100vw;
+	overflow-x: hidden;
+}
+[layout~='full-height'] {
+	width: 100vh;
 	overflow-y: auto;
 }
 
@@ -202,7 +219,7 @@
 }
 
 //media queries hidden with min width
-@include min-screen-media (touch) {
+@include since (touch) {
 	[since-touch~='hidden'] {
 		display: none;
 	}
@@ -229,7 +246,7 @@
 		justify-content: space-between;
 	}
 }
-@include min-screen-media (tablet) {
+@include since (tablet) {
 	[since-tablet~='hidden'] {
 		display: none;
 	}
@@ -257,7 +274,7 @@
 	}
 
 }
-@include min-screen-media (desktop) {
+@include since (desktop) {
 	[since-desktop~='hidden']{
 		display: none;
 	}
@@ -284,7 +301,7 @@
 		justify-content: space-between;
 	}
 }
-@include min-screen-media (widescreen) {
+@include since (widescreen) {
 	[since-widescreen~='hidden'] {
 		display: none;
 	}
@@ -314,18 +331,18 @@
 
 
 //media queries hidden with max width
-@include max-screen-media (touch) {
+@include until (touch) {
 	[until-touch~='hidden'] {
 		display: none;
 	}
 }
-@include max-screen-media (tablet) {
+@include until (tablet) {
 	[until-tablet~='hidden']{
 		display: none;
 	}
 
 }
-@include max-screen-media (desktop) {
+@include until (desktop) {
 	[until-desktop~='hidden'] {
 		display: none;
 	}
