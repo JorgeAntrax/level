@@ -17,10 +17,13 @@ input, label {
   line-height: $line-height-default;
 }
 
+button, input, select, textarea {
+  font-size: $text-default;
+}
 body, input, button,
 span, label, b, strong,
 samp, p {
-  font-family: $family, sans-serif; 
+  font-family: $family, sans-serif;
 }
 
 a {
@@ -179,7 +182,7 @@ template {display: none;}
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   line-height: normal;
-  font-wight: normal;
+  font-weight: normal;
   -webkit-font-smoothing: $smooting-text;
   text-rendering: $render-text;
 

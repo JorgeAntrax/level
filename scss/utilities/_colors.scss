@@ -2,14 +2,8 @@
 
 // style bycolor of text
 .is-text-dark { color: $dark; } //no modified, this have a @extend for mixin colors
-
 .is-text-cloud { color: $cloud; } //no modified, this have a @extend for mixin colors
 
-.is-text-primary { color: $primary; }
-.is-text-info { color: $info; }
-.is-text-success { color: $success; }
-.is-text-warning { color: darken($warning, 20%); }
-.is-text-danger { color: $danger; }
 
 .is-light{
 	background-color: whitesmoke;

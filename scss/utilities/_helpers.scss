@@ -66,17 +66,6 @@
     clear: both;
   }
 }
-//Clases generales para tamaño de iconos botones texto en general
-
-
-// clase que convierte texto en uppercase
-.up-case {
-	text-transform: uppercase;
-}
-// clase que convierte texto en lowercase
-.low-case {
-	text-transform: lowercase;
-}
 .isnt-round *[class] {border-radius:0;}
 //clases genericas
 .is-round {
@@ -97,6 +86,32 @@
 [text~="large"] {
 	font-size: $text-large;
 }
+// text transform
+[text~="upper"] {
+	text-transform: uppercase;
+}
+[text~="lower"] {
+	text-transform: lowercase;
+}
+
+
+// color text
+
+[text~="primary"] {
+	color: $primary;
+}
+[text~="info"] {
+	color: $info;
+}
+[text~="success"] {
+	color: $success;
+}
+[text~="warning"] {
+	color: darken($warning, 20%);
+}
+[text~="danger"] {
+	color: $danger;
+}
 [text~="center"] {
 	text-align: center;
 }
@@ -106,8 +121,10 @@
 [text~="justify"] {
 	text-align: justify;
 }
-[text~="content-center"] > * {
-	text-align: center;
+[text~="content-center"] {
+	&, & > * {	
+		text-align: center;
+	}
 }
 .x-large {font-size: $text-x-large; }
 

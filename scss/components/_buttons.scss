@@ -8,13 +8,12 @@
 	outline: none;
 	border: none;
 	border-radius: .2rem;
-	padding: 0.5em;
+	padding:  0.3em 0.5em;
 	user-select: none;
 	cursor: pointer;
 	overflow: hidden;
 	-webkit-touch-callout: none;
 	transition: all .2s ease-in;
-	font-size: $text-default;
 
 	// clase que redondea un boton con texto o texto con icono
 	&.is-rounded {

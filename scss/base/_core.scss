@@ -1,8 +1,3 @@
-@font-face {
-  font-family: $family;
-  src:url('scss/utilities/#{$family}.ttf') format('truetype');
-}
-
 // html basico
 html {
   font-size: $text-default;
@@ -57,7 +52,7 @@ blockquote{
 		left: .5rem;
 	}	
 }
-small code, cite, address {
+small, pre, code, cite, address {
   font-size: $text-small;
   font-weight: normal;
 }

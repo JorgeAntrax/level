@@ -3,16 +3,13 @@
 	display: block;
 	position:relative;
 	outline:0;
-	padding:.4rem .5rem;
-	overflow: hidden;
+	padding:.3em .5em;
 	background-color:darken(#fff, 2%);
 	border:1px solid rgba(#000, 0);
 	border-radius:.2rem;
-	letter-spacing:.08rem;
 	width: 100%;
 	transition: all .2s;
 	color: $dark;
-	font-size: $text-default;
 	// estilo transparente
 	&--transparent {
 		@extend .input;
@@ -52,7 +49,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.5rem;
+		width: 3em;
 	}
 	&.has-two-icons input, &.has-two-icons input:focus {
 		border: none;
