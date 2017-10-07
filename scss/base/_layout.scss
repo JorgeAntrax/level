@@ -1,15 +1,7 @@
 // layout
-
-@include since (tablet){
-	.container {
-		margin-right: auto;
-		margin-left: auto;
-	}
-}
-
 .layout {
 	@extend .row--wrap;
-	width: 100%;
+	max-width: 100vw;
 	min-height: 100vh;
 	overflow-x: hidden;
 
@@ -21,11 +13,11 @@
 		align-self: flex-end;
 	}
 	&[layout~='dashboard'] {
-
 		overflow: hidden;
 		flex-wrap: nowrap;
 		
-		& .layout_main, & .layout_side-menu {
+		& .layout_main, & .layout_sidebar {
+			//bloque terminado
 			height: 100vh;
 			overflow-x: hidden;
 			overflow-y: auto;
@@ -33,27 +25,11 @@
 	}
 
 	@include since (tablet) {
-		&_side-menu:not([class*='tablet']),
-		&_side-menu:not([class*='desktop']),
-		&_side-menu:not([class*='widescreen']),
-		&_side-menu:not([class*='touch']) {
-			flex: 25%;
+		&_sidebar:not([class*='tablet']),
+		&_sidebar:not([class*='desktop']),
+		&_sidebar:not([class*='widescreen']),
+		&_sidebar:not([class*='touch']) {
+			flex: 30%;
 		}
-	}
-}
-
-//clase .main que se aplica a la etiqueta main aplicando propiedades flexibles
-.main {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	height: 100%;
-	overflow-y: auto;
-
-	&_content, &_footer {
-		width: 100%;
-	}
-	&_footer {
-		align-self: flex-end;
 	}
 }

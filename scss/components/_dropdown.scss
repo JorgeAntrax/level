@@ -10,20 +10,17 @@
 			border-radius: 0 .2rem .2rem 0;
 		}
 	}
-	&--icon, &--icon--circle {
+	&--icon {
 		@extend .dropdown;
 	}
 	&--icon .button:first-of-type {
 		border-radius: .2rem;
 	}
-	&--icon--circle .button:last-of-type {
+	&--icon .button:last-of-type {
 		border-radius: 25rem;
 	}
 	&--icon > .button {
 		@extend .button--icon;
-	}
-	&--icon--circle > .button {
-		@extend .button--icon--circle;
 	}
 }
 

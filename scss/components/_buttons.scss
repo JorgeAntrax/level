@@ -13,7 +13,12 @@
 	cursor: pointer;
 	overflow: hidden;
 	-webkit-touch-callout: none;
-	transition: all .2s ease-in;
+	transition: background-color .1s ease-out;
+
+	&:not([class*='is-']) {
+		background-color: darken(whitesmoke, 2);
+		color: $dark;
+	}
 
 	// clase que redondea un boton con texto o texto con icono
 	&.is-rounded {
@@ -30,14 +35,19 @@
 	&:active {
 		box-shadow: inset 0 0 0 15em rgba($dark, .1), 0 2px 5px -2px rgba(0, 0, 0, .15);
 	}
-	&.disabled, [disabled] {
+	&[disabled] {
 		border: none;
 		opacity: .65;
 	}
+	&--icon {
+		@extend .button;
+		padding: 0.55rem;
+	}
 }
 
+
 // efecto active de circulo maerial design
-.ripple-efect::before {
+.ripple-effect::before {
 	content: '';
 	position: absolute;
 	width: 0;
@@ -45,12 +55,12 @@
 	top: 50%;
 	left: 50%;
 	border-radius: 100%;
-	transition: all .1s ease-out;
+	transition: all .1s ease-in-out;
 	background-color: rgba($dark, .05);
 	transform: translateX(-50%) translateY(-50%);
 }
 
-.ripple-efect:active::before {
+.ripple-effect:active::before {
 	width: 300px;
 	height: 300px;
 }
@@ -59,9 +69,6 @@
 	background-color: transparent;
 	border: 1px solid $cloud;
 	color: $cloud;
-	&:hover {
-		@extend .is-white;
-	}
 }
 
 // clase que hace un boton flotante
@@ -95,14 +102,5 @@
 	}
 	&:hover {	
 		box-shadow: 0 4px 15px -1px rgba(#000, .2);
-	}
-}
-
-.button--icon {
-	@extend .button;
-	padding: 0.5em;
-	&--circle {
-		@extend .button--icon;
-		border-radius: 25em;		
 	}
 }

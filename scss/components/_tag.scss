@@ -51,14 +51,12 @@
 }
 .badge {
 	@extend .tag;
+	border-radius: 50rem;
 	position: relative;
 	line-height: normal;
 }
 
-.tags.has-rounded .tag, .tag.has-rounded, .tags--group.has-rounded, .badge {
-	border-radius: 20rem;
-}
-.tags .tag, .tags--group.has-rounded .tag{
+.tags .tag, .tags--group .tag{
 	margin: 0;
 	border-radius: 0;
 }

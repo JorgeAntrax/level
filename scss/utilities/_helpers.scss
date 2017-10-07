@@ -1,4 +1,4 @@
-// replazo del scroll y ocultamiento.
+// reMplazo del scroll y ocultamiento.
 * ::-webkit-scrollbar {
 	background-color: rgba($dark, .05);
 	width: rem(5px);
@@ -43,9 +43,33 @@
 
 
 // fin coding scroll replace
-.is-flex, .group {
+
+//REVISAR ESTA PARTE
+.is-flex {
 	display: flex;
 	position: relative;
+	flex-wrap: wrap;
+}
+
+$radio-addons: .25rem;
+.group {
+	display: inline-flex;
+	& > * {
+		margin: 0 !important;
+	}
+	&[addons] > *:not(:first-child),
+	&[addons] > *:not(:last-child) {
+		border-radius: 0;
+	}
+	&[addons] > :first-child {
+		border-radius: $radio-addons 0 0 $radio-addons;
+	}
+	&[addons] > :last-child {
+		border-radius: 0 $radio-addons $radio-addons 0;
+	}
+}
+
+.is-wrapped {
 	flex-wrap: wrap;
 }
 
@@ -76,6 +100,25 @@
 //genera margin de 1px
 .bordered *[class]{margin:.05rem;}
 
+//flex direction column
+[block] {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+// border radius con overflow hidden
+[radio~='circle'],
+[radio~='small'],
+[radio~='medium'],
+[radio~='large'] {
+	overflow: hidden !important;
+}
+//diferentes border-radius
+[radio~='circle'] { border-radius: 50000rem !important; }
+[radio~='small'] { border-radius: .2rem !important; }
+[radio~='medium'] { border-radius: .5rem !important; }
+[radio~='large'] { border-radius: .85rem !important; }
+[radio~='circle'] { border-radius: 1rem !important; }
 //helpers text
 [text~="small"] {
 	font-size: $text-small;
@@ -86,6 +129,9 @@
 [text~="large"] {
 	font-size: $text-large;
 }
+[text~='x-large'] {
+	font-size: $text-x-large;
+}
 // text transform
 [text~="upper"] {
 	text-transform: uppercase;
@@ -93,6 +139,25 @@
 [text~="lower"] {
 	text-transform: lowercase;
 }
+
+//helpers para botones y forms
+.button, .input {
+	&[size~='medium'],
+	&[size~='large'] {
+		line-height: 1.5;
+	}
+	&[size~='small'] {
+		font-size: $text-small;
+		line-height: 1.4;
+	}
+	&[size~='medium'] {
+		font-size: $text-medium;
+	}
+	&[size~='large'] {
+		font-size: $text-large;
+	}
+}
+// fin
 
 
 // color text
@@ -112,21 +177,20 @@
 [text~="danger"] {
 	color: $danger;
 }
-[text~="center"] {
-	text-align: center;
-}
-[text~="right"] {
+[text~="right"] > *, [text~="right"] {
 	text-align: right;
 }
-[text~="justify"] {
+[text~="justify"] > *, [text~="justify"] {
 	text-align: justify;
 }
-[text~="content-center"] {
-	&, & > * {	
-		text-align: center;
-	}
+[text~="content-center"] > *, [text~="content-center"] {	
+	text-align: center;
 }
-.x-large {font-size: $text-x-large; }
+
+
+//
+// HELPERS DE LAYOUT GRID Y RESPONSIVE
+//
 
 //helpers padding
 [layout~="padding-05"] {	padding: 0.5rem; }
@@ -147,12 +211,10 @@
 
 
 // copiado de grid scss
-
-
 .is-full {
 	flex: 100%;
 }
-[layout~='total-viewport'] {
+[layout~='full-screen'] {
 	width: 100vw;
 	height: 100vh;
 	overflow-y: auto;
@@ -171,21 +233,37 @@
 [since-touch~='center-h'],
 [since-touch~='right'],
 [since-touch~='bottom'],
+[since-touch~='top'],
+[since-touch~='left'],
+[since-touch~='separated'],
+[since-touch~='distributed'],
 [since-tablet~='center'],
 [since-tablet~='center-v'],
 [since-tablet~='center-h'],
 [since-tablet~='right'],
 [since-tablet~='bottom'],
+[since-tablet~='top'],
+[since-tablet~='left'],
+[since-tablet~='separated'],
+[since-tablet~='distributed'],
 [since-desktop~='center'],
 [since-desktop~='center-v'],
 [since-desktop~='center-h'],
 [since-desktop~='right'],
 [since-desktop~='bottom'],
+[since-desktop~='top'],
+[since-desktop~='left'],
+[since-desktop~='separated'],
+[since-desktop~='distributed'],
 [since-widescreen~='center'],
 [since-widescreen~='center-v'],
 [since-widescreen~='center-h'],
 [since-widescreen~='right'],
 [since-widescreen~='bottom'],
+[since-widescreen~='top'],
+[since-widescreen~='left'],
+[since-widescreen~='separated'],
+[since-widescreen~='distributed'],
 [layout~='center'],
 [layout~='center-v'],
 [layout~='center-h'],
@@ -206,6 +284,18 @@
 [layout~='center-h'] {
 	justify-content: center;
 }
+[layout~='top'] {
+	align-items: flex-start;
+}
+[layout~='left'] {
+	justify-content: flex-start;
+}
+[layout~='bottom'] {
+	align-items: flex-end;
+}
+[layout~='right'] {
+	justify-content: flex-end;
+}
 [layout~='separated'] {
 	justify-content: space-between;
 }
@@ -216,23 +306,23 @@
 //capas de contenido
 // html body
 [layout~='level-1'] {
-	z-index: 10;
+	z-index: 100;
 }
 //modules
 [layout~='level-2'] {
-	z-index: 20;
+	z-index: 200;
 }
 //components
 [layout~='level-3'] {
-	z-index: 30;
+	z-index: 300;
 }
 //Menus, navbars, floating buttons etc
 [layout~='level-4'] {
-	z-index: 40;
+	z-index: 400;
 }
 // ventanas modales entre otros
 [layout~='level-5'] {
-	z-index: 50;
+	z-index: 500;
 }
 
 //media queries hidden with min width
@@ -256,7 +346,13 @@
 	[since-touch~='bottom'] {
 		align-items: flex-end;
 	}
-	[since-touch~='ditributed'] {
+	[since-touch~='top'] {
+		align-items: flex-start;
+	}
+	[since-touch~='left'] {
+		justify-content: flex-start;
+	}
+	[since-touch~='distributed'] {
 		justify-content: space-around;
 	}
 	[since-touch~='separated'] {
@@ -283,7 +379,13 @@
 	[since-tablet~='bottom'] {
 		align-items: flex-end;
 	}
-	[since-tablet~='ditributed'] {
+	[since-tablet~='top'] {
+		align-items: flex-start;
+	}
+	[since-tablet~='left'] {
+		justify-content: flex-start;
+	}
+	[since-tablet~='distributed'] {
 		justify-content: space-around;
 	}
 	[since-tablet~='separated'] {
@@ -311,7 +413,13 @@
 	[since-desktop~='bottom'] {
 		align-items: flex-end;
 	}
-	[since-desktop~='ditributed'] {
+	[since-desktop~='top'] {
+		align-items: flex-start;
+	}
+	[since-desktop~='left'] {
+		justify-content: flex-start;
+	}
+	[since-desktop~='distributed'] {
 		justify-content: space-around;
 	}
 	[since-desktop~='separated'] {
@@ -338,7 +446,13 @@
 	[since-widescreen~='bottom'] {
 		align-items: flex-end;
 	}
-	[since-widescreen~='ditributed'] {
+	[since-widescreen~='top'] {
+		align-items: flex-start;
+	}
+	[since-widescreen~='left'] {
+		justify-content: flex-start;
+	}
+	[since-widescreen~='distributed'] {
 		justify-content: space-around;
 	}
 	[since-widescreen~='separated'] {
@@ -364,7 +478,6 @@
 		display: none;
 	}
 }
-
 // ocultar
 [hidden] {
 	display: none;

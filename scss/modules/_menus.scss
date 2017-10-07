@@ -24,6 +24,7 @@
 		opacity: .7;
 		padding: 0 .5rem;
 		margin: .5rem 0;
+		align-items: baseline;
 	}
 
 	&_list, &_list ul {
@@ -33,11 +34,14 @@
 
 		& li {
 			display: flex;
-			line-height: 2rem;
+			line-height: 3rem;
+			height: 3rem;
 			flex: auto;
 			padding: .5rem;
 			cursor: pointer;
+			align-items: center;
 			justify-content: space-between;
+			text-overflow: ellipsis;
 			&:not(.is-active):hover {
 				background-color: whitesmoke;
 			}

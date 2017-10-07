@@ -1,6 +1,4 @@
 // credits a normalize.css on modified
-
-
 *,
 ::before,
 ::after { box-sizing: inherit; }
@@ -52,9 +50,9 @@ details {
 
 hr {
   background-color: $black;
-  height: $hr-height; /* 1 */
+  height: $hr-height;
   margin: rem(5px) 0;
-  max-width: 98%;
+  max-width: 100%;
   outline: none;
   opacity: 0.2;
   border: 0;
@@ -69,6 +67,8 @@ b,
 strong {
   font-weight: inherit;
   font-weight: bold;
+  margin-right: rem(7px);
+  margin-left: rem(7px);
 }
 
 dfn {
@@ -105,6 +105,7 @@ video {
 }
 
 img {
+  width: 100%;
   height: auto;
   border-style: none;
 }
@@ -182,12 +183,14 @@ template {display: none;}
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   line-height: normal;
-  font-weight: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-font-smoothing: $smooting-text;
   text-rendering: $render-text;
 
   & small {
     font-size: 70%;
+    font-weight: bold;
   }
 }
 

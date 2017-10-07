@@ -30,7 +30,7 @@
 }
 //mixin media queries para puntos min & max
 
-@mixin media-FromTo ($breakpoint1, $breakpoint2: $widescreen){
+@mixin only ($breakpoint1, $breakpoint2: $widescreen){
 	@media screen and (min-width: $breakpoint1 ) and (max-width: $breakpoint2 ) {
 		@content
 	}
@@ -71,9 +71,13 @@
 		}@else {
 			@extend .is-text-cloud;
 		}
-		&.is-invert, &.is-outline {
+		&.is-invert, &.is-outline, &.is-invert-outline:hover {
 			@extend .is-white;
-			color: $color;
+			@if $class == 'is-warning' {
+				color: darken($color, 20);	
+			}@else{
+				color: $color;
+			}
 		}
 		&.is-outline {
 			border: 1px solid $color;

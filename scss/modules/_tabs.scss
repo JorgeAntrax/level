@@ -1,27 +1,22 @@
 // tabs navigation
-.tabs, .tabs--pill, .tabs--box {
+.tabs, .tabs--pill, .tabs--boxed {
 	display: flex;
-	z-index: 100;
 	width: 100%;
+	z-index: 1;
 	overflow-x: auto;
-	&.is-block * {
-		flex: auto;
-		justify-content: center;
-	}
 
-	& > .tab_item {
-		display: none;
-	}
-	& > .tab_item + label {
+	& > .tab {
 		display: flex;
 		position: relative;
 		line-height: 3rem;
+		height: 3rem;
 		padding: 0 .8rem;
 		flex-grow: 0;
 		flex-shrink: 0;
 		color: inherit;
 		cursor: pointer;
 		align-items: center;
+		justify-content: center;
 		border-radius: 0;
 
 		&:before {
@@ -35,14 +30,14 @@
 			transition: all .2s ease-out;
 		}
 	}
-	& > .tab_item:checked + label {
+	& > .tab.is-active {
 		background-color: transparent;
 		color: $primary;
 		&:before {
 			background-color: $primary;
 		}
 	}
-	& > .tab_item:not(:checked) + label:hover {
+	& > .tab:not(.is-active):hover {
 		color: #000;
 		&:before {
 			background-color: rgba($dark, .2);
@@ -51,7 +46,7 @@
 }
 
 
-.tabs--pill	*, .tabs--box * {
+.tabs--pill	*, .tabs--boxed * {
 	&:before {
 		display: none;
 	}

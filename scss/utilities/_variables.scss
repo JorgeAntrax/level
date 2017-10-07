@@ -2,7 +2,7 @@
 
 //colores predefinidos
 
-$cloud: #fff !default;
+$cloud: #ffffff !default;
 $dark: #444 !default;
 $black: #000 !default;
 $primary: #00C2FF !default;
@@ -43,7 +43,7 @@ $text-small: 0.875rem !default;
 $text-default: 16px !default;
 $text-medium: 1.3rem !default;
 $text-large: 1.6rem !default;
-$text-x-large: 200% !default;
+$text-x-large: 2rem !default;
 
 // rendering text
 $smooting-text: antialiased;
@@ -60,4 +60,4 @@ $h6-size: .8em !default;
 $heading-color: $black;
 
 // variables hr
-$hr-height: rem(1px);
+$hr-height: 1px;

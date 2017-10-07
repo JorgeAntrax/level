@@ -30,7 +30,7 @@
 @include since (touch) {
 	@for $i from 1 through 18 {
 		.touch-#{$i} {
-			flex-basis: grid($i);
+			width: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
@@ -42,7 +42,7 @@
 	}
 	@for $i from 1 through 18 {
 		.tablet-#{$i} {
-			flex-basis: grid($i);
+			width: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
@@ -51,7 +51,7 @@
 @include since (desktop) {
 	@for $i from 1 through 18 {
 		.desktop-#{$i} {
-			flex-basis: grid($i);
+			width: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
@@ -60,7 +60,7 @@
 @include since (widescreen) {
 	@for $i from 1 through 18 {
 		.widescreen-#{$i} {
-			flex-basis: grid($i);
+			width: grid($i);
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
