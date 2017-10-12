@@ -1,21 +1,23 @@
 //Estilos para componente resource resource
 //
-.resource{
+example{
 	display: block;
 	position: relative;
-	background-color: transparent;
+	background-color: transparent !important;
 	box-shadow: inset 0 0 0 1px $dark;
 	border-radius: 0 .2rem .2rem;
 	margin:2.5rem auto;
 	padding: 2px;
 	&:before{
-		content: attr(value);
+		/* content: attr(value); */
+		content: 'example';
+		letter-spacing: 0.085rem;
 		position: absolute;
 		padding: 0 .5rem;
-		top: -1rem;
+		top: -1.2rem;
 		left: 0;
-		line-height: 1rem;
-		height: 1rem;
+		line-height: 1.2rem;
+		height: 1.2rem;
 		background-color: $dark;
 		color:$cloud;
 		font-weight: bold;
@@ -31,44 +33,39 @@
 		}
 	}
 }
-.resource.is-white{
+example[theme~='white'] {
 	background-color:rgba($cloud, .05);
 	color:$cloud;
 	box-shadow: inset 0 0 0 1px $cloud;
 	&:before{background-color: $cloud;color:$dark;}
 }
-.resource.is-primary{
+example[theme~='primary'] {
 	box-shadow: inset 0 0 0 1px $primary;
 	&:before{background-color: $primary;}
 }
-.resource.is-success{
+example[theme~='success'] {
 	box-shadow: inset 0 0 0 1px $success;
 	&:before{background-color: $success;}
 }
-.resource.is-info{
+example[theme~='info'] {
 	box-shadow: inset 0 0 0 1px $info;
 	&:before{background-color: $info;}
 }
-.resource.is-warning{
+example[theme~='warning'] {
 	box-shadow: inset 0 0 0 1px darken($warning, 10);
 	&:before{background-color: darken($warning, 10); color:$dark;}
 }
-.resource.is-danger{
+example[theme~='danger'] {
 	box-shadow: inset 0 0 0 1px $danger;
 	&:before{background-color: $danger;}
 }
 
 
-// code message & alert 
-.message_close {
-	opacity:.7;
-	transition:all .2s ease-out;
-	&:hover{opacity:1;}
-}
-.message, .message_head {
+// code message
+message, message_head {
 	display: flex;
 }
-.message {
+message {
 	flex-direction:column;
 	border: 1px solid $dark;
 	border-radius:.2rem;
@@ -85,8 +82,8 @@
 	}
 }
 
-@include message-style(is-primary, $primary);
-@include message-style(is-info, $info);
-@include message-style(is-success, $success);
-@include message-style(is-warning, $warning);
-@include message-style(is-danger, $danger);
+@include message-style(primary, $primary);
+@include message-style(info, $info);
+@include message-style(success, $success);
+@include message-style(warning, $warning);
+@include message-style(danger, $danger);

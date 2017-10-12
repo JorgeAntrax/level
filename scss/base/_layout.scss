@@ -1,22 +1,24 @@
 // layout
-.layout {
-	@extend .row--wrap;
+layout {
+	display: flex;
+	flex-wrap: wrap;
 	max-width: 100vw;
 	min-height: 100vh;
 	overflow-x: hidden;
 
-	&_head, &_navbar, &_side-menu, &_main, &_foot, &_foot--sticky {
+	& > header, & > navbar, & > sidebar, & >  main, & > footer {
 		width: 100%;
 	}
-
-	&_foot--sticky {
+	
+	footer[is-sticky] {
 		align-self: flex-end;
 	}
-	&[layout~='dashboard'] {
+
+	&[is-dashboard] {
 		overflow: hidden;
 		flex-wrap: nowrap;
 		
-		& .layout_main, & .layout_sidebar {
+		& > main, & > sidebar {
 			//bloque terminado
 			height: 100vh;
 			overflow-x: hidden;
@@ -24,12 +26,13 @@
 		}
 	}
 
-	@include since (tablet) {
-		&_sidebar:not([class*='tablet']),
-		&_sidebar:not([class*='desktop']),
-		&_sidebar:not([class*='widescreen']),
-		&_sidebar:not([class*='touch']) {
-			flex: 30%;
-		}
+}
+@include since (tablet) {
+	layout > sidebar {
+		width: 25%;
+	}
+	layout > main {
+		width: auto;
+		flex-grow: 4;
 	}
 }

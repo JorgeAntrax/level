@@ -15,10 +15,10 @@
 	@extend .is-text-dark;  // contain link a @extend to this file top.
 }
 
-@include colors (is-dark, $dark);  // contain link a @extend to this file top.
-@include colors (is-primary, $primary);  // contain link a @extend to this file top.
-@include colors (is-info, $info);  // contain link a @extend to this file top.
-@include colors (is-success, $success);  // contain link a @extend to this file top.
-@include colors (is-warning, $warning);  // contain link a @extend to this file top.
-@include colors (is-danger, $danger);  // contain link a @extend to this file top.
-@include colors (is-indigo, #57007F);  // contain link a @extend to this file top.
+@include theme (dark, $dark);  // contain link a @extend to this file top.
+@include theme (primary, $primary);  // contain link a @extend to this file top.
+@include theme (info, $info);  // contain link a @extend to this file top.
+@include theme (success, $success);  // contain link a @extend to this file top.
+@include theme (warning, $warning);  // contain link a @extend to this file top.
+@include theme (danger, $danger);  // contain link a @extend to this file top.
+@include theme (indigo, #57007F);  // contain link a @extend to this file top.

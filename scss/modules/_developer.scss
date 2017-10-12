@@ -8,36 +8,44 @@
 	padding: 1.5rem 1rem;
 	color: $dark;
 
-	& pre {
+	/* & pre {
 		max-height: 250px;
 		overflow-y: auto;
-	}
+	} */
 	.comment {
-		color: rgba($dark, .6);
+		display: block;
+		color: rgba($black, .4);
 	}
-	& .tg {
-		color: #0058FF;
+	.tg {
+		color: #2980b9;
+		margin: 0 0.3rem;
+		&:not(:nth-child(1)) {
+			margin: 0;
+		}
 	}
-	& .at {
-		color: #BE9A35;
+	.at {
+		margin-left: .3rem;
+		color: #d35400;
 	}
-	& .vat {
-		color: #04BA8C;
+	.vat {
+		color: #16a085;
+		margin-right: .3rem;
 	}
 	.copy {
-		@extend .small;
+		font-size: $text-x-small;
 		position: absolute;
-		background-color: whitesmoke;
-		margin: .2rem;
+		background-color: darken(whitesmoke, 5);
+		border: 0;
+		border-radius: 0;
+		margin: 0 -1px;
 		top: 0;
 		right: 0;
-		opacity: 0.7;
 	}
 	.expand {
 		@extend .copy;
-		right: 2rem;
+		right: 1.8rem;
 	}
-	.expand:focus ~ pre {
+	/* .expand:focus ~ pre {
 		max-height: 100%;
-	}
+	} */
 }

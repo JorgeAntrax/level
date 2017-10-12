@@ -2,105 +2,138 @@
 //*********  Inicio Estilos .Button  ************
 .button {
 	display: inline-flex;
-	flex-basis: auto;
 	align-items: center;
-	position: relative; // linea que mantiene el efecto del criculo
+	position: relative;
+	flex-shrink: 0;
+	flex-grow: 0;
 	outline: none;
 	border: none;
-	border-radius: .2rem;
-	padding:  0.3em 0.5em;
-	user-select: none;
 	cursor: pointer;
 	overflow: hidden;
-	-webkit-touch-callout: none;
-	transition: background-color .1s ease-out;
+	border-radius: .2rem;
+	padding: 0.3em 0.75em;
 
-	&:not([class*='is-']) {
+	white-space: nowrap;
+
+	&:not([theme]) {
 		background-color: darken(whitesmoke, 2);
 		color: $dark;
+		border: 1px solid rgba($dark, 0.1);
 	}
 
-	// clase que redondea un boton con texto o texto con icono
-	&.is-rounded {
-		padding: .4rem .75rem;
-		border-radius: 25rem;
-	}
-	&.is-boxed {
-		width: 100%;
+	&[is-block] {
 		justify-content: center;
 	}
-	&:hover {
-		box-shadow: inset 0 0 0 15em rgba($dark, .05);
-	}
-	&:active {
-		box-shadow: inset 0 0 0 15em rgba($dark, .1), 0 2px 5px -2px rgba(0, 0, 0, .15);
-	}
+
 	&[disabled] {
 		border: none;
 		opacity: .65;
 	}
-	&--icon {
-		@extend .button;
-		padding: 0.55rem;
+
+	&[type~='icon'] {
+		padding: 0.55em;
+	}
+
+	&:hover {
+		box-shadow: inset 0 0 100px 1px rgba($black, 0.05);
+	}
+	&:active,
+	&:focus {
+		box-shadow: inset 0 0 100px 1px rgba($black, 0.1);
+	}
+
+	&:focus {
+		font-weight: bold;
 	}
 }
 
 
-// efecto active de circulo maerial design
-.ripple-effect::before {
-	content: '';
-	position: absolute;
-	width: 0;
-	height: 0;
-	top: 50%;
-	left: 50%;
-	border-radius: 100%;
-	transition: all .1s ease-in-out;
-	background-color: rgba($dark, .05);
-	transform: translateX(-50%) translateY(-50%);
-}
-
-.ripple-effect:active::before {
-	width: 300px;
-	height: 300px;
-}
-
-.is-invert-outline {
+[theme~='invert-outline'] {
 	background-color: transparent;
 	border: 1px solid $cloud;
 	color: $cloud;
 }
 
+group[type='FAB'] {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+
+	ul {
+		z-index: 10;
+		display: none;
+		list-style: none;
+		flex-direction: column;
+		
+		& > * {
+			margin: .25rem 0;
+		}
+
+		&[is-left],
+		&[is-right]{
+		flex-direction: row;	
+			& > * {
+				margin: 0 .25rem;
+			}
+		}
+	}
+
+	[fab-toggle] {
+		margin: .5rem !important;
+		transform-origin: center center;
+		&:focus * {
+			transition: all .4s ease-out;
+			transform: rotate(90deg);
+		}
+		&:focus+ul {
+			display: flex;
+			will-change: scale;
+			position: absolute;
+			z-index: 700;
+			&[is-left] {
+				right: 100%;
+			}
+			&[is-right] {
+				left: 90%;
+			}
+			&[is-up] {
+				bottom: 100%;
+			}
+			&[is-down] {
+				top: 100%;
+			}
+			&[is-up],
+			&[is-down] {
+				left: -50%;
+				transform: translateX(48%);
+			}
+			& > * {
+				animation: zoom-in .2s;
+			}
+		}
+	}
+}
+
 // clase que hace un boton flotante
-.is-floating {
-	$x: .5rem;
-	$y: .5rem;
-	z-index: 40 ;
-	position: fixed;
-	&--lt, &--lb, &--rt, &--rb {
-		@extend .is-floating;
+.button[type~='floating'] {
+	z-index: 40;
+	height: auto;
+	padding: 1rem;
+	margin: rem(5px);
+	position: relative;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px 1px rgba(#000, .1);
+	&[size~='small'] {
+		padding: 0.7rem;
 	}
-	&--lt {
-		left: $x;
-		top:  $y;
+	&[size~='medium'] {
+		padding: 1.3rem;
 	}
-	&--lb {
-		left: $x;
-		bottom: $y;
+	&[size~='large'] {
+		padding: 1.6rem;
 	}
-	&--rt {
-		top: $y;
-		right: $x;
-	}
-	&--rb {
-		bottom: $y;
-		right: $x;
-	}
-	box-shadow: 0 1px 5px -1px rgba(#000, .2);
-	& .button {
-		padding: 1rem;
-	}
-	&:hover {	
-		box-shadow: 0 4px 15px -1px rgba(#000, .2);
+	&:hover {
+		box-shadow: 0 6px 15px -1px rgba(#000, .2);
 	}
 }

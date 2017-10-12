@@ -1,15 +1,13 @@
 
 /*clases flexbox fila y columna*/
-.row{
+row{
 	display: flex;
 	flex: auto;
 	flex-flow: column nowrap;
-	&--wrap {
-		@extend .row;
+	&[is-multiline] {
 		flex-wrap: wrap;
 	}
-	&--mobile {
-		@extend .row;
+	&[is-mobile] {
 		flex-flow: row nowrap;
 	}
 	&[inverted] {
@@ -17,13 +15,13 @@
 	}
 }
 
-.column {
+column {
 	display: block;
 	flex-grow: 1;
 }
 
-.is-full {
-	flex: 100%;
+[is-block] {
+	width: 100%;
 }
 
 //media queries hidden with min width
@@ -37,7 +35,7 @@
 	}
 }
 @include since (tablet) {
-	.row, .row--wrap {
+	row {
 		flex-direction: row;
 	}
 	@for $i from 1 through 18 {

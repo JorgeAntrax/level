@@ -29,6 +29,10 @@ p {
 	padding: 0;
 	text-align: justify;
   font-size: rem($text-default);
+  p {
+    margin: 0;
+    display: inline-block;
+  }
 }
 
 blockquote, cite, address{
@@ -64,23 +68,23 @@ cite::before{
   content: ' \2014\2009';
 }
 
+pre {
+  overflow: auto;
+}
 //code pre
-code, code > *, pre {
+code, pre, code *, pre * {
   -webkit-font-smoothing: auto;
   font-family: $family-code;
 }
 
 code {
   background-color: whitesmoke;
-  color: darken($danger, 15);
+  color: darken($danger, 5);
   padding: rem(3px) rem($text-default/2);
   margin-left: .3rem;
   margin-right: .3rem;
   border-radius: .15rem;
   word-break: break-word;
-  &.language-html {
-    color: inherit;
-  }
 }
 /*estilos para entrada por teclado*/
 kbd{

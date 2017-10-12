@@ -29,7 +29,7 @@ a {
   color: $color-link;
   cursor: pointer;
   word-break: break-word;
-  &:not([class]):hover {
+  &:not(.button):hover {
     color: $color-link-hover;
   }
 }

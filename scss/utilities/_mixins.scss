@@ -62,40 +62,37 @@
 }
 
 //*****************************************************
-//mixin que genera el color de fondo y texto
-@mixin colors ($class, $color) {
-	.#{$class} {
+
+//button
+
+@mixin theme ($atribute, $color) {
+	*[theme~="#{$atribute}"] {
 		background-color: $color;
-		@if $class == 'is-warning' {
-			@extend .is-text-dark;
+		@if $atribute == 'warning' {
+			color: $dark;
 		}@else {
-			@extend .is-text-cloud;
+			color: $cloud;
 		}
-		&.is-invert, &.is-outline, &.is-invert-outline:hover {
-			@extend .is-white;
-			@if $class == 'is-warning' {
+
+		&[theme~='invert'], &[theme~='outline'], &[theme~='invert-outline']:hover {
+			background-color: $cloud;
+			@if $atribute == 'warning' {
 				color: darken($color, 20);	
-			}@else{
+			}@else {
 				color: $color;
 			}
 		}
-		&.is-outline {
-			border: 1px solid $color;
+		&[theme~='outline'] {
+				border: 1px solid $color;
+			}
+		&.button[theme~='outline']:hover {
+			background-color: $color;
+			@if $atribute == 'warning' {
+				color: $dark;	
+			}@else {
+				color: $cloud;
+			}
 		}
-		//lighten color base
-		&.lighten-1 { background-color: lighten($color, 5);}
-		&.lighten-2 { background-color: lighten($color, 10);}
-		&.lighten-3 { background-color: lighten($color, 15);}
-		&.lighten-4 { background-color: lighten($color, 20);}
-		// darken color base
-		&.darken-1 { background-color: darken($color, 5);}
-		&.darken-2 { background-color: darken($color, 10);}
-		&.darken-3 { background-color: darken($color, 15);}
-		&.darken-4 { background-color: darken($color, 20);}
-	}
-	.button.#{$class}.is-outline:hover {
-		@extend .is-text-cloud;
-		background-color: $color;
 	}
 }
 
@@ -165,18 +162,18 @@
 
 // mixin para estilo de notication
 @mixin message-style($class, $color){
-	.message.#{$class} {
+	message[theme~='#{$class}'] {
 		background-color: $cloud;
 		border-color: $color;
-		.message_head {
+		message_head {
 			background-color: $color;
-			@if $class == warning{
+			@if $class == 'warning' {
 				color:$dark;
 			}
 		}
-		.message_content {	
-			background-color:rgba($color, .05);
-			color:darken($color, 30%);
+		message_content {	
+			background-color: rgba($color, .05);
+			color:darken($color, 15);
 		}
 	}
 }

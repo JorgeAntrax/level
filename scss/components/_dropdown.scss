@@ -19,9 +19,6 @@
 	&--icon .button:last-of-type {
 		border-radius: 25rem;
 	}
-	&--icon > .button {
-		@extend .button--icon;
-	}
 }
 
 .dropdown_menu {
