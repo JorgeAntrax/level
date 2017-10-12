@@ -81,8 +81,8 @@ code {
   background-color: whitesmoke;
   color: darken($danger, 5);
   padding: rem(3px) rem($text-default/2);
-  margin-left: .3rem;
-  margin-right: .3rem;
+  margin-left: rem(3px);
+  margin-right: rem(3px);
   border-radius: .15rem;
   word-break: break-word;
 }

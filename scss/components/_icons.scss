@@ -55,13 +55,12 @@ icon{
   justify-content: space-between;
   width: 1.5rem;
   height: 1.25rem;
-  background-color: transparent;
-  &--cloud {
-    @extend .burger-icon;
-  }
-  & > *, &--cloud > * {
+  & > * {
     background-color: $dark;
     height: 1px;
+  }
+  &--cloud {
+    @extend .burger-icon;
   }
   &--cloud > * {
     background-color: $cloud;
@@ -74,5 +73,11 @@ icon{
     width: 4px;
     height: 4px;
     border-radius: 5em;
+  }
+  &--cloud {
+    @extend .ellipsis-icon;
+  }
+  &--cloud > span {
+    background-color: $cloud;
   }
 }

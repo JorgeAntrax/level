@@ -86,31 +86,31 @@ group[type='FAB'] {
 			transition: all .4s ease-out;
 			transform: rotate(90deg);
 		}
-		&:focus+ul {
-			display: flex;
-			will-change: scale;
-			position: absolute;
-			z-index: 700;
-			&[is-left] {
-				right: 100%;
-			}
-			&[is-right] {
-				left: 90%;
-			}
-			&[is-up] {
-				bottom: 100%;
-			}
-			&[is-down] {
-				top: 100%;
-			}
-			&[is-up],
-			&[is-down] {
-				left: -50%;
-				transform: translateX(48%);
-			}
-			& > * {
-				animation: zoom-in .2s;
-			}
+	}
+	ul.active {
+		display: flex;
+		will-change: scale;
+		position: absolute;
+		z-index: 700;
+		&[is-left] {
+			right: 100%;
+		}
+		&[is-right] {
+			left: 90%;
+		}
+		&[is-up] {
+			bottom: 100%;
+		}
+		&[is-down] {
+			top: 100%;
+		}
+		&[is-up],
+		&[is-down] {
+			left: -50%;
+			transform: translateX(48%);
+		}
+		& > * {
+			animation: zoom-in .2s;
 		}
 	}
 }

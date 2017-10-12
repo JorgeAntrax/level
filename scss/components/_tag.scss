@@ -3,7 +3,8 @@ tags {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	align-items: stretch;
+	align-items: flex-start;
+	overflow: hidden;
 
 	&[size='small'], tag[size='small'] {
 		line-height: .9rem;
@@ -13,14 +14,24 @@ tags {
 	&[is-group] {
 		@extend tags;
 		display: inline-flex;
-		flex: 0 0 auto;
-		// crea u grupo de etiquetas en forma de bloque
-		&[is-box] {
+		align-items: stretch;
+		flex: 0;
+
+		& > tag {
+			margin: 0;
+			border-radius: 0;
+		}
+
+		// crea un grupo de etiquetas en forma de bloque
+		&[is-boxed] {
 			max-width: 100%;
 			flex-direction: column;
 			overflow-x: auto;
-		}
 
+			& > tag {
+				padding: rem(5px) rem(10px);
+			}
+		}
 		margin: .2rem;
 		border-radius: .2rem;
 		overflow: hidden;
@@ -32,35 +43,33 @@ tag {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: .25rem .5rem;
+	padding: rem(2px) rem(10px);
 	font-size: $text-small;
+	border-radius: .2rem;
+	margin: 1px;
+
 	&:not([theme]) {
 			background-color: whitesmoke;
 	}
+
 	&, & * {
-		line-height: 1rem;
+		line-height: 1.4;
 	}
 }
-tag {
-	border-radius: .2rem;
-	margin: 1px;
+
+tags[size='small'] tag, tag[size='small'] {
+	font-size: $text-x-small;
+	padding: rem(2px) rem(8px);
 }
+tags[size='medium'] tag, tag[size='medium'] {
+	font-size: $text-default;
+	line-height: 1.5;
+	padding: rem(3px) rem(12px);
+}
+
 badge {
 	@extend tag;
 	border-radius: 50rem;
 	position: relative;
 	line-height: normal;
-}
-
-tags > tag, tags[is-group] > tag{
-	margin: 0;
-	border-radius: 0;
-}
-tags[size='small'] tag, tag[size='small'] {
-	font-size: $text-x-small;
-	padding: .05rem .5rem;
-}
-tags[size='medium'] tag, tag[size='medium'] {
-	font-size: $text-default;
-	padding: .2rem .5rem;
 }
