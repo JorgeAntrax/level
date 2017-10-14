@@ -29,7 +29,10 @@ a {
   color: $color-link;
   cursor: pointer;
   word-break: break-word;
-  &:not(.button):hover {
+  -webkit-tap-highlight-color: transparent;
+  &:not(.button):hover,
+  &:not([disabled]):hover
+  &:not(.is-disabled):hover {
     color: $color-link-hover;
   }
 }
@@ -175,8 +178,9 @@ summary {
 template {display: none;}
 
 [disabled], .is-disabled {
-  pointer-events: none;
-  opacity: .7;
+  pointer-events: none !important;
+  user-select: none !important;
+  opacity: .7 !important;
 }
 
 //estilos de etiquetas h1,h2,h3,h4,h5,h6

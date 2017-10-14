@@ -96,6 +96,35 @@
 	}
 }
 
+//funcion palete color
+
+@mixin color-picker ($class, $base-color, $type: 'background', $number-colors: 5, $interval-color: 2) {
+	@if $type == 'background' {
+		.#{$class} {
+			background-color: $base-color;
+		}
+		@for $i from 1 through $number-colors {
+			.is-#{$class}-darken-#{$i} {
+				background-color: darken($base-color, ($i*$interval-color));
+			}
+			.is-#{$class}-lighten-#{$i} {
+				background-color: lighten($base-color, ($i*$interval-color));
+			}
+		}
+		}@else {
+			.is-text-#{$class} {
+				background-color: $base-color;
+			}
+			@for $i from 1 through $number-colors {
+				.is-text-#{$class}-darken-#{$i} {
+					color: darken($base-color, ($i*$interval-color));
+				}
+				.is-text-#{$class}-lighten-#{$i} {
+					color: lighten($base-color, ($i*$interval-color));
+				}
+			}
+		}
+}
 //mixin que genera un border con la propiedad box shadow
 @mixin border-shadow ($color, $opacity) {
 	box-shadow: inset 0 0 0 1px rgba($color, $opacity);

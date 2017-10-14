@@ -64,7 +64,7 @@ group {
 	flex-direction: column;
 
 	&[is-mobile] {
-		flex-wrap: nowrap;
+		flex-direction: row;
 	}
 
 	&[addons] {
@@ -117,8 +117,8 @@ group {
 }
 
 .has-fixed {
-	$position-x: 1rem;
-	$position-y: 1rem;
+	$position-x: 0.5rem;
+	$position-y: 0.5rem;
 	position: fixed !important;
 	&-tl,
 	&-tr {
@@ -472,7 +472,7 @@ group {
 //media queries hidden with min width
 @include since (touch) {
 	[since-touch~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 	[since-touch~='center'] {
 		align-items: center;
@@ -506,7 +506,7 @@ group {
 
 @include since (tablet) {
 	[since-tablet~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 	[since-tablet~='center'] {
 		align-items: center;
@@ -540,7 +540,7 @@ group {
 
 @include since (desktop) {
 	[since-desktop~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 	[since-desktop~='center'] {
 		align-items: center;
@@ -574,7 +574,7 @@ group {
 
 @include since (widescreen) {
 	[since-widescreen~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 	[since-widescreen~='center'] {
 		align-items: center;
@@ -609,19 +609,19 @@ group {
 //media queries hidden with max width
 @include until (touch) {
 	[until-touch~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 }
 
 @include until (tablet) {
 	[until-tablet~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 }
 
 @include until (desktop) {
 	[until-desktop~='hidden'] {
-		display: none;
+		display: none !important;
 	}
 }
 

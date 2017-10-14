@@ -8,6 +8,7 @@
 	flex-grow: 0;
 	outline: none;
 	border: none;
+	user-select: none;
 	cursor: pointer;
 	overflow: hidden;
 	border-radius: .2rem;
@@ -54,20 +55,20 @@
 	color: $cloud;
 }
 
-group[type='FAB'] {
+fab {
 	display: inline-flex;
 	position: relative;
 	align-items: center;
 	justify-content: center;
+	z-index: 100;
 
-	ul {
-		z-index: 10;
+	fab-menu {
 		display: none;
-		list-style: none;
 		flex-direction: column;
-		
-		& > * {
-			margin: .25rem 0;
+
+		&.active {	
+			display: flex;
+			position: absolute;
 		}
 
 		&[is-left],
@@ -77,26 +78,11 @@ group[type='FAB'] {
 				margin: 0 .25rem;
 			}
 		}
-	}
-
-	[fab-toggle] {
-		margin: .5rem !important;
-		transform-origin: center center;
-		&:focus * {
-			transition: all .4s ease-out;
-			transform: rotate(90deg);
-		}
-	}
-	ul.active {
-		display: flex;
-		will-change: scale;
-		position: absolute;
-		z-index: 700;
 		&[is-left] {
 			right: 100%;
 		}
 		&[is-right] {
-			left: 90%;
+			left: 100%;
 		}
 		&[is-up] {
 			bottom: 100%;
@@ -104,14 +90,16 @@ group[type='FAB'] {
 		&[is-down] {
 			top: 100%;
 		}
-		&[is-up],
-		&[is-down] {
-			left: -50%;
-			transform: translateX(48%);
-		}
+
 		& > * {
+			margin: .25rem 0;
 			animation: zoom-in .2s;
 		}
+	}
+
+	fab-toggle:focus .button > icon {
+		transition: all .4s ease-out;
+		transform: rotate(90deg);
 	}
 }
 
