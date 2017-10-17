@@ -100,12 +100,18 @@
 
 @mixin color-picker ($class, $base-color, $type: 'background', $number-colors: 5, $interval-color: 2) {
 	@if $type == 'background' {
-		.#{$class} {
+		.is-#{$class} {
 			background-color: $base-color;
+			color: $cloud;
+		}
+		[class^='is-#{$class}'] {
+			color: $cloud;
 		}
 		@for $i from 1 through $number-colors {
-			.is-#{$class}-darken-#{$i} {
-				background-color: darken($base-color, ($i*$interval-color));
+			@if ($class == 'black') or ($class =='dark') {} @else {	
+				.is-#{$class}-darken-#{$i} {
+					background-color: darken($base-color, ($i*$interval-color));
+				}
 			}
 			.is-#{$class}-lighten-#{$i} {
 				background-color: lighten($base-color, ($i*$interval-color));
