@@ -4,14 +4,20 @@ html {
   box-sizing: border-box;
   min-width: rem(300px);
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: $smooting-text;
-  text-rendering: $render-text;
+  -webkit-font-smoothing: $smooting-text !important;
+  text-rendering: $render-text !important;
   text-size-adjust: 100%;
   
   & ::selection {
     background: $primary;
     color: $cloud;
   }
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -21,6 +27,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #fff;
+  * {
+    letter-spacing: $font-space;
+  }
 }
 
 p {
@@ -29,45 +38,124 @@ p {
 	padding: 0;
 	text-align: justify;
   font-size: rem($text-default);
+  line-height: $line-height-default;
   p {
     margin: 0;
     display: inline-block;
   }
 }
 
-blockquote, cite, address{
-	display: block;
+b,
+strong {
+  font-weight: bold;
+  margin-right: rem($text-default / 3);
+  margin-left: rem($text-default / 3);
 }
-/*estilos para blockquote cite y address*/
-blockquote{
-	position: relative;
-	max-width: 100%;
-	margin-left:auto;
-	margin-right:auto;
-	padding:2rem .5rem .5rem;
-	border-left:rem(4px) solid rgba($dark, .3);
-	background-color:rgba($dark, .1);
-	font-style: italic;
-	&:before {
-		content: '\f10d';
-		opacity: .75;
-		font-family: $family-icons;
-		position: absolute;
-		top: .5rem;
-		left: .5rem;
-	}	
+
+a {
+  text-decoration: none;
+  color: $color-link;
+  cursor: pointer;
+  word-break: break-word;
+
+  &:hover {
+    color: $color-link-hover;
+  }
 }
-small, pre, code, cite, address {
+
+hr {
+  background-color: $black;
+  height: $hr-height;
+  margin: rem(5px) 0;
+  max-width: 100%;
+  outline: none;
+  opacity: 0.2;
+  border: 0;
+}
+
+cite {
+  opacity: 0.75;
+  font-size: $text-small;
+  cite::before{
+    content: ' \2014\2009';
+  }
+}
+
+small, pre, code {
   font-size: $text-small;
   font-weight: normal;
+  line-height: $line-height-default;
+  margin: 0;
 }
 
+//texto etiquetas personalizadas
+tiny {
+  font-size: $text-x-small;
+}
+
+medium {
+  font-size: $text-medium;
+}
+
+large {
+  font-size: $text-large;
+}
+
+jumbo {
+  font-size: $text-x-large;
+}
+upper {
+  text-transform: uppercase;
+}
+
+lower {
+  text-transform: lowercase;
+}
+
+underline {
+  text-decoration: underline;
+}
+// color text
+primary {
+  color: $primary;
+}
+
+info {
+  color: $info;
+}
+
+success {
+  color: $success;
+}
+
+warning {
+  color: darken($warning, 10);
+}
+
+danger {
+  color: $danger;
+}
+
+justify,
+right {
+  display: block;
+}
+
+right > *,
+right {
+  text-align: right !important;
+}
+
+justify > *,
+justify {
+  text-align: justify !important;
+}
+
+center > *,
+center {
+  text-align: center !important;
+}
 /**Etiqueta small*/
-small, cite {opacity: 0.75;}
-cite::before{
-  content: ' \2014\2009';
-}
-
 pre {
   overflow: auto;
 }
@@ -89,10 +177,134 @@ code {
 /*estilos para entrada por teclado*/
 kbd{
 	@extend code;
-  color: $black;
+  background-color: $dark;
+  color: $cloud;
 }
 /*estilos de sup y sub indice*/
 sup, sub {
 	font-size: $text-x-small; 
 	padding: rem(2px);
+}
+
+mark {
+  background-color: $warning;
+  color: $dark;
+}
+
+img,
+embed,
+object,
+audio,
+video {
+  max-width: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+[disabled], .is-disabled {
+  pointer-events: none !important;
+  user-select: none !important;
+  opacity: .7 !important;
+}
+
+//estilos de etiquetas h1,h2,h3,h4,h5,h6
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  margin: 0;
+  -webkit-font-smoothing: $smooting-text;
+  text-rendering: $render-text;
+
+  &, a {
+    color: inherit;
+  }
+  & small {
+    font-size: 75%;
+    font-weight: bold;
+    opacity: 0.75;
+  }
+}
+
+h1 { font-size: $h1-size; }
+h2 { font-size: $h2-size; }
+h3 { font-size: $h3-size; }
+h4 { font-size: $h4-size; }
+h5 { font-size: $h5-size; }
+h6 { font-size: $h6-size; }
+
+// listas
+ol:not(.default-browser),
+ul:not(.default-browser) { 
+  &, & ul, & ol {   
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+ol, ul {
+  padding-left: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  td, th {
+    padding: 0;
+    text-align: left;
+  }
+}
+
+//replace scroll
+// reMplazo del scroll y ocultamiento.
+* ::-webkit-scrollbar {
+  background-color: rgba($dark, .05);
+  width: rem(5px);
+  height: rem(5px);
+}
+
+* ::-moz-scrollbar {
+  background-color: rgba($dark, .05);
+  width: rem(5px);
+  height: rem(5px);
+}
+
+@include until (touch) {
+  * ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@include until (touch) {
+  * ::-moz-scrollbar {
+    display: none;
+  }
+}
+
+* ::-webkit-scrollbar-thumb {
+  background-color: rgba($dark, .1);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  &:hover,
+  &:active {
+    background-color: rgba($dark, .25);
+  }
+}
+
+* ::-moz-scrollbar-thumb {
+  background-color: rgba($dark, .1);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  &:hover,
+  &:active {
+    background-color: rgba($dark, .25);
+  }
+}
+
+* ::-webkit-scrollbar-track {
+  display: none;
 }

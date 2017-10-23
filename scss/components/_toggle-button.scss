@@ -1,17 +1,41 @@
+//variables toggle button
+
 //*********  Inicio Estilos Toogle Button  ***********
-[input].toogle {
+toggles {
+	display: inline-flex;
+	align-items: center;
+
+	&[disabled] {
+		pointer-events: none;
+		opacity: .7;
+	}
+}
+
+toggle {
+	max-height: 30px;
+	height: 30px;
+	max-width: 4rem;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	//oculta el checkbox
-	display: none;
+	& > [type='checkbox'] {
+		display: none;
+	}
 	//crea el toogle de linea
-	& ~ label {
+	& > label {
 		position: relative;
 		display: block;
 		width: 2.5rem;
 		height: .5rem;
-		margin: 1rem .5rem;
+		line-height: 1.5;
+		margin: 0 .5rem;
 		cursor: pointer;
 		border-radius: .5rem;
-		background-color: rgba($dark, .2);
+		background-color: darken(whitesmoke, 2);
+		box-shadow: inset 0 0 7px -1px rgba($dark, .2);
+
 		//crea el circulo con sus efectos hover del toogle
 		&:before {
 			content: '';
@@ -21,9 +45,11 @@
 			left: 0;
 			width: 1.25rem;
 			height: 1.25rem;
+			line-height: 1.5rem;
 			border-radius: 100%;
 			background-color: $dark;
 			transition: all .25s ease-out;
+			z-index: 10;
 		}
 		&:hover::before {
 			box-shadow: 0 0 5px 1px rgba($dark, .25);
@@ -33,41 +59,46 @@
 		}
 	}
 	/*clases small y large para el toggle*/
-	&.small ~ label {
+	&[size~='small'] > label {
 		height: .25rem;
 	}
-	&.large ~ label {
+	&[size~='large'] > label {
 		height: 1.25rem;
 		border-radius: 5rem;
 	}
-	&:checked ~ label {
+	& > :checked + label {
 		background-color: rgba($dark, .5);
 		transform: rotate(0);
 	}
-	&:checked ~ label::before {
+	& > :checked + label::before {
 		left: 1.25rem;
 		background-color: darken($dark, .2);
 	}
+	/*mixins que generan el color y estilo del toggle*/
+
+	@include toogle-button(primary, $primary);
+	@include toogle-button(info, $info);
+	@include toogle-button(success, $success);
+	@include toogle-button(warning, $warning);
+	@include toogle-button(danger, $danger);
+	@include toogle-button(cloud, $cloud);
 }
 
 
-/*mixins que generan el color y estilo del toggle*/
-
-@include toogle-button(is-primary, $primary);
-@include toogle-button(is-info, $info);
-@include toogle-button(is-success, $success);
-@include toogle-button(is-warning, $warning);
-@include toogle-button(is-danger, $danger);
 
 /*clase disabled para elemento toogle*/
-
-input.toogle:disabled ~ label:before {
-	background-color: #aaa;
+toggle[disabled] > label,
+toggles[disabled] > toggle > label {
+	background-color: darken(whitesmoke, 20) !important;
+	pointer-events: none;
+}
+toggle[disabled] > label::before,
+toggles[disabled] > toggle > label::before {
+	background-color: darken(whitesmoke, 50) !important;
 	pointer-events: none;
 }
 
-input.toogle:disabled ~ label:hover::before {
-	box-shadow: none;
+toggle[disabled] > label:hover::before {
 	width: 1.25rem;
 	height: 1.25rem;
 	left: 0;

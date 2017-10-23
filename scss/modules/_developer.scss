@@ -8,10 +8,10 @@
 	padding: 1.5rem 1rem;
 	color: $dark;
 
-	/* & pre {
-		max-height: 250px;
+	& pre {
+		max-height: 300px;
 		overflow-y: auto;
-	} */
+	}
 	.comment {
 		display: block;
 		color: rgba($black, .4);

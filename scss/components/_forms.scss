@@ -3,13 +3,14 @@
 	display: block;
 	position:relative;
 	outline:0;
-	padding:.3em .5em;
+	padding:.4rem .5em;
 	background-color:darken(#fff, 2%);
 	border:1px solid rgba(#000, 0);
 	border-radius:.2rem;
 	width: 100%;
 	transition: all .2s;
 	color: $dark;
+	font-size: rem($text-default);
 	// estilo transparente
 	&--transparent {
 		@extend .input;
@@ -26,6 +27,21 @@
 		}
 	}
 	&:focus{ box-shadow: inset 0 2px 8px -2px rgba(#000, .05);	}
+
+	&[size] {
+		line-height: 1.5;
+	}
+	&[size~='small'] {
+		font-size: $text-small;
+		line-height: 1.4;
+	}
+	&[size~='medium'] {
+		font-size: $text-medium;
+	}
+	&[size~='large'] {
+		font-size: $text-large;
+	}
+	
 }
 
 @include input-style(is-primary, $primary);
@@ -36,7 +52,7 @@
 //############# Fin de estilos del input ###########
 
 //control group
-.field {
+field {
 	display: inline-flex;
 	align-items: stretch;
 	position: relative;
@@ -45,14 +61,11 @@
 	& *[class] {
 		border-radius: 0;
 	}
-	.field-icon {
+	icon[is-container] {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: 3em;
-	}
-	&.has-two-icons input, &.has-two-icons input:focus {
-		border: none;
-		border-radius: 0;
+		height: auto;
 	}
 }

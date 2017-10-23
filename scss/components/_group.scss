@@ -1,0 +1,54 @@
+$radio-addons: .25rem;
+$circle-addons: 1000em;
+group {
+	display: flex;
+	flex-direction: column;
+
+	&[is-mobile] {
+		flex-direction: row;
+	}
+
+	&[addons] {
+		display: inline-flex;
+
+
+		& > *:not(:first-child),
+		& > *:not(:last-child) {
+			border-radius: 0;
+			margin: 0 -1px;
+		}
+
+		& > :first-child {
+			border-radius: $radio-addons 0 0 $radio-addons;
+			margin-left: 0;
+		}
+
+		& > :last-child {
+			border-radius: 0 $radio-addons $radio-addons 0;
+			margin-right: 0;
+		}
+
+		&[is-rounded] {
+			& > :first-child {
+				border-radius: $circle-addons 0 0 $circle-addons;
+				margin-left: 0;
+			}
+
+			& > :last-child {
+				border-radius: 0 $circle-addons $circle-addons 0;
+				margin-right: 0;
+			}
+		}
+
+	}
+
+}
+@include since (touch) {
+	group {
+		flex-flow: row wrap;
+
+		&[is-mobile] {
+			flex-wrap: nowrap;
+		}
+	}
+}

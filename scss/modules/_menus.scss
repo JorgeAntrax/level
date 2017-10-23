@@ -1,25 +1,28 @@
 /* clase generica menu */
 
-.menu {
-	&, &_label {
+menu {
+	&, &-label {
 		display: flex;
+		flex: auto;
 		width: 100%;
 	}
+
 	height: 100vh;
+	padding: 0;
+	margin: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: relative;
 	flex-direction: column;
 	justify-content: space-between;
 
-	a:not([class]) {
+	a {
 		color: inherit;
+		width: 100%;
+		line-height: normal;
 	}
-	
-	icon[is-left] {
-		margin: 0 2rem 0 0.5rem;
-	}
-	&_label {
+
+	&-label {
 		text-transform: uppercase;
 		font-size: $text-small;
 		opacity: .7;
@@ -28,29 +31,38 @@
 		align-items: baseline;
 	}
 
-	&_list, &_list ul {
-		list-style: none;
-		margin: 0;
-		padding: .5rem 0;
+	.menu-list {
+		display: block;
+		width: 100%;
 
-		& li {
+		li > a {
 			display: flex;
+			padding: 0 0.75rem;
 			line-height: 3rem;
-			height: 3rem;
-			flex: auto;
-			padding: .5rem;
 			cursor: pointer;
 			align-items: center;
-			justify-content: space-between;
 			text-overflow: ellipsis;
+
 			&:not(.is-active):hover {
 				background-color: whitesmoke;
 			}
+
+			&.is-active {
+				background-color: $primary;
+				color: $cloud;
+				& > *:hover {
+					color: $cloud !important;
+				}
+			}
+		}
+
+		& ul, & ol {
+			margin-left: 1.5rem;
+			border-left: 1px solid rgba($black, 0.1);
+
+			&:hover {
+				border-color: rgba($black, 0.2);
+			}
 		}
 	}
-}
-
-.is-active {
-	background-color: $primary;
-	color: $cloud;
 }

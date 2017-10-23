@@ -2,15 +2,15 @@
 
 // palete color
 //@incluide color-picker ($class, $base-color, $type: 'bg', $number-colors: 5, $interval-color: 2)
-@include color-picker (black, $black, 'background', 4, 5);
-@include color-picker (dark, $dark, 'background', 4, 5);
+@include color-picker (black, $black, 4, 5);
+@include color-picker (dark, $dark, 4, 5);
 
-@include color-picker (primary, $primary, 'background', 4, 5);
-@include color-picker (info, $info, 'background', 4, 5);
-@include color-picker (success, $success, 'background', 4, 5);
-@include color-picker (warning, $warning, 'background', 4, 5);
-@include color-picker (danger, $danger, 'background', 4, 5);
-@include color-picker (indigo, indigo, 'background', 4, 5);
+@include color-picker (primary, $primary, 4, 5);
+@include color-picker (info, $info, 4, 5);
+@include color-picker (success, $success, 4, 5);
+@include color-picker (warning, $warning, 4, 5);
+@include color-picker (danger, $danger, 4, 5);
+@include color-picker (indigo, indigo, 4, 5);
 
 // style bycolor of text
 .is-text-dark { color: $dark; } //no modified, this have a @extend for mixin colors
@@ -26,12 +26,3 @@
 	background-color: $cloud;
 	@extend .is-text-dark;  // contain link a @extend to this file top.
 }
-
-@include theme (dark, $dark);  // contain link a @extend to this file top.
-@include theme (black, $black);  // contain link a @extend to this file top.
-@include theme (primary, $primary);  // contain link a @extend to this file top.
-@include theme (info, $info);  // contain link a @extend to this file top.
-@include theme (success, $success);  // contain link a @extend to this file top.
-@include theme (warning, $warning);  // contain link a @extend to this file top.
-@include theme (danger, $danger);  // contain link a @extend to this file top.
-@include theme (indigo, #57007F);  // contain link a @extend to this file top.

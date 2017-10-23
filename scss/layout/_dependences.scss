@@ -1,0 +1,345 @@
+//
+// HELPERS DE LAYOUT GRID Y RESPONSIVE
+//
+//helpers padding
+[layout~="padding-05"] {
+	padding: 0.5rem;
+}
+
+[layout~="padding-1"] {
+	padding: 1rem;
+}
+
+[layout~="padding-2"] {
+	padding: 2rem;
+}
+
+[layout~="padding-3"] {
+	padding: 3rem;
+}
+
+// helpers pading vertical
+[layout~="padding-v-05"] {
+	padding: 0.5rem 0;
+}
+
+[layout~="padding-v-1"] {
+	padding: 1rem 0;
+}
+
+[layout~="padding-v-2"] {
+	padding: 2rem 0;
+}
+
+[layout~="padding-v-3"] {
+	padding: 3rem 0;
+}
+
+// helpers padding horizontal
+[layout~="padding-h-05"] {
+	padding: 0 0.5rem;
+}
+
+[layout~="padding-h-1"] {
+	padding: 0 1rem;
+}
+
+[layout~="padding-h-2"] {
+	padding: 0 2rem;
+}
+
+[layout~="padding-h-3"] {
+	padding: 0 3rem;
+}
+
+//fin helpers padding
+// copiado de grid scss
+.is-full {
+	flex: 100%;
+}
+
+[layout~='full-screen'] {
+	width: 100vw;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+[layout~='full-width'] {
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+[layout~='full-height'] {
+	width: 100vh;
+	overflow-y: auto;
+}
+
+[since-touch~='center'],
+[since-touch~='center-v'],
+[since-touch~='center-h'],
+[since-touch~='right'],
+[since-touch~='bottom'],
+[since-touch~='top'],
+[since-touch~='left'],
+[since-touch~='separated'],
+[since-touch~='distributed'],
+[since-tablet~='center'],
+[since-tablet~='center-v'],
+[since-tablet~='center-h'],
+[since-tablet~='right'],
+[since-tablet~='bottom'],
+[since-tablet~='top'],
+[since-tablet~='left'],
+[since-tablet~='separated'],
+[since-tablet~='distributed'],
+[since-desktop~='center'],
+[since-desktop~='center-v'],
+[since-desktop~='center-h'],
+[since-desktop~='right'],
+[since-desktop~='bottom'],
+[since-desktop~='top'],
+[since-desktop~='left'],
+[since-desktop~='separated'],
+[since-desktop~='distributed'],
+[since-widescreen~='center'],
+[since-widescreen~='center-v'],
+[since-widescreen~='center-h'],
+[since-widescreen~='right'],
+[since-widescreen~='bottom'],
+[since-widescreen~='top'],
+[since-widescreen~='left'],
+[since-widescreen~='separated'],
+[since-widescreen~='distributed'],
+[layout~='center'],
+[layout~='center-v'],
+[layout~='center-h'],
+[layout~='right'],
+[layout~='top'],
+[layout~='left'],
+[layout~='bottom'] {
+	display: flex;
+}
+
+[layout~='center'] {
+	align-items: center;
+	justify-content: center;
+}
+
+[layout~='center-v'] {
+	align-items: center;
+}
+
+[layout~='center-h'] {
+	justify-content: center;
+}
+
+[layout~='top'] {
+	align-items: flex-start;
+}
+
+[layout~='left'] {
+	justify-content: flex-start;
+}
+
+[layout~='bottom'] {
+	align-items: flex-end;
+}
+
+[layout~='right'] {
+	justify-content: flex-end;
+}
+
+[layout~='separated'] {
+	justify-content: space-between;
+}
+
+[layout~='distributed'] {
+	justify-content: space-around;
+}
+
+//capas de contenido
+// html body
+[layout~='level-1'] {
+	z-index: 100;
+}
+
+//modules
+[layout~='level-2'] {
+	z-index: 200;
+}
+
+//components
+[layout~='level-3'] {
+	z-index: 300;
+}
+
+//Menus, navbars, floating buttons etc
+[layout~='level-4'] {
+	z-index: 400;
+}
+
+// ventanas modales entre otros
+[layout~='level-5'] {
+	z-index: 500;
+}
+
+//media queries hidden with min width
+@include since (touch) {
+	[since-touch~='hidden'] {
+		display: none !important;
+	}
+	[since-touch~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-touch~='center-v'] {
+		align-items: center;
+	}
+	[since-touch~='center-h'] {
+		justify-content: center;
+	}
+	[since-touch~='right'] {
+		justify-content: flex-end;
+	}
+	[since-touch~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-touch~='top'] {
+		align-items: flex-start;
+	}
+	[since-touch~='left'] {
+		justify-content: flex-start;
+	}
+	[since-touch~='distributed'] {
+		justify-content: space-around;
+	}
+	[since-touch~='separated'] {
+		justify-content: space-between;
+	}
+}
+
+@include since (tablet) {
+	[since-tablet~='hidden'] {
+		display: none !important;
+	}
+	[since-tablet~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-tablet~='center-v'] {
+		align-items: center;
+	}
+	[since-tablet~='center-h'] {
+		justify-content: center;
+	}
+	[since-tablet~='right'] {
+		justify-content: flex-end;
+	}
+	[since-tablet~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-tablet~='top'] {
+		align-items: flex-start;
+	}
+	[since-tablet~='left'] {
+		justify-content: flex-start;
+	}
+	[since-tablet~='distributed'] {
+		justify-content: space-around;
+	}
+	[since-tablet~='separated'] {
+		justify-content: space-between;
+	}
+}
+
+@include since (desktop) {
+	[since-desktop~='hidden'] {
+		display: none !important;
+	}
+	[since-desktop~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-desktop~='center-v'] {
+		align-items: center;
+	}
+	[since-desktop~='center-h'] {
+		justify-content: center;
+	}
+	[since-desktop~='right'] {
+		justify-content: flex-end;
+	}
+	[since-desktop~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-desktop~='top'] {
+		align-items: flex-start;
+	}
+	[since-desktop~='left'] {
+		justify-content: flex-start;
+	}
+	[since-desktop~='distributed'] {
+		justify-content: space-around;
+	}
+	[since-desktop~='separated'] {
+		justify-content: space-between;
+	}
+}
+
+@include since (widescreen) {
+	[since-widescreen~='hidden'] {
+		display: none !important;
+	}
+	[since-widescreen~='center'] {
+		align-items: center;
+		justify-content: center;
+	}
+	[since-widescreen~='center-v'] {
+		align-items: center;
+	}
+	[since-widescreen~='center-h'] {
+		justify-content: center;
+	}
+	[since-widescreen~='right'] {
+		justify-content: flex-end;
+	}
+	[since-widescreen~='bottom'] {
+		align-items: flex-end;
+	}
+	[since-widescreen~='top'] {
+		align-items: flex-start;
+	}
+	[since-widescreen~='left'] {
+		justify-content: flex-start;
+	}
+	[since-widescreen~='distributed'] {
+		justify-content: space-around;
+	}
+	[since-widescreen~='separated'] {
+		justify-content: space-between;
+	}
+}
+
+//media queries hidden with max width
+@include until (touch) {
+	[until-touch~='hidden'] {
+		display: none !important;
+	}
+}
+
+@include until (tablet) {
+	[until-tablet~='hidden'] {
+		display: none !important;
+	}
+}
+
+@include until (desktop) {
+	[until-desktop~='hidden'] {
+		display: none !important;
+	}
+}
+
+// ocultar
+[hidden] {
+	display: none !important;
+}

@@ -65,32 +65,25 @@
 
 //button
 
-@mixin theme ($atribute, $color) {
-	*[theme~="#{$atribute}"] {
-		background-color: $color;
-		@if $atribute == 'warning' {
-			color: $dark;
-		}@else {
-			color: $cloud;
-		}
-
-		&[theme~='invert'], &[theme~='outline'], &[theme~='invert-outline']:hover {
-			background-color: $cloud;
-			@if $atribute == 'warning' {
-				color: darken($color, 20);	
-			}@else {
-				color: $color;
-			}
-		}
-		&[theme~='outline'] {
-				border: 1px solid $color;
-			}
-		&.button[theme~='outline']:hover {
+@mixin button-theme ($class, $color) {
+	&.is-#{$class} {
+		&, &-outline:hover {
 			background-color: $color;
-			@if $atribute == 'warning' {
+			@if $class == 'warning' {
 				color: $dark;	
 			}@else {
 				color: $cloud;
+			}
+		}
+		&-outline {
+			border: 1px solid $color;
+		}
+		&-invert, &-outline, &-invert-outline:hover {
+			background-color: $cloud;
+			@if $class == 'warning' {
+				color: darken($color, 20);	
+			}@else {
+				color: $color;
 			}
 		}
 	}
@@ -98,14 +91,17 @@
 
 //funcion palete color
 
-@mixin color-picker ($class, $base-color, $type: 'background', $number-colors: 5, $interval-color: 2) {
-	@if $type == 'background' {
+@mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2) {
 		.is-#{$class} {
 			background-color: $base-color;
 			color: $cloud;
 		}
 		[class^='is-#{$class}'] {
-			color: $cloud;
+			@if $class == 'warning' {
+				color: $dark;
+			}@else {
+				color: $cloud;
+			}
 		}
 		@for $i from 1 through $number-colors {
 			@if ($class == 'black') or ($class =='dark') {} @else {	
@@ -115,19 +111,6 @@
 			}
 			.is-#{$class}-lighten-#{$i} {
 				background-color: lighten($base-color, ($i*$interval-color));
-			}
-		}
-		}@else {
-			.is-text-#{$class} {
-				background-color: $base-color;
-			}
-			@for $i from 1 through $number-colors {
-				.is-text-#{$class}-darken-#{$i} {
-					color: darken($base-color, ($i*$interval-color));
-				}
-				.is-text-#{$class}-lighten-#{$i} {
-					color: lighten($base-color, ($i*$interval-color));
-				}
 			}
 		}
 }
@@ -165,9 +148,10 @@
 
 //style toogle input
 @mixin toogle-button($class, $color){
-	input.toogle{
+	&.is-#{$class} {
+		background-color: transparent;
 		// Establece el fondo para la barra donde se dezliza el circulo del toggle
-		& ~ label.#{$class} {
+		& > label {
 			background-color: rgba($color, .2);
 			// establece el color del circulo del toggle
 			&::before {
@@ -175,13 +159,14 @@
 			}
 		}
 		// este codigo cambia los colores del toggle cuando esta en estado checked
-		&:checked ~ label.#{$class} { 
-			background-color: rgba(darken($color, 20%), .3);
+		& > :checked + label { 
+			background-color: rgba(darken($color, 10), .3);
 
 			&::before {
-				background-color:darken($color, 20%);
+				background-color:darken($color, 10);
 			}
 		}
+		
 	}
 }
 
@@ -197,7 +182,7 @@
 
 // mixin para estilo de notication
 @mixin message-style($class, $color){
-	message[theme~='#{$class}'] {
+	&.is-#{$class} {
 		background-color: $cloud;
 		border-color: $color;
 		message_head {

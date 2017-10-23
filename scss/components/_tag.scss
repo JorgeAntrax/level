@@ -6,11 +6,6 @@ tags {
 	align-items: flex-start;
 	overflow: hidden;
 
-	&[size='small'], tag[size='small'] {
-		line-height: .9rem;
-	}
-
-
 	&[is-group] {
 		@extend tags;
 		display: inline-flex;
@@ -27,6 +22,11 @@ tags {
 			max-width: 100%;
 			flex-direction: column;
 			overflow-x: auto;
+
+			icon {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
 
 			& > tag {
 				padding: rem(5px) rem(10px);
@@ -47,23 +47,45 @@ tag {
 	font-size: $text-small;
 	border-radius: .2rem;
 	margin: 1px;
+	line-height: 1.25rem;
 
-	&:not([theme]) {
+	&:not([class^='is-']) {
 			background-color: whitesmoke;
 	}
+	
+	&[class^='is-'] {
+		color: $cloud;
+	}
 
-	&, & * {
-		line-height: 1.4;
+	&[class$='warning'] {
+		color: $dark;
+	}
+	
+	&.is-dark { background-color: $dark ;}
+	&.is-black { background-color: $black ;}
+	&.is-primary { background-color: $primary ;}
+	&.is-info { background-color: $info ;}
+	&.is-success { background-color: $success ;}
+	&.is-warning { background-color: $warning ;}
+	&.is-danger { background-color: $danger ;}
+
+}
+
+tags, tag {
+	&[is-rounded] {
+		border-radius: 100em !important;
 	}
 }
 
-tags[size='small'] tag, tag[size='small'] {
+tags[size~='small'] > tag, tag[size~='small'] {
+	line-height: 1rem;
 	font-size: $text-x-small;
 	padding: rem(2px) rem(8px);
 }
-tags[size='medium'] tag, tag[size='medium'] {
+
+tags[size~='medium'] > tag, tag[size~='medium'] {
 	font-size: $text-default;
-	line-height: 1.5;
+	line-height: 1.5rem;
 	padding: rem(3px) rem(12px);
 }
 

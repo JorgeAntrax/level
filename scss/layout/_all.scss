@@ -3,7 +3,6 @@
 	--  @import 'name_new-file-base';
 */
 @import
-	'_reset',
-	'_core',
-	'_layout',
-	'_grid';
+	'_dependences',
+	'_grid',
+	'_layout';

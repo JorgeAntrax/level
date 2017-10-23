@@ -1,58 +1,139 @@
-// se manejan 5 botones precargados primary, success, info, warning, danger
-//*********  Inicio Estilos .Button  ************
+//variables
+$button-background-color: darken(whitesmoke, 2) !default;
+$button-border-color: 1px solid rgba($dark, 0.1) !default;
+$button-text-color: $dark !default;
+$button-padding: $share-padding 0.75em !default;
+$button-border-radius: $share-border-radius;
+$button-padding-equal: $share-padding !default;
+
+$button-padding-small: 0.3rem;
+$button-padding-medium: 0.6rem;
+$button-padding-large: 0.7rem;
+
+$button-circle: 100em !default;
+
+button:not(.default-broswer),
 .button {
+	&:not([class|='is-']) {
+		background-color: $button-background-color ;
+		color: $button-text-color ;
+	}
+
+	font-size: rem($text-default);
+	border: $button-border-color ;
+	outline: none;
+	cursor: pointer;
+	line-height: normal;
+
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
+
 	position: relative;
-	flex-shrink: 0;
-	flex-grow: 0;
-	outline: none;
-	border: none;
-	user-select: none;
-	cursor: pointer;
 	overflow: hidden;
-	border-radius: .2rem;
-	padding: 0.3em 0.75em;
+	user-select: none;
+	border-radius: $button-border-radius;
+	padding: $button-padding;
+	-webkit-font-smoothing: $smooting-text;
+  text-rendering: $render-text;
 
 	white-space: nowrap;
 
-	&:not([theme]) {
-		background-color: darken(whitesmoke, 2);
-		color: $dark;
-		border: 1px solid rgba($dark, 0.1);
-	}
-
-	&[is-block] {
-		justify-content: center;
-	}
-
-	&[disabled] {
-		border: none;
-		opacity: .65;
-	}
-
 	&[type~='icon'] {
-		padding: 0.55em;
+		padding: $button-padding-equal;
+	}
+
+	&[is-rounded] {
+		border-radius: 100em !important;
 	}
 
 	&:hover {
-		box-shadow: inset 0 0 100px 1px rgba($black, 0.05);
+		box-shadow: inset 0 0 100px 1px rgba($black, 0.035);
 	}
-	&:active,
-	&:focus {
-		box-shadow: inset 0 0 100px 1px rgba($black, 0.1);
+
+	&:active {
+		box-shadow: inset 0 0 100px 1px rgba($black, 0.085);
 	}
 
 	&:focus {
 		font-weight: bold;
 	}
+
+	//flex direction column
+	&[type~='box'] {
+		flex-direction: column;
+		padding: 0.5rem;
+
+		* {
+			line-height: 1.5;
+		}
+		icon {
+			margin: 0 0 0.5rem 0 !important;
+		}
+		justify-content: space-between;
+	}
+
+	&[size~='small'] {
+		font-size: $text-small;
+		padding-top: $button-padding-small;
+		padding-bottom: $button-padding-small;	
+	}
+	&[size~='medium'] {
+		font-size: $text-medium;
+		padding-top: $button-padding-medium;
+		padding-bottom: $button-padding-medium;	
+	}
+	&[size~='large'] {
+		font-size: $text-large;
+		padding-top: $button-padding-large;
+		padding-bottom: $button-padding-large;	
+	}
+
+	@include button-theme (dark, $dark);
+	@include button-theme (black, $black);
+	@include button-theme (primary, $primary);
+	@include button-theme (info, $info);
+	@include button-theme (success, $success);
+	@include button-theme (warning, $warning);
+	@include button-theme (danger, $danger);
+	@include button-theme (indigo, #57007F);
+
+	&[class$='-invert'] {
+		border-color: $cloud;
+	}
+
+	&[class$='invert-outline'] {
+		background-color: transparent;
+		border: 1px solid $cloud;
+		color: $cloud;
+	}
+
+	// clase que hace un boton flotante
+	&[type~='floating'] {
+		z-index: 40;
+		height: auto;
+		padding: 1rem;
+		margin: rem(5px);
+		position: relative;
+		border-radius: 100%;
+		box-shadow: 0 2px 5px 1px rgba(#000, .1);
+		&[size~='small'] {
+			padding: 0.7rem;
+		}
+		&[size~='medium'] {
+			padding: 1.3rem;
+		}
+		&[size~='large'] {
+			padding: 1.6rem;
+		}
+		&:hover {
+			box-shadow: 0 6px 15px -1px rgba(#000, .2);
+		}
+	}
 }
 
-
-[theme~='invert-outline'] {
-	background-color: transparent;
-	border: 1px solid $cloud;
-	color: $cloud;
+buttons {
+	@extend group;
 }
 
 fab {
@@ -100,28 +181,5 @@ fab {
 	fab-toggle:focus .button > icon {
 		transition: all .4s ease-out;
 		transform: rotate(90deg);
-	}
-}
-
-// clase que hace un boton flotante
-.button[type~='floating'] {
-	z-index: 40;
-	height: auto;
-	padding: 1rem;
-	margin: rem(5px);
-	position: relative;
-	border-radius: 100%;
-	box-shadow: 0 2px 5px 1px rgba(#000, .1);
-	&[size~='small'] {
-		padding: 0.7rem;
-	}
-	&[size~='medium'] {
-		padding: 1.3rem;
-	}
-	&[size~='large'] {
-		padding: 1.6rem;
-	}
-	&:hover {
-		box-shadow: 0 6px 15px -1px rgba(#000, .2);
 	}
 }

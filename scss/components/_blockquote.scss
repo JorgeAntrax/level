@@ -1,0 +1,20 @@
+blockquote {
+  display: block;
+	position: relative;
+	max-width: 100%;
+	margin-left:auto;
+	margin-right:auto;
+	padding:2rem .5rem .5rem;
+	border-left:rem(4px) solid rgba($dark, .3);
+	border-radius: $share-border-radius;
+	background-color: rgba($dark, .1);
+	font-style: italic;
+	&:before {
+		content: '\f10d';
+		opacity: .75;
+		font-family: $family-icons;
+		position: absolute;
+		top: .5rem;
+		left: .5rem;
+	}	
+}

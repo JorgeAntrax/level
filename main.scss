@@ -3,7 +3,7 @@
 //	--  @import 'name_new-file-module';
 //
 /*
- Kimera 0.2.2 | MIT License | github.com/JorgeAntrax/kimera
+ Kimera 0.2.3 | MIT License | github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
 
@@ -18,10 +18,9 @@
 */
 @charset "utf-8";
 // utilities mixins function variables etc...
-@import 'scss/utilities/_utilities';
-// important files...
-@import	'scss/base/_base';
-// componentes...
-@import 'scss/components/_components';
-// modules...
-@import 'scss/modules/_modules';
+@import 
+	'scss/base/_all',  //core functions, mixins, variables,
+	'scss/layout/_all', //grid , layout
+	'scss/components/_all', //components
+	'scss/modules/_all', //modules
+	'scss/utilities/_all';  //animations, colors, helpers

@@ -2,14 +2,15 @@ $width-icon-small: $text-small;
 $width-icon-medium: $text-medium;
 $width-icon-large: $text-large;
 $width-icon-jumbo: $text-x-large;
-$width-icon: $text-default;
+$width-icon: 1rem;
 
-icon{
+icon {
 	display: inline-flex;
 	align-items:center;
 	justify-content:center;
   width: $width-icon;
   height: $width-icon;
+  font-size: $text-default;
 
   &[size] {
     margin: 0;
@@ -40,12 +41,14 @@ icon{
   	width: $width-icon-jumbo;
     height: $width-icon-jumbo;
   }
-
-  &[is-left] {
-    margin-right: .5em;
+  &:not([is-container]):first-child:not(:last-child) {
+    margin-right: .5rem;
   }
-  &[is-right] {
-    margin-left: .5em;
+  &:not([is-container]):last-child:not(:first-child) {
+    margin-left: .5rem;
+  }
+  &:not([is-container]):last-child:first-child {
+    margin: 0;
   }
 }
 

@@ -80,10 +80,9 @@ message {
 		padding:.5rem;
 		padding-right: 1.5rem;
 	}
+	@include message-style(primary, $primary);
+	@include message-style(info, $info);
+	@include message-style(success, $success);
+	@include message-style(warning, $warning);
+	@include message-style(danger, $danger);
 }
-
-@include message-style(primary, $primary);
-@include message-style(info, $info);
-@include message-style(success, $success);
-@include message-style(warning, $warning);
-@include message-style(danger, $danger);
