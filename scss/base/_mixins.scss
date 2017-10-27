@@ -92,11 +92,11 @@
 //funcion palete color
 
 @mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2) {
-		.is-#{$class} {
+		.color-#{$class} {
 			background-color: $base-color;
 			color: $cloud;
 		}
-		[class^='is-#{$class}'] {
+		[class^='color-#{$class}'] {
 			@if $class == 'warning' {
 				color: $dark;
 			}@else {
@@ -105,11 +105,11 @@
 		}
 		@for $i from 1 through $number-colors {
 			@if ($class == 'black') or ($class =='dark') {} @else {	
-				.is-#{$class}-darken-#{$i} {
+				.color-#{$class}-darken-#{$i} {
 					background-color: darken($base-color, ($i*$interval-color));
 				}
 			}
-			.is-#{$class}-lighten-#{$i} {
+			.color-#{$class}-lighten-#{$i} {
 				background-color: lighten($base-color, ($i*$interval-color));
 			}
 		}
@@ -121,9 +121,15 @@
 
 //mixin que le da estilo a los input en general
 @mixin input-style ($class, $bg-color) {
-	.input.#{$class} {
+	&.is-#{$class}{
 		// en estado focus establece un color para el borde
-		&:focus { border-color: rgba($bg-color, .7); }
+		&:focus {
+			@if $class == 'warning' {
+				border-color: darken($bg-color, 10);
+			}@else {
+				border-color: $bg-color;
+			}
+		}
 	}
 }
 
@@ -189,6 +195,8 @@
 			background-color: $color;
 			@if $class == 'warning' {
 				color:$dark;
+			}@else {
+				color: $cloud;
 			}
 		}
 		message_content {	

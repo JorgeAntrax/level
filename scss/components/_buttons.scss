@@ -1,29 +1,25 @@
 //variables
-$button-background-color: darken(whitesmoke, 2) !default;
-$button-border-color: 1px solid rgba($dark, 0.1) !default;
+$button-background-color: darken(whitesmoke, 4) !default;
+$button-border-color: 1px solid rgba($black, 0.1) !default;
 $button-text-color: $dark !default;
-$button-padding: $share-padding 0.75em !default;
 $button-border-radius: $share-border-radius;
-$button-padding-equal: $share-padding !default;
 
-$button-padding-small: 0.3rem;
-$button-padding-medium: 0.6rem;
-$button-padding-large: 0.7rem;
+$button-padding: rem($text-default / 2);
+$button-padding-small: rem(($text-default - 4) / 2);
+$button-padding-large: rem(($text-default + 2) / 2);
 
 $button-circle: 100em !default;
 
 button:not(.default-broswer),
 .button {
-	&:not([class|='is-']) {
-		background-color: $button-background-color ;
-		color: $button-text-color ;
-	}
+	background-color: $button-background-color ;
+	color: $button-text-color ;
+	border: $button-border-color;
 
 	font-size: rem($text-default);
-	border: $button-border-color ;
 	outline: none;
 	cursor: pointer;
-	line-height: normal;
+	line-height: 1.4;
 
 	display: inline-flex;
 	align-items: center;
@@ -32,19 +28,19 @@ button:not(.default-broswer),
 	position: relative;
 	overflow: hidden;
 	user-select: none;
+
 	border-radius: $button-border-radius;
-	padding: $button-padding;
-	-webkit-font-smoothing: $smooting-text;
-  text-rendering: $render-text;
+	padding-top: $button-padding;
+	padding-bottom: $button-padding;
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
 
-	white-space: nowrap;
-
-	&[type~='icon'] {
-		padding: $button-padding-equal;
+	&[class^='is-'] {
+		border-color: transparent;
 	}
 
 	&[is-rounded] {
-		border-radius: 100em !important;
+		border-radius: $button-circle;
 	}
 
 	&:hover {
@@ -63,10 +59,6 @@ button:not(.default-broswer),
 	&[type~='box'] {
 		flex-direction: column;
 		padding: 0.5rem;
-
-		* {
-			line-height: 1.5;
-		}
 		icon {
 			margin: 0 0 0.5rem 0 !important;
 		}
@@ -80,13 +72,27 @@ button:not(.default-broswer),
 	}
 	&[size~='medium'] {
 		font-size: $text-medium;
-		padding-top: $button-padding-medium;
-		padding-bottom: $button-padding-medium;	
+		padding-top: $button-padding;
+		padding-bottom: $button-padding;	
 	}
 	&[size~='large'] {
 		font-size: $text-large;
 		padding-top: $button-padding-large;
 		padding-bottom: $button-padding-large;	
+	}
+	
+	&[type~='icon'] {
+		padding: ($button-padding + 0.05);
+
+		&[size~='small'] {
+			padding: ($button-padding-small + 0.05);
+		}
+		&[size~='medium'] {
+			padding: ($button-padding + 0.09);	
+		}
+		&[size~='large'] {
+			padding: ($button-padding-large + 0.1);	
+		}
 	}
 
 	@include button-theme (dark, $dark);
@@ -178,7 +184,8 @@ fab {
 		}
 	}
 
-	fab-toggle:focus .button > icon {
+	fab-toggle:focus .button > *,
+	fab-toggle:focus button > * {
 		transition: all .4s ease-out;
 		transform: rotate(90deg);
 	}

@@ -1,24 +1,32 @@
+$input-bg-color: lighten(whitesmoke, 2) !default;
+$input-border: 1px solid darken( whitesmoke, 10) !default;
+$input-shadow-focus: inset 0 2px 8px -2px rgba($black, .05) !default;
+$input-small-padding: rem(($text-default - 4) / 2) !default;
+$input-large-padding: rem(($text-default + 2) / 2) !default;
+$input-padding: rem($text-default / 2) !default;
+
+
 //*********  Inicio Estilos input text etc  ***********
-.input {
+.input{
 	display: block;
-	position:relative;
-	outline:0;
-	padding:.4rem .5em;
-	background-color:darken(#fff, 2%);
-	border:1px solid rgba(#000, 0);
-	border-radius:.2rem;
-	width: 100%;
-	transition: all .2s;
-	color: $dark;
+	outline: 0;
+	padding: $input-padding;
+	background-color: $input-bg-color;
+	border: $input-border;
+	border-radius: $share-border-radius;
+	transition: all .2s ease-out;
+	color: $black;
 	font-size: rem($text-default);
+	line-height: 1.4;
+	
+	
 	// estilo transparente
-	&--transparent {
-		@extend .input;
+	&[type~='transparent'] {
 		border: none;
 		background-color: rgba($cloud, .2);
-		color: rgba($cloud, .7);
+		color: $cloud;
+
 		&.is-invert {
-			@extend .input--transparent;
 			background-color: rgba(#000, .2);
 		}
 		&:focus {
@@ -26,46 +34,103 @@
 			color: $dark;
 		}
 	}
-	&:focus{ box-shadow: inset 0 2px 8px -2px rgba(#000, .05);	}
-
-	&[size] {
-		line-height: 1.5;
+	&:focus:not([type~='transparent']) {
+		color: $black;
+		border: 1px solid lighten($black, 60);
 	}
+
 	&[size~='small'] {
 		font-size: $text-small;
-		line-height: 1.4;
+		padding: $input-small-padding;
 	}
+
 	&[size~='medium'] {
 		font-size: $text-medium;
+		padding: $input-padding;
 	}
+
 	&[size~='large'] {
 		font-size: $text-large;
+		padding: $input-large-padding;
 	}
 	
+	@include input-style(primary, $primary);
+	@include input-style(info, $info);
+	@include input-style(success, $success);
+	@include input-style(warning, $warning);
+	@include input-style(danger, $danger);
 }
 
-@include input-style(is-primary, $primary);
-@include input-style(is-info, $info);
-@include input-style(is-success, $success);
-@include input-style(is-warning, $warning);
-@include input-style(is-danger, $danger);
 //############# Fin de estilos del input ###########
 
 //control group
 field {
 	display: inline-flex;
-	align-items: stretch;
-	position: relative;
-	overflow: hidden;
-	border-radius: .2rem;
-	& *[class] {
-		border-radius: 0;
+	align-items: center;
+
+	&:not(:last-child) {
+		margin-bottom: .5rem;
 	}
-	icon[is-container] {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 3em;
-		height: auto;
+
+	& > label {
+    color: $black;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+
+		&:not(:last-child) {
+	    margin-bottom: 0.5em;
+		}
+	}
+
+	&[addons]:first-child,
+	& control icon:first-child {
+		left: 0;
+		border-radius: .2rem 0 0 .2rem;
+	}
+	&[addons]:last-child,
+	& control icon:last-child {
+		right: 0;
+		border-radius: 0 .2rem .2rem 0;
+	}
+
+	control {
+		display: inline-flex;
+		align-items: stretch;
+		position: relative;
+		overflow: hidden;
+
+		icon {
+			position: absolute;
+			color: lighten($dark, 40);
+			width: rem(40px);
+			height: rem(40px);
+		}
+		&:focus > icon {
+			color: $dark;
+		}
+
+		&[double-icons] > .input {	
+			padding-left: rem(45px);
+			padding-right: rem(45px);
+		}
+		&[is-icon-left] > .input {
+			padding-left: rem(45px);
+		}
+		&[is-icon-right] > .input {
+			padding-right: rem(45px);
+		}
+	}
+
+	&[addons] {
+		* {
+			margin: 0;
+			overflow: hidden;
+			border-radius: 0;
+			height: rem(37px);
+			&:not(:last-child) {
+				margin-right: -2px;
+			}
+		}
 	}
 }
