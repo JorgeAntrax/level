@@ -75,16 +75,25 @@
 				color: $cloud;
 			}
 		}
-		&-outline {
+		&, &-outline {
 			border: 1px solid $color;
 		}
-		&-invert, &-outline, &-invert-outline:hover {
+		&-invert, &-outline, &-inverse:hover {
 			background-color: $cloud;
 			@if $class == 'warning' {
 				color: darken($color, 20);	
 			}@else {
 				color: $color;
 			}
+		}
+
+		&:focus,
+		&.focused,
+		&-invert:focus,
+		&-invert.focused,
+		&-outline:focus,
+		&-outline.focused &-inverse:focus {
+			box-shadow: 0 0 0 2px rgba($color, .4);
 		}
 	}
 }
@@ -120,18 +129,14 @@
 }
 
 //mixin que le da estilo a los input en general
-@mixin input-style ($class, $bg-color) {
-	&.is-#{$class}{
-		// en estado focus establece un color para el borde
+@mixin forms-style ($class, $bg-color) {
+	&.is-#{$class} {
+		border: 1px solid $bg-color;
 		&:focus {
-			@if $class == 'warning' {
-				border-color: darken($bg-color, 10);
-			}@else {
-				border-color: $bg-color;
+				box-shadow: 0 0 0 2px rgba($bg-color, .5);
 			}
 		}
 	}
-}
 
 //estilos para los checkbox y radio
 @mixin radio-check-style ($class, $color) {
@@ -155,21 +160,11 @@
 //style toogle input
 @mixin toogle-button($class, $color){
 	&.is-#{$class} {
-		background-color: transparent;
-		// Establece el fondo para la barra donde se dezliza el circulo del toggle
-		& > label {
-			background-color: rgba($color, .2);
-			// establece el color del circulo del toggle
-			&::before {
-				background-color:$color;
-			}
-		}
 		// este codigo cambia los colores del toggle cuando esta en estado checked
 		& > :checked + label { 
-			background-color: rgba(darken($color, 10), .3);
-
+			background-color: rgba($color, .2);
 			&::before {
-				background-color:darken($color, 10);
+				background-color: $color;
 			}
 		}
 		

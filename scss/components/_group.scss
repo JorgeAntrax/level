@@ -10,6 +10,7 @@ group {
 
 	&[addons] {
 		display: inline-flex;
+		flex-direction: row;
 
 
 		& > *:not(:first-child),

@@ -1,12 +1,10 @@
 /*
- Kimera 0.2.3 | MIT License | github.com/JorgeAntrax/kimera
+ Kimera 0.2.3 | MIT License
+ GitHub: github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
 
- date created: 01/06/2017
-
- This project have a license MIT,
- and is Open Source
+ This project have a license MIT
 
  Contact: spicer_94@hotmail.com or jantraxhernandez@gmail.com
 
@@ -76,9 +74,6 @@ right > *, right { text-align: right !important; }
 justify > *, justify { text-align: justify !important; }
 
 center > *, center { text-align: center !important; }
-
-/**Etiqueta small*/
-pre { overflow: auto; }
 
 code, kbd, pre, code *, kbd *, pre * { -webkit-font-smoothing: auto; font-family: monospace; }
 
@@ -367,29 +362,35 @@ layout[is-dashboard] > main, layout[is-dashboard] > sidebar { height: 100vh; ove
 	@params
 	--  @import 'name_new-file-component';
 */
+tooltip { display: inline-block; position: relative; cursor: pointer; }
+
+tooltip data { display: none; position: absolute; bottom: 1.5rem; padding: 0.5rem; border-radius: 0.25rem; z-index: 10; background-color: #ffffff; box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.2); transition: all .5s ease-out; }
+
+tooltip data:before { content: ''; display: block; width: .5rem; height: .5rem; background-color: #ffffff; position: absolute; bottom: -.25rem; left: 1rem; transform: rotate(45deg); }
+
+tooltip:hover > data { display: block; animation: zoom-in .25s ease; }
+
 blockquote { display: block; position: relative; max-width: 100%; margin-left: auto; margin-right: auto; padding: 2rem .5rem .5rem; border-left: 0.25rem solid rgba(68, 68, 68, 0.3); border-radius: 0.2rem; background-color: rgba(68, 68, 68, 0.1); font-style: italic; }
 
 blockquote:before { content: '\f10d'; opacity: .75; font-family: "FontAwesome"; position: absolute; top: .5rem; left: .5rem; }
 
 icon { display: inline-flex; align-items: center; justify-content: center; width: 1rem; height: 1rem; font-size: 16px; }
 
-icon[size] { margin: 0; padding: 0; }
+icon[is-normal] { font-size: 16px; width: 1rem; height: 1rem; }
 
-icon[size~='normal'] { font-size: 16px; width: 1rem; height: 1rem; }
+icon[is-small] { font-size: 0.875rem; width: 0.875rem; height: 0.875rem; }
 
-icon[size~='small'] { font-size: 0.875rem; width: 0.875rem; height: 0.875rem; }
+icon[is-medium] { font-size: 1.25rem; width: 1.25rem; height: 1.25rem; }
 
-icon[size~='medium'] { font-size: 1.25rem; width: 1.25rem; height: 1.25rem; }
+icon[is-large] { font-size: 1.45rem; width: 1.45rem; height: 1.45rem; }
 
-icon[size~='large'] { font-size: 1.45rem; width: 1.45rem; height: 1.45rem; }
+icon[is-jumbo] { font-size: 1.65rem; width: 1.65rem; height: 1.65rem; }
 
-icon[size~='jumbo'] { font-size: 1.65rem; width: 1.65rem; height: 1.65rem; }
+icon:first-child:not(:last-child) { margin-right: .5rem; }
 
-icon:not([is-container]):first-child:not(:last-child) { margin-right: .5rem; }
+icon:last-child:not(:first-child) { margin-left: .5rem; }
 
-icon:not([is-container]):last-child:not(:first-child) { margin-left: .5rem; }
-
-icon:not([is-container]):last-child:first-child { margin: 0; }
+icon:last-child:first-child { margin: 0; }
 
 .burger-icon, .burger-icon--cloud, .ellipsis-icon, .ellipsis-icon--cloud { display: flex; flex-direction: column; justify-content: space-between; width: 1.5rem; height: 1.25rem; }
 
@@ -403,97 +404,103 @@ icon:not([is-container]):last-child:first-child { margin: 0; }
 
 .ellipsis-icon--cloud > span { background-color: #ffffff; }
 
-button:not(.default-broswer), .button { background-color: #ebebeb; color: #444; border: 1px solid rgba(0, 0, 0, 0.1); font-size: 1rem; outline: none; cursor: pointer; line-height: 1.4; display: inline-flex; align-items: center; justify-content: center; position: relative; overflow: hidden; user-select: none; border-radius: 0.2rem; padding-top: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.7rem; padding-right: 0.7rem; }
-
-button:not(.default-broswer)[class^='is-'], .button[class^='is-'] { border-color: transparent; }
+button:not(.default-broswer), .button { background-color: whitesmoke; color: #444; border: 1px solid rgba(0, 0, 0, 0.1); font-size: 1rem; outline: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; vertical-align: top; line-height: 1.5; user-select: none; border-radius: 0.1875rem; padding: 0.3125rem 0.9375rem; }
 
 button:not(.default-broswer)[is-rounded], .button[is-rounded] { border-radius: 100em; }
 
-button:not(.default-broswer):hover, .button:hover { box-shadow: inset 0 0 100px 1px rgba(0, 0, 0, 0.035); }
+button:not(.default-broswer):hover, button:not(.default-broswer).hovered, .button:hover, .button.hovered { box-shadow: inset 0 0 10em 1px rgba(0, 0, 0, 0.03); }
 
-button:not(.default-broswer):active, .button:active { box-shadow: inset 0 0 100px 1px rgba(0, 0, 0, 0.085); }
+button:not(.default-broswer):focus, button:not(.default-broswer).focused, .button:focus, .button.focused { box-shadow: 0 0 0 2px rgba(68, 68, 68, 0.1); }
 
-button:not(.default-broswer):focus, .button:focus { font-weight: bold; }
+button:not(.default-broswer)[is-boxed], .button[is-boxed] { flex-direction: column; padding: 0.5em; justify-content: space-between; }
 
-button:not(.default-broswer)[type~='box'], .button[type~='box'] { flex-direction: column; padding: 0.5rem; justify-content: space-between; }
+button:not(.default-broswer)[is-boxed] icon:first-child, button:not(.default-broswer)[is-boxed] icon:last-child, .button[is-boxed] icon:first-child, .button[is-boxed] icon:last-child { margin: 0 0 0.5rem 0; }
 
-button:not(.default-broswer)[type~='box'] icon, .button[type~='box'] icon { margin: 0 0 0.5rem 0 !important; }
+button:not(.default-broswer)[is-small], .button[is-small] { font-size: 0.875rem; }
 
-button:not(.default-broswer)[size~='small'], .button[size~='small'] { font-size: 0.875rem; padding-top: 0.375rem; padding-bottom: 0.375rem; }
+button:not(.default-broswer)[is-medium], .button[is-medium] { font-size: 1.25rem; }
 
-button:not(.default-broswer)[size~='medium'], .button[size~='medium'] { font-size: 1.25rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+button:not(.default-broswer)[is-large], .button[is-large] { font-size: 1.45rem; }
 
-button:not(.default-broswer)[size~='large'], .button[size~='large'] { font-size: 1.45rem; padding-top: 0.5625rem; padding-bottom: 0.5625rem; }
+button:not(.default-broswer) icon, .button icon { height: 1.5; }
 
-button:not(.default-broswer)[type~='icon'], .button[type~='icon'] { padding: 0.55rem; }
-
-button:not(.default-broswer)[type~='icon'][size~='small'], .button[type~='icon'][size~='small'] { padding: 0.425rem; }
-
-button:not(.default-broswer)[type~='icon'][size~='medium'], .button[type~='icon'][size~='medium'] { padding: 0.59rem; }
-
-button:not(.default-broswer)[type~='icon'][size~='large'], .button[type~='icon'][size~='large'] { padding: 0.6625rem; }
+button:not(.default-broswer) icon:first-child:last-child, .button icon:first-child:last-child { width: 1.5em; height: 1.5em; margin-left: -0.625rem; margin-right: -0.625rem; }
 
 button:not(.default-broswer).is-dark, button:not(.default-broswer).is-dark-outline:hover, .button.is-dark, .button.is-dark-outline:hover { background-color: #444; color: #ffffff; }
 
-button:not(.default-broswer).is-dark-outline, .button.is-dark-outline { border: 1px solid #444; }
+button:not(.default-broswer).is-dark, button:not(.default-broswer).is-dark-outline, .button.is-dark, .button.is-dark-outline { border: 1px solid #444; }
 
-button:not(.default-broswer).is-dark-invert, button:not(.default-broswer).is-dark-outline, button:not(.default-broswer).is-dark-invert-outline:hover, .button.is-dark-invert, .button.is-dark-outline, .button.is-dark-invert-outline:hover { background-color: #ffffff; color: #444; }
+button:not(.default-broswer).is-dark-invert, button:not(.default-broswer).is-dark-outline, button:not(.default-broswer).is-dark-inverse:hover, .button.is-dark-invert, .button.is-dark-outline, .button.is-dark-inverse:hover { background-color: #ffffff; color: #444; }
+
+button:not(.default-broswer).is-dark:focus, button:not(.default-broswer).is-dark.focused, button:not(.default-broswer).is-dark-invert:focus, button:not(.default-broswer).is-dark-invert.focused, button:not(.default-broswer).is-dark-outline:focus, button:not(.default-broswer).is-dark-outline.focused button:not(.default-broswer).is-dark-inverse:focus, .button.is-dark:focus, .button.is-dark.focused, .button.is-dark-invert:focus, .button.is-dark-invert.focused, .button.is-dark-outline:focus, .button.is-dark-outline.focused button:not(.default-broswer).is-dark-inverse:focus, button:not(.default-broswer).is-dark-outline.focused .button.is-dark-inverse:focus, .button.is-dark-outline.focused .button.is-dark-inverse:focus { box-shadow: 0 0 0 2px rgba(68, 68, 68, 0.4); }
 
 button:not(.default-broswer).is-black, button:not(.default-broswer).is-black-outline:hover, .button.is-black, .button.is-black-outline:hover { background-color: #000; color: #ffffff; }
 
-button:not(.default-broswer).is-black-outline, .button.is-black-outline { border: 1px solid #000; }
+button:not(.default-broswer).is-black, button:not(.default-broswer).is-black-outline, .button.is-black, .button.is-black-outline { border: 1px solid #000; }
 
-button:not(.default-broswer).is-black-invert, button:not(.default-broswer).is-black-outline, button:not(.default-broswer).is-black-invert-outline:hover, .button.is-black-invert, .button.is-black-outline, .button.is-black-invert-outline:hover { background-color: #ffffff; color: #000; }
+button:not(.default-broswer).is-black-invert, button:not(.default-broswer).is-black-outline, button:not(.default-broswer).is-black-inverse:hover, .button.is-black-invert, .button.is-black-outline, .button.is-black-inverse:hover { background-color: #ffffff; color: #000; }
+
+button:not(.default-broswer).is-black:focus, button:not(.default-broswer).is-black.focused, button:not(.default-broswer).is-black-invert:focus, button:not(.default-broswer).is-black-invert.focused, button:not(.default-broswer).is-black-outline:focus, button:not(.default-broswer).is-black-outline.focused button:not(.default-broswer).is-black-inverse:focus, .button.is-black:focus, .button.is-black.focused, .button.is-black-invert:focus, .button.is-black-invert.focused, .button.is-black-outline:focus, .button.is-black-outline.focused button:not(.default-broswer).is-black-inverse:focus, button:not(.default-broswer).is-black-outline.focused .button.is-black-inverse:focus, .button.is-black-outline.focused .button.is-black-inverse:focus { box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4); }
 
 button:not(.default-broswer).is-primary, button:not(.default-broswer).is-primary-outline:hover, .button.is-primary, .button.is-primary-outline:hover { background-color: #24ccff; color: #ffffff; }
 
-button:not(.default-broswer).is-primary-outline, .button.is-primary-outline { border: 1px solid #24ccff; }
+button:not(.default-broswer).is-primary, button:not(.default-broswer).is-primary-outline, .button.is-primary, .button.is-primary-outline { border: 1px solid #24ccff; }
 
-button:not(.default-broswer).is-primary-invert, button:not(.default-broswer).is-primary-outline, button:not(.default-broswer).is-primary-invert-outline:hover, .button.is-primary-invert, .button.is-primary-outline, .button.is-primary-invert-outline:hover { background-color: #ffffff; color: #24ccff; }
+button:not(.default-broswer).is-primary-invert, button:not(.default-broswer).is-primary-outline, button:not(.default-broswer).is-primary-inverse:hover, .button.is-primary-invert, .button.is-primary-outline, .button.is-primary-inverse:hover { background-color: #ffffff; color: #24ccff; }
+
+button:not(.default-broswer).is-primary:focus, button:not(.default-broswer).is-primary.focused, button:not(.default-broswer).is-primary-invert:focus, button:not(.default-broswer).is-primary-invert.focused, button:not(.default-broswer).is-primary-outline:focus, button:not(.default-broswer).is-primary-outline.focused button:not(.default-broswer).is-primary-inverse:focus, .button.is-primary:focus, .button.is-primary.focused, .button.is-primary-invert:focus, .button.is-primary-invert.focused, .button.is-primary-outline:focus, .button.is-primary-outline.focused button:not(.default-broswer).is-primary-inverse:focus, button:not(.default-broswer).is-primary-outline.focused .button.is-primary-inverse:focus, .button.is-primary-outline.focused .button.is-primary-inverse:focus { box-shadow: 0 0 0 2px rgba(36, 204, 255, 0.4); }
 
 button:not(.default-broswer).is-info, button:not(.default-broswer).is-info-outline:hover, .button.is-info, .button.is-info-outline:hover { background-color: #2367cd; color: #ffffff; }
 
-button:not(.default-broswer).is-info-outline, .button.is-info-outline { border: 1px solid #2367cd; }
+button:not(.default-broswer).is-info, button:not(.default-broswer).is-info-outline, .button.is-info, .button.is-info-outline { border: 1px solid #2367cd; }
 
-button:not(.default-broswer).is-info-invert, button:not(.default-broswer).is-info-outline, button:not(.default-broswer).is-info-invert-outline:hover, .button.is-info-invert, .button.is-info-outline, .button.is-info-invert-outline:hover { background-color: #ffffff; color: #2367cd; }
+button:not(.default-broswer).is-info-invert, button:not(.default-broswer).is-info-outline, button:not(.default-broswer).is-info-inverse:hover, .button.is-info-invert, .button.is-info-outline, .button.is-info-inverse:hover { background-color: #ffffff; color: #2367cd; }
+
+button:not(.default-broswer).is-info:focus, button:not(.default-broswer).is-info.focused, button:not(.default-broswer).is-info-invert:focus, button:not(.default-broswer).is-info-invert.focused, button:not(.default-broswer).is-info-outline:focus, button:not(.default-broswer).is-info-outline.focused button:not(.default-broswer).is-info-inverse:focus, .button.is-info:focus, .button.is-info.focused, .button.is-info-invert:focus, .button.is-info-invert.focused, .button.is-info-outline:focus, .button.is-info-outline.focused button:not(.default-broswer).is-info-inverse:focus, button:not(.default-broswer).is-info-outline.focused .button.is-info-inverse:focus, .button.is-info-outline.focused .button.is-info-inverse:focus { box-shadow: 0 0 0 2px rgba(35, 103, 205, 0.4); }
 
 button:not(.default-broswer).is-success, button:not(.default-broswer).is-success-outline:hover, .button.is-success, .button.is-success-outline:hover { background-color: #23cd5e; color: #ffffff; }
 
-button:not(.default-broswer).is-success-outline, .button.is-success-outline { border: 1px solid #23cd5e; }
+button:not(.default-broswer).is-success, button:not(.default-broswer).is-success-outline, .button.is-success, .button.is-success-outline { border: 1px solid #23cd5e; }
 
-button:not(.default-broswer).is-success-invert, button:not(.default-broswer).is-success-outline, button:not(.default-broswer).is-success-invert-outline:hover, .button.is-success-invert, .button.is-success-outline, .button.is-success-invert-outline:hover { background-color: #ffffff; color: #23cd5e; }
+button:not(.default-broswer).is-success-invert, button:not(.default-broswer).is-success-outline, button:not(.default-broswer).is-success-inverse:hover, .button.is-success-invert, .button.is-success-outline, .button.is-success-inverse:hover { background-color: #ffffff; color: #23cd5e; }
+
+button:not(.default-broswer).is-success:focus, button:not(.default-broswer).is-success.focused, button:not(.default-broswer).is-success-invert:focus, button:not(.default-broswer).is-success-invert.focused, button:not(.default-broswer).is-success-outline:focus, button:not(.default-broswer).is-success-outline.focused button:not(.default-broswer).is-success-inverse:focus, .button.is-success:focus, .button.is-success.focused, .button.is-success-invert:focus, .button.is-success-invert.focused, .button.is-success-outline:focus, .button.is-success-outline.focused button:not(.default-broswer).is-success-inverse:focus, button:not(.default-broswer).is-success-outline.focused .button.is-success-inverse:focus, .button.is-success-outline.focused .button.is-success-inverse:focus { box-shadow: 0 0 0 2px rgba(35, 205, 94, 0.4); }
 
 button:not(.default-broswer).is-warning, button:not(.default-broswer).is-warning-outline:hover, .button.is-warning, .button.is-warning-outline:hover { background-color: #ffd438; color: #444; }
 
-button:not(.default-broswer).is-warning-outline, .button.is-warning-outline { border: 1px solid #ffd438; }
+button:not(.default-broswer).is-warning, button:not(.default-broswer).is-warning-outline, .button.is-warning, .button.is-warning-outline { border: 1px solid #ffd438; }
 
-button:not(.default-broswer).is-warning-invert, button:not(.default-broswer).is-warning-outline, button:not(.default-broswer).is-warning-invert-outline:hover, .button.is-warning-invert, .button.is-warning-outline, .button.is-warning-invert-outline:hover { background-color: #ffffff; color: #d1a400; }
+button:not(.default-broswer).is-warning-invert, button:not(.default-broswer).is-warning-outline, button:not(.default-broswer).is-warning-inverse:hover, .button.is-warning-invert, .button.is-warning-outline, .button.is-warning-inverse:hover { background-color: #ffffff; color: #d1a400; }
+
+button:not(.default-broswer).is-warning:focus, button:not(.default-broswer).is-warning.focused, button:not(.default-broswer).is-warning-invert:focus, button:not(.default-broswer).is-warning-invert.focused, button:not(.default-broswer).is-warning-outline:focus, button:not(.default-broswer).is-warning-outline.focused button:not(.default-broswer).is-warning-inverse:focus, .button.is-warning:focus, .button.is-warning.focused, .button.is-warning-invert:focus, .button.is-warning-invert.focused, .button.is-warning-outline:focus, .button.is-warning-outline.focused button:not(.default-broswer).is-warning-inverse:focus, button:not(.default-broswer).is-warning-outline.focused .button.is-warning-inverse:focus, .button.is-warning-outline.focused .button.is-warning-inverse:focus { box-shadow: 0 0 0 2px rgba(255, 212, 56, 0.4); }
 
 button:not(.default-broswer).is-danger, button:not(.default-broswer).is-danger-outline:hover, .button.is-danger, .button.is-danger-outline:hover { background-color: #ff0051; color: #ffffff; }
 
-button:not(.default-broswer).is-danger-outline, .button.is-danger-outline { border: 1px solid #ff0051; }
+button:not(.default-broswer).is-danger, button:not(.default-broswer).is-danger-outline, .button.is-danger, .button.is-danger-outline { border: 1px solid #ff0051; }
 
-button:not(.default-broswer).is-danger-invert, button:not(.default-broswer).is-danger-outline, button:not(.default-broswer).is-danger-invert-outline:hover, .button.is-danger-invert, .button.is-danger-outline, .button.is-danger-invert-outline:hover { background-color: #ffffff; color: #ff0051; }
+button:not(.default-broswer).is-danger-invert, button:not(.default-broswer).is-danger-outline, button:not(.default-broswer).is-danger-inverse:hover, .button.is-danger-invert, .button.is-danger-outline, .button.is-danger-inverse:hover { background-color: #ffffff; color: #ff0051; }
+
+button:not(.default-broswer).is-danger:focus, button:not(.default-broswer).is-danger.focused, button:not(.default-broswer).is-danger-invert:focus, button:not(.default-broswer).is-danger-invert.focused, button:not(.default-broswer).is-danger-outline:focus, button:not(.default-broswer).is-danger-outline.focused button:not(.default-broswer).is-danger-inverse:focus, .button.is-danger:focus, .button.is-danger.focused, .button.is-danger-invert:focus, .button.is-danger-invert.focused, .button.is-danger-outline:focus, .button.is-danger-outline.focused button:not(.default-broswer).is-danger-inverse:focus, button:not(.default-broswer).is-danger-outline.focused .button.is-danger-inverse:focus, .button.is-danger-outline.focused .button.is-danger-inverse:focus { box-shadow: 0 0 0 2px rgba(255, 0, 81, 0.4); }
 
 button:not(.default-broswer).is-indigo, button:not(.default-broswer).is-indigo-outline:hover, .button.is-indigo, .button.is-indigo-outline:hover { background-color: #57007F; color: #ffffff; }
 
-button:not(.default-broswer).is-indigo-outline, .button.is-indigo-outline { border: 1px solid #57007F; }
+button:not(.default-broswer).is-indigo, button:not(.default-broswer).is-indigo-outline, .button.is-indigo, .button.is-indigo-outline { border: 1px solid #57007F; }
 
-button:not(.default-broswer).is-indigo-invert, button:not(.default-broswer).is-indigo-outline, button:not(.default-broswer).is-indigo-invert-outline:hover, .button.is-indigo-invert, .button.is-indigo-outline, .button.is-indigo-invert-outline:hover { background-color: #ffffff; color: #57007F; }
+button:not(.default-broswer).is-indigo-invert, button:not(.default-broswer).is-indigo-outline, button:not(.default-broswer).is-indigo-inverse:hover, .button.is-indigo-invert, .button.is-indigo-outline, .button.is-indigo-inverse:hover { background-color: #ffffff; color: #57007F; }
+
+button:not(.default-broswer).is-indigo:focus, button:not(.default-broswer).is-indigo.focused, button:not(.default-broswer).is-indigo-invert:focus, button:not(.default-broswer).is-indigo-invert.focused, button:not(.default-broswer).is-indigo-outline:focus, button:not(.default-broswer).is-indigo-outline.focused button:not(.default-broswer).is-indigo-inverse:focus, .button.is-indigo:focus, .button.is-indigo.focused, .button.is-indigo-invert:focus, .button.is-indigo-invert.focused, .button.is-indigo-outline:focus, .button.is-indigo-outline.focused button:not(.default-broswer).is-indigo-inverse:focus, button:not(.default-broswer).is-indigo-outline.focused .button.is-indigo-inverse:focus, .button.is-indigo-outline.focused .button.is-indigo-inverse:focus { box-shadow: 0 0 0 2px rgba(87, 0, 127, 0.4); }
 
 button:not(.default-broswer)[class$='-invert'], .button[class$='-invert'] { border-color: #ffffff; }
 
-button:not(.default-broswer)[class$='invert-outline'], .button[class$='invert-outline'] { background-color: transparent; border: 1px solid #ffffff; color: #ffffff; }
+button:not(.default-broswer)[class$='-inverse'], .button[class$='-inverse'] { background-color: transparent; border: 1px solid #ffffff; color: #ffffff; }
 
-button:not(.default-broswer)[type~='floating'], .button[type~='floating'] { z-index: 40; height: auto; padding: 1rem; margin: 0.3125rem; position: relative; border-radius: 100%; box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.1); }
+button:not(.default-broswer)[is-floating], .button[is-floating] { z-index: 40; margin: 0.3125rem; border-radius: 100%; box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.1); padding: 0.625rem 1.25rem; }
 
-button:not(.default-broswer)[type~='floating'][size~='small'], .button[type~='floating'][size~='small'] { padding: 0.7rem; }
+button:not(.default-broswer)[is-floating]:hover, .button[is-floating]:hover { box-shadow: 0 6px 15px -1px rgba(0, 0, 0, 0.2); }
 
-button:not(.default-broswer)[type~='floating'][size~='medium'], .button[type~='floating'][size~='medium'] { padding: 1.3rem; }
+button:not(.default-broswer)[disabled], button:not(.default-broswer) .is-disabled, .button[disabled], .button .is-disabled { pointer-events: none; opacity: 0.6; }
 
-button:not(.default-broswer)[type~='floating'][size~='large'], .button[type~='floating'][size~='large'] { padding: 1.6rem; }
-
-button:not(.default-broswer)[type~='floating']:hover, .button[type~='floating']:hover { box-shadow: 0 6px 15px -1px rgba(0, 0, 0, 0.2); }
+button:not(.default-broswer)[inactive], button:not(.default-broswer)[inactive]:active, button:not(.default-broswer)[inactive]:focus, button:not(.default-broswer)[inactive]:hover, .button[inactive], .button[inactive]:active, .button[inactive]:focus, .button[inactive]:hover { cursor: default; ponter-events: none; box-shadow: 0 0 0 transparent; }
 
 fab { display: inline-flex; position: relative; align-items: center; justify-content: center; z-index: 100; }
 
@@ -514,8 +521,6 @@ fab fab-menu[is-up] { bottom: 100%; }
 fab fab-menu[is-down] { top: 100%; }
 
 fab fab-menu > * { margin: .25rem 0; animation: zoom-in .2s; }
-
-fab fab-toggle:focus .button > *, fab fab-toggle:focus button > * { transition: all .4s ease-out; transform: rotate(90deg); }
 
 .checkbox, .radio { display: none; }
 
@@ -591,59 +596,115 @@ fab fab-toggle:focus .button > *, fab fab-toggle:focus button > * { transition: 
 
 .dropdown_toggle:focus { box-shadow: inset 0 0 30rem 1px rgba(0, 0, 0, 0.15); }
 
-.input { display: block; outline: 0; padding: 0.5rem; background-color: #fafafa; border: 1px solid gainsboro; border-radius: 0.2rem; transition: all .2s ease-out; color: #000; font-size: 1rem; line-height: 1.4; }
+.input, textarea { display: inline-flex; align-items: center; outline: none; padding: 0.3125rem 0.9375rem; border: 1px solid #c2c2c2; border-radius: 0.1875rem; transition: all .2s ease-out; color: #000; box-shadow: inset 0 3px 5px -2px rgba(68, 68, 68, 0.15); font-size: 1rem; max-width: 100%; width: 100%; line-height: 1.5; }
 
-.input[type~='transparent'] { border: none; background-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
+.input[type~='transparent'], textarea[type~='transparent'] { border-color: transparent; background-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
 
-.input[type~='transparent'].is-invert { background-color: rgba(0, 0, 0, 0.2); }
+.input[type~='transparent'].is-invert, textarea[type~='transparent'].is-invert { background-color: rgba(0, 0, 0, 0.2); }
 
-.input[type~='transparent']:focus { background-color: #ffffff; color: #444; }
+.input[type~='transparent']:focus, textarea[type~='transparent']:focus { background-color: #ffffff; color: #444; }
 
-.input:focus:not([type~='transparent']) { color: #000; border: 1px solid #999999; }
+.input:not([type~='transparent']):focus, textarea:not([type~='transparent']):focus { box-shadow: 0 0 0 2px rgba(68, 68, 68, 0.3); }
 
-.input[size~='small'] { font-size: 0.875rem; padding: 0.375rem; }
+.input:not(:last-of-type), textarea:not(:last-of-type) { margin-bottom: 0.5em; }
 
-.input[size~='medium'] { font-size: 1.25rem; padding: 0.5rem; }
+.input.is-primary, textarea.is-primary { border: 1px solid #24ccff; }
 
-.input[size~='large'] { font-size: 1.45rem; padding: 0.5625rem; }
+.input.is-primary:focus, textarea.is-primary:focus { box-shadow: 0 0 0 2px rgba(36, 204, 255, 0.5); }
 
-.input.is-primary:focus { border-color: #24ccff; }
+.input.is-info, textarea.is-info { border: 1px solid #2367cd; }
 
-.input.is-info:focus { border-color: #2367cd; }
+.input.is-info:focus, textarea.is-info:focus { box-shadow: 0 0 0 2px rgba(35, 103, 205, 0.5); }
 
-.input.is-success:focus { border-color: #23cd5e; }
+.input.is-success, textarea.is-success { border: 1px solid #23cd5e; }
 
-.input.is-warning:focus { border-color: #ffc905; }
+.input.is-success:focus, textarea.is-success:focus { box-shadow: 0 0 0 2px rgba(35, 205, 94, 0.5); }
 
-.input.is-danger:focus { border-color: #ff0051; }
+.input.is-warning, textarea.is-warning { border: 1px solid #ffd438; }
 
-field { display: inline-flex; align-items: center; }
+.input.is-warning:focus, textarea.is-warning:focus { box-shadow: 0 0 0 2px rgba(255, 212, 56, 0.5); }
+
+.input.is-danger, textarea.is-danger { border: 1px solid #ff0051; }
+
+.input.is-danger:focus, textarea.is-danger:focus { box-shadow: 0 0 0 2px rgba(255, 0, 81, 0.5); }
+
+.input, textarea, textarea, label, .help { width: 100%; max-width: 100%; }
+
+textarea { display: block; min-height: 5em; }
+
+.help { font-size: 0.75rem; }
+
+label { display: block; font-weight: bold; }
+
+.input[is-small], textarea[is-small], textarea[is-small], label[is-small], select[is-small], option[is-small] { font-size: 0.875rem; }
+
+.input[is-medium], textarea[is-medium], textarea[is-medium], label[is-medium], select[is-medium], option[is-medium] { font-size: 1.25rem; }
+
+.input[is-large], textarea[is-large], textarea[is-large], label[is-large], select[is-large], option[is-large] { font-size: 1.45rem; }
+
+textarea:not(:last-child), label:not(:last-child), select:not(:last-child), option:not(:last-child) { margin-bottom: 0.5em; }
+
+control { display: flex; flex-grow: 1; align-items: center; position: relative; }
+
+control > icon { position: absolute; color: #aaaaaa; width: 2.375rem; height: 2rem; margin: 0 !important; }
+
+control > icon[is-small] { width: 2rem; }
+
+control > icon[is-medium] { width: 2.75rem; }
+
+control > icon[is-large] { width: 3.125rem; }
+
+control > textarea + icon { top: 0; }
+
+control[double-icons] icon:first-of-type { left: 0; }
+
+control[double-icons] icon:last-of-type { right: 0; }
+
+control[double-icons] .input, control[double-icons] textarea, control[double-icons] textarea { padding-left: 2.375rem; padding-right: 2.375rem; }
+
+control[double-icons] .input[is-small], control[double-icons] textarea[is-small], control[double-icons] textarea[is-small] { padding-left: 2rem; padding-right: 2rem; }
+
+control[double-icons] .input[is-medium], control[double-icons] textarea[is-medium], control[double-icons] textarea[is-medium] { padding-left: 2.75rem; padding-right: 2.75rem; }
+
+control[double-icons] .input[is-large], control[double-icons] textarea[is-large], control[double-icons] textarea[is-large] { padding-left: 3.125rem; padding-right: 3.125rem; }
+
+control[is-icon-left] .input, control[is-icon-left] textarea, control[is-icon-left] textarea { padding-left: 2.375rem; }
+
+control[is-icon-left] .input[is-small], control[is-icon-left] textarea[is-small], control[is-icon-left] textarea[is-small] { padding-left: 2rem; }
+
+control[is-icon-left] .input[is-medium], control[is-icon-left] textarea[is-medium], control[is-icon-left] textarea[is-medium] { padding-left: 2.75rem; }
+
+control[is-icon-left] .input[is-large], control[is-icon-left] textarea[is-large], control[is-icon-left] textarea[is-large] { padding-left: 3.125rem; }
+
+control[is-icon-left] icon { left: 0; }
+
+control[is-icon-right] .input, control[is-icon-right] textarea, control[is-icon-right] textarea { padding-right: 2.375rem; }
+
+control[is-icon-right] .input[is-small], control[is-icon-right] textarea[is-small], control[is-icon-right] textarea[is-small] { padding-right: 2rem; }
+
+control[is-icon-right] .input[is-medium], control[is-icon-right] textarea[is-medium], control[is-icon-right] textarea[is-medium] { padding-right: 2.75rem; }
+
+control[is-icon-right] .input[is-large], control[is-icon-right] textarea[is-large], control[is-icon-right] textarea[is-large] { padding-right: 3.125rem; }
+
+control[is-icon-right] icon { right: 0; }
+
+control .input, control textarea { margin: 0; }
+
+control .input:focus ~ icon, control textarea:focus ~ icon { color: #444; }
+
+field { display: flex; }
 
 field:not(:last-child) { margin-bottom: .5rem; }
 
-field > label { color: #000; display: block; font-size: 1rem; font-weight: 700; }
+field[addons] { display: inline-flex; overflow: hidden; }
 
-field > label:not(:last-child) { margin-bottom: 0.5em; }
+field[addons] * { margin: 0; border-radius: 0; overflow: hidden; }
 
-field[addons]:first-child, field control icon:first-child { left: 0; border-radius: .2rem 0 0 .2rem; }
+field[addons] control:not(:last-of-type) { margin-right: -2px; }
 
-field[addons]:last-child, field control icon:last-child { right: 0; border-radius: 0 .2rem .2rem 0; }
+field[addons] control:first-of-type { border-radius: 0.2rem 0 0 0.2rem; }
 
-field control { display: inline-flex; align-items: stretch; position: relative; overflow: hidden; }
-
-field control icon { position: absolute; color: #aaaaaa; width: 2.5rem; height: 2.5rem; }
-
-field control:focus > icon { color: #444; }
-
-field control[double-icons] > .input { padding-left: 2.8125rem; padding-right: 2.8125rem; }
-
-field control[is-icon-left] > .input { padding-left: 2.8125rem; }
-
-field control[is-icon-right] > .input { padding-right: 2.8125rem; }
-
-field[addons] * { margin: 0; overflow: hidden; border-radius: 0; height: 2.3125rem; }
-
-field[addons] *:not(:last-child) { margin-right: -2px; }
+field[addons] control:last-of-type { border-radius: 0 0.2rem 0.2rem 0; }
 
 .range { display: block; margin: 1.5rem auto; width: 95%; height: 2px; background-color: rgba(68, 68, 68, 0.5); position: relative; }
 
@@ -710,11 +771,11 @@ tag.is-danger, badge.is-danger { background-color: #ff0051; }
 
 tags[is-rounded], tag[is-rounded], badge[is-rounded] { border-radius: 100em !important; }
 
-tags[size~='small'] > tag, tags[size~='small'] > badge, tag[size~='small'], badge[size~='small'] { line-height: 1rem; font-size: 0.75rem; padding: 0.125rem 0.5rem; }
+tags[is-small] > tag, tags[is-small] > badge, tag[is-small], badge[is-small] { line-height: 1rem; font-size: 0.75rem; padding: 0.125rem 0.5rem; }
 
-tags[size~='medium'] > tag, tags[size~='medium'] > badge, tag[size~='medium'], badge[size~='medium'] { font-size: 16px; line-height: 1.5rem; padding: 0.1875rem 0.75rem; }
+tags[is-large] > tag, tags[is-large] > badge, tag[is-large], badge[is-large] { font-size: 16px; line-height: 1.5rem; padding: 0.1875rem 0.75rem; }
 
-badge { border-radius: 50rem; position: relative; line-height: normal; }
+badge { border-radius: 100em; position: relative; line-height: normal; }
 
 toggles { display: inline-flex; align-items: center; }
 
@@ -726,92 +787,60 @@ toggle > [type='checkbox'] { display: none; }
 
 toggle > label { position: relative; display: block; width: 2.5rem; height: .5rem; line-height: 1.5; margin: 0 .5rem; cursor: pointer; border-radius: .5rem; background-color: #f0f0f0; box-shadow: inset 0 0 7px -1px rgba(68, 68, 68, 0.2); }
 
-toggle > label:before { content: ''; position: absolute; transform: translateY(-50%); top: 50%; left: 0; width: 1.25rem; height: 1.25rem; line-height: 1.5rem; border-radius: 100%; background-color: #444; transition: all .25s ease-out; z-index: 10; }
+toggle > label:before { content: ''; position: absolute; transform: translateY(-50%); top: 50%; left: 0; width: 1.25rem; height: 1.25rem; line-height: 1.5rem; border-radius: 100%; background-color: #c4c4c4; box-shadow: 0 0 3px 1px rgba(68, 68, 68, 0.2); transition: all .25s ease-out; z-index: 10; }
 
-toggle > label:hover::before { box-shadow: 0 0 5px 1px rgba(68, 68, 68, 0.25); left: -.15rem; width: 1.4rem; height: 1.4rem; }
+toggle > label:hover::before { left: -.15rem; width: 1.4rem; height: 1.4rem; }
 
-toggle[size~='small'] > label { height: .25rem; }
+toggle[is-small] > label { height: .25rem; }
 
-toggle[size~='large'] > label { height: 1.25rem; border-radius: 5rem; }
+toggle[is-large] > label { height: 1.25rem; border-radius: 5rem; }
 
 toggle > :checked + label { background-color: rgba(68, 68, 68, 0.5); transform: rotate(0); }
 
 toggle > :checked + label::before { left: 1.25rem; background-color: #434343; }
 
-toggle.is-primary { background-color: transparent; }
+toggle.is-primary > :checked + label { background-color: rgba(36, 204, 255, 0.2); }
 
-toggle.is-primary > label { background-color: rgba(36, 204, 255, 0.2); }
+toggle.is-primary > :checked + label::before { background-color: #24ccff; }
 
-toggle.is-primary > label::before { background-color: #24ccff; }
+toggle.is-info > :checked + label { background-color: rgba(35, 103, 205, 0.2); }
 
-toggle.is-primary > :checked + label { background-color: rgba(0, 184, 240, 0.3); }
+toggle.is-info > :checked + label::before { background-color: #2367cd; }
 
-toggle.is-primary > :checked + label::before { background-color: #00b8f0; }
+toggle.is-success > :checked + label { background-color: rgba(35, 205, 94, 0.2); }
 
-toggle.is-info { background-color: transparent; }
+toggle.is-success > :checked + label::before { background-color: #23cd5e; }
 
-toggle.is-info > label { background-color: rgba(35, 103, 205, 0.2); }
+toggle.is-warning > :checked + label { background-color: rgba(255, 212, 56, 0.2); }
 
-toggle.is-info > label::before { background-color: #2367cd; }
+toggle.is-warning > :checked + label::before { background-color: #ffd438; }
 
-toggle.is-info > :checked + label { background-color: rgba(27, 81, 161, 0.3); }
+toggle.is-danger > :checked + label { background-color: rgba(255, 0, 81, 0.2); }
 
-toggle.is-info > :checked + label::before { background-color: #1b51a1; }
+toggle.is-danger > :checked + label::before { background-color: #ff0051; }
 
-toggle.is-success { background-color: transparent; }
+toggle.is-cloud > :checked + label { background-color: rgba(255, 255, 255, 0.2); }
 
-toggle.is-success > label { background-color: rgba(35, 205, 94, 0.2); }
-
-toggle.is-success > label::before { background-color: #23cd5e; }
-
-toggle.is-success > :checked + label { background-color: rgba(27, 161, 74, 0.3); }
-
-toggle.is-success > :checked + label::before { background-color: #1ba14a; }
-
-toggle.is-warning { background-color: transparent; }
-
-toggle.is-warning > label { background-color: rgba(255, 212, 56, 0.2); }
-
-toggle.is-warning > label::before { background-color: #ffd438; }
-
-toggle.is-warning > :checked + label { background-color: rgba(255, 201, 5, 0.3); }
-
-toggle.is-warning > :checked + label::before { background-color: #ffc905; }
-
-toggle.is-danger { background-color: transparent; }
-
-toggle.is-danger > label { background-color: rgba(255, 0, 81, 0.2); }
-
-toggle.is-danger > label::before { background-color: #ff0051; }
-
-toggle.is-danger > :checked + label { background-color: rgba(204, 0, 65, 0.3); }
-
-toggle.is-danger > :checked + label::before { background-color: #cc0041; }
-
-toggle.is-cloud { background-color: transparent; }
-
-toggle.is-cloud > label { background-color: rgba(255, 255, 255, 0.2); }
-
-toggle.is-cloud > label::before { background-color: #ffffff; }
-
-toggle.is-cloud > :checked + label { background-color: rgba(230, 230, 230, 0.3); }
-
-toggle.is-cloud > :checked + label::before { background-color: #e6e6e6; }
+toggle.is-cloud > :checked + label::before { background-color: #ffffff; }
 
 /*clase disabled para elemento toogle*/
-toggle[disabled] > label, toggles[disabled] > toggle > label { background-color: #c2c2c2 !important; pointer-events: none; }
+toggle[disabled] > label, toggles[disabled] > toggle > label { background-color: #e8e8e8 !important; pointer-events: none; }
 
-toggle[disabled] > label::before, toggles[disabled] > toggle > label::before { background-color: #767676 !important; pointer-events: none; }
+toggle[disabled] > label::before, toggles[disabled] > toggle > label::before { background-color: #cfcfcf !important; pointer-events: none; }
 
 toggle[disabled] > label:hover::before { width: 1.25rem; height: 1.25rem; left: 0; }
 
-box { display: block; padding: 1rem; max-width: 100%; overflow: hidden; border: 1px solid rgba(68, 68, 68, 0.085); border-radius: .2rem; box-shadow: 0 0.1875rem 0.3125rem -0.125rem rgba(0, 0, 0, 0.15); }
+box { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 1rem; max-width: 100%; overflow: hidden; border: 1px solid rgba(68, 68, 68, 0.085); border-radius: .2rem; box-shadow: 0 0.1875rem 0.3125rem -0.125rem rgba(0, 0, 0, 0.15); }
+
+box[is-mobile] { flex-direction: row; }
+
+box[inset] { box-shadow: inset 0 0.1875rem 0.3125rem -0.125rem rgba(0, 0, 0, 0.15); }
 
 group, buttons { display: flex; flex-direction: column; }
 
 group[is-mobile], buttons[is-mobile] { flex-direction: row; }
 
-group[addons], buttons[addons] { display: inline-flex; }
+group[addons], buttons[addons] { display: inline-flex; flex-direction: row; }
 
 group[addons] > *:not(:first-child), buttons[addons] > *:not(:first-child), group[addons] > *:not(:last-child), buttons[addons] > *:not(:last-child) { border-radius: 0; margin: 0 -1px; }
 
@@ -923,11 +952,11 @@ group[addons][is-rounded] > :last-child, buttons[addons][is-rounded] > :last-chi
 
 .card_footer:hover { border-top: 1px solid #24ccff; }
 
-.snippet { display: block; max-width: 100%; position: relative; overflow: hidden; background-color: whitesmoke; padding: 1.5rem 1rem; color: #444; /* .expand:focus ~ pre { max-height: 100%; } */ }
+.snippet { display: block; max-width: 100%; position: relative; background-color: whitesmoke; padding: 1rem; color: #444; border-radius: 5px; overflow: hidden; }
 
-.snippet pre { max-height: 300px; overflow-y: auto; }
+.snippet pre { overflow: auto; }
 
-.snippet .comment { display: block; color: rgba(0, 0, 0, 0.4); }
+.snippet .comment { display: block; color: rgba(0, 0, 0, 0.3); }
 
 .snippet .tg { color: #2980b9; margin: 0 0.3rem; }
 
@@ -937,9 +966,9 @@ group[addons][is-rounded] > :last-child, buttons[addons][is-rounded] > :last-chi
 
 .snippet .vat { color: #16a085; margin-right: .3rem; }
 
-.snippet .copy, .snippet .expand { font-size: 0.75rem; position: absolute; background-color: #e8e8e8; border: 0; border-radius: 0; margin: 0 -1px; top: 0; right: 0; }
+.snippet .copy { font-size: 0.75rem; position: absolute; background-color: #e8e8e8; border: 0; border-radius: 100%; margin: 0 -1px; top: 3px; right: 3px; }
 
-.snippet .expand { right: 1.8rem; }
+.snippet .copy:hover { background-color: #444; color: #ffffff; }
 
 .media, .media_content { display: flex; }
 
@@ -976,7 +1005,7 @@ menu .menu-list ul, menu .menu-list ol { margin-left: 1.5rem; border-left: 1px s
 
 menu .menu-list ul:hover, menu .menu-list ol:hover { border-color: rgba(0, 0, 0, 0.2); }
 
-example { display: block; position: relative; background-color: transparent !important; box-shadow: inset 0 0 0 1px #444; border-radius: 0 .2rem .2rem; margin: 2.5rem auto; padding: 2px; }
+example { display: block; position: relative; box-shadow: inset 0 0 0 1px #444; border-radius: 0 .2rem .2rem; margin: 2.5rem auto; padding: 2px; }
 
 example:before { /* content: attr(value); */ content: 'example'; letter-spacing: 0.085rem; position: absolute; padding: 0 .5rem; top: -1.2rem; left: 0; line-height: 1.2rem; height: 1.2rem; background-color: #444; color: #ffffff; font-weight: bold; border-radius: .2rem .2rem 0 0; font-size: 0.75rem; text-transform: uppercase; }
 
@@ -1181,6 +1210,11 @@ tabs[toggle] tab:last-child { border-radius: 0 .25rem .25rem 0; }
 
 @keyframes fade-out { from { opacity: 1; }
   to { opacity: 0; } }
+
+.bounty-animate { animation: bounty 1s ease-out infinite; }
+
+@keyframes bounty { from { opacity: 0; }
+  to { opacity: 1; } }
 
 .is-flex { display: flex; position: relative; flex-wrap: wrap; }
 

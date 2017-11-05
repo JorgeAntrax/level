@@ -47,22 +47,22 @@ toggle {
 			height: 1.25rem;
 			line-height: 1.5rem;
 			border-radius: 100%;
-			background-color: $dark;
+			background-color: lighten($dark, 50%);
+			box-shadow: 0 0 3px 1px rgba($dark, .2);
 			transition: all .25s ease-out;
 			z-index: 10;
 		}
 		&:hover::before {
-			box-shadow: 0 0 5px 1px rgba($dark, .25);
 			left: -.15rem;
 			width: 1.4rem;
 			height: 1.4rem;
 		}
 	}
 	/*clases small y large para el toggle*/
-	&[size~='small'] > label {
+	&[is-small] > label {
 		height: .25rem;
 	}
-	&[size~='large'] > label {
+	&[is-large] > label {
 		height: 1.25rem;
 		border-radius: 5rem;
 	}
@@ -89,12 +89,12 @@ toggle {
 /*clase disabled para elemento toogle*/
 toggle[disabled] > label,
 toggles[disabled] > toggle > label {
-	background-color: darken(whitesmoke, 20) !important;
+	background-color: darken(whitesmoke, 5) !important;
 	pointer-events: none;
 }
 toggle[disabled] > label::before,
 toggles[disabled] > toggle > label::before {
-	background-color: darken(whitesmoke, 50) !important;
+	background-color: darken(whitesmoke, 15) !important;
 	pointer-events: none;
 }
 

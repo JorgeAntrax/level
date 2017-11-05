@@ -1,12 +1,11 @@
 //variables
-$button-background-color: darken(whitesmoke, 4) !default;
+$button-background-color: whitesmoke !default;
 $button-border-color: 1px solid rgba($black, 0.1) !default;
 $button-text-color: $dark !default;
-$button-border-radius: $share-border-radius;
+$button-border-radius: rem(3px);
 
-$button-padding: rem($text-default / 2);
-$button-padding-small: rem(($text-default - 4) / 2);
-$button-padding-large: rem(($text-default + 2) / 2);
+$button-padding: rem(5px) rem($text-default - 1px) !default;
+$button-line-height: 1.5 !default;
 
 $button-circle: 100em !default;
 
@@ -19,79 +18,59 @@ button:not(.default-broswer),
 	font-size: rem($text-default);
 	outline: none;
 	cursor: pointer;
-	line-height: 1.4;
 
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	vertical-align: top;
+	line-height: 1.5;
 
-	position: relative;
-	overflow: hidden;
 	user-select: none;
 
 	border-radius: $button-border-radius;
-	padding-top: $button-padding;
-	padding-bottom: $button-padding;
-	padding-left: 0.7rem;
-	padding-right: 0.7rem;
-
-	&[class^='is-'] {
-		border-color: transparent;
-	}
+	padding: $button-padding;
 
 	&[is-rounded] {
 		border-radius: $button-circle;
 	}
 
-	&:hover {
-		box-shadow: inset 0 0 100px 1px rgba($black, 0.035);
+	&:hover,
+	&.hovered {
+		box-shadow: inset 0 0 10em 1px rgba($black, 0.03);
 	}
 
-	&:active {
-		box-shadow: inset 0 0 100px 1px rgba($black, 0.085);
+	&:focus,
+	&.focused {
+		box-shadow: 0 0 0 2px rgba($dark, .1);
 	}
-
-	&:focus {
-		font-weight: bold;
-	}
-
 	//flex direction column
-	&[type~='box'] {
+	&[is-boxed] {
 		flex-direction: column;
-		padding: 0.5rem;
-		icon {
-			margin: 0 0 0.5rem 0 !important;
+		padding: 0.5em;
+		icon:first-child,
+		icon:last-child {
+			margin: 0 0 0.5rem 0;
 		}
 		justify-content: space-between;
 	}
 
-	&[size~='small'] {
+	&[is-small] {
 		font-size: $text-small;
-		padding-top: $button-padding-small;
-		padding-bottom: $button-padding-small;	
 	}
-	&[size~='medium'] {
+	&[is-medium] {
 		font-size: $text-medium;
-		padding-top: $button-padding;
-		padding-bottom: $button-padding;	
 	}
-	&[size~='large'] {
+	&[is-large] {
 		font-size: $text-large;
-		padding-top: $button-padding-large;
-		padding-bottom: $button-padding-large;	
 	}
-	
-	&[type~='icon'] {
-		padding: ($button-padding + 0.05);
 
-		&[size~='small'] {
-			padding: ($button-padding-small + 0.05);
-		}
-		&[size~='medium'] {
-			padding: ($button-padding + 0.09);	
-		}
-		&[size~='large'] {
-			padding: ($button-padding-large + 0.1);	
+	icon {
+		height: $button-line-height;
+		&:first-child:last-child {
+			width: 1.5em;
+			height: 1.5em;
+			margin-left: rem(-10px);
+			margin-right: rem(-10px);
 		}
 	}
 
@@ -108,32 +87,33 @@ button:not(.default-broswer),
 		border-color: $cloud;
 	}
 
-	&[class$='invert-outline'] {
+	&[class$='-inverse'] {
 		background-color: transparent;
 		border: 1px solid $cloud;
 		color: $cloud;
 	}
 
 	// clase que hace un boton flotante
-	&[type~='floating'] {
+	&[is-floating] {
 		z-index: 40;
-		height: auto;
-		padding: 1rem;
 		margin: rem(5px);
-		position: relative;
 		border-radius: 100%;
 		box-shadow: 0 2px 5px 1px rgba(#000, .1);
-		&[size~='small'] {
-			padding: 0.7rem;
-		}
-		&[size~='medium'] {
-			padding: 1.3rem;
-		}
-		&[size~='large'] {
-			padding: 1.6rem;
-		}
+		padding: rem(10px) rem($text-default + 4px);
 		&:hover {
 			box-shadow: 0 6px 15px -1px rgba(#000, .2);
+		}
+	}
+
+	&[disabled], .is-disabled{
+		pointer-events: none;
+		opacity: 0.6;
+	}
+	&[inactive] {
+		&, &:active, &:focus, &:hover {
+			cursor: default;
+			ponter-events: none;
+			box-shadow: 0 0 0 transparent;
 		}
 	}
 }
@@ -182,11 +162,5 @@ fab {
 			margin: .25rem 0;
 			animation: zoom-in .2s;
 		}
-	}
-
-	fab-toggle:focus .button > *,
-	fab-toggle:focus button > * {
-		transition: all .4s ease-out;
-		transform: rotate(90deg);
 	}
 }

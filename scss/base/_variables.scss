@@ -22,14 +22,9 @@ $desktop: '1024px' !default;
 $widescreen: '1300px' !default;
 
 //breakpoints entre min y max width
-$only-touch: '768px';
-$only-tablet: '1024px';
-$only-desktop: '1300px';
-
-$line-height-default: 1.5 !default; // line-height initial
-$share-padding: 0.5rem;
-$share-border-radius: 0.2rem;
-
+$only-touch: '768px' !default;
+$only-tablet: '1024px' !default;
+$only-desktop: '1300px' !default;
 
 // font family
 $family: sans-serif !default; // nombre de la fuente a importar
@@ -49,8 +44,8 @@ $text-large: 1.45rem !default;
 $text-x-large: 1.65rem !default;
 
 // rendering text
-$smooting-text: antialiased;
-$render-text: optimizeLegibility;
+$smooting-text: antialiased !default;
+$render-text: optimizeLegibility !default;
 
 // Tamaño de encabezados
 $h1-size: 2em !default;
@@ -60,7 +55,12 @@ $h4-size: 1.3em !default;
 $h5-size: 1em !default;
 $h6-size: .75em !default;
 
-$heading-color: $black;
+$heading-color: $black !default;
 
 // variables hr
-$hr-height: 1px;
+$hr-height: 1px !default;
+
+// estilos compartidos
+$line-height-default: 1.5 !default; // line-height initial
+$share-padding: 0.5rem !default;
+$share-border-radius: 0.2rem !default;

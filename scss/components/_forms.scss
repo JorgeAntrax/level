@@ -1,28 +1,28 @@
-$input-bg-color: lighten(whitesmoke, 2) !default;
-$input-border: 1px solid darken( whitesmoke, 10) !default;
-$input-shadow-focus: inset 0 2px 8px -2px rgba($black, .05) !default;
-$input-small-padding: rem(($text-default - 4) / 2) !default;
-$input-large-padding: rem(($text-default + 2) / 2) !default;
-$input-padding: rem($text-default / 2) !default;
 
+$input-border: 1px solid darken(whitesmoke, 20);
+$input-padding: rem(5px) rem($text-default - 1px) !default;
+
+$input-line-height: 1.5 !default;
 
 //*********  Inicio Estilos input text etc  ***********
 .input{
-	display: block;
-	outline: 0;
+	display: inline-flex;
+	align-items: center;
+	outline: none;
 	padding: $input-padding;
-	background-color: $input-bg-color;
 	border: $input-border;
-	border-radius: $share-border-radius;
+	border-radius: rem(3px);
 	transition: all .2s ease-out;
 	color: $black;
+	box-shadow: inset 0 3px 5px -2px rgba($dark, .15);
 	font-size: rem($text-default);
-	line-height: 1.4;
-	
+	max-width: 100%;
+	width: 100%;
+	line-height: $input-line-height;
 	
 	// estilo transparente
 	&[type~='transparent'] {
-		border: none;
+		border-color: transparent;
 		background-color: rgba($cloud, .2);
 		color: $cloud;
 
@@ -34,102 +34,179 @@ $input-padding: rem($text-default / 2) !default;
 			color: $dark;
 		}
 	}
-	&:focus:not([type~='transparent']) {
-		color: $black;
-		border: 1px solid lighten($black, 60);
+	&:not([type~='transparent']):focus {
+		box-shadow: 0 0 0 2px rgba($dark, .3);
 	}
-
-	&[size~='small'] {
-		font-size: $text-small;
-		padding: $input-small-padding;
-	}
-
-	&[size~='medium'] {
-		font-size: $text-medium;
-		padding: $input-padding;
-	}
-
-	&[size~='large'] {
-		font-size: $text-large;
-		padding: $input-large-padding;
+	&:not(:last-of-type) {
+    margin-bottom: 0.5em;
 	}
 	
-	@include input-style(primary, $primary);
-	@include input-style(info, $info);
-	@include input-style(success, $success);
-	@include input-style(warning, $warning);
-	@include input-style(danger, $danger);
+	@include forms-style(primary, $primary);
+	@include forms-style(info, $info);
+	@include forms-style(success, $success);
+	@include forms-style(warning, $warning);
+	@include forms-style(danger, $danger);
 }
 
+.input, textarea, label, .help {
+	width: 100%;
+	max-width: 100%;
+}
+// textarea
+
+textarea {
+	@extend .input;
+	display: block;
+	min-height: 5em;
+}
+
+.help {
+	font-size: $text-x-small;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.input, textarea, label, select, option {
+	&[is-small] { font-size: $text-small;	}
+	&[is-medium] { font-size: $text-medium;	}
+	&[is-large] { font-size: $text-large;	}
+
+}
+textarea, label, select, option {
+	&:not(:last-child) {
+    margin-bottom: 0.5em;
+	}
+}
 //############# Fin de estilos del input ###########
 
+//variables
+$icon-gap: rem(38px) !default;
+$icon-gap-small: rem(32px) !default;
+$icon-gap-medium: rem(44px) !default;
+$icon-gap-large: rem(50px) !default;
+
 //control group
-field {
-	display: inline-flex;
+
+control {
+	display: flex;
+	flex-grow: 1;
 	align-items: center;
+	position: relative;
+
+	& > icon {
+		position: absolute;
+		color: lighten($dark, 40);
+		width: $icon-gap;
+		height: 2rem;
+		margin: 0 !important;
+		&[is-small] {width: $icon-gap-small;}
+		&[is-medium] {width: $icon-gap-medium;}
+		&[is-large] {width: $icon-gap-large;}
+	}
+	
+	& > textarea + icon {	top: 0; }
+
+	&[double-icons]{
+		icon:first-of-type {
+			left: 0;
+		}
+		icon:last-of-type {
+			right: 0;
+		}
+		.input, textarea {
+			padding-left: $icon-gap;
+			padding-right: $icon-gap;
+
+			&[is-small]{
+				padding-left: $icon-gap-small;
+				padding-right: $icon-gap-small;
+			}
+			&[is-medium]{
+				padding-left: $icon-gap-medium;
+				padding-right: $icon-gap-medium;
+			}
+			&[is-large]{
+				padding-left: $icon-gap-large;
+				padding-right: $icon-gap-large;
+			}
+		}
+	}
+
+	&[is-icon-left]{
+		.input, textarea {	
+			padding-left: $icon-gap;
+
+			&[is-small]{
+				padding-left: $icon-gap-small;
+			}
+			&[is-medium]{
+				padding-left: $icon-gap-medium;
+			}
+			&[is-large]{
+				padding-left: $icon-gap-large;
+			}
+		}
+		icon {
+			left: 0;
+		}
+	}
+
+	&[is-icon-right]{
+		.input, textarea {	
+			padding-right: $icon-gap;
+
+			&[is-small]{
+				padding-right: $icon-gap-small;
+			}
+			&[is-medium]{
+				padding-right: $icon-gap-medium;
+			}
+			&[is-large]{
+				padding-right: $icon-gap-large;
+			}
+		}
+		icon {
+			right: 0;
+		}
+	}
+
+	.input{
+		margin: 0;
+		&:focus ~ icon {
+			color: $dark;
+		}
+	}
+}
+
+
+field {
+	display: flex;
 
 	&:not(:last-child) {
 		margin-bottom: .5rem;
 	}
-
-	& > label {
-    color: $black;
-    display: block;
-    font-size: 1rem;
-    font-weight: 700;
-
-		&:not(:last-child) {
-	    margin-bottom: 0.5em;
-		}
-	}
-
-	&[addons]:first-child,
-	& control icon:first-child {
-		left: 0;
-		border-radius: .2rem 0 0 .2rem;
-	}
-	&[addons]:last-child,
-	& control icon:last-child {
-		right: 0;
-		border-radius: 0 .2rem .2rem 0;
-	}
-
-	control {
-		display: inline-flex;
-		align-items: stretch;
-		position: relative;
-		overflow: hidden;
-
-		icon {
-			position: absolute;
-			color: lighten($dark, 40);
-			width: rem(40px);
-			height: rem(40px);
-		}
-		&:focus > icon {
-			color: $dark;
-		}
-
-		&[double-icons] > .input {	
-			padding-left: rem(45px);
-			padding-right: rem(45px);
-		}
-		&[is-icon-left] > .input {
-			padding-left: rem(45px);
-		}
-		&[is-icon-right] > .input {
-			padding-right: rem(45px);
-		}
-	}
-
+	
 	&[addons] {
+		display: inline-flex;
+		overflow: hidden;
 		* {
 			margin: 0;
-			overflow: hidden;
 			border-radius: 0;
-			height: rem(37px);
-			&:not(:last-child) {
+			overflow: hidden;
+		}
+
+		control {
+			&:not(:last-of-type) {
 				margin-right: -2px;
+			}
+			&:first-of-type {
+				border-radius: $share-border-radius 0 0 $share-border-radius;
+			}
+			&:last-of-type {
+				border-radius: 0 $share-border-radius $share-border-radius 0;
 			}
 		}
 	}

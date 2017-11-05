@@ -77,13 +77,13 @@ tags, tag {
 	}
 }
 
-tags[size~='small'] > tag, tag[size~='small'] {
+tags[is-small] > tag, tag[is-small] {
 	line-height: 1rem;
 	font-size: $text-x-small;
 	padding: rem(2px) rem(8px);
 }
 
-tags[size~='medium'] > tag, tag[size~='medium'] {
+tags[is-large] > tag, tag[is-large] {
 	font-size: $text-default;
 	line-height: 1.5rem;
 	padding: rem(3px) rem(12px);
@@ -91,7 +91,7 @@ tags[size~='medium'] > tag, tag[size~='medium'] {
 
 badge {
 	@extend tag;
-	border-radius: 50rem;
+	border-radius: 100em;
 	position: relative;
 	line-height: normal;
 }

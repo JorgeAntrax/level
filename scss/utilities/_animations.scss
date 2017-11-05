@@ -49,3 +49,17 @@
 		opacity: 0;
 	}
 }
+
+// rebote
+.bounty-animate {
+	animation: bounty 1s ease-out infinite;
+}
+@keyframes bounty {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+

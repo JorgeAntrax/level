@@ -12,42 +12,38 @@ icon {
   height: $width-icon;
   font-size: $text-default;
 
-  &[size] {
-    margin: 0;
-    padding: 0;
-  }
-  &[size~='normal']{
+  &[is-normal]{
     font-size: $text-default;
     width: $width-icon;
     height: $width-icon;
   }
-  &[size~='small']{
+  &[is-small]{
   	font-size: $text-small;
   	width: $width-icon-small;
   	height: $width-icon-small;
   }
-  &[size~='medium']{
+  &[is-medium]{
   	font-size: $text-medium;
   	width: $width-icon-medium;
     height: $width-icon-medium;
   }
-  &[size~='large']{
+  &[is-large]{
   	font-size: $text-large;
   	width: $width-icon-large;
     height: $width-icon-large;
   }
-  &[size~='jumbo']{
+  &[is-jumbo]{
   	font-size: $text-x-large;
   	width: $width-icon-jumbo;
     height: $width-icon-jumbo;
   }
-  &:not([is-container]):first-child:not(:last-child) {
+  &:first-child:not(:last-child) {
     margin-right: .5rem;
   }
-  &:not([is-container]):last-child:not(:first-child) {
+  &:last-child:not(:first-child) {
     margin-left: .5rem;
   }
-  &:not([is-container]):last-child:first-child {
+  &:last-child:first-child {
     margin: 0;
   }
 }

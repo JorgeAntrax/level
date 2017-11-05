@@ -1,0 +1,34 @@
+tooltip {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+
+	data {
+		display: none;
+		position: absolute;
+		bottom: 1.5rem;
+		padding: 0.5rem;
+		border-radius: rem(4px);
+		z-index: 10;
+
+		background-color: $cloud;
+		box-shadow: 0 2px 8px 1px rgba($black, 0.2);
+		transition: all .5s ease-out;
+		&:before {
+			content: '';
+			display: block;
+			width: .5rem;
+			height: .5rem;
+			background-color: $cloud;
+			position: absolute;
+			bottom: -.25rem;
+			left: 1rem;
+			transform: rotate(45deg);
+		}
+	}
+
+	&:hover > data {
+		display: block;
+		animation: zoom-in .25s ease;
+	}
+}
