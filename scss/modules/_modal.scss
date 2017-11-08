@@ -1,5 +1,5 @@
 // ventanas modal
-.modal {
+modal {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -14,7 +14,7 @@
 		display: flex;
 	}
 	
-	&_content {
+	content {
 		display: flex;
 		max-width: 80%;
 		max-height: 90%;
@@ -25,7 +25,7 @@
 		box-shadow: 0 5px 20px 1px rgba($black, .4);
 		z-index: 510;
 	}
-	&_head {
+	&-head {
 		display: flex;
 		align-items: center;
 		padding-right: .5rem;
@@ -33,7 +33,7 @@
 		line-height: 2rem;
 		height: 2rem;
 	}
-	&_body {
+	&-body {
 		display: block;
 		width: 100%;
 		min-height: 100%;

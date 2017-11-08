@@ -1,8 +1,8 @@
-$width-icon-small: $text-small;
-$width-icon-medium: $text-medium;
-$width-icon-large: $text-large;
-$width-icon-jumbo: $text-x-large;
-$width-icon: 1rem;
+$width-icon-small: 1rem;
+$width-icon-medium: 1.5rem;
+$width-icon-large: 2rem;
+$width-icon-jumbo: 2rem;
+$width-icon: 1.5rem;
 
 icon {
 	display: inline-flex;
@@ -11,6 +11,7 @@ icon {
   width: $width-icon;
   height: $width-icon;
   font-size: $text-default;
+  border-radius: rem(2px);
 
   &[is-normal]{
     font-size: $text-default;

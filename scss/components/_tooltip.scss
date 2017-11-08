@@ -2,33 +2,104 @@ tooltip {
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
+	margin: 0 rem(5px);
 
 	data {
 		display: none;
 		position: absolute;
-		bottom: 1.5rem;
-		padding: 0.5rem;
-		border-radius: rem(4px);
-		z-index: 10;
-
-		background-color: $cloud;
-		box-shadow: 0 2px 8px 1px rgba($black, 0.2);
+		padding: 0 0.5rem;
+		border-radius: rem(3px);
+		min-width: rem(150px);
+		z-index: 1000;
+		padding: 0.2rem 0.5rem;
 		transition: all .5s ease-out;
+
+		&, &:before {
+			background-color: $cloud;
+			border: 1px solid rgba($black, 0.1);
+			box-shadow: 0 2px 5px -1px rgba($black, 0.1);
+		}
+
 		&:before {
-			content: '';
+			border-top: 0;
+			border-left: 0;
 			display: block;
 			width: .5rem;
 			height: .5rem;
-			background-color: $cloud;
 			position: absolute;
-			bottom: -.25rem;
-			left: 1rem;
 			transform: rotate(45deg);
+			box-shadow: none;
+		}
+	}
+
+	&[is-down] > data,
+	&[is-up] > data,
+	&[is-left] > data,
+	&[is-right] > data {
+		&:before {
+			content: '';
+		}
+	}
+
+	&[is-down] > data {
+		top: 1.5rem;
+		left: 0;
+		&:before {
+			top: -.3rem;
+			transform: rotate(-135deg);
+		}
+	}
+	&[is-up] > data {
+		bottom: 1.5rem;
+		left: 0;
+		&:before {
+			bottom: -.3rem;
+		}
+	}
+	&[is-right] > data {
+		left: 120%;
+		&:before {
+			left: -.3rem;
+			transform: rotate(135deg);
+		}
+	}
+	&[is-left] > data {
+		right: 120%;
+		&:before {
+			right: -.3rem;
+			transform: rotate(-45deg);
 		}
 	}
 
 	&:hover > data {
-		display: block;
+		display: inline-flex;
+		align-items: center;
 		animation: zoom-in .25s ease;
+	}
+
+	&.is-primary:hover > data {
+		&, &:before {
+			border-color: $primary;
+		}
+	}
+	&.is-info:hover > data {
+		&, &:before {
+			border-color: $info;
+		}
+	}
+	&.is-success:hover > data {
+		&, &:before {
+			border-color: $success;
+		}
+	}
+	&.is-warning:hover > data {
+		&, &:before {
+			border-color: $warning;
+		}
+	}
+	&.is-danger:hover > data {
+		&, &:before {
+			border-color: $danger;
+		}
 	}
 }

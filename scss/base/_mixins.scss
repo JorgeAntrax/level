@@ -30,9 +30,23 @@
 }
 //mixin media queries para puntos min & max
 
-@mixin only ($breakpoint1, $breakpoint2: $widescreen){
-	@media screen and (min-width: $breakpoint1 ) and (max-width: $breakpoint2 ) {
-		@content
+@mixin only ($breakpoint, $breakpoint2: $widescreen){
+	@if $breakpoint == 'only-touch' {
+		@media screen and (min-width: 320px) and (max-width: $only-touch) {
+			@content
+		}
+	} @else if $breakpoint == 'only-tablet' {
+		@media screen and (min-width: $tablet) and (max-width: $only-tablet) {
+			@content
+		}			
+	} @else if $breakpoint == 'only-desktop' {
+		@media screen and (min-width: $desktop) and (max-width: $only-desktop) {
+			@content
+		}		
+	} @else {	
+		@media screen and (min-width: $breakpoint) and (max-width: $breakpoint2) {
+			@content
+		}
 	}
 }
 
@@ -133,26 +147,24 @@
 	&.is-#{$class} {
 		border: 1px solid $bg-color;
 		&:focus {
-				box-shadow: 0 0 0 2px rgba($bg-color, .5);
-			}
+			box-shadow: 0 0 0 2px rgba($bg-color, .2);
 		}
 	}
+}
 
 //estilos para los checkbox y radio
 @mixin radio-check-style ($class, $color) {
-	.checkbox, .radio {
-		& ~ label.#{$class} {
-			//cambia el color de borde de los checbox y radio buttons
+	checkbox, radio {
+		&.is-#{$class} > label {
 			border: 1px solid $color;
 		}
-		// en estado checked cambia el color de borde y fondo
-		&:checked ~ label.#{$class} {
-			border-color:$color;
+		&.is-#{$class} :checked ~ label {
+			box-shadow: inset 0 0 0 2px $cloud;
 			background-color: $color;
-			// modificador que agrega un box shadow interno de color blanco dando otro efecto
-			&.outline {
-				box-shadow: inset 0 0 0 2px $cloud;
-			}
+		}
+		// en estado checked cambia el color de borde y fondo
+		&[is-check].is-#{$class} :checked ~ label {
+			border-color:$color;
 		}
 	}
 }

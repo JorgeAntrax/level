@@ -117,23 +117,23 @@ underline {
   text-decoration: underline;
 }
 // color text
-primary {
+primary, .is-text-primary {
   color: $primary;
 }
 
-info {
+info, .is-text-info {
   color: $info;
 }
 
-success {
+success, .is-text-success {
   color: $success;
 }
 
-warning {
+warning, .is-text-warning {
   color: darken($warning, 10);
 }
 
-danger {
+danger, .is-text-danger {
   color: $danger;
 }
 
@@ -206,7 +206,7 @@ img {
 [disabled], .is-disabled {
   pointer-events: none !important;
   user-select: none !important;
-  opacity: .7 !important;
+  opacity: .6 !important;
 }
 
 //estilos de etiquetas h1,h2,h3,h4,h5,h6

@@ -1,19 +1,15 @@
 // tables
 
-.table {
-	display: table;
+table:not(.default-broswer) {
 	max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid rgba($dark, .2);
-
-	table, .table{
-		border: 0;
-	}
 	
-	&.is-boxed {
+	&[is-block] {
 		width: 100%;
 	}
+
 	thead, tr:not(:last-child) {
 		border-bottom: 1px solid rgba($dark, .2);
 	}
@@ -25,8 +21,10 @@
 		&.is-active {
 			background-color: $primary;
 			color: $cloud;
+			border-radius: rem(3px);
 		}
 	}
+
 	td, th {
 		text-align: left;
 		padding: .5rem;
@@ -34,8 +32,12 @@
 		vertical-align: middle;
 	}
 
-	&--striped {
-		@extend .table;
+	&[is-narrow] td,
+	&[is-narrow] th {
+		min-width: 50px;
+	}
+	
+	&[is-striped] {
 		tr:nth-child(2n) {
 			background-color: whitesmoke;
 			&:hover {
@@ -44,8 +46,7 @@
 		}
 	}
 
-	&--cell {		
-		@extend .table;
+	&[is-cell] {
 		td, th {
 			border:1px solid rgba($dark, .2);
 			border-top: 0;

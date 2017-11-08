@@ -69,7 +69,8 @@ message {
 	border: 1px solid $dark;
 	border-radius:.2rem;
 	overflow: hidden;
-	
+	margin: .5em 0;
+		
 	&_head {
 		justify-content:space-between;
 		padding: .5rem;

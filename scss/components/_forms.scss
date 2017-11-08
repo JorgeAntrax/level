@@ -1,44 +1,48 @@
 
 $input-border: 1px solid darken(whitesmoke, 20);
 $input-padding: rem(5px) rem($text-default - 1px) !default;
-
+$select-padding: $input-padding;
 $input-line-height: 1.5 !default;
 
 //*********  Inicio Estilos input text etc  ***********
 .input{
 	display: inline-flex;
 	align-items: center;
-	outline: none;
+	vertical-align: top;
+	position: relative;
 	padding: $input-padding;
 	border: $input-border;
 	border-radius: rem(3px);
 	transition: all .2s ease-out;
-	color: $black;
 	box-shadow: inset 0 3px 5px -2px rgba($dark, .15);
 	font-size: rem($text-default);
-	max-width: 100%;
 	width: 100%;
+	max-width: 100%;
 	line-height: $input-line-height;
+	margin: 0;
+	outline: none;
 	
-	// estilo transparente
-	&[type~='transparent'] {
-		border-color: transparent;
-		background-color: rgba($cloud, .2);
-		color: $cloud;
-
-		&.is-invert {
-			background-color: rgba(#000, .2);
-		}
-		&:focus {
-			background-color: $cloud;
+	&:focus {
+		box-shadow: 0 0 0 2px rgba($dark, .2);
+		& ~ icon {
 			color: $dark;
 		}
 	}
-	&:not([type~='transparent']):focus {
-		box-shadow: 0 0 0 2px rgba($dark, .3);
-	}
-	&:not(:last-of-type) {
-    margin-bottom: 0.5em;
+
+	// estilo transparente
+	&.is-invert {
+		border-color: transparent;
+		background-color: rgba(#000, .2);
+		color: $cloud;
+		box-shadow: none;
+		&-cloud {
+			@extend .is-invert;
+			background-color: rgba($cloud, .2);
+		}
+		&:focus, &-cloud:focus {
+			background-color: $cloud;
+			color: $dark;
+		}
 	}
 	
 	@include forms-style(primary, $primary);
@@ -47,17 +51,83 @@ $input-line-height: 1.5 !default;
 	@include forms-style(warning, $warning);
 	@include forms-style(danger, $danger);
 }
-
-.input, textarea, label, .help {
-	width: 100%;
-	max-width: 100%;
-}
 // textarea
-
 textarea {
 	@extend .input;
 	display: block;
-	min-height: 5em;
+  max-height: rem(500px);
+  min-height: rem(50px);
+  resize: vertical;
+
+  &[is-fixed] {
+  	resize: none;
+  }
+
+  &[is-readonly] {
+		box-shadow: none;
+		pointer-events: none;
+	}
+}
+
+// select
+
+$arrow: 0.65rem;
+select-box {
+	display: inline-block;
+	position: relative;
+	align-items: center;
+	vertical-align: top;
+
+	&:not([multiple]) {
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			margin-top: -0.4rem;
+			top: 50%;
+			right: 0.75rem;
+			width: $arrow;
+			height: $arrow;
+			border: 1px solid $dark;
+			border-top: 0;
+			border-left: 0;
+			transform-origin: top center;
+			transform: rotate(45deg);
+			z-index: 5;
+		}
+	}
+
+	select, option {
+		box-shadow: none;
+		max-width: 100%;
+		width: auto;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		outline: none;
+	}
+	select{
+		@extend .input;
+		cursor: pointer;
+		padding: $select-padding;
+		background-color: $cloud;
+
+		&:not([multiple]) {
+			padding-right: 2.5rem;
+		}
+		&[multiple] {
+			padding: 0;
+
+			option {
+				padding: .5rem 1rem;
+			}
+		}
+	}
+
+	@include forms-style(primary, $primary);
+	@include forms-style(info, $info);
+	@include forms-style(success, $success);
+	@include forms-style(warning, $warning);
+	@include forms-style(danger, $danger);
 }
 
 .help {
@@ -67,47 +137,49 @@ textarea {
 label {
   display: block;
   font-weight: bold;
+  margin-bottom: .5rem;
 }
 
-.input, textarea, label, select, option {
+.input, textarea, label, select {
 	&[is-small] { font-size: $text-small;	}
 	&[is-medium] { font-size: $text-medium;	}
 	&[is-large] { font-size: $text-large;	}
-
-}
-textarea, label, select, option {
-	&:not(:last-child) {
-    margin-bottom: 0.5em;
-	}
 }
 //############# Fin de estilos del input ###########
 
 //variables
-$icon-gap: rem(38px) !default;
-$icon-gap-small: rem(32px) !default;
-$icon-gap-medium: rem(44px) !default;
-$icon-gap-large: rem(50px) !default;
+$icon-gap: rem(36px) !default;
+$icon-gap-small: rem(30px) !default;
+$icon-gap-medium: rem(42px) !default;
+$icon-gap-large: rem(48px) !default;
 
 //control group
 
 control {
-	display: flex;
-	flex-grow: 1;
-	align-items: center;
+	display: block;
 	position: relative;
+}
 
+control {
 	& > icon {
 		position: absolute;
 		color: lighten($dark, 40);
 		width: $icon-gap;
-		height: 2rem;
 		margin: 0 !important;
+		&,
+		&[is-small],
+		&[is-medium],
+		&[is-large] {height: 100%;}
+
 		&[is-small] {width: $icon-gap-small;}
 		&[is-medium] {width: $icon-gap-medium;}
 		&[is-large] {width: $icon-gap-large;}
+
 	}
 	
-	& > textarea + icon {	top: 0; }
+	&:not([double-icons]) > textarea + icon {top: .5rem; height: auto !important; width: auto !important; }
+	&:not([double-icons])[is-icon-left] > textarea + icon {left: .5rem;}
+	&:not([double-icons])[is-icon-right] > textarea + icon {right: .5rem;}
 
 	&[double-icons]{
 		icon:first-of-type {
@@ -172,41 +244,45 @@ control {
 			right: 0;
 		}
 	}
-
-	.input{
-		margin: 0;
-		&:focus ~ icon {
-			color: $dark;
-		}
-	}
 }
 
 
 field {
 	display: flex;
+	align-items: center;
 
+	control {
+		flex-grow: 1;
+	}
 	&:not(:last-child) {
 		margin-bottom: .5rem;
 	}
 	
 	&[addons] {
-		display: inline-flex;
-		overflow: hidden;
-		* {
-			margin: 0;
-			border-radius: 0;
-			overflow: hidden;
-		}
+		display: flex;
+		justify-content: flex-start;
 
 		control {
+			flex-grow: 0;
 			&:not(:last-of-type) {
-				margin-right: -2px;
+				margin-right: -1px;
 			}
-			&:first-of-type {
-				border-radius: $share-border-radius 0 0 $share-border-radius;
+			&.is-expand {
+				flex-grow:1;
 			}
-			&:last-of-type {
-				border-radius: 0 $share-border-radius $share-border-radius 0;
+
+			&:not(:first-child) > *,
+			&:not(:last-child) > * {
+				border-radius: 0;
+			}
+
+			&:first-child > * {
+				border-top-left-radius: rem(3px);
+				border-bottom-left-radius: rem(3px);
+			}
+			&:last-child > * {
+				border-top-right-radius: rem(3px);
+				border-bottom-right-radius: rem(3px);
 			}
 		}
 	}

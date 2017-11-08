@@ -4,6 +4,7 @@ row{
 	display: flex;
 	flex: auto;
 	flex-flow: column nowrap;
+
 	&[is-multiline] {
 		flex-wrap: wrap;
 	}
@@ -13,24 +14,70 @@ row{
 	&[inverted] {
 		flex-direction: row-reverse;
 	}
+	&[is-center] {
+		align-items: center;
+		justify-content: center;
+	}
+	&[is-center-v] {
+		align-items: center;
+	}
+
+	&[is-center-h] {
+		justify-content: center;
+	}
+
+	&[is-up] {
+		align-items: flex-start;
+	}
+
+	&[is-left] {
+		justify-content: flex-start;
+	}
+
+	&[is-down] {
+		align-items: flex-end;
+	}
+
+	&[is-right] {
+		justify-content: flex-end;
+	}
+
+	&[is-separated] {
+		justify-content: space-between;
+	}
+
+	&[is-distributed] {
+		justify-content: space-around;
+	}
 }
 
 column {
 	display: block;
-	flex-grow: 1;
+	flex: 1 1 auto;
 }
 
 [is-block] {
 	width: 100%;
 }
+[is-half] {
+	width: 50%;
+}
 
 //media queries hidden with min width
 @include since (touch) {
 	@for $i from 1 through 18 {
-		.touch-#{$i} {
-			width: grid($i);
-			flex-grow: 0;
-			flex-shrink: 0;
+		@if $i == 10 {
+			.touch-is-half {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		} @else {
+			.touch-#{$i} {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
 		}
 	}
 }
@@ -39,28 +86,52 @@ column {
 		flex-direction: row;
 	}
 	@for $i from 1 through 18 {
-		.tablet-#{$i} {
-			width: grid($i);
-			flex-grow: 0;
-			flex-shrink: 0;
+		@if $i == 10 {
+			.tablet-is-half {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		} @else {
+			.tablet-#{$i} {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
 		}
 	}
 }
 @include since (desktop) {
 	@for $i from 1 through 18 {
-		.desktop-#{$i} {
-			width: grid($i);
-			flex-grow: 0;
-			flex-shrink: 0;
+		@if $i == 10 {
+			.desktop-is-half {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		} @else {
+			.desktop-#{$i} {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
 		}
 	}
 }
 @include since (widescreen) {
 	@for $i from 1 through 18 {
-		.widescreen-#{$i} {
-			width: grid($i);
-			flex-grow: 0;
-			flex-shrink: 0;
+		@if $i == 10 {
+			.widescreen-is-half {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		} @else {
+			.widescreen-#{$i} {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
 		}
 	}
 }
