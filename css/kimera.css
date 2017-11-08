@@ -303,7 +303,8 @@ layout[is-dashboard] { overflow: hidden; flex-wrap: nowrap; }
 
 layout[is-dashboard] > main, layout[is-dashboard] > sidebar { height: 100vh; overflow-x: hidden; overflow-y: auto; }
 
-@media screen and (min-width: 768px) { layout > sidebar { width: 25%; } }
+@media screen and (min-width: 768px) { layout > sidebar { width: 30%; }
+  layout > main { width: auto; flex-grow: 1; } }
 
 /* 
 	@params
