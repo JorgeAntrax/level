@@ -46,11 +46,16 @@ p {
   }
 }
 
-b,
-strong {
-  font-weight: bold;
-  margin-right: rem($text-default / 3);
-  margin-left: rem($text-default / 3);
+b, strong, a {
+  &:first-child {
+    margin-right: rem($text-default / 3);
+  }
+  &:last-child {
+    margin-left: rem($text-default / 3);
+  }
+  &:not(:first-child:last-child) {
+    margin: 0 rem($text-default / 3);
+  }
 }
 
 a {

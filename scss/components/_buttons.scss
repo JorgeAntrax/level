@@ -81,7 +81,6 @@ button:not(.default-broswer),
 	@include button-theme (success, $success);
 	@include button-theme (warning, $warning);
 	@include button-theme (danger, $danger);
-	@include button-theme (indigo, #57007F);
 
 	&[class$='-invert'] {
 		border-color: $cloud;

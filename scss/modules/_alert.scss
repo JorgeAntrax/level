@@ -1,55 +1,71 @@
 // alert
-.alert {
+alert {
 	display: inline-flex;
+	align-items: flex-start;
 	position: relative;
-	justify-content:space-between;
-	border-radius: .2rem;
-	&_message {
-		width: 90%;
-		padding: .5rem;
+
+	&[fixed-top],
+	&[fixed-down] {
+		position: fixed;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+		transform: scale(0);
+	}
+	&[fixed-top] {
+		top: 0.5rem;
+	}
+	&[fixed-down] {
+		bottom: 0.5rem;
 	}
 
-/* 	&_close {
-		width: 10%;
-		text-align: right;
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		right: 0;
-		padding: .5rem;
-	} */
-}
-
-// toast message estilo android
-.toast {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 6500;
-	opacity: .9;
-	& .alert {
-		display: flex;
-		border-radius: 0;
-		padding: .5rem 0;
-	}
-}
-@include since (tablet) {
-	.toast {
-		max-width: 500px;
-		margin-right: auto;
-		margin-left: auto;
-		&.left, &.right {
-			margin: 0;
-		}
-		&.left {
-			left: 0;
-		}
-		&.right {
-			left: initial;
-			width: 500px;
+	content {
+		position: relative;
+		width: 100%;
+		background-color: $cloud;
+		border: 1px solid whitesmoke;
+		border-radius: rem(3px);
+		border-left: 3px solid $dark;
+		padding: 1rem 2rem 1rem 1rem;
+		icon[is-close] {
+			position: absolute;
+			top: 0;
 			right: 0;
+			opacity: .6;
+			margin: 0 !important;
+			&:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
 		}
+	}
+	&.is-primary content{
+		color: $primary;
+		border-left-color: $primary;
+	}
+	&.is-info content{
+		color: $info;
+		border-left-color: $info;
+	}
+	&.is-success content{
+		color: $success;
+		border-left-color: $success;
+	}
+	&.is-warning content{
+		color: darken($warning, 20);
+		border-left-color: darken($warning, 20);
+	}
+	&.is-danger content{
+		color: $danger;
+		border-left-color: $danger;
+	}
+}
+
+@include since (tablet) {
+	&[fixed-top],
+	&[fixed-down] {
+		max-width: 35%;
+		margin: 0 auto;
+		right: 0;
 	}
 }

@@ -1,23 +1,30 @@
 // layout
 layout {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-gap: rem(5px);
+	grid-template-areas:
+	"header"
+	"navbar"
+	"sidebar"
+	"main"
+	"footer";
+
+	&[no-gap] {
+		grid-gap: 0;
+	}
+
 	max-width: 100vw;
 	min-height: 100vh;
 	overflow-x: hidden;
-
-	& > header, & > navbar, & > sidebar, & >  main, & > footer {
-		flex: 1 1 auto;
-		width: 100%;
-	}
 	
-	footer[is-sticky] {
-		align-self: flex-end;
-	}
+	header {grid-area: header;}
+	navbar {grid-area: navbar;}
+	sidebar {grid-area: sidebar;}
+	main {grid-area: main;}
+	footer {grid-area: footer;}
 
 	&[is-dashboard] {
 		overflow: hidden;
-		flex-wrap: nowrap;
 		
 		& > main, & > sidebar {
 			//bloque terminado
@@ -28,13 +35,21 @@ layout {
 	}
 
 }
-@include since (tablet) {
-	layout > sidebar {
-		width: 30%;
+@include since (899px) {
+	layout:not([is-rtl]) {
+		grid-template-columns: 20% 80%;
+		grid-template-areas:
+		"header header"
+		"navbar navbar"
+		"sidebar main"
+		"footer footer";
 	}
-	layout > main {
-		width: auto;
-		flex-grow: 1;
+	layout[is-rtl] {
+		grid-template-columns: 80% 20%;
+		grid-template-areas:
+		"header header"
+		"navbar navbar"
+		"main sidebar"
+		"footer footer";
 	}
 }
-
