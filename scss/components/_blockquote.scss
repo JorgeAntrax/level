@@ -2,19 +2,35 @@ blockquote {
   display: block;
 	position: relative;
 	max-width: 100%;
-	margin-left:auto;
-	margin-right:auto;
-	padding:2rem .5rem .5rem;
-	border-left:rem(4px) solid rgba($dark, .3);
+	padding:1rem;
+	border-left:rem(4px) solid rgba($dark, .2);
 	border-radius: $share-border-radius;
-	background-color: rgba($dark, .1);
+	background-color: whitesmoke;
 	font-style: italic;
 	&:before {
-		content: '\f10d';
-		opacity: .75;
-		font-family: $family-icons;
-		position: absolute;
+		content: '\201C';
+		opacity: .4;
+		font-family: monospace;
+		line-height: 0;
+		font-size: 3rem;
+		vertical-align: middle;
 		top: .5rem;
 		left: .5rem;
+	}
+
+	&.is-primary {
+		border-color: $primary;
+	}
+	&.is-info {
+		border-color: $info;
+	}	
+	&.is-success {
+		border-color: $success;
+	}	
+	&.is-warning {
+		border-color: $warning;
+	}	
+	&.is-danger {
+		border-color: $danger;
 	}	
 }

@@ -246,9 +246,14 @@ control {
 	}
 }
 
-
 field {
 	display: flex;
+	&:not([addons]) {
+		flex-direction: column;
+		control {
+			margin-bottom: 1rem;
+		}
+	}
 	align-items: center;
 
 	control {
@@ -264,6 +269,7 @@ field {
 
 		control {
 			flex-grow: 0;
+			margin-bottom: 0;
 			&:not(:last-of-type) {
 				margin-right: -1px;
 			}
@@ -285,5 +291,11 @@ field {
 				border-bottom-right-radius: rem(3px);
 			}
 		}
+	}
+}
+
+@include since (tablet) {
+	field:not([addons]) {
+		flex-direction: row;
 	}
 }

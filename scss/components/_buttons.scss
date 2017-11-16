@@ -118,7 +118,35 @@ button:not(.default-broswer),
 }
 
 buttons {
-	@extend group;
+	display: flex;
+	&[addons] {
+		display: inline-flex;
+
+		&, &[is-rounded] {
+			* {
+				border-radius: 0;
+			}
+		}
+
+		:first-child {
+			border-top-left-radius: $button-border-radius;
+			border-bottom-left-radius: $button-border-radius;
+		}
+		:last-child {
+			border-top-right-radius: $button-border-radius;
+			border-bottom-right-radius: $button-border-radius;
+		}
+		&[is-rounded] {
+			:first-child {
+				border-top-left-radius: $button-circle;
+				border-bottom-left-radius: $button-circle;
+			}
+			:last-child {
+				border-top-right-radius: $button-circle;
+				border-bottom-right-radius: $button-circle;
+			}
+		}
+	}
 }
 
 fab {

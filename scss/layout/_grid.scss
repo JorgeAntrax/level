@@ -14,46 +14,12 @@ row{
 	&[inverted] {
 		flex-direction: row-reverse;
 	}
-	&[is-center] {
-		align-items: center;
-		justify-content: center;
-	}
-	&[is-center-v] {
-		align-items: center;
-	}
-
-	&[is-center-h] {
-		justify-content: center;
-	}
-
-	&[is-up] {
-		align-items: flex-start;
-	}
-
-	&[is-left] {
-		justify-content: flex-start;
-	}
-
-	&[is-down] {
-		align-items: flex-end;
-	}
-
-	&[is-right] {
-		justify-content: flex-end;
-	}
-
-	&[is-separated] {
-		justify-content: space-between;
-	}
-
-	&[is-distributed] {
-		justify-content: space-around;
-	}
 }
 
 column {
 	display: block;
 	flex: 1 1 auto;
+	max-width: 100%;
 }
 
 [is-block] {

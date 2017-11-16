@@ -47,15 +47,7 @@ p {
 }
 
 b, strong, a {
-  &:first-child {
-    margin-right: rem($text-default / 3);
-  }
-  &:last-child {
-    margin-left: rem($text-default / 3);
-  }
-  &:not(:first-child:last-child) {
-    margin: 0 rem($text-default / 3);
-  }
+  margin: 0 rem($text-default / 3);
 }
 
 a {
@@ -75,8 +67,12 @@ hr {
   margin: rem(5px) 0;
   max-width: 100%;
   outline: none;
-  opacity: 0.2;
+  opacity: 0.3;
   border: 0;
+  &[is-white] {
+    background-color: $cloud;
+    opacity: .6;
+  }
 }
 
 cite {
@@ -92,74 +88,6 @@ small, pre, code {
   font-weight: normal;
   line-height: $line-height-default;
   margin: 0;
-}
-
-//texto etiquetas personalizadas
-tiny {
-  font-size: $text-x-small;
-}
-
-medium {
-  font-size: $text-medium;
-}
-
-large {
-  font-size: $text-large;
-}
-
-jumbo {
-  font-size: $text-x-large;
-}
-upper {
-  text-transform: uppercase;
-}
-
-lower {
-  text-transform: lowercase;
-}
-
-underline {
-  text-decoration: underline;
-}
-// color text
-primary, .is-text-primary {
-  color: $primary;
-}
-
-info, .is-text-info {
-  color: $info;
-}
-
-success, .is-text-success {
-  color: $success;
-}
-
-warning, .is-text-warning {
-  color: darken($warning, 10);
-}
-
-danger, .is-text-danger {
-  color: $danger;
-}
-
-justify,
-right {
-  display: block;
-}
-
-right > *,
-right {
-  text-align: right !important;
-}
-
-justify > *,
-justify {
-  text-align: justify !important;
-}
-
-center > *,
-center {
-  text-align: center !important;
 }
 
 //code pre
@@ -202,41 +130,11 @@ video {
   max-width: 100%;
 }
 
-img {
-  width: 100%;
-  height: auto;
-  border-style: none;
-}
-
 [disabled], .is-disabled {
   pointer-events: none !important;
   user-select: none !important;
   opacity: .6 !important;
 }
-
-//estilos de etiquetas h1,h2,h3,h4,h5,h6
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  margin: 0;
-  -webkit-font-smoothing: $smooting-text;
-  text-rendering: $render-text;
-
-  &, a {
-    color: inherit;
-  }
-  & small {
-    font-size: 75%;
-    font-weight: bold;
-    opacity: 0.75;
-  }
-}
-
-h1 { font-size: $h1-size; }
-h2 { font-size: $h2-size; }
-h3 { font-size: $h3-size; }
-h4 { font-size: $h4-size; }
-h5 { font-size: $h5-size; }
-h6 { font-size: $h6-size; }
 
 // listas
 ol:not(.default-browser),

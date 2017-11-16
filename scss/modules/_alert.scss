@@ -4,6 +4,12 @@ alert {
 	align-items: flex-start;
 	position: relative;
 
+	icon[is-close] {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
 	&[fixed-top],
 	&[fixed-down] {
 		position: fixed;
@@ -27,17 +33,6 @@ alert {
 		border-radius: rem(3px);
 		border-left: 3px solid $dark;
 		padding: 1rem 2rem 1rem 1rem;
-		icon[is-close] {
-			position: absolute;
-			top: 0;
-			right: 0;
-			opacity: .6;
-			margin: 0 !important;
-			&:hover {
-				opacity: 1;
-				cursor: pointer;
-			}
-		}
 	}
 	&.is-primary content{
 		color: $primary;
@@ -58,6 +53,35 @@ alert {
 	&.is-danger content{
 		color: $danger;
 		border-left-color: $danger;
+	}
+}
+
+notify {
+	@extend alert;
+	content {
+		border: none;
+		background-color: whitesmoke;
+	}
+
+	&[class^="is-"] content {
+		color: $cloud;
+		border: none;
+	}
+	&.is-primary content{
+		background-color: $primary;
+	}
+	&.is-info content{
+		background-color: $info;
+	}
+	&.is-success content{
+		background-color: $success;
+	}
+	&.is-warning content{
+		color: $dark;
+		background-color: $warning;
+	}
+	&.is-danger content{
+		background-color: $danger;
 	}
 }
 

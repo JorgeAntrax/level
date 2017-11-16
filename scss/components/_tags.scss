@@ -5,9 +5,9 @@ tags {
 	justify-content: flex-start;
 	align-items: flex-start;
 	overflow: hidden;
+	max-width: 100%;
 
 	&[is-group] {
-		@extend tags;
 		display: inline-flex;
 		align-items: stretch;
 		flex: 0;
@@ -19,9 +19,7 @@ tags {
 
 		// crea un grupo de etiquetas en forma de bloque
 		&[is-boxed] {
-			max-width: 100%;
 			flex-direction: column;
-			overflow-x: auto;
 
 			icon {
 				width: 1.5rem;
@@ -40,14 +38,15 @@ tags {
 }
 
 tag {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: rem(2px) rem(10px);
-	font-size: $text-small;
-	border-radius: .2rem;
 	margin: 1px;
 	line-height: 1.25rem;
+	font-size: $text-small;
+	text-overflow: ellipsis;
+	padding: rem(2px) rem(10px);
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	border-radius: .2rem;
 
 	&:not([class^='is-']) {
 			background-color: whitesmoke;

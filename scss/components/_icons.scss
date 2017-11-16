@@ -47,6 +47,15 @@ icon {
   &:last-child:first-child {
     margin: 0;
   }
+
+  &[is-close] {
+      opacity: .5;
+      margin: 0 !important;
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
 }
 
 .burger-icon {

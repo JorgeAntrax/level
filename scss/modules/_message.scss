@@ -61,22 +61,27 @@ example[theme~='danger'] {
 
 
 // code message
-message, message_head {
+message, message header {
 	display: flex;
 }
 message {
 	flex-direction:column;
-	border: 1px solid $dark;
+	border: 1px solid rgba($dark, .5);
 	border-radius:.2rem;
 	overflow: hidden;
 	margin: .5em 0;
 		
-	&_head {
+	header {
+		background-color: $dark;
+		color: $cloud;
+		align-items: center;
+		line-height: normal;
 		justify-content:space-between;
-		padding: .5rem;
+		padding: 0.25rem .5rem;
 	}
 
-	&_content {
+	content {
+		background-color: rgba($black, 0.05);
 		padding:.5rem;
 		padding-right: 1.5rem;
 	}
@@ -85,4 +90,14 @@ message {
 	@include message-style(success, $success);
 	@include message-style(warning, $warning);
 	@include message-style(danger, $danger);
+
+	&[is-small] * {
+		font-size: $text-small;
+	}
+	&[is-medium] * {
+		font-size: $text-medium;
+	}
+	&[is-large] * {
+		font-size: $text-large;
+	}
 }

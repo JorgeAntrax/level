@@ -1,14 +1,21 @@
 // mega  bloque de contenido con un encabezado grande y descripcion
-.mega {
-	display: block;
+mega {
+	display: flex;
+	flex-direction: column;
 	position: relative;
-	padding: 4rem;
-	width: 100%;
-	&_title {
+	padding: 3rem;
+	flex: auto;
+	overflow: hidden;
+
+	&[is-horizontal] {
+		flex-direction: row;
+	}
+
+	header {
 		letter-spacing: .2rem;
 		margin-bottom: 1rem;
 	}
-	&_content {
+	content {
 		text-align: justify;
 		letter-spacing: .05rem;
 	}

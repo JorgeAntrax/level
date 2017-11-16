@@ -1,0 +1,95 @@
+//texto etiquetas personalizadas
+tiny {
+  font-size: $text-x-small;
+}
+
+medium {
+  font-size: $text-medium;
+}
+
+large {
+  font-size: $text-large;
+}
+
+jumbo {
+  font-size: $text-x-large;
+}
+upper {
+  text-transform: uppercase;
+}
+
+lower {
+  text-transform: lowercase;
+}
+
+underline {
+  text-decoration: underline;
+}
+// color text
+white, .is-text-white {
+  color: $cloud;
+}
+primary, .is-text-primary {
+  color: $primary;
+}
+
+info, .is-text-info {
+  color: $info;
+}
+
+success, .is-text-success {
+  color: $success;
+}
+
+warning, .is-text-warning {
+  color: darken($warning, 10);
+}
+
+danger, .is-text-danger {
+  color: $danger;
+}
+
+justify,
+right,
+center {
+  display: block;
+}
+
+right > *,
+right {
+  text-align: right !important;
+}
+
+justify > *,
+justify {
+  text-align: justify !important;
+}
+
+center > *,
+center {
+  text-align: center !important;
+}
+
+//estilos de etiquetas h1,h2,h3,h4,h5,h6
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  margin: 0;
+  -webkit-font-smoothing: $smooting-text;
+  text-rendering: $render-text;
+
+  &, a {
+    color: inherit;
+  }
+  & small {
+    font-size: 75%;
+    font-weight: bold;
+    opacity: 0.75;
+  }
+}
+
+h1 { font-size: $h1-size; }
+h2 { font-size: $h2-size; }
+h3 { font-size: $h3-size; }
+h4 { font-size: $h4-size; }
+h5 { font-size: $h5-size; }
+h6 { font-size: $h6-size; }

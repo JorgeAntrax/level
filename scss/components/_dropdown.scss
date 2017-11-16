@@ -53,24 +53,22 @@ drop-menu {
 	&[is-right] {
 		right: 0;
 	}
-}
-
-
-drop-item {
-	width: 100%;
-	font-size: $text-small;
-	padding:  0.35rem 1rem;
-	cursor: pointer;
-	line-height: 1.5;
-	&.is-title {
-		color: #aaa;
-		font-size: $text-x-small;
-		pointer-events: none;
-		text-transform: uppercase;
-		opacity: 0.65;
-	}
-	&:hover {
-		background-color: rgba(#000, .05);
+	item {
+		width: 100%;
+		font-size: $text-small;
+		padding:  0.35rem 1rem;
+		cursor: pointer;
+		line-height: 1.5;
+		&[is-title] {
+			color: #aaa;
+			font-size: $text-x-small;
+			pointer-events: none;
+			text-transform: uppercase;
+			opacity: 0.65;
+		}
+		&:hover {
+			background-color: rgba(#000, .05);
+		}
 	}
 }
 

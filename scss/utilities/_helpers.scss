@@ -50,8 +50,48 @@
 		clear: both;
 	}
 }
-
-//genera margin de 1px
-.bordered *[class] {
-	margin: 1px;
+// helpers de reset
+.is-marginless {
+	margin: 0 !important;
 }
+
+.is-paddingless {
+	padding: 0 !important;
+}
+
+// helpers flexbox
+[is-center] {
+		align-items: center;
+		justify-content: center;
+	}
+	[is-center-v] {
+		align-items: center;
+	}
+
+	[is-center-h] {
+		justify-content: center;
+	}
+
+	[is-up] {
+		align-items: flex-start;
+	}
+
+	[is-left] {
+		justify-content: flex-start;
+	}
+
+	[is-down] {
+		align-items: flex-end;
+	}
+
+	[is-right] {
+		justify-content: flex-end;
+	}
+
+	[is-separated] {
+		justify-content: space-between;
+	}
+
+	[is-distributed] {
+		justify-content: space-around;
+	}

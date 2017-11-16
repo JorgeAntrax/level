@@ -185,11 +185,26 @@
 
 /*stilos para input range de color*/
 @mixin color-input-range($class, $color){
-	.range.#{$class} {
-		background-color: rgba($color, .5);
-		&:before {
-			background-color: $color;
-		}
+	&.is-#{$class}::-webkit-slider-runnable-track {
+	  background-color: rgba($color, 0.2);
+	}
+	&.is-#{$class}::-ms-fill-lower {
+	  background-color: rgba($color, 0.2);
+	}
+	&.is-#{$class}::-ms-fill-upper {
+	  background-color: rgba($color, 0.2);
+	}
+	&.is-#{$class}::-moz-range-track {
+	  background-color: rgba($color, 0.2);
+	}
+	&.is-#{$class}::-webkit-slider-thumb {
+	  background-color: $color;
+	}
+	&.is-#{$class}::-moz-range-thumb {
+	  background-color: $color;
+	}
+	&.is-#{$class}::-ms-thumb {
+	  background-color: $color;
 	}
 }
 
@@ -198,17 +213,15 @@
 	&.is-#{$class} {
 		background-color: $cloud;
 		border-color: $color;
-		message_head {
+		header {
 			background-color: $color;
 			@if $class == 'warning' {
 				color:$dark;
-			}@else {
-				color: $cloud;
 			}
 		}
-		message_content {	
+		content {	
 			background-color: rgba($color, .05);
-			color:darken($color, 15);
+			color:darken($color, 20);
 		}
 	}
 }

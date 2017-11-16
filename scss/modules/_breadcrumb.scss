@@ -1,112 +1,121 @@
-.breadcrumb {
-	color: rgba($dark, .7);
+$bread-padding: 1rem !default;
+
+breadcrumb {
 	overflow-x: auto;
-	overflow-y: hidden;
-	&, &_item, &_item a {
+
+	&, item {
 		display: flex;
-		align-items: center;
-		flex-wrap: nowrap;
-		margin: 0;
-		line-height: 2rem;
 	}
-	&.is-center {
+
+	max-width: 100%;
+	padding: rem(4px) 0;
+
+	item {
+		flex: 0 0 auto;
+		cursor: pointer;
+		position: relative;
 		justify-content: center;
+		padding: 0 $bread-padding;
+		word-break: no-all;
+
+		&:before, &:after {
+		 	content: '\\';
+			position: absolute;
+			font-family: $family-icons;
+			width: 0.8rem;
+			right: -.4rem;
+			text-align: center;
+			font-size: $text-small;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		&:after {
+			display: none;
+		}
+
+		&:not(.is-active):hover {
+			color: $black !important;
+		}
+		&.is-active * {
+			color: $black;
+		}
+	}
+
+	&:not([is-right]) item:first-child {
+		padding-left: 0;
+	}
+	&:not([is-right]) item:last-child {
+		padding-right: 0;
+		&:before {
+			display: none;
+		}
 	}
 	
 	//ok no problemas
-	&.is-right{
-		overflow-x: auto;
-		&, & .breadcrumb_item {
+	&[is-right] {
+
+		&, item {
 			flex-direction: row-reverse;
 			justify-content: flex-end;
 		}
-		& .breadcrumb_item:before,& .breadcrumb_item:last-child:before {
+
+		& item:after {
+			display: block;
+			right: initial;
+			left: -$bread-padding / 2;
 			content: '/';
 		}
-		& .breadcrumb_item:first-child, &[class] .breadcrumb_item:first-child{
-			padding-left: .7rem;
-			&, & a {
-				padding-right: 0;
-			}
-			&:before {
-				content: '';
-			}
-		}
-	}
-	& &_item:last-child, &[class] &_item:last-child {
-		color: #000;
-		&:before {
-			content:'';
-		}
-	}
-}
 
+		item:first-child {
+			padding-right: 0;
+		}
 
-.breadcrumb_item {
-	position: relative;
-	cursor: pointer;
-	&, & a{
-		padding: 0 .7rem;
-		color: inherit;
-		&:first-child {
+		item:last-child {
 			padding-left: 0;
+			&:after {
+				display: none;
+				
+			}
 		}
-	}
-	a {
-		.icon {
-			margin-right: .3rem;
+
+		& item:before {
+			display: none;
 		}
-		&:hover {
-			color: #000;
-		}
-	}
-	&:before {
-		// enlace al fuente de iconos en _variables.scss
-		font-family: $family-icons;
-	 	//contenido por default
-	 	content: '\\';
-	 	// posicionamiento
-		position: absolute;
-		right: .2rem;
-	}
-}
-.breadcrumb {
-	&.divider-is-angle &_item:before {
-		content: '\f105';
-	}
-	&.divider-is-angle.is-right &_item:before, &.divider-is-angle.is-right &_item:last-child:before {
-		content: '\f104';
 	}
 	//flecha ->
-	&.divider-is-arrow &_item:before {
-		content: '\f178';
+
+	&[is-arrowed] item:before {
+		content: '\02192';
 	}
-	&.divider-is-arrow.is-right &_item:before, &.divider-is-arrow.is-right &_item:last-child:before {
-		content: '\f177';
+	&[is-right][is-arrowed] item:after {
+		content: '\02190';
 	}
-	&.divider-is-arrow.large &_item:before {
-		font-size: $text-default;
-		margin-top: .15rem;
+
+	// circulo pequeño
+	&[is-dotted] item:before {
+		content: '\02022';
+		font-size: $text-x-small;
 	}
-	&.large &_item:before {
-		right: 0;
-	}
-	&.large &_item, &_item a {
-		padding: 0 1rem;
-		&:first-child {
-			padding-left: 0;
+
+	&[is-small] {
+		font-size: $text-small;
+		& item:before,
+		& item:after {
+			font-size: $text-x-small;
 		}
 	}
-	// circulo pequeño
-	&.divider-is-circle &_item:before, &.divider-is-circle.is-right &_item:last-child:before {
-		content: '\f111';
-		font-size: .4rem;
+	&[is-large] {
+		font-size: $text-large;
+		& item:before,
+		& item:after {
+			font-size: $text-medium;
+		}
 	}
 }
 
 // media queries
-@include since (tablet) {
-	.breadcrumb.is-right, .breadcrumb.is-right .breadcrumb_item {
+@include until (tablet) {
+	breadcrumb[is-right], breadcrumb[is-right] item {
 		justify-content:flex-start;
 	}
 }
