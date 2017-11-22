@@ -1,89 +1,102 @@
-.navbar{
-	&, &_header, &_menu {
+$navbar-height: 3rem !default;
+
+navbar{
+	&, navbrand, navmenu, item {
 		display: flex;
+		position: relative;
 	}
 
-	width: 100%;
-	justify-content: center;
-
-	&_header, &_menu {
-		min-height: 3rem;
-	}
-
-	&_header {
-		justify-content:space-between;
-	}
-
-	&, &_menu {
-		flex-direction: column;
-	}
-	
-	&.is-mobile {
+	&[is-mobile] {
 		flex-direction: row;
 		overflow-x: auto;
 		justify-content: flex-start;
 	}
 
-	&_brand, &_menu li, &_item {
-		display: flex;
-		position: relative;
-		height: 3rem;
-		line-height: 3rem;
-		align-items: center;
-		cursor: pointer;
-		margin: 0 .25rem;
+	&, navmenu {
+		flex-direction: column;
 	}
 
-	&_brand, &_item {
-		padding: 0 1rem;
+	navbrand, navmenu {
+		min-height: $navbar-height;
+		flex: 1 1 auto;
 	}
 
-	&_item:hover {
-		background-color: whitesmoke;
-		color: $black;
+	navbrand {
+		justify-content: space-between;
+		logo, item[is-toggle] {
+			height: $navbar-height;
+			padding: rem(5px);
+			width: auto;
+		}
+	}
+	img {
+		width: auto;
+		height: 100%;
 	}
 
-	&_menu{
-		list-style: none;
+	item, dropdown, item[is-toggle] {
+		height: $navbar-height;
+		min-width: $navbar-height;
+		flex-shrink: 0;
 		margin: 0;
-		li {
-			flex-grow: 0;
-			flex-shrink: 0;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+	}
+
+	item {
+		padding: 0 0.75rem;
+
+		&[is-label] {
+			padding: 0;
+			pointer-events: none;
+			user-select: none;
+		}
+		&[is-toggle] {
+			justify-content: center;
 		}
 	}
 
-	// posicionamiento de la barra de navegacion  top y bottom
-	&.has-fixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
+	dropdown {
+		drop-menu {
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
 
-		&--down {
-			@extend .has-fixed;
-			top: initial;
-			bottom: 0;
+			&[is-up] {
+				bottom: $navbar-height;
+			}
+			&[is-down] {
+				top: $navbar-height;
+			}
 		}
 	}
+
+	width: 100%;
+	max-width: 100%;
+	align-items: stretch;
+	padding: 1px;
+	z-index: 10;
 }
 
 // media quieries
 @include since (tablet) {
-	.navbar_menu{
- 		display: flex;
+	navbar navmenu {
 		flex-direction:row;
-		align-items: center;
+		justify-content: flex-end;
+		&[is-left] {
+			justify-content: flex-start;
+		}
+		&[is-center] {
+			justify-content: center;
+		}
 	}
 }
 
 @include since (desktop) {
-	.navbar {
+	navbar {
 		flex-direction: row;
-		&_header {
-			justify-content: flex-start;
-		}
-		&_menu {
-			justify-content: flex-end;
+		item[is-toggle] {
+			display: none;
 		}
 	}
 }

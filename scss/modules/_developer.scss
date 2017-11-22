@@ -6,15 +6,10 @@
 	background-color: whitesmoke;
 	color: $dark;
 	border-radius: 5px;
-	overflow: hidden;
-	padding: 0 1rem;
+	overflow: auto;
+	padding: 1rem;
 	height: auto;
-
-	pre {
-		max-height: rem(200px);
-		overflow: auto;
-		padding: 1rem 0;
-	}
+	max-height: rem(200px);
 
 	.comment {
 		display: block;

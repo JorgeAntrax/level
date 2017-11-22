@@ -2,7 +2,9 @@
 dropdown {
 	display: inline-flex;
 	position: relative;
+	flex-wrap: nowrap;
 	padding: 0;
+	text-align: center;
 
 	& > * {
 		margin: 0;
@@ -40,6 +42,7 @@ drop-menu {
 	box-shadow: 0 5px 10px -1px rgba($dark, .15);
 	border-radius: rem(3px);
 	padding: rem(3px) 0;
+	overflow: hidden;
 
 	&[is-up] {
 		bottom: 2.5rem;
@@ -76,4 +79,15 @@ drop-menu {
 *[is-toggle]:focus + drop-menu {
 	display: flex;
 	flex-direction: column;	
+}
+
+@include until (tablet) {
+	dropdown drop-menu {
+		&[is-mobile-left] {
+			left: 0;
+		}
+		&[is-mobile-right] {
+			right: 0;
+		}
+	}
 }

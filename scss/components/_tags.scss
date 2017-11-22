@@ -93,4 +93,14 @@ badge {
 	border-radius: 100em;
 	position: relative;
 	line-height: normal;
+
+	&:first-child {
+		margin-right: rem($text-default / 2 );
+	}
+	&:last-child {
+		margin-left: rem($text-default / 2 );
+	}
+	&:first-child:last-child {
+		margin: 0;
+	}
 }

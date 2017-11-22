@@ -2,16 +2,20 @@
 
 table:not(.default-broswer) {
 	max-width: 100%;
+	overflow: auto;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid rgba($dark, .2);
 	
-	&[is-block] {
+	&[is-boxed] {
 		width: 100%;
 	}
 
 	thead, tr:not(:last-child) {
 		border-bottom: 1px solid rgba($dark, .2);
+	}
+	tfoot {
+		border-top: 1px solid rgba($dark, .2);
 	}
 
 	tr {
@@ -22,6 +26,9 @@ table:not(.default-broswer) {
 			background-color: $primary;
 			color: $cloud;
 			border-radius: rem(3px);
+		}
+		&:not(.is-active):hover {
+			background-color: lighten(whitesmoke, 2);
 		}
 	}
 
@@ -34,7 +41,7 @@ table:not(.default-broswer) {
 
 	&[is-narrow] td,
 	&[is-narrow] th {
-		min-width: 50px;
+		min-width: 0;
 	}
 	
 	&[is-striped] {
