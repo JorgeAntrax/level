@@ -24,6 +24,9 @@ tabs, tabs[is-boxed], tabs[is-toggle] {
 	}
 
 	&[is-fluid] {
+		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
 		tab {
 			flex-grow: 1;
 			flex-shrink: 0;
@@ -36,7 +39,7 @@ tabs {
 	tab {
 		display: flex;
 		position: relative;
-		padding: 0.5rem rem($text-default);
+		padding: 0.65rem rem($text-default);
 		flex-grow: 0;
 		flex-shrink: 0;
 		color: $dark;

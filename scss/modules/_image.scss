@@ -5,19 +5,6 @@ img {
   max-width: 100%;  
   height: auto;
   overflow: hidden;
-}
-
-img[is-bg-5],
-img[is-bg-4],
-img[is-bg-3],
-img[is-bg-2],
-img[is-bg] {
-	position: absolute;
-	top: 0;
-	left: 0;
-	backface-visibility: visible;
-	background-position: center center;
-
 	&[blur-2] {
 		filter: blur(2px);
 	}
@@ -34,6 +21,19 @@ img[is-bg] {
 	&[blur-30] {
 		filter: blur(30px);
 	}
+}
+
+img[is-bg-5],
+img[is-bg-4],
+img[is-bg-3],
+img[is-bg-2],
+img[is-bg] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	backface-visibility: visible;
+	background-position: center center;
+
 }
 
 img[is-bg-5] {

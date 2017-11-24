@@ -4,8 +4,8 @@ html {
   box-sizing: border-box;
   min-width: rem(300px);
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: $smooting-text !important;
-  text-rendering: $render-text !important;
+  -webkit-font-smoothing: $smooting-text;
+  text-rendering: $render-text;
   text-size-adjust: 100%;
   
   & ::selection {
@@ -70,7 +70,7 @@ hr {
   border: 0;
   &[is-white] {
     background-color: $cloud;
-    opacity: .6;
+    opacity: .8;
   }
 }
 
@@ -130,9 +130,8 @@ video {
 }
 
 [disabled], .is-disabled {
-  pointer-events: none !important;
-  user-select: none !important;
-  opacity: .6 !important;
+  pointer-events: none;
+  user-select: none;
 }
 
 // listas

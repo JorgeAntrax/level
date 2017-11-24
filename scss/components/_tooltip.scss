@@ -38,13 +38,13 @@ tooltip {
 	}
 
 	&[is-down] > data {
-		top: 1.5rem;
+		top: 2rem;
 		&:before {
 			top: -.25rem;
 		}
 	}
 	&[is-up] > data {
-		bottom: 1.5rem;
+		bottom: 2rem;
 		&:before {
 			bottom: -.25rem;
 		}
@@ -68,7 +68,7 @@ tooltip {
 	}
 	&[is-up]:hover > data,
 	&[is-down]:hover > data {
-		left: 0;
+		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
 		&:before {

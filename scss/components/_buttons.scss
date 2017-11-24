@@ -8,9 +8,9 @@ $button-padding: rem(5px) rem($text-default - 1px) !default;
 $button-line-height: 1.5 !default;
 
 $button-circle: 100em !default;
-
-button:not(.default-broswer),
+button,
 .button {
+	transition: all .1s ease-out;
 	background-color: $button-background-color ;
 	color: $button-text-color ;
 	border: $button-border-color;
@@ -104,10 +104,6 @@ button:not(.default-broswer),
 		}
 	}
 
-	&[disabled], .is-disabled{
-		pointer-events: none;
-		opacity: 0.6;
-	}
 	&[inactive] {
 		&, &:active, &:focus, &:hover {
 			cursor: default;

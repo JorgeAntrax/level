@@ -50,24 +50,32 @@ danger, .is-text-danger {
 }
 
 justify,
-right,
-center {
+right {
   display: block;
 }
 
 right > *,
 right {
-  text-align: right !important;
+  text-align: right;
 }
 
 justify > *,
 justify {
-  text-align: justify !important;
+  text-align: justify;
 }
 
-center > *,
-center {
-  text-align: center !important;
+center:not([is-full-center]) > *,
+center:not([is-full-center]) {
+  text-align: center;
+}
+center[is-full-center] {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 //estilos de etiquetas h1,h2,h3,h4,h5,h6

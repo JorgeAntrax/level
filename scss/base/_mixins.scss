@@ -109,6 +109,10 @@
 		&-outline.focused &-inverse:focus {
 			box-shadow: 0 0 0 2px rgba($color, .4);
 		}
+
+		&[disabled] {
+			background-color: lighten($color, 25);
+		}
 	}
 }
 
@@ -144,11 +148,12 @@
 
 //mixin que le da estilo a los input en general
 @mixin forms-style ($class, $bg-color) {
-	&.is-#{$class} {
+	&.is-#{$class}:not([is-material]):focus {
 		border: 1px solid $bg-color;
-		&:focus {
-			box-shadow: 0 0 0 2px rgba($bg-color, .2);
-		}
+		box-shadow: 0 0 0 2px rgba($bg-color, .2);
+	}
+	&[is-material].is-#{$class}:focus {
+		border-color: $bg-color;
 	}
 }
 
