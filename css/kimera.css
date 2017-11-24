@@ -679,7 +679,7 @@ select-box.is-danger:not([is-material]):focus { border: 1px solid #ff0051; box-s
 
 select-box[is-material].is-danger:focus { border-color: #ff0051; }
 
-.help { display: block; font-size: 0.7rem; }
+help { display: block; font-size: 0.7rem; }
 
 label { display: block; font-weight: bold; margin-bottom: .5rem; }
 
