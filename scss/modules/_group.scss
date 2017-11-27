@@ -3,16 +3,13 @@ $border-group: 1px solid rgba($dark, .1) !default;
 group {
 
 	overflow-x: auto;
-
-	&, item {
-		display: flex;
-		align-items: center;
-	}
+	display: flex;
+	align-items: center;
+	
 	item {
 		padding: 0 .5rem;
 		justify-content: center;
 		flex: auto;
-		text-overflow: ellipsis;
 		min-height: 3rem;
 		&:not(:last-child) {
 			border-right: $border-group;	

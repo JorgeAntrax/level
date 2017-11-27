@@ -1,6 +1,7 @@
 // html basico
 html {
   font-size: $text-default;
+  font-family: sans-serif, arial;
   box-sizing: border-box;
   min-width: rem(300px);
   -moz-osx-font-smoothing: grayscale;
@@ -27,10 +28,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #fff;
+  letter-spacing: $font-space;
   margin: 0;
-  * {
-    letter-spacing: $font-space;
-  }
 }
 
 p {
@@ -58,6 +57,13 @@ a {
   &:hover {
     color: $color-link-hover;
   }
+}
+
+item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-overflow: ellipsis;
 }
 
 hr {

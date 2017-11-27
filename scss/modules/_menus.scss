@@ -12,15 +12,16 @@ menu:not(.default-browser) {
 		opacity: .1;
 	}
 
-	&[is-content-around] item,
-	item[is-content-around] {
+	&[is-distributed] item {
 		justify-content: space-around;
 	}
 }
-
 menu {
-  &, item, footer {
+	&, footer {
 		display: flex;
+	}
+
+  &, item, footer {
 		width: 100%;
 		max-width: 100%;
 		justify-content: space-between;
@@ -39,7 +40,8 @@ menu {
 		align-items: center;
 		position: relative;
 		cursor: pointer;
-		height: 3rem;
+		min-height: 3rem;
+		width: 100%;
 		padding: 0 1rem;
 		text-overflow: ellipsis;
 		user-select: none;

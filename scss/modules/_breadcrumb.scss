@@ -2,10 +2,7 @@ $bread-padding: 1rem !default;
 
 breadcrumb {
 	overflow-x: auto;
-
-	&, item {
-		display: flex;
-	}
+	display: flex;
 
 	max-width: 100%;
 	padding: rem(4px) 0;

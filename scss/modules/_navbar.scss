@@ -1,6 +1,12 @@
 $navbar-height: 3rem !default;
 
 navbar{
+	width: 100%;
+	max-width: 100%;
+	align-items: stretch;
+	padding: 1px;
+	z-index: 10;
+
 	&, navbrand, navmenu, item {
 		display: flex;
 		position: relative;
@@ -10,6 +16,15 @@ navbar{
 		flex-direction: row;
 		overflow-x: auto;
 		justify-content: flex-start;
+	}
+
+	&[is-rtl] {
+		navbrand {
+			flex-direction: row-reverse;
+		}
+		navmenu {
+			flex-direction: column-reverse;
+		}
 	}
 
 	&, navmenu {
@@ -39,16 +54,14 @@ navbar{
 		min-width: $navbar-height;
 		flex-shrink: 0;
 		margin: 0;
-		align-items: center;
-		justify-content: space-between;
 		cursor: pointer;
+		align-items: center;
 	}
 
 	item {
 		padding: 0 0.75rem;
 
 		&[is-label] {
-			padding: 0;
 			pointer-events: none;
 			user-select: none;
 		}
@@ -71,11 +84,6 @@ navbar{
 		}
 	}
 
-	width: 100%;
-	max-width: 100%;
-	align-items: stretch;
-	padding: 1px;
-	z-index: 10;
 }
 
 // media quieries
@@ -90,6 +98,11 @@ navbar{
 			justify-content: center;
 		}
 	}
+	navbar[is-rtl] {
+		navmenu {
+			flex-direction: row-reverse;
+		}
+	}
 }
 
 @include since (desktop) {
@@ -97,6 +110,10 @@ navbar{
 		flex-direction: row;
 		item[is-toggle] {
 			display: none;
+		}
+
+		&[is-rtl] {
+			flex-direction: row-reverse;
 		}
 	}
 }

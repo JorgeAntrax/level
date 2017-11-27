@@ -21,6 +21,10 @@ img {
 	&[blur-30] {
 		filter: blur(30px);
 	}
+
+	&[is-rounded] {
+		border-radius: 1000em;
+	}
 }
 
 img[is-bg-5],

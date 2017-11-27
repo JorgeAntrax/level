@@ -1,6 +1,6 @@
 // component tag
 tags {
-	display: flex;
+	display: inline-flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -8,10 +8,8 @@ tags {
 	max-width: 100%;
 
 	&[is-group] {
-		display: inline-flex;
 		align-items: stretch;
 		flex: 0;
-
 		& > tag {
 			margin: 0;
 			border-radius: 0;
@@ -38,7 +36,7 @@ tags {
 }
 
 tag {
-	margin: 1px;
+	margin: 2px;
 	line-height: 1.25rem;
 	font-size: $text-small;
 	text-overflow: ellipsis;

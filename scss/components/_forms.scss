@@ -56,6 +56,11 @@ textarea {
   &[is-fixed] {
   	resize: none;
   }
+  &[readonly] {
+  	border: none;
+  	resize: none;
+  	pointer-events: none;
+  }
 }
 
 // select

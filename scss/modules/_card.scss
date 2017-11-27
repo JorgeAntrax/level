@@ -10,8 +10,7 @@ card{
 	overflow: hidden;
 
 	header,
-	footer,
-	footer item {
+	footer {
 		display: flex;
 		height: 3rem;
 		align-items: center;
@@ -34,6 +33,7 @@ card{
 		justify-content: stretch;
 
 		item {
+			min-height: 3rem;
 			flex-grow: 1;
 			justify-content: center;
 			min-width: 2rem;
