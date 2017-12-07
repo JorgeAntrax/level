@@ -16,25 +16,10 @@ group {
 		}
 	}
 
-	&[is-boxed] item {
+	&.is-boxed item {
 		flex-direction: column;
 		icon {
 			margin: 0 !important;
-		}
-	}
-
-	&[is-list] {
-		flex-direction: column; 
-		align-items: 	stretch;	
-		item {
-			flex-grow: 1;
-			min-height: 3rem;
-			padding: 0 1rem;
-			justify-content: space-between;
-			border: 0;
-			&:not(:last-child) {
-				border-bottom: $border-group;
-			}
 		}
 	}
 
@@ -45,5 +30,20 @@ group {
 
 	&.clear item {
 		border: none;
+	}
+}
+
+listgroup {
+	flex-direction: column; 
+	align-items: 	stretch;	
+	item {
+		flex-grow: 1;
+		min-height: 3rem;
+		padding: 0 1rem;
+		justify-content: space-between;
+		border: 0;
+		&:not(:last-child) {
+			border-bottom: $border-group;
+		}
 	}
 }

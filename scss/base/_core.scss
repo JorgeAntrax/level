@@ -74,18 +74,21 @@ hr {
   outline: none;
   opacity: 0.3;
   border: 0;
-  &[is-white] {
+  &.is-white {
     background-color: $cloud;
     opacity: .8;
   }
 }
 
-cite {
-  opacity: 0.75;
+cite, address {
+  display: inline-block;
+  line-height: 1.5;
+  opacity: 0.7;
   font-size: $text-small;
-  cite::before{
-    content: ' \2014\2009';
-  }
+}
+address {
+  font-style: normal;
+  opacity: 1;
 }
 
 small, pre, code {
@@ -170,12 +173,6 @@ table {
   height: rem(5px);
 }
 
-* ::-moz-scrollbar {
-  background-color: rgba($dark, .05);
-  width: rem(5px);
-  height: rem(5px);
-}
-
 @include until (touch) {
   * ::-webkit-scrollbar {
     display: none;
@@ -189,17 +186,6 @@ table {
 }
 
 * ::-webkit-scrollbar-thumb {
-  background-color: rgba($dark, .1);
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all .2s ease-out;
-  &:hover,
-  &:active {
-    background-color: rgba($dark, .25);
-  }
-}
-
-* ::-moz-scrollbar-thumb {
   background-color: rgba($dark, .1);
   border-radius: 1rem;
   cursor: pointer;

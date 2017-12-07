@@ -5,7 +5,7 @@ box {
 	align-items: flex-start;
 	justify-content: flex-start;
 
-	&[is-mobile] {
+	&.is-mobile {
 		flex-direction: row;
 	}
 

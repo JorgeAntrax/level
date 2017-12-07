@@ -34,6 +34,7 @@ drop-menu {
 	z-index: 10;
 	position: absolute;
 	display: none;
+	flex-direction: column;
 	min-width: rem(150px);
 	background-color:#fff;
 	border:1px solid rgba(#000, .1);
@@ -44,16 +45,20 @@ drop-menu {
 	text-overflow: ellipsis;
 	text-align: left;
 
-	&[is-up] {
+	&.is-visible {
+		display: flex;
+	}
+
+	&.is-up {
 		bottom: 2.5rem;
 	}
-	&[is-down] {
+	&.is-down {
 		top: 2.5rem;
 	}
-	&[is-left] {
+	&.is-left {
 		left: 0;
 	}
-	&[is-right] {
+	&.is-right {
 		right: 0;
 	}
 	item {
@@ -62,7 +67,7 @@ drop-menu {
 		padding:  0.35rem 1rem;
 		cursor: pointer;
 		height: 2.5rem;
-		&[is-title] {
+		&.is-title {
 			height: 1.5rem;
 			color: #aaa;
 			font-size: $text-x-small;
@@ -80,18 +85,12 @@ drop-menu {
 	}
 }
 
-// codigo innesesario solo para mostrar el dropdown con focus
-*[is-toggle]:focus + drop-menu {
-	display: flex;
-	flex-direction: column;	
-}
-
 @include until (tablet) {
 	dropdown drop-menu {
-		&[is-mobile-left] {
+		&.is-mobile-left {
 			left: 0;
 		}
-		&[is-mobile-right] {
+		&.is-mobile-right {
 			right: 0;
 		}
 	}

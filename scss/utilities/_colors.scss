@@ -10,8 +10,13 @@
 @include color-picker (success, $success, 4, 5);
 @include color-picker (warning, $warning, 4, 5);
 @include color-picker (danger, $danger, 4, 5);
-@include color-picker (indigo, indigo, 4, 5);
 
+[class*='color-'] {
+	color: $cloud;
+}
+[class*='color-warning'] {
+	color: $dark;
+}
 // style bycolor of text
 .is-text-dark { color: $dark; } //no modified, this have a @extend for mixin colors
 .is-text-cloud { color: $cloud; } //no modified, this have a @extend for mixin colors

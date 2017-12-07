@@ -21,7 +21,7 @@ checkbox, radio {
 		box-shadow: inset 0 0 0 2px $cloud;
 		border-radius: rem(2px);
 	}
-	&[is-check] :checked ~ label {
+	&.is-check :checked ~ label {
 		width: .5rem;
 		transform: rotate(45deg) translate(-0.4rem, 0.25rem);
 		transform-origin: bottom right;
@@ -43,7 +43,7 @@ checkbox, radio {
 	}
 }
 
-radio > label, radio :checked ~ label, radio :checked ~ label[is-check] {
+radio > label, radio :checked ~ label, radio :checked ~ label.is-check {
 	border-radius: 100%;
 }
 

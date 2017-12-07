@@ -1,65 +1,3 @@
-//Estilos para componente resource resource
-//
-example{
-	display: block;
-	position: relative;
-	box-shadow: inset 0 0 0 1px $dark;
-	border-radius: 0 .2rem .2rem;
-	margin:2.5rem auto;
-	padding: 2px;
-	&:before{
-		/* content: attr(value); */
-		content: 'example';
-		letter-spacing: 0.085rem;
-		position: absolute;
-		padding: 0 .5rem;
-		top: -1.2rem;
-		left: 0;
-		line-height: 1.2rem;
-		height: 1.2rem;
-		background-color: $dark;
-		color:$cloud;
-		font-weight: bold;
-		border-radius:.2rem .2rem 0 0;
-		font-size: $text-x-small;
-		text-transform: uppercase;
-	}
-	&.right{
-		border-radius:.2rem 0 .2rem .2rem;
-		&::before{
-			left:initial;
-			right: 0;
-		}
-	}
-}
-example[theme~='white'] {
-	background-color:rgba($cloud, .05);
-	color:$cloud;
-	box-shadow: inset 0 0 0 1px $cloud;
-	&:before{background-color: $cloud;color:$dark;}
-}
-example[theme~='primary'] {
-	box-shadow: inset 0 0 0 1px $primary;
-	&:before{background-color: $primary;}
-}
-example[theme~='success'] {
-	box-shadow: inset 0 0 0 1px $success;
-	&:before{background-color: $success;}
-}
-example[theme~='info'] {
-	box-shadow: inset 0 0 0 1px $info;
-	&:before{background-color: $info;}
-}
-example[theme~='warning'] {
-	box-shadow: inset 0 0 0 1px darken($warning, 10);
-	&:before{background-color: darken($warning, 10); color:$dark;}
-}
-example[theme~='danger'] {
-	box-shadow: inset 0 0 0 1px $danger;
-	&:before{background-color: $danger;}
-}
-
-
 // code message
 message, message header {
 	display: flex;
@@ -91,13 +29,13 @@ message {
 	@include message-style(warning, $warning);
 	@include message-style(danger, $danger);
 
-	&[is-small] * {
+	&.is-small * {
 		font-size: $text-small;
 	}
-	&[is-medium] * {
+	&.is-medium * {
 		font-size: $text-medium;
 	}
-	&[is-large] * {
+	&.is-large * {
 		font-size: $text-large;
 	}
 }

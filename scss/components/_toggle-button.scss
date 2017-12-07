@@ -4,6 +4,7 @@
 toggles {
 	display: inline-flex;
 	align-items: center;
+	flex-wrap: wrap;
 
 	&[disabled] {
 		pointer-events: none;
@@ -47,7 +48,7 @@ toggle {
 			height: 1.25rem;
 			line-height: 1.5rem;
 			border-radius: 100%;
-			background-color: lighten($dark, 50%);
+			background-color: lighten($dark, 40%);
 			box-shadow: 0 0 3px 1px rgba($dark, .2);
 			transition: all .25s ease-out;
 			z-index: 10;
@@ -59,11 +60,15 @@ toggle {
 		}
 	}
 	/*clases small y large para el toggle*/
-	&[is-small] > label {
-		height: .25rem;
+	&.is-small > label {
+		height: .1rem;
 	}
-	&[is-large] > label {
-		height: 1.25rem;
+	&.is-medium > label {
+		height: 0.8rem;
+		border-radius: 5rem;
+	}
+	&.is-large > label {
+		height: 1.2rem;
 		border-radius: 5rem;
 	}
 	& > :checked + label {

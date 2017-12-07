@@ -1,7 +1,6 @@
 // layout
 layout {
 	display: grid;
-	grid-gap: rem(5px);
 	grid-template-areas:
 	"header"
 	"navbar"
@@ -9,11 +8,7 @@ layout {
 	"main"
 	"footer";
 
-	&[no-gap] {
-		grid-gap: 0;
-	}
-
-	max-width: 100vw;
+	max-width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
 	
@@ -23,7 +18,7 @@ layout {
 	main {grid-area: main;}
 	footer {grid-area: footer;}
 
-	&[is-dashboard] {
+	&.is-dashboard {
 		overflow: hidden;
 		
 		& > main, & > sidebar {
@@ -33,10 +28,9 @@ layout {
 			overflow-y: auto;
 		}
 	}
-
 }
 @include since (899px) {
-	layout:not([is-rtl]) {
+	layout {
 		grid-template-columns: 20% 80%;
 		grid-template-areas:
 		"header header"
@@ -44,12 +38,33 @@ layout {
 		"sidebar main"
 		"footer footer";
 	}
-	layout[is-rtl] {
+	layout.is-rtl {
 		grid-template-columns: 80% 20%;
 		grid-template-areas:
 		"header header"
 		"navbar navbar"
 		"main sidebar"
 		"footer footer";
+	}
+	&.is-double-sidebar {
+		grid-template-columns: 20% 60% 20%;
+		grid-template-areas:
+		"header header header"
+		"navbar navbar navbar"
+		"sidebar main sidebar2"
+		"footer footer footer";
+
+		sidebar:not(:first-of-type):last-of-type {
+			grid-area: sidebar2;
+		}
+	}
+	&.is-small {
+		grid-template-columns: 15% 85%;
+	}
+	&.is-medium {
+		grid-template-columns: 25% 75%;
+	}
+	&.is-large {
+		grid-template-columns: 30% 70%;
 	}
 }

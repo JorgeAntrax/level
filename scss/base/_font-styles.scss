@@ -14,16 +14,19 @@ large {
 jumbo {
   font-size: $text-x-large;
 }
-upper {
+upper, .is-text-upper {
   text-transform: uppercase;
 }
 
-lower {
+lower, .is-text-lower {
   text-transform: lowercase;
 }
 
-underline {
+underline, .is-text-underline {
   text-decoration: underline;
+}
+b, .is-text-bolder {
+  font-weight: bold;
 }
 // color text
 white, .is-text-white {
@@ -64,11 +67,11 @@ justify {
   text-align: justify;
 }
 
-center:not([is-full-center]) > *,
-center:not([is-full-center]) {
+center > *,
+center {
   text-align: center;
 }
-center[is-full-center] {
+.is-full-center {
   text-align: left;
   display: flex;
   width: 100%;
@@ -76,6 +79,14 @@ center[is-full-center] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+// hgroup
+
+hgroup {
+  margin-bottom: 2em;
+  .subtitle {
+    opacity: .6;
+  }
 }
 
 //estilos de etiquetas h1,h2,h3,h4,h5,h6

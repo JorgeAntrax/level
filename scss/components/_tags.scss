@@ -1,14 +1,18 @@
 // component tag
 tags {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
-	overflow: hidden;
 	max-width: 100%;
 
-	&[is-group] {
+	&.is-group {
+		border-radius: .2rem;
+		display: inline-flex;
 		align-items: stretch;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		margin: rem(2px);
 		flex: 0;
 		& > tag {
 			margin: 0;
@@ -16,22 +20,15 @@ tags {
 		}
 
 		// crea un grupo de etiquetas en forma de bloque
-		&[is-boxed] {
+		&.is-boxed {
 			flex-direction: column;
-
-			icon {
-				width: 1.5rem;
-				height: 1.5rem;
-			}
-
 			& > tag {
 				padding: rem(5px) rem(10px);
 			}
 		}
-		margin: .2rem;
-		border-radius: .2rem;
-		overflow: hidden;
-		flex-wrap: nowrap;
+	}
+	&:not(:last-child) {
+		margin-bottom: 1rem;
 	}
 }
 
@@ -40,7 +37,8 @@ tag {
 	line-height: 1.25rem;
 	font-size: $text-small;
 	text-overflow: ellipsis;
-	padding: rem(2px) rem(10px);
+	overflow-x: auto;
+	padding: rem(2px) rem(8px);
 	align-items: center;
 	display: inline-flex;
 	justify-content: center;
@@ -53,34 +51,30 @@ tag {
 	&[class^='is-'] {
 		color: $cloud;
 	}
-
-	&[class$='warning'] {
-		color: $dark;
-	}
 	
 	&.is-dark { background-color: $dark ;}
 	&.is-black { background-color: $black ;}
 	&.is-primary { background-color: $primary ;}
 	&.is-info { background-color: $info ;}
 	&.is-success { background-color: $success ;}
-	&.is-warning { background-color: $warning ;}
+	&.is-warning { background-color: $warning; color: $dark;}
 	&.is-danger { background-color: $danger ;}
 
 }
 
 tags, tag {
-	&[is-rounded] {
+	&.is-rounded {
 		border-radius: 100em !important;
 	}
 }
 
-tags[is-small] > tag, tag[is-small] {
+tags.is-small > tag, tag.is-small {
 	line-height: 1rem;
 	font-size: $text-x-small;
-	padding: rem(2px) rem(8px);
+	padding: rem(2px) rem(5px);
 }
 
-tags[is-large] > tag, tag[is-large] {
+tags.is-large > tag, tag.is-large {
 	font-size: $text-default;
 	line-height: 1.5rem;
 	padding: rem(3px) rem(12px);

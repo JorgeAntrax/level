@@ -7,7 +7,7 @@ table:not(.default-broswer) {
   border-spacing: 0;
   border: 1px solid rgba($dark, .2);
 	
-	&[is-boxed] {
+	&.is-boxed {
 		width: 100%;
 	}
 
@@ -39,12 +39,12 @@ table:not(.default-broswer) {
 		vertical-align: middle;
 	}
 
-	&[is-narrow] td,
-	&[is-narrow] th {
+	&.is-narrow td,
+	&.is-narrow th {
 		min-width: 0;
 	}
 	
-	&[is-striped] {
+	&.is-striped {
 		tr:nth-child(2n) {
 			background-color: whitesmoke;
 			&:hover {
@@ -53,7 +53,7 @@ table:not(.default-broswer) {
 		}
 	}
 
-	&[is-cell] {
+	&.is-cell {
 		td, th {
 			border:1px solid rgba($dark, .2);
 			border-top: 0;

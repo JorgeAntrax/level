@@ -1,11 +1,16 @@
-
+// variables
 $input-border: whitesmoke;
 $input-padding: rem(5px) rem($text-default - 1px) !default;
-$select-padding: $input-padding;
 $input-line-height: 1.5 !default;
+$field-addons-rounded: rem(2000px) !default;
+$field-addons-default-rounded: rem(3px) !default;
+$select-padding: $input-padding !default;
 
-//*********  Inicio Estilos input text etc  ***********
-.input {
+// input con clase input
+.input,
+.date,
+select,
+textarea {
 	display: inline-flex;
 	align-items: center;
 	vertical-align: top;
@@ -15,62 +20,121 @@ $input-line-height: 1.5 !default;
 	transition: all .2s ease-out;
 	font-size: rem($text-default);
 	width: 100%;
-	max-width: 100%;
 	line-height: $input-line-height;
 	margin: 0;
 	outline: none;
 
+	//mixin de estilos
 	@include forms-style(info, $info);
 	@include forms-style(success, $success);
 	@include forms-style(warning, $warning);
 	@include forms-style(danger, $danger);
 
+	//estilo material design con atributo personalizado
+	&.is-material {
+		border: 0;
+		border-bottom: 1px solid darken(whitesmoke, 5);
+		&:focus {
+			border-color: $primary;
+		}
+	}
+	// estilos para los que no tienen el atributo is-material
+	&:not(.is-material){
+		border-radius: rem(3px);
+		border: 1px solid #ddd;
+		&:focus {
+			border-color: $primary;
+			box-shadow: 0 0 0 2px rgba($primary, .2);
+		}
+		&:required:focus:invalid {
+			box-shadow: 0 0 0 2px rgba($danger, .2);
+		}
+		&:required:valid {
+			box-shadow: 0 0 0 2px rgba($success, .2);
+		}
+	}
+
+	//validación de formularios
 	&:focus ~ icon {
 		color: $black;
 	}
+	& ~ .is-validate,
+	&:required:valid ~ .is-validate {
+		opacity: 0;
+		color: $success;
+		transition: opacity .2s ease-out;
+	}
+	&:required:focus:invalid ~ .is-validate {
+		opacity: 1;
+		color: $danger;
+	}
+	&:required:focus:invalid {
+		border-color: $danger;
+	}
+	&:required:valid {
+		border-color: $success;
+	}
 }
 
-.input[is-material] {
-	border-bottom: 1px solid darken(whitesmoke, 5);
-	&:focus {
-		border-color: $primary;
-	}
-}
-.input:not([is-material]){
+//contenedor input type color
+color {
+	width: 1.5rem;
+	height: 1.5rem;
+	display: inline-flex;
+	margin: 0 .5rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
 	border-radius: rem(3px);
-	border: 1px solid whitesmoke;
-	background-color: $input-border;
-	&:focus {
-		border-color: $primary;
-		box-shadow: 0 0 0 2px rgba($primary, .2);
+	box-shadow: 0 0 0 3px $cloud, 0 0 6px 5px rgba($black, 0.1);
+	&.is-rounded {
+		border-radius: 50%;
+	}
+	&[disabled] {
+		box-shadow: none;
+		pointer-events: none;
+		opacity: .7;
+	}
+	&.is-dark {
+		box-shadow: 0 0 0 3px $dark, 0 0 6px 5px rgba($black, .1);
 	}
 }
+// input type color
+input[type='color'] {
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	border: 0;
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	min-height: 5rem;
+	min-width: 5rem;
+}
+
 // textarea
 textarea {
-	@extend .input;
 	display: block;
   max-height: rem(500px);
   min-height: rem(50px);
   resize: vertical;
 
-  &[is-fixed] {
+  &.is-fixed {
   	resize: none;
   }
-  &[readonly] {
-  	border: none;
+  &[is-readonly]  {
   	resize: none;
   	pointer-events: none;
+  	color: #666;
   }
 }
 
-// select
+// select box
 
-$arrow: 0.65rem;
-select-box {
-	display: inline-block;
+$arrow-dimentions: 0.7rem;
+listbox, date {
+	display: inline-flex;
 	position: relative;
 	align-items: center;
-	vertical-align: top;
 
 	&:not([multiple]) {
 		&::before {
@@ -79,10 +143,10 @@ select-box {
 			position: absolute;
 			margin-top: -0.4rem;
 			top: 50%;
-			right: 0.75rem;
-			width: $arrow;
-			height: $arrow;
-			border: 1px solid $dark;
+			right: 0.65rem;
+			width: $arrow-dimentions;
+			height: $arrow-dimentions;
+			border: 1px solid $primary;
 			border-top: 0;
 			border-left: 0;
 			transform-origin: top center;
@@ -91,54 +155,61 @@ select-box {
 		}
 	}
 
-	select, option {
-		box-shadow: none;
-		max-width: 100%;
-		width: auto;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		outline: none;
-	}
-	select{
-		@extend .input;
+	select,
+	datalist,
+	input, {
 		cursor: pointer;
 		padding: $select-padding;
 		background-color: $cloud;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		border: none;
+		outline: none;
 
 		&:not([multiple]) {
 			padding-right: 2.5rem;
 		}
+
 		&[multiple] {
 			padding: 0;
-
 			option {
 				padding: .5rem 1rem;
 			}
 		}
 	}
+	@include listbox-style(info, $info);
+	@include listbox-style(success, $success);
+	@include listbox-style(warning, $warning);
+	@include listbox-style(danger, $danger);
+}
 
-	@include forms-style(primary, $primary);
-	@include forms-style(info, $info);
-	@include forms-style(success, $success);
-	@include forms-style(warning, $warning);
-	@include forms-style(danger, $danger);
+date:not([multiple]) {
+	display: flex;
+	&::before {
+		display: none;
+	}
+	input:not([multiple]) {
+		padding-right: .5rem;
+	}
 }
 
 help {
 	display: block;
+	padding: 0.25rem 0;
 	font-size: $text-x-small;
 }
 
 label {
   display: block;
   font-weight: bold;
+  text-align: left;
   margin-bottom: .5rem;
 }
 
 .input, textarea, label, select {
-	&[is-small] { font-size: $text-small;	}
-	&[is-medium] { font-size: $text-medium;	}
-	&[is-large] { font-size: $text-large;	}
+	&.is-small { font-size: $text-small;	}
+	&.is-medium { font-size: $text-medium;	}
+	&.is-large { font-size: $text-large;	}
 }
 //############# Fin de estilos del input ###########
 
@@ -151,32 +222,38 @@ $icon-gap-large: rem(48px) !default;
 //control group
 
 control {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	position: relative;
-}
+	text-align: left;
 
-control {
 	& > icon {
 		position: absolute;
+		top: 0;
 		color: lighten($dark, 40);
 		width: $icon-gap;
-		margin: 0 !important;
-		&,
-		&[is-small],
-		&[is-medium],
-		&[is-large] {height: 100%;}
+		height: 2.25rem;
 
-		&[is-small] {width: $icon-gap-small;}
-		&[is-medium] {width: $icon-gap-medium;}
-		&[is-large] {width: $icon-gap-large;}
+		&.is-small {
+			height: rem(32px);
+		}
+		&.is-medium {
+			height: rem(43px);
+		}
+		&.is-large {
+			height: rem(50px);
+		}
 
+		&.is-small {width: $icon-gap-small;}
+		&.is-medium {width: $icon-gap-medium;}
+		&.is-large {width: $icon-gap-large;}
 	}
 	
-	&:not([double-icons]) > textarea + icon {top: .5rem; height: auto !important; width: auto !important; }
-	&:not([double-icons])[is-icon-left] > textarea + icon {left: .5rem;}
-	&:not([double-icons])[is-icon-right] > textarea + icon {right: .5rem;}
+	&:not(.is-double-icons) > textarea + icon {top: .5rem; height: auto; width: auto; }
+	&:not(.is-double-icons).is-icon-left > textarea + icon {left: .5rem;}
+	&:not(.is-double-icons).is-icon-right > textarea + icon {right: .5rem;}
 
-	&[double-icons]{
+	&.is-double-icons {
 		icon:first-of-type {
 			left: 0;
 		}
@@ -187,32 +264,32 @@ control {
 			padding-left: $icon-gap;
 			padding-right: $icon-gap;
 
-			&[is-small]{
+			&.is-small {
 				padding-left: $icon-gap-small;
 				padding-right: $icon-gap-small;
 			}
-			&[is-medium]{
+			&.is-medium {
 				padding-left: $icon-gap-medium;
 				padding-right: $icon-gap-medium;
 			}
-			&[is-large]{
+			&.is-large {
 				padding-left: $icon-gap-large;
 				padding-right: $icon-gap-large;
 			}
 		}
 	}
 
-	&[is-icon-left]{
+	&.is-icon-left {
 		.input, textarea {	
 			padding-left: $icon-gap;
 
-			&[is-small]{
+			&.is-small  {
 				padding-left: $icon-gap-small;
 			}
-			&[is-medium]{
+			&.is-medium {
 				padding-left: $icon-gap-medium;
 			}
-			&[is-large]{
+			&.is-large {
 				padding-left: $icon-gap-large;
 			}
 		}
@@ -221,17 +298,17 @@ control {
 		}
 	}
 
-	&[is-icon-right]{
+	&.is-icon-right {
 		.input, textarea {	
 			padding-right: $icon-gap;
 
-			&[is-small]{
+			&.is-small {
 				padding-right: $icon-gap-small;
 			}
-			&[is-medium]{
+			&.is-medium {
 				padding-right: $icon-gap-medium;
 			}
-			&[is-large]{
+			&.is-large {
 				padding-right: $icon-gap-large;
 			}
 		}
@@ -243,32 +320,48 @@ control {
 
 field {
 	display: flex;
+	flex-direction: column;
+
 	&:not([addons]) {
+		justify-content: center;
 		control {
-			margin-bottom: 1rem;
+			width: 100%;
+			&:not(:last-of-type) {
+				margin-bottom: rem(20px);
+			}
 		}
 	}
-	align-items: center;
 
-	control {
-		flex-grow: 1;
-	}
 	&:not(:last-child) {
 		margin-bottom: .5rem;
 	}
+
+	&.is-horizontal {
+		control:not(.is-expand) {
+			width: auto;
+		}
+		control:not(:last-child) {
+			margin-bottom: 0;
+			margin-right: .5rem;
+		}
+	}
+
+	&.is-horizontal,
+	&[addons] {
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
 	
 	&[addons] {
-		display: flex;
-		justify-content: flex-start;
 
 		control {
 			flex-grow: 0;
 			margin-bottom: 0;
-			&:not(:last-of-type) {
-				margin-right: -1px;
-			}
+			margin-right: -1px;
+
 			&.is-expand {
-				flex-grow:1;
+				flex: 1;
 			}
 
 			&:not(:first-child) > *,
@@ -277,19 +370,23 @@ field {
 			}
 
 			&:first-child > * {
-				border-top-left-radius: rem(3px);
-				border-bottom-left-radius: rem(3px);
+				border-top-left-radius: $field-addons-default-rounded;
+				border-bottom-left-radius: $field-addons-default-rounded;
 			}
 			&:last-child > * {
-				border-top-right-radius: rem(3px);
-				border-bottom-right-radius: rem(3px);
+				border-top-right-radius: $field-addons-default-rounded;
+				border-bottom-right-radius: $field-addons-default-rounded;
 			}
 		}
-	}
-}
-
-@include since (tablet) {
-	field:not([addons]) {
-		flex-direction: row;
+		&.is-rounded {
+			control:first-child > * {
+				border-top-left-radius: $field-addons-rounded;
+				border-bottom-left-radius: $field-addons-rounded;
+			}
+			control:last-child > * {
+				border-top-right-radius: $field-addons-rounded;
+				border-bottom-right-radius: $field-addons-rounded;
+			}
+		}
 	}
 }

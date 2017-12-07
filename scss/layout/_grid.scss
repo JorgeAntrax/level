@@ -5,16 +5,16 @@ row{
 	flex: auto;
 	flex-flow: column nowrap;
 
-	&[is-multiline] {
+	&.is-multiline {
 		flex-wrap: wrap;
 	}
-	&[is-mobile] {
+	&.is-mobile {
 		flex-flow: row nowrap;
 	}
-	&[inverted] {
+	&.is-inverted {
 		flex-direction: row-reverse;
 	}
-	&[is-boxed] {
+	&.is-boxed {
 		flex-direction: column;
 	}
 }
@@ -25,10 +25,10 @@ column {
 	max-width: 100%;
 }
 
-[is-block] {
+.is-block {
 	width: 100%;
 }
-[is-half] {
+.is-half {
 	width: 50%;
 }
 

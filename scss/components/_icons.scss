@@ -13,27 +13,27 @@ icon {
   font-size: $text-default;
   border-radius: rem(2px);
 
-  &[is-normal]{
+  &.is-normal {
     font-size: $text-default;
     width: $width-icon;
     height: $width-icon;
   }
-  &[is-small]{
+  &.is-small {
   	font-size: $text-small;
   	width: $width-icon-small;
   	height: $width-icon-small;
   }
-  &[is-medium]{
+  &.is-medium {
   	font-size: $text-medium;
   	width: $width-icon-medium;
     height: $width-icon-medium;
   }
-  &[is-large]{
+  &.is-large {
   	font-size: $text-large;
   	width: $width-icon-large;
     height: $width-icon-large;
   }
-  &[is-jumbo]{
+  &.is-jumbo {
   	font-size: $text-x-large;
   	width: $width-icon-jumbo;
     height: $width-icon-jumbo;
@@ -48,7 +48,7 @@ icon {
     margin: 0;
   }
 
-  &[is-close] {
+  &.is-close  {
       opacity: .5;
       margin: 0 !important;
       &:hover {

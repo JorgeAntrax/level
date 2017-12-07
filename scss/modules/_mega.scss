@@ -7,7 +7,7 @@ mega {
 	flex: auto;
 	overflow: hidden;
 
-	&[is-horizontal] {
+	&.is-horizontal {
 		flex-direction: row;
 	}
 

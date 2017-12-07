@@ -5,33 +5,33 @@ img {
   max-width: 100%;  
   height: auto;
   overflow: hidden;
-	&[blur-2] {
+	&.blur-2 {
 		filter: blur(2px);
 	}
 	
-	&[blur-5] {
+	&.blur-5 {
 		filter: blur(5px);
 	}
-	&[blur-10] {
+	&.blur-10 {
 		filter: blur(10px);
 	}
-	&[blur-20] {
+	&.blur-20 {
 		filter: blur(20px);
 	}
-	&[blur-30] {
+	&.blur-30 {
 		filter: blur(30px);
 	}
 
-	&[is-rounded] {
+	&.is-rounded {
 		border-radius: 1000em;
 	}
 }
 
-img[is-bg-5],
-img[is-bg-4],
-img[is-bg-3],
-img[is-bg-2],
-img[is-bg] {
+img.is-bg-5,
+img.is-bg-4,
+img.is-bg-3,
+img.is-bg-2,
+img.is-bg {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -40,18 +40,18 @@ img[is-bg] {
 
 }
 
-img[is-bg-5] {
+img.is-bg-5 {
 	z-index: -5;
 }
-img[is-bg-4] {
+img.is-bg-4 {
 	z-index: -4;
 }
-img[is-bg-3] {
+img.is-bg-3 {
 	z-index: -3;
 }
-img[is-bg-2] {
+img.is-bg-2 {
 	z-index: -2;
 }
-img[is-bg] {
+img.is-bg {
 	z-index: -1;
 }

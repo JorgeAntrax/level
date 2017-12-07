@@ -1,159 +1,92 @@
 // progress bar
-progress {
-	display: block;	
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	border: none;
-	border-radius: rem(500px);
+progress-bar {
+	display: block;
+	height: 0.5rem;
 	width: 100%;
-	height: .3rem;
-	margin-top: 1.5rem;
+	margin: 1.5rem 0;
+	cursor: pointer;
+	background-color: whitesmoke;
+	box-shadow: inset 0 0 5px -1px rgba($black, 0.05);
 
-	position: relative;
-
-	&::-webkit-progress-bar {
-		background-color: whitesmoke;
-		border-radius: rem(500px);
-		overflow: hidden;
-	}
-	&::-ms-fill {
+	complete {
+		display: flex;
+		height: 100%;
 		background-color: $dark;
-		overflow: hidden;
-		margin-right: -2px;
-	}
+		position: relative;
+		transition: all .2s ease;
 
-	& + label {
-		display: block;
-		width: 100%;
-		text-align: left;
-		margin-bottom: .5rem;
-		font-size: 0.6rem;
-		opacity: .5;
-
-		&.is-center {
-			text-align: center;
+		&, &::before {
+			align-content: center;
+			align-items: center;
+			justify-content: center;
 		}
-		&.is-right {
-			text-align: right;
-		}
-	}
-	&[add-label] {
-		cursor: pointer;
-		&:before {
-			transition: opacity 0.3s ease-out;
+		&::before {
+			display: none;
+			padding: 0.4rem 0;
+			width: 2rem;
+			height: 2rem;
+			content: attr(value);
+			position: absolute;
+			top: -4.25em;
+			transform-origin: center center;
+			animation: zoom-in .2s ease;
 			background-color: whitesmoke;
-			border-radius: rem(500px);
-			width: 2.25rem;
+			border-radius: 50%;
+			font-size: 0.5rem;
+			font-weight: bold;
+			z-index: 10;
+			box-shadow: 2px 0 8px -1px rgba($black, 0.2);
 		}
 	}
-		
-	&[add-label]:hover::before {
-		display: block;
-		content: attr(value)'%';
-		font-size: 0.6rem;
-		position: absolute;
-		top: -1rem;
-		left: 0;
-		right: 0;
-		max-width: 2.25rem;
-		text-align: center;
-	}
-	&[add-label].is-center:hover::before {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	&[add-label].is-right:hover::before {
-		left: initial;
+	&[label='static'] complete::before,
+	&[label='floating']:hover complete::before {
+		display: flex;
+		transition: all .1s ease-out;
 	}
 
+	&.is-infinite {
+		overflow: hidden;
+		complete {
+			-webkit-animation: looper 1s ease-in-out;
+			animation-iteration-count: infinite;
+		}
+	}
 
-	&.is-primary,
-	&.is-info,
-	&.is-success,
-	&.is-danger {
+	&, & complete {	
+		border-radius: rem(500px);
+	}
+
+	&.is-primary complete, &.is-primary complete::before {
+		background-color: $primary;
+		color: $cloud;
+	}
+	&.is-info complete, &.is-info complete::before {
+		background-color: $info;
+		color: $cloud;
+	}
+	&.is-success complete, &.is-success complete::before {
+		background-color: $success;
+		color: $cloud;
+	}
+	&.is-warning complete, &.is-warning complete::before {
+		background-color: $warning;
+		color: $dark;
+	}
+	&.is-danger complete, &.is-danger complete::before {
+		background-color: $danger;
 		color: $cloud;
 	}
 
-	&::-webkit-progress-value {
-		background-color: $dark;
+	&.is-slim {
+		height: 0.1rem;
 	}
-	&.is-primary {
-		&:before, &::-webkit-progress-value {
-			background-color: $primary;
-		}
+	&.is-small {
+		height: 0.3rem;
 	}
-	&.is-info {
-		&:before, &::-webkit-progress-value {
-			background-color: $info;
-		}
+	&.is-medium {
+		height: 0.8rem;
 	}
-	&.is-success {
-		&:before, &::-webkit-progress-value {
-			background-color: $success;
-		}
-	}
-	&.is-warning {
-		&:before, &::-webkit-progress-value {
-			background-color: $warning;
-			color: $dark;
-		}
-	}
-	&.is-danger {
-		&:before, &::-webkit-progress-value {
-			background-color: $danger;
-		}
-	}
-	&::-moz-progress-bar {
-		background-color: $dark;
-	}
-	&.is-primary::-moz-progress-bar {
-		background-color: $primary;
-	}
-	&.is-info::-moz-progress-bar {
-		background-color: $info;
-	}
-	&.is-success::-moz-progress-bar {
-		background-color: $success;
-	}
-	&.is-warning::-moz-progress-bar {
-		background-color: $warning;
-	}
-	&.is-danger::-moz-progress-bar {
-		background-color: $danger;
-	}
-	&.is-primary::-ms-fill {
-		background-color: $primary;
-	}
-	&.is-info::-ms-fill {
-		background-color: $info;
-	}
-	&.is-success::-ms-fill {
-		background-color: $success;
-	}
-	&.is-warning::-ms-fill {
-		background-color: $warning;
-	}
-	&.is-danger::-ms-fill {
-		background-color: $danger;
-	}
-
-	&[is-small] {
-		height: 0.15rem;
-	}
-	&[is-small]::-webkit-progress-bar {
-		height: 0.15rem;
-	}
-	&[is-medium] {
-		height: 0.5rem;
-	}
-	&[is-medium]::-webkit-progress-bar {
-		height: 0.5rem;
-	}
-	&[is-large] {
-		height: 0.7rem;
-	}
-	&[is-large]::-webkit-progress-bar {
-		height: 0.7rem;
+	&.is-large {
+		height: 1rem;
 	}
 }

@@ -30,7 +30,7 @@ button,
 	border-radius: $button-border-radius;
 	padding: $button-padding;
 
-	&[is-rounded] {
+	&.is-rounded {
 		border-radius: $button-circle;
 	}
 
@@ -44,7 +44,7 @@ button,
 		box-shadow: 0 0 0 2px rgba($dark, .1);
 	}
 	//flex direction column
-	&[is-boxed] {
+	&.is-boxed {
 		flex-direction: column;
 		padding: 0.5em;
 		icon:first-child,
@@ -54,13 +54,13 @@ button,
 		justify-content: space-between;
 	}
 
-	&[is-small] {
+	&.is-small {
 		font-size: $text-small;
 	}
-	&[is-medium] {
+	&.is-medium {
 		font-size: $text-medium;
 	}
-	&[is-large] {
+	&.is-large {
 		font-size: $text-large;
 	}
 
@@ -93,7 +93,7 @@ button,
 	}
 
 	// clase que hace un boton flotante
-	&[is-floating] {
+	&[type='floating'] {
 		z-index: 40;
 		margin: rem(5px);
 		border-radius: 100%;
@@ -115,10 +115,15 @@ button,
 
 buttons {
 	display: flex;
-	&[addons] {
-		display: inline-flex;
+	flex-wrap: wrap;
 
-		&, &[is-rounded] {
+	&.is-addons {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+
+	&.is-addons {
+		&, &.is-rounded {
 			* {
 				border-radius: 0;
 			}
@@ -132,7 +137,7 @@ buttons {
 			border-top-right-radius: $button-border-radius;
 			border-bottom-right-radius: $button-border-radius;
 		}
-		&[is-rounded] {
+		&.is-rounded {
 			:first-child {
 				border-top-left-radius: $button-circle;
 				border-bottom-left-radius: $button-circle;
@@ -161,23 +166,23 @@ fab {
 			position: absolute;
 		}
 
-		&[is-left],
-		&[is-right]{
+		&.is-left,
+		&.is-right {
 		flex-direction: row;	
 			& > * {
 				margin: 0 .25rem;
 			}
 		}
-		&[is-left] {
+		&.is-left {
 			right: 100%;
 		}
-		&[is-right] {
+		&.is-right {
 			left: 100%;
 		}
-		&[is-up] {
+		&.is-up {
 			bottom: 100%;
 		}
-		&[is-down] {
+		&.is-down {
 			top: 100%;
 		}
 

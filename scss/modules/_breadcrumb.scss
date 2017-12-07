@@ -38,10 +38,10 @@ breadcrumb {
 		}
 	}
 
-	&:not([is-right]) item:first-child {
+	&:not(.is-right) item:first-child {
 		padding-left: 0;
 	}
-	&:not([is-right]) item:last-child {
+	&:not(.is-right) item:last-child {
 		padding-right: 0;
 		&:before {
 			display: none;
@@ -49,7 +49,7 @@ breadcrumb {
 	}
 	
 	//ok no problemas
-	&[is-right] {
+	&.is-right {
 
 		&, item {
 			flex-direction: row-reverse;
@@ -81,27 +81,27 @@ breadcrumb {
 	}
 	//flecha ->
 
-	&[is-arrowed] item:before {
+	&.is-arrowed item:before {
 		content: '\02192';
 	}
-	&[is-right][is-arrowed] item:after {
+	&.is-right.is-arrowed item:after {
 		content: '\02190';
 	}
 
 	// circulo pequeño
-	&[is-dotted] item:before {
+	&.is-dotted item:before {
 		content: '\02022';
 		font-size: $text-x-small;
 	}
 
-	&[is-small] {
+	&.is-small {
 		font-size: $text-small;
 		& item:before,
 		& item:after {
 			font-size: $text-x-small;
 		}
 	}
-	&[is-large] {
+	&.is-large {
 		font-size: $text-large;
 		& item:before,
 		& item:after {
@@ -112,7 +112,7 @@ breadcrumb {
 
 // media queries
 @include until (tablet) {
-	breadcrumb[is-right], breadcrumb[is-right] item {
+	breadcrumb.is-right, breadcrumb.is-right item {
 		justify-content:flex-start;
 	}
 }

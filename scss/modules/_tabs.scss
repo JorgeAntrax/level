@@ -1,5 +1,5 @@
 // tabs navigation
-tabs, tabs[is-boxed], tabs[is-toggle] {
+tabs, tabs.is-boxed, tabs.is-toggle {
 	display: flex;
 	width: 100%;
 	max-width: 100%;
@@ -7,23 +7,23 @@ tabs, tabs[is-boxed], tabs[is-toggle] {
 	overflow-x: auto;
 	overflow-y: hidden;
 
-	&[is-small] {
+	&.is-small {
 		font-size: $text-small;
 	}
-	&[is-medium] {
+	&.is-medium {
 		font-size: $text-medium;
 	}
-	&[is-large] {
+	&.is-large {
 		font-size: $text-large;
 	}
-	&[is-center] {
+	&.is-center {
 		justify-content: center;
 	}
-	&[is-right] {
+	&.is-right {
 		justify-content: flex-end;
 	}
 
-	&[is-fluid] {
+	&.is-fluid {
 		width: 100%;
 		max-width: 100%;
 		overflow: hidden;
@@ -79,7 +79,7 @@ tabs {
 	}
 }
 
-tabs[is-toggle], tabs[is-boxed] {
+tabs.is-toggle, tabs.is-boxed {
 	tab {
 		&:before {
 			display: none;
@@ -94,7 +94,7 @@ tabs[is-toggle], tabs[is-boxed] {
 		}
 	}
 }
-tabs[is-boxed] {
+tabs.is-boxed {
 	tab {
 		border-bottom: 1px solid rgba($dark, .1);
 		border-radius: .25rem .25rem 0 0;
@@ -104,7 +104,7 @@ tabs[is-boxed] {
 	}
 }
 
-tabs[is-toggle] {
+tabs.is-toggle {
 	tab {
 		border: 1px solid rgba($dark, .1);
 		margin-right: -1px;

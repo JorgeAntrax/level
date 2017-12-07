@@ -4,7 +4,6 @@ navbar{
 	width: 100%;
 	max-width: 100%;
 	align-items: stretch;
-	padding: 1px;
 	z-index: 10;
 
 	&, navbrand, navmenu, item {
@@ -12,13 +11,13 @@ navbar{
 		position: relative;
 	}
 
-	&[is-mobile] {
+	&.is-mobile {
 		flex-direction: row;
 		overflow-x: auto;
 		justify-content: flex-start;
 	}
 
-	&[is-rtl] {
+	&.is-rtl {
 		navbrand {
 			flex-direction: row-reverse;
 		}
@@ -38,7 +37,7 @@ navbar{
 
 	navbrand {
 		justify-content: space-between;
-		logo, item[is-toggle] {
+		logo, item.is-toggle {
 			height: $navbar-height;
 			padding: rem(5px);
 			width: auto;
@@ -49,7 +48,7 @@ navbar{
 		height: 100%;
 	}
 
-	item, dropdown, item[is-toggle] {
+	item, dropdown, item.is-toggle {
 		height: $navbar-height;
 		min-width: $navbar-height;
 		flex-shrink: 0;
@@ -61,11 +60,11 @@ navbar{
 	item {
 		padding: 0 0.75rem;
 
-		&[is-label] {
+		&.is-label {
 			pointer-events: none;
 			user-select: none;
 		}
-		&[is-toggle] {
+		&.is-toggle {
 			justify-content: center;
 		}
 	}
@@ -75,10 +74,10 @@ navbar{
 			border-top-left-radius: 0 !important;
 			border-top-right-radius: 0 !important;
 
-			&[is-up] {
+			&.is-up {
 				bottom: $navbar-height;
 			}
-			&[is-down] {
+			&.is-down {
 				top: $navbar-height;
 			}
 		}
@@ -91,14 +90,14 @@ navbar{
 	navbar navmenu {
 		flex-direction:row;
 		justify-content: flex-end;
-		&[is-left] {
+		&.is-left {
 			justify-content: flex-start;
 		}
-		&[is-center] {
+		&.is-center {
 			justify-content: center;
 		}
 	}
-	navbar[is-rtl] {
+	navbar.is-rtl {
 		navmenu {
 			flex-direction: row-reverse;
 		}
@@ -108,11 +107,11 @@ navbar{
 @include since (desktop) {
 	navbar {
 		flex-direction: row;
-		item[is-toggle] {
+		item.is-toggle {
 			display: none;
 		}
 
-		&[is-rtl] {
+		&.is-rtl {
 			flex-direction: row-reverse;
 		}
 	}

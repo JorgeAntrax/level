@@ -12,7 +12,7 @@ menu:not(.default-browser) {
 		opacity: .1;
 	}
 
-	&[is-distributed] item {
+	&.is-distributed item {
 		justify-content: space-around;
 	}
 }
@@ -53,7 +53,7 @@ menu {
 		flex-direction: column;
 	}
 
-	item[is-label] {
+	item.is-label {
 		text-transform: uppercase;
 		pointer-events: none;
 		font-size: $text-small;

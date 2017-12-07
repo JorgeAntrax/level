@@ -31,6 +31,29 @@
 	animation: zoom-out 0.6s;
 }
 
+// animacion designada a pogress bar infinite.
+@keyframes looper {
+	0% {
+		width: 0;
+		left: 0;
+	}
+	15% {
+		width: 25%;
+		left: 20%;
+	}
+	40% {
+		width: 40%;
+		left: 50%;
+	}
+	65% {
+		width: 25%;
+		left: 80%;
+	}
+	100% {
+		width: 15%;
+		left: 100%;
+	}
+}
 // fade 
 
 @keyframes fade-in {

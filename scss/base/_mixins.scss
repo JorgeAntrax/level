@@ -121,14 +121,6 @@
 @mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2) {
 		.color-#{$class} {
 			background-color: $base-color;
-			color: $cloud;
-		}
-		[class^='color-#{$class}'] {
-			@if $class == 'warning' {
-				color: $dark;
-			}@else {
-				color: $cloud;
-			}
 		}
 		@for $i from 1 through $number-colors {
 			@if ($class == 'black') or ($class =='dark') {} @else {	
@@ -148,11 +140,22 @@
 
 //mixin que le da estilo a los input en general
 @mixin forms-style ($class, $bg-color) {
-	&.is-#{$class}:not([is-material]):focus {
+	&.is-#{$class}:not(.is-material):focus {
 		border: 1px solid $bg-color;
 		box-shadow: 0 0 0 2px rgba($bg-color, .2);
 	}
-	&[is-material].is-#{$class}:focus {
+	&.is-material.is-#{$class}:focus {
+		border-color: $bg-color;
+	}
+}
+
+//listbox
+@mixin listbox-style ($class, $bg-color) {
+	&.is-#{$class} select:focus {
+		border: 1px solid $bg-color;
+		box-shadow: 0 0 0 2px rgba($bg-color, .2);
+	}
+	&.is-#{$class}::before {
 		border-color: $bg-color;
 	}
 }
@@ -168,7 +171,7 @@
 			background-color: $color;
 		}
 		// en estado checked cambia el color de borde y fondo
-		&[is-check].is-#{$class} :checked ~ label {
+		&.is-check.is-#{$class} :checked ~ label {
 			border-color:$color;
 		}
 	}
