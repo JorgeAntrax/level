@@ -148,6 +148,11 @@ buttons {
 			}
 		}
 	}
+	&:not(.is-addons) {
+		button, .button {
+			margin-bottom: .25rem;
+		}
+	}
 }
 
 fab {
@@ -157,11 +162,11 @@ fab {
 	justify-content: center;
 	z-index: 100;
 
-	fab-menu {
+	fabmenu {
 		display: none;
 		flex-direction: column;
 
-		&.active {	
+		&.is-visible {	
 			display: flex;
 			position: absolute;
 		}

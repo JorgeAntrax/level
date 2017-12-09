@@ -54,6 +54,11 @@ textarea {
 		}
 	}
 
+	// conponentes redondeados
+	&.is-rounded {
+		border-radius: 1.5rem;
+	}
+
 	//validación de formularios
 	&:focus ~ icon {
 		color: $black;

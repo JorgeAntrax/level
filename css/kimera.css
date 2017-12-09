@@ -1,12 +1,8 @@
-@charset "UTF-8";
 /*
- Kimera 0.3.2 | MIT License
+ Kimera 0.3.3 | MIT License
  GitHub: github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
-
- Actualización de progress var y nuevos controles de formulario.
- This project have a license MIT
 
  Contact: spicer_94@hotmail.com or jantraxhernandez@gmail.com
 
@@ -773,10 +769,23 @@ column {
 
 layout {
   display: grid;
-  grid-template-areas: "header" "navbar" "sidebar" "main" "footer";
+  position: relative;
   max-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  grid-template-areas: "header" "navbar" "sidebar" "main" "footer";
+}
+
+layout sidebar:not(:first-of-type):last-of-type {
+  grid-area: sidebar2;
+}
+
+layout.is-double-sidebar {
+  grid-template-areas: "header" "navbar" "sidebar" "main" "sidebar2" "footer";
+}
+
+layout.is-rtl {
+  grid-template-areas: "header" "navbar" "main" "sidebar" "footer";
 }
 
 layout header {
@@ -811,28 +820,39 @@ layout.is-dashboard > main, layout.is-dashboard > sidebar {
 
 @media screen and (min-width: 899px) {
   layout {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% auto;
     grid-template-areas: "header header" "navbar navbar" "sidebar main" "footer footer";
   }
   layout.is-rtl {
-    grid-template-columns: 80% 20%;
+    grid-template-columns: auto 20%;
     grid-template-areas: "header header" "navbar navbar" "main sidebar" "footer footer";
   }
-  .is-double-sidebar {
-    grid-template-columns: 20% 60% 20%;
+  layout.is-double-sidebar {
+    grid-template-columns: 20% auto 20%;
     grid-template-areas: "header header header" "navbar navbar navbar" "sidebar main sidebar2" "footer footer footer";
   }
-  .is-double-sidebar sidebar:not(:first-of-type):last-of-type {
-    grid-area: sidebar2;
-  }
-  .is-small {
+  layout.is-small {
     grid-template-columns: 15% 85%;
   }
-  .is-medium {
+  layout.is-medium {
     grid-template-columns: 25% 75%;
   }
-  .is-large {
+  layout.is-large {
     grid-template-columns: 30% 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  layout.is-sidebar-ofcanvas > sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    max-width: 40%;
+    transition: all .15s ease-out;
+    left: -110%;
+  }
+  layout.is-sidebar-ofcanvas > sidebar.is-visible {
+    rght: 0;
   }
 }
 
@@ -1551,6 +1571,10 @@ buttons.is-addons.is-rounded :last-child {
   border-bottom-right-radius: 100em;
 }
 
+buttons:not(.is-addons) button, buttons:not(.is-addons) .button {
+  margin-bottom: .25rem;
+}
+
 fab {
   display: inline-flex;
   position: relative;
@@ -1559,41 +1583,41 @@ fab {
   z-index: 100;
 }
 
-fab fab-menu {
+fab fabmenu {
   display: none;
   flex-direction: column;
 }
 
-fab fab-menu.active {
+fab fabmenu.is-visible {
   display: flex;
   position: absolute;
 }
 
-fab fab-menu.is-left, fab fab-menu.is-right {
+fab fabmenu.is-left, fab fabmenu.is-right {
   flex-direction: row;
 }
 
-fab fab-menu.is-left > *, fab fab-menu.is-right > * {
+fab fabmenu.is-left > *, fab fabmenu.is-right > * {
   margin: 0 .25rem;
 }
 
-fab fab-menu.is-left {
+fab fabmenu.is-left {
   right: 100%;
 }
 
-fab fab-menu.is-right {
+fab fabmenu.is-right {
   left: 100%;
 }
 
-fab fab-menu.is-up {
+fab fabmenu.is-up {
   bottom: 100%;
 }
 
-fab fab-menu.is-down {
+fab fabmenu.is-down {
   top: 100%;
 }
 
-fab fab-menu > * {
+fab fabmenu > * {
   margin: .25rem 0;
   animation: zoom-in .2s;
 }
@@ -1936,6 +1960,13 @@ textarea:not(.is-material):required:focus:invalid {
 select:not(.is-material):required:valid,
 textarea:not(.is-material):required:valid {
   box-shadow: 0 0 0 2px rgba(35, 205, 94, 0.2);
+}
+
+.input.is-rounded,
+.date.is-rounded,
+select.is-rounded,
+textarea.is-rounded {
+  border-radius: 1.5rem;
 }
 
 .input:focus ~ icon,
@@ -3281,7 +3312,7 @@ card footer item:not(:last-child) {
   overflow: auto;
   padding: 1rem;
   height: auto;
-  max-height: 9.375rem;
+  max-height: 18.75rem;
 }
 
 .snippet .comment {
@@ -3620,7 +3651,7 @@ modal.is-visible content {
   justify-content: flex-start;
 }
 
-modal.is-visible > modal-toggle {
+modal.is-visible > background {
   display: block;
   position: fixed;
   top: 0;
@@ -3629,11 +3660,7 @@ modal.is-visible > modal-toggle {
   height: 100vh;
   z-index: 510;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-modal.is-visible > modal-toggle * {
-  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 navbar {

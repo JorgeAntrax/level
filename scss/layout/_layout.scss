@@ -1,6 +1,11 @@
 // layout
 layout {
 	display: grid;
+	position: relative;
+	max-width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+
 	grid-template-areas:
 	"header"
 	"navbar"
@@ -8,9 +13,27 @@ layout {
 	"main"
 	"footer";
 
-	max-width: 100%;
-	min-height: 100vh;
-	overflow-x: hidden;
+	sidebar:not(:first-of-type):last-of-type {
+		grid-area: sidebar2;
+	}
+
+	&.is-double-sidebar {
+		grid-template-areas:
+		"header"
+		"navbar"
+		"sidebar"
+		"main"
+		"sidebar2"
+		"footer";
+	}
+	&.is-rtl {
+		grid-template-areas:
+		"header"
+		"navbar"
+		"main"
+		"sidebar"
+		"footer";
+	}
 	
 	header {grid-area: header;}
 	navbar {grid-area: navbar;}
@@ -29,9 +52,10 @@ layout {
 		}
 	}
 }
+
 @include since (899px) {
 	layout {
-		grid-template-columns: 20% 80%;
+		grid-template-columns: 20% auto;
 		grid-template-areas:
 		"header header"
 		"navbar navbar"
@@ -39,32 +63,41 @@ layout {
 		"footer footer";
 	}
 	layout.is-rtl {
-		grid-template-columns: 80% 20%;
+		grid-template-columns: auto 20%;
 		grid-template-areas:
 		"header header"
 		"navbar navbar"
 		"main sidebar"
 		"footer footer";
 	}
-	&.is-double-sidebar {
-		grid-template-columns: 20% 60% 20%;
+	layout.is-double-sidebar {
+		grid-template-columns: 20% auto 20%;
 		grid-template-areas:
 		"header header header"
 		"navbar navbar navbar"
 		"sidebar main sidebar2"
 		"footer footer footer";
-
-		sidebar:not(:first-of-type):last-of-type {
-			grid-area: sidebar2;
-		}
 	}
-	&.is-small {
+	layout.is-small {
 		grid-template-columns: 15% 85%;
 	}
-	&.is-medium {
+	layout.is-medium {
 		grid-template-columns: 25% 75%;
 	}
-	&.is-large {
+	layout.is-large {
 		grid-template-columns: 30% 70%;
+	}
+}
+@include until (tablet) {
+	layout.is-sidebar-ofcanvas > sidebar {
+		position: fixed;
+		top: 0;
+		z-index: 20;
+		max-width: 40%;
+		transition: all .15s ease-out;
+		left: -110%;
+		&.is-visible {
+			rght: 0;
+		}
 	}
 }

@@ -27,7 +27,7 @@ modal {
 			flex-direction: column;
 			justify-content: flex-start;
 		}
-		& > modal-toggle {
+		& > background {
 			display: block;
 			position: fixed;
 			top: 0;
@@ -36,10 +36,7 @@ modal {
 			height: 100vh;
 			z-index: 510;
 			cursor: pointer;
-			background-color: rgba($black, .8);
-			* {
-				opacity: 0;
-			}
+			background-color: rgba($black, .6);
 		}
 	}
 }
