@@ -1,17 +1,17 @@
 //texto etiquetas personalizadas
-tiny {
+tiny, .is-text-tiny {
   font-size: $text-x-small;
 }
 
-medium {
+medium, .is-text-medium {
   font-size: $text-medium;
 }
 
-large {
+large, .is-text-large {
   font-size: $text-large;
 }
 
-jumbo {
+jumbo, .is-text-jumbo {
   font-size: $text-x-large;
 }
 upper, .is-text-upper {
@@ -51,24 +51,26 @@ warning, .is-text-warning {
 danger, .is-text-danger {
   color: $danger;
 }
-
-justify,
-right {
-  display: block;
-}
-
 right > *,
-right {
+right,
+.is-text-right > *,
+.is-text-right {
+  display: block;
   text-align: right;
 }
 
 justify > *,
-justify {
+justify,
+.is-text-justify > *,
+.is-text-justify {
+  display: block;
   text-align: justify;
 }
 
 center > *,
-center {
+center,
+.is-text-center > *,
+.is-text-center {
   text-align: center;
 }
 .is-full-center {
@@ -82,12 +84,7 @@ center {
 }
 // hgroup
 
-hgroup {
-  margin-bottom: 2em;
-  .subtitle {
-    opacity: .6;
-  }
-}
+hgroup {margin-bottom: 2em;}
 
 //estilos de etiquetas h1,h2,h3,h4,h5,h6
 h1, h2, h3, h4, h5, h6 {
@@ -100,9 +97,11 @@ h1, h2, h3, h4, h5, h6 {
     color: inherit;
   }
   & small {
-    font-size: 75%;
-    font-weight: bold;
-    opacity: 0.75;
+    font-size: 70%;
+    opacity: 0.65;
+  }
+  &.is-subtitle {
+    opacity: .65;
   }
 }
 

@@ -1,31 +1,25 @@
 /*
- Kimera 0.3.3 | MIT License
+ Kimera 0.3.4 | MIT License
  GitHub: github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
 
  Contact: spicer_94@hotmail.com or jantraxhernandez@gmail.com
-
- Thanks for using my framework CSS. 
-*/
-/* 
-	@params
-	--  @import 'name_new-file-base';
 */
 /*stilos para input range de color*/
-tiny {
+tiny, .is-text-tiny {
   font-size: 0.7rem;
 }
 
-medium {
+medium, .is-text-medium {
   font-size: 1.3rem;
 }
 
-large {
+large, .is-text-large {
   font-size: 1.6rem;
 }
 
-jumbo {
+jumbo, .is-text-jumbo {
   font-size: 2rem;
 }
 
@@ -69,23 +63,26 @@ danger, .is-text-danger {
   color: #ff0051;
 }
 
-justify,
-right {
-  display: block;
-}
-
 right > *,
-right {
+right,
+.is-text-right > *,
+.is-text-right {
+  display: block;
   text-align: right;
 }
 
 justify > *,
-justify {
+justify,
+.is-text-justify > *,
+.is-text-justify {
+  display: block;
   text-align: justify;
 }
 
 center > *,
-center {
+center,
+.is-text-center > *,
+.is-text-center {
   text-align: center;
 }
 
@@ -103,10 +100,6 @@ hgroup {
   margin-bottom: 2em;
 }
 
-hgroup .subtitle {
-  opacity: .6;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   margin: 0;
@@ -119,9 +112,12 @@ h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a {
 }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-size: 75%;
-  font-weight: bold;
-  opacity: 0.75;
+  font-size: 70%;
+  opacity: 0.65;
+}
+
+h1.is-subtitle, h2.is-subtitle, h3.is-subtitle, h4.is-subtitle, h5.is-subtitle, h6.is-subtitle {
+  opacity: .65;
 }
 
 h1 {
@@ -351,10 +347,6 @@ table td, table th {
   display: none;
 }
 
-/* 
-	@params
-	--  @import 'name_new-file-base';
-*/
 /*clases flexbox fila y columna*/
 row {
   display: flex;
@@ -856,10 +848,6 @@ layout.is-dashboard > main, layout.is-dashboard > sidebar {
   }
 }
 
-/* 
-	@params
-	--  @import 'name_new-file-component';
-*/
 tooltip {
   display: inline-block;
   position: relative;
@@ -2688,7 +2676,27 @@ progress-bar.is-infinite {
 }
 
 progress-bar.is-infinite complete {
-  -webkit-animation: looper 1s ease-in-out;
+  -webkit-animation: looper 2s ease;
+  animation-iteration-count: infinite;
+}
+
+progress-bar.is-infinite.is-very-lower complete {
+  -webkit-animation: looper 3s ease;
+  animation-iteration-count: infinite;
+}
+
+progress-bar.is-infinite.is-lower complete {
+  -webkit-animation: looper 2.5s ease;
+  animation-iteration-count: infinite;
+}
+
+progress-bar.is-infinite.is-fast complete {
+  -webkit-animation: looper 1s ease;
+  animation-iteration-count: infinite;
+}
+
+progress-bar.is-infinite.is-very-fast complete {
+  -webkit-animation: looper .5s ease;
   animation-iteration-count: infinite;
 }
 
@@ -3026,10 +3034,6 @@ box.is-mobile {
   flex-direction: row;
 }
 
-/* 
-	@params
-	--  @import 'name_new-file-module';
-*/
 alert, notify {
   display: inline-flex;
   align-items: flex-start;
@@ -4053,10 +4057,6 @@ listgroup item:not(:last-child) {
   border-bottom: 1px solid rgba(68, 68, 68, 0.1);
 }
 
-/* 
-	@params
-	--  @import 'name_new-file-base';
-*/
 @keyframes zoom-in {
   from {
     transform-origin: center center;

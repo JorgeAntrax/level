@@ -47,7 +47,23 @@ progress-bar {
 	&.is-infinite {
 		overflow: hidden;
 		complete {
-			-webkit-animation: looper 1s ease-in-out;
+			-webkit-animation: looper 2s ease;
+			animation-iteration-count: infinite;
+		}
+		&.is-very-lower complete {
+			-webkit-animation: looper 3s ease;
+			animation-iteration-count: infinite;
+		}
+		&.is-lower complete {
+			-webkit-animation: looper 2.5s ease;
+			animation-iteration-count: infinite;
+		}
+		&.is-fast complete {
+			-webkit-animation: looper 1s ease;
+			animation-iteration-count: infinite;
+		}
+		&.is-very-fast complete {
+			-webkit-animation: looper .5s ease;
 			animation-iteration-count: infinite;
 		}
 	}
