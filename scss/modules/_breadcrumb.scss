@@ -1,4 +1,4 @@
-$bread-padding: 1rem !default;
+$breadcrumb-item-padding: 1rem !default;
 
 breadcrumb {
 	overflow-x: auto;
@@ -12,7 +12,7 @@ breadcrumb {
 		cursor: pointer;
 		position: relative;
 		justify-content: center;
-		padding: 0 $bread-padding;
+		padding: 0 $breadcrumb-item-padding;
 		word-break: no-all;
 
 		&:before, &:after {
@@ -59,7 +59,7 @@ breadcrumb {
 		& item:after {
 			display: block;
 			right: initial;
-			left: -$bread-padding / 2;
+			left: -$breadcrumb-item-padding / 2;
 			content: '/';
 		}
 
@@ -95,14 +95,12 @@ breadcrumb {
 	}
 
 	&.is-small {
-		font-size: $text-small;
 		& item:before,
 		& item:after {
 			font-size: $text-x-small;
 		}
 	}
 	&.is-large {
-		font-size: $text-large;
 		& item:before,
 		& item:after {
 			font-size: $text-medium;
@@ -112,7 +110,8 @@ breadcrumb {
 
 // media queries
 @include until (tablet) {
-	breadcrumb.is-right, breadcrumb.is-right item {
+	breadcrumb.is-right, breadcrumb.is-right item,
+	breadcrumb.is-center, breadcrumb.is-center item {
 		justify-content:flex-start;
 	}
 }

@@ -32,7 +32,7 @@
 }
 
 // animacion designada a pogress bar infinite.
-@keyframes looper {
+@keyframes progress {
 	0% {
 		width: 0;
 		left: 0;
@@ -64,6 +64,9 @@
 		opacity: 1;
 	}
 }
+.fade-in {
+	animation: fade-in 0.2s;
+}
 @keyframes fade-out {
 	from {
 		opacity: 1;
@@ -72,17 +75,52 @@
 		opacity: 0;
 	}
 }
-
-// rebote
-.bounty-animate {
-	animation: bounty 1s ease-out infinite;
+.fade-out {
+	animation: fade-out 0.2s;
 }
-@keyframes bounty {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
+ @-webkit-keyframes preload {
+ 	0% {
+ 		transform: rotate(0);
+ 	}
+ 	100% {
+ 		transform: rotate(360deg);
+ 	}
+ }
+ @-moz-keyframes preload {
+ 	0% {
+ 		transform: rotate(0);
+ 	}
+ 	100% {
+ 		transform: rotate(360deg);
+ 	}
+ }
+ @keyframes preload {
+ 	0% {
+ 		transform: rotate(0);
+ 	}
+ 	100% {
+ 		transform: rotate(360deg);
+ 	}
+ }
+ @keyframes preload-dinamic {
+ 	0% {
+ 		transform: rotate(0);
+ 	}
+ 	20% {
+ 		border-color: $info;
+ 		border-top-color: transparent;
+ 	}
+ 	40% {
+ 		border-color: $success;
+ 		border-top-color: transparent;
+ 	}
+ 	70% {
+ 		border-color: $danger;
+ 		border-top-color: transparent;
+ 	}
+ 	100% {
+ 		transform: rotate(360deg);
+ 		border-color: $primary;
+ 		border-top-color: transparent;
+ 	}
+ }

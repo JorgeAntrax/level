@@ -66,17 +66,15 @@ item {
   text-overflow: ellipsis;
 }
 
-hr {
+divider {
+  display: block;
   background-color: $black;
-  height: $hr-height;
-  margin: rem(5px) 0;
-  max-width: 100%;
-  outline: none;
-  opacity: 0.3;
-  border: 0;
+  margin: rem($text-default) 0;
+  width: 100%;
+  height: 1px;
+  opacity: .2;
   &.is-white {
     background-color: $cloud;
-    opacity: .8;
   }
 }
 
@@ -106,7 +104,7 @@ code, pre, code *, pre * {
 
 code {
   background-color: whitesmoke;
-  color: darken($danger, 5);
+  color: darken($danger, 10);
   padding: rem(3px) rem($text-default/2);
   margin-left: rem(3px);
   margin-right: rem(3px);
@@ -130,14 +128,6 @@ mark {
   color: $dark;
 }
 
-img,
-embed,
-object,
-audio,
-video {
-  max-width: 100%;
-}
-
 [disabled], .is-disabled {
   pointer-events: none;
   user-select: none;
@@ -156,15 +146,6 @@ ol, ul {
   padding-left: 1rem;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  td, th {
-    padding: 0;
-    text-align: left;
-  }
-}
-
 //replace scroll
 // reMplazo del scroll y ocultamiento.
 * ::-webkit-scrollbar {
@@ -177,12 +158,25 @@ table {
   * ::-webkit-scrollbar {
     display: none;
   }
+  .is-table::-webkit-scrollbar {
+    display: block;
+  }
 }
 
 @include until (touch) {
   * ::-moz-scrollbar {
     display: none;
   }
+  .is-table::-moz-scrollbar {
+    display: block;
+  }
+}
+
+@include until (touch) {
+  
+}
+
+@include until (touch) {
 }
 
 * ::-webkit-scrollbar-thumb {

@@ -1,0 +1,24 @@
+// alert
+notify {
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+	justify-content: space-between;
+	background-color: $light;
+	border-radius: rem(5px);
+	padding: 1rem 2rem 1rem 1rem;
+
+	.is-close {
+		position: absolute;
+		top: .25rem;
+		right: .4rem;
+	}
+
+	@each $class, $color in $colores {
+		@if ($class == 'cloud') or ($class == 'light') {} @else {	
+			&.is-#{$class} {
+				background-color: $color;
+			}
+		}
+	}
+}

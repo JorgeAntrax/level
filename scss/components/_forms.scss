@@ -1,5 +1,5 @@
 // variables
-$input-border: whitesmoke;
+$input-border: $light;
 $input-padding: rem(5px) rem($text-default - 1px) !default;
 $input-line-height: 1.5 !default;
 $field-addons-rounded: rem(2000px) !default;
@@ -24,16 +24,25 @@ textarea {
 	margin: 0;
 	outline: none;
 
-	//mixin de estilos
-	@include forms-style(info, $info);
-	@include forms-style(success, $success);
-	@include forms-style(warning, $warning);
-	@include forms-style(danger, $danger);
+	@each $class, $color in $colores {
+		@if ($class == 'light') or ($class == 'black') or ($class == 'dark') or ($class == 'primary') {} @else {
+			&.is-#{$class}:not(.is-material):focus {
+				border: 1px solid $color;
+				box-shadow: 0 0 0 2px rgba($color, .2);
+			}
+			&.is-material.is-#{$class}:focus {
+				border-color: $color;
+			}
+			&.is-#{$class} {
+				color: $dark;
+			}
+		}
+	}
 
 	//estilo material design con atributo personalizado
 	&.is-material {
 		border: 0;
-		border-bottom: 1px solid darken(whitesmoke, 5);
+		border-bottom: 1px solid darken($light, 5);
 		&:focus {
 			border-color: $primary;
 		}
@@ -122,7 +131,6 @@ textarea {
   max-height: rem(500px);
   min-height: rem(50px);
   resize: vertical;
-
   &.is-fixed {
   	resize: none;
   }
@@ -142,13 +150,19 @@ listbox, date {
 	align-items: center;
 
 	&:not([multiple]) {
-		&::before {
+
+		&::before,
+		&::after {
 			content: '';
 			display: block;
 			position: absolute;
-			margin-top: -0.4rem;
+			pointer-events: none;
+			cursor: pointer;
+		}
+		&::before {
 			top: 50%;
 			right: 0.65rem;
+			margin-top: -0.4rem;
 			width: $arrow-dimentions;
 			height: $arrow-dimentions;
 			border: 1px solid $primary;
@@ -158,11 +172,19 @@ listbox, date {
 			transform: rotate(45deg);
 			z-index: 5;
 		}
+		&::after {
+			top: 2px;
+			right: 1px;
+			z-index: 4;
+			width: 2.3rem;
+			height: 2rem;
+			background-color: $cloud;
+		}
 	}
 
 	select,
 	datalist,
-	input, {
+	input {
 		cursor: pointer;
 		padding: $select-padding;
 		background-color: $cloud;
@@ -182,19 +204,26 @@ listbox, date {
 			}
 		}
 	}
-	@include listbox-style(info, $info);
-	@include listbox-style(success, $success);
-	@include listbox-style(warning, $warning);
-	@include listbox-style(danger, $danger);
+	option {
+		color: $dark;
+	}
+	@each $class, $color in $colores {
+		@if ($class == 'light') or ($class == 'black') or ($class == 'dark') or ($class == 'primary') {} @else {
+			&.is-#{$class} select:focus {
+				border: 1px solid $color;
+				box-shadow: 0 0 0 2px rgba($color, .2);
+			}
+			&.is-#{$class}::before {
+				border-color: $color;
+			}
+		}
+	}
 }
 
 date:not([multiple]) {
 	display: flex;
-	&::before {
-		display: none;
-	}
 	input:not([multiple]) {
-		padding-right: .5rem;
+		padding-right: 0;
 	}
 }
 

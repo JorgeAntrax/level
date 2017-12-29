@@ -1,56 +1,42 @@
+$icon-position-horizontal: rem(8px) !default;
+$icon-position-vertical: rem(5px) !default;
+$border-left-size: rem(4px);
 blockquote {
   display: flex;
   flex-direction: column;
 	position: relative;
 	width: 100%;
 	padding: 1rem;
-	border-left:rem(4px) solid rgba($black, .1);
-	border-radius: $share-border-radius;
-	background-color: whitesmoke;
+	border-left: $border-left-size solid darken($light, 5);
+	border-radius: rem(3px);
+	background-color: $light;
 	font-style: italic;
+	margin: 0;
 
-	&.is-primary {
-		border-color: $primary;
-		icon {
-			color: $primary;
+	@each $class, $color in $colores {
+		@if ($class == 'cloud') or ($class == 'light') or ($class == 'black') {} @else {
+			&.is-#{$class} {
+				color: inherit;
+				border-color: $color;
+				icon {
+					color: $color;
+				}
+			}
 		}
 	}
-	&.is-info {
-		border-color: $info;
-		icon {
-			color: $info;
-		}
-	}	
-	&.is-success {
-		border-color: $success;
-		icon {
-			color: $success;
-		}
-	}	
-	&.is-warning {
-		border-color: $warning;
-		icon {
-			color: $warning;
-		}
-	}	
-	&.is-danger {
-		border-color: $danger;
-		icon {
-			color: $danger;
-		}
-	}
+
 	&.is-icon-left,
 	&.is-icon-right {
 		padding-top: 1.5rem;
 		icon {
 			position: absolute;
-			top: rem(5px);
+			top: $icon-position-vertical;
 		}
 	}
 	&.is-icon-left icon {
-		left: rem(8px);
+		left: $icon-position-horizontal;
 	}
 	&.is-icon-right icon {
-		right: rem(8px);
+		right: $icon-position-horizontal;
 	}
 }

@@ -23,7 +23,7 @@ tags {
 		&.is-boxed {
 			flex-direction: column;
 			& > tag {
-				padding: rem(5px) rem(10px);
+				padding: rem(2px) rem(10px);
 			}
 		}
 	}
@@ -42,29 +42,21 @@ tag {
 	align-items: center;
 	display: inline-flex;
 	justify-content: center;
-	border-radius: .2rem;
-
-	&:not([class^='is-']) {
-			background-color: whitesmoke;
-	}
+	border-radius: rem(3px);
+	background-color: $light;
 	
-	&[class^='is-'] {
-		color: $cloud;
+	@each $class, $color in $colores {
+		@if ($class == 'light') or ($class == 'cloud') {} @else {
+			&.is-#{$class} {
+				background-color: $color;
+			}		
+		}
 	}
-	
-	&.is-dark { background-color: $dark ;}
-	&.is-black { background-color: $black ;}
-	&.is-primary { background-color: $primary ;}
-	&.is-info { background-color: $info ;}
-	&.is-success { background-color: $success ;}
-	&.is-warning { background-color: $warning; color: $dark;}
-	&.is-danger { background-color: $danger ;}
-
 }
 
 tags, tag {
 	&.is-rounded {
-		border-radius: 100em !important;
+		border-radius: 10000em;
 	}
 }
 

@@ -30,6 +30,9 @@ checkbox, radio {
 		border-left: 0;
 		border-radius: 0;
 	}
+	&.is-filled :checked ~ label {
+		box-shadow: none;
+	}
 	& > label {
 		position: relative;
 		background-color: transparent;
@@ -41,14 +44,22 @@ checkbox, radio {
 		cursor: pointer;
 		transition: all .2s ease-out;
 	}
+	@each $class, $color in $colores {
+		@if ($class == 'light') or ($class == 'cloud') or ($class == 'dark') or ($class == 'black') {} @else {
+			&.is-#{$class} > label {
+				border: 1px solid $color;
+			}
+			&.is-#{$class} :checked ~ label {
+				box-shadow: inset 0 0 0 2px $cloud;
+				background-color: $color;
+			}
+			// en estado checked cambia el color de borde y fondo
+			&.is-check.is-#{$class} :checked ~ label {
+				border-color:$color;
+			}
+		}
+	}
 }
-
 radio > label, radio :checked ~ label, radio :checked ~ label.is-check {
 	border-radius: 100%;
 }
-
-@include radio-check-style(primary, $primary);
-@include radio-check-style(info, $info);
-@include radio-check-style(success, $success);
-@include radio-check-style(warning, $warning);
-@include radio-check-style(danger, $danger);

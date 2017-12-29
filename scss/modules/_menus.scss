@@ -8,12 +8,8 @@ menu:not(.default-browser) {
 	flex-direction: column;
 	justify-content: space-between;
 
-	hr {
-		opacity: .1;
-	}
-
-	&.is-distributed item {
-		justify-content: space-around;
+	divider {
+		opacity: .2;
 	}
 }
 menu {
@@ -24,7 +20,7 @@ menu {
   &, item, footer {
 		width: 100%;
 		max-width: 100%;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 
 	list {
@@ -53,15 +49,15 @@ menu {
 		flex-direction: column;
 	}
 
-	item.is-label {
+	.is-label {
 		text-transform: uppercase;
 		pointer-events: none;
 		font-size: $text-small;
-		padding-left: 0.5rem;
-		opacity: .6;
+		/* padding-left: 0.5rem; */
+		opacity: .75;
 	}
 
-	item.is-active {
+	.is-active {
 		background-color: $primary;
 		&, * {
 			color: $cloud;

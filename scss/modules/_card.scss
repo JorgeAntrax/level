@@ -8,6 +8,7 @@ card{
 	border: $border-color;
 	border-radius: rem(3px);
 	overflow: hidden;
+	position: relative;
 
 	header,
 	footer {
@@ -37,6 +38,7 @@ card{
 			flex-grow: 1;
 			justify-content: center;
 			min-width: 2rem;
+			text-overflow: ellipsis;
 			&:not(:last-child) {
 				border-right: $border-color;
 			}

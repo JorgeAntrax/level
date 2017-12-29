@@ -1,0 +1,37 @@
+// social componente social de cometarios
+social {
+	width: 100%;
+	&, media, content, content header, content footer {
+		display: flex;
+	}
+	&, media, content {
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+	social {
+		margin: 0.5rem 0;
+		padding: 0.5rem 0;
+		border-top: 1px solid $light;
+	}
+
+	media {
+		max-width: 20%;
+		margin-right: .5rem;
+	}
+
+	content {
+		flex-direction: column;
+		flex-grow: 1;
+		padding: 0 .5em;
+		section, header, footer{
+			width: 100%;
+		}
+		header, footer {
+			align-items: center;
+			align-content: center;
+		}
+		header {
+			justify-content: space-between;
+		}
+	}
+}

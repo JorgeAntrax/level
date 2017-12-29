@@ -19,22 +19,18 @@ icon {
     height: $width-icon;
   }
   &.is-small {
-  	font-size: $text-small;
   	width: $width-icon-small;
   	height: $width-icon-small;
   }
   &.is-medium {
-  	font-size: $text-medium;
   	width: $width-icon-medium;
     height: $width-icon-medium;
   }
   &.is-large {
-  	font-size: $text-large;
   	width: $width-icon-large;
     height: $width-icon-large;
   }
   &.is-jumbo {
-  	font-size: $text-x-large;
   	width: $width-icon-jumbo;
     height: $width-icon-jumbo;
   }
@@ -49,13 +45,13 @@ icon {
   }
 
   &.is-close  {
-      opacity: .5;
-      margin: 0 !important;
-      &:hover {
-        opacity: 1;
-        cursor: pointer;
-      }
+    opacity: .5;
+    width: auto;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
     }
+  }
 }
 
 .burger-icon {

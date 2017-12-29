@@ -1,19 +1,25 @@
 //variables
-$button-background-color: whitesmoke !default;
-$button-border-color: 1px solid rgba($black, 0.1) !default;
+$button-background-color: $cloud !default;
+$button-border-color: rgba($black, 0.1) !default;
+$button-border-size: 1px !default;
+$button-border-radius: rem(4px);
+$button-circle: 1000em !default;
 $button-text-color: $dark !default;
-$button-border-radius: rem(3px);
-
-$button-padding: rem(5px) rem($text-default - 1px) !default;
+$button-floating-position: 100% !default;
+$button-floating-shadow: 0 2px 5px -1px rgba($black, .1) !default;
+$button-floating-shadow-hover: 0 6px 15px -1px rgba($black, .1) !default;
+$button-hovered: inset 0 0 10em 1px rgba($black, 0.03) !default;
+$button-icon-dimentions: 1.5em !default;
 $button-line-height: 1.5 !default;
+$button-padding: rem(5px) rem($text-default - 1px) !default;
+$button-shadow-size-focused: 2px !default;
 
-$button-circle: 100em !default;
 button,
 .button {
-	transition: all .1s ease-out;
+	transition: all .25s ease-out;
 	background-color: $button-background-color ;
 	color: $button-text-color ;
-	border: $button-border-color;
+	border: $button-border-size solid $button-border-color;
 
 	font-size: rem($text-default);
 	outline: none;
@@ -23,7 +29,7 @@ button,
 	align-items: center;
 	justify-content: center;
 	vertical-align: top;
-	line-height: 1.5;
+	line-height: $button-line-height;
 
 	user-select: none;
 
@@ -36,12 +42,13 @@ button,
 
 	&:hover,
 	&.hovered {
-		box-shadow: inset 0 0 10em 1px rgba($black, 0.03);
+		box-shadow: $button-hovered;
 	}
 
 	&:focus,
 	&.focused {
-		box-shadow: 0 0 0 2px rgba($dark, .1);
+		box-shadow: 0 0 0 $button-shadow-size-focused rgba($dark, .1);
+		background-color: whitesmoke;
 	}
 	//flex direction column
 	&.is-boxed {
@@ -54,33 +61,63 @@ button,
 		justify-content: space-between;
 	}
 
-	&.is-small {
-		font-size: $text-small;
-	}
-	&.is-medium {
-		font-size: $text-medium;
-	}
-	&.is-large {
-		font-size: $text-large;
-	}
-
 	icon {
 		height: $button-line-height;
 		&:first-child:last-child {
-			width: 1.5em;
-			height: 1.5em;
+			width: $button-icon-dimentions;
+			height: $button-icon-dimentions;
 			margin-left: rem(-10px);
 			margin-right: rem(-10px);
 		}
 	}
 
-	@include button-theme (dark, $dark);
-	@include button-theme (black, $black);
-	@include button-theme (primary, $primary);
-	@include button-theme (info, $info);
-	@include button-theme (success, $success);
-	@include button-theme (warning, $warning);
-	@include button-theme (danger, $danger);
+	@each $class, $color in $colores {
+		@if $class == 'cloud' {} @else {
+			&.is-#{$class} {
+				&,
+				&-outline:hover {
+					background-color: $color;
+				}
+
+				&,
+				&-outline {
+					border: $button-border-size solid $color;
+				}
+
+				&-outline,
+				&-invert,
+				&-inverse:hover {
+					background-color: $cloud;
+					@if $class == 'warning' {
+						color: darken($color, 15);
+					}@else {
+						color: $color;
+					}
+				}
+
+				&, &-outline:hover {
+					@if ($class == 'warning') or ($class == 'light') {
+						color: $dark;
+					}@else {
+						color: $cloud;
+					}
+				}
+
+				&:focus,
+				&.focused,
+				&-outline:focus,
+				&-outline.focused,
+				&-invert:focus,
+				&-invert.focused,
+				&-inverse:focus {
+					box-shadow: 0 0 0 $button-shadow-size-focused rgba($color, .5);
+				}
+				&[disabled] {
+					background-color: lighten($color, 25);
+				}
+			}
+		}
+	}
 
 	&[class$='-invert'] {
 		border-color: $cloud;
@@ -88,19 +125,20 @@ button,
 
 	&[class$='-inverse'] {
 		background-color: transparent;
-		border: 1px solid $cloud;
+		border: $button-border-size solid $cloud;
 		color: $cloud;
 	}
+
 
 	// clase que hace un boton flotante
 	&[type='floating'] {
 		z-index: 40;
 		margin: rem(5px);
-		border-radius: 100%;
-		box-shadow: 0 2px 5px 1px rgba(#000, .1);
+		border-radius: $button-circle;
+		box-shadow: $button-floating-shadow;
 		padding: rem(10px) rem($text-default + 4px);
 		&:hover {
-			box-shadow: 0 6px 15px -1px rgba(#000, .2);
+			box-shadow: $button-floating-shadow-hover;
 		}
 	}
 
@@ -119,13 +157,13 @@ buttons {
 
 	&.is-addons {
 		flex-wrap: nowrap;
-		overflow-x: auto;
 	}
 
 	&.is-addons {
 		&, &.is-rounded {
 			* {
 				border-radius: 0;
+				margin-right: -1px;
 			}
 		}
 
@@ -150,7 +188,7 @@ buttons {
 	}
 	&:not(.is-addons) {
 		button, .button {
-			margin-bottom: .25rem;
+			margin-bottom: .2rem;
 		}
 	}
 }
@@ -171,29 +209,27 @@ fab {
 			position: absolute;
 		}
 
+		& > * {
+			margin: rem(2px);
+			animation: zoom-in .2s;
+			animation-delay: .05s;
+		}
+
 		&.is-left,
 		&.is-right {
 		flex-direction: row;	
-			& > * {
-				margin: 0 .25rem;
-			}
 		}
 		&.is-left {
-			right: 100%;
+			right: $button-floating-position;
 		}
 		&.is-right {
-			left: 100%;
+			left: $button-floating-position;
 		}
 		&.is-up {
-			bottom: 100%;
+			bottom: $button-floating-position;
 		}
 		&.is-down {
-			top: 100%;
-		}
-
-		& > * {
-			margin: .25rem 0;
-			animation: zoom-in .2s;
+			top: $button-floating-position;
 		}
 	}
 }

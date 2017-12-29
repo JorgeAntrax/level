@@ -1,19 +1,19 @@
 $border-group: 1px solid rgba($dark, .1) !default;
 
 group {
-
 	overflow-x: auto;
 	display: flex;
-	align-items: center;
-	
+	align-items: stretch;
+	align-content: center;
+	justify-content: stretch;
+	width: 100%;
+	&.is-inline {
+		display: inline-flex;
+		width: auto;
+	}
 	item {
-		padding: 0 .5rem;
 		justify-content: center;
-		flex: auto;
-		min-height: 3rem;
-		&:not(:last-child) {
-			border-right: $border-group;	
-		}
+		flex: 1;
 	}
 
 	&.is-boxed item {
@@ -22,24 +22,15 @@ group {
 			margin: 0 !important;
 		}
 	}
-
-	&:not(.clear) {	
-		border: $border-group;
-		border-radius: rem(3px);
-	}
-
-	&.clear item {
-		border: none;
-	}
 }
 
 listgroup {
+	display: flex;
 	flex-direction: column; 
-	align-items: 	stretch;	
+	align-items: stretch;	
+	justify-content: flex-start;
 	item {
 		flex-grow: 1;
-		min-height: 3rem;
-		padding: 0 1rem;
 		justify-content: space-between;
 		border: 0;
 		&:not(:last-child) {

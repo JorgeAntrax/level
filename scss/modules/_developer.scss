@@ -3,13 +3,13 @@
 	display: block;
 	max-width: 100%;
 	position: relative;
-	background-color: whitesmoke;
+	background-color: $light;
 	color: $dark;
 	border-radius: 5px;
 	overflow: auto;
 	padding: 1rem;
 	height: auto;
-	max-height: rem(300px);
+	max-height: rem(200px);
 
 
 	.comment {
@@ -34,9 +34,9 @@
 
 	&.monokai {
 		background-color: #000041;
-		color: rgba($cloud, .7);
+		color: $cloud;
 		.comment {
-			color: rgba(white, .6);
+			color: rgba($cloud, .6);
 		}
 		.tg {
 			color: $warning;

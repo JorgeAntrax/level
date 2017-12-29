@@ -81,12 +81,19 @@ toggle {
 	}
 	/*mixins que generan el color y estilo del toggle*/
 
-	@include toogle-button(primary, $primary);
-	@include toogle-button(info, $info);
-	@include toogle-button(success, $success);
-	@include toogle-button(warning, $warning);
-	@include toogle-button(danger, $danger);
-	@include toogle-button(cloud, $cloud);
+	@each $class, $color in $colores {
+		@if $class == 'black' {} @else {	
+			&.is-#{$class} {
+				// este codigo cambia los colores del toggle cuando esta en estado checked
+				& > :checked + label { 
+					background-color: rgba($color, .2);
+					&::before {
+						background-color: $color;
+					}
+				}
+			}
+		}
+	}
 }
 
 

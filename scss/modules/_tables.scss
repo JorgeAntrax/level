@@ -1,34 +1,34 @@
 // tables
+$table-border: 1px solid rgba($dark, 0.2) !default;
+$hover-background: darken($light, 2) !default;
 
 table:not(.default-broswer) {
-	max-width: 100%;
-	overflow: auto;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid rgba($dark, .2);
+  border: $table-border;
 	
 	&.is-boxed {
 		width: 100%;
 	}
-
-	thead, tr:not(:last-child) {
-		border-bottom: 1px solid rgba($dark, .2);
-	}
-	tfoot {
-		border-top: 1px solid rgba($dark, .2);
+	&.is-narrow {
+		width: auto;
+		td, th {
+			min-width: 0;
+		}
 	}
 
 	tr {
 		vertical-align: middle;
 		transition: all .1s ease;
+		border-bottom: $table-border;
 
 		&.is-active {
 			background-color: $primary;
 			color: $cloud;
-			border-radius: rem(3px);
+			border-bottom: 0;
 		}
 		&:not(.is-active):hover {
-			background-color: lighten(whitesmoke, 2);
+			background-color: $hover-background;
 		}
 	}
 
@@ -39,32 +39,83 @@ table:not(.default-broswer) {
 		vertical-align: middle;
 	}
 
-	&.is-narrow td,
-	&.is-narrow th {
-		min-width: 0;
+  &.is-clean,
+	&.is-striped tbody tr,
+	&.is-flexible,
+	&.is-flexible.is-clean.is-striped td,
+	&.is-flexible.is-clean.is-striped th,
+	&.is-flexible.is-cell td,
+	&.is-flexible.is-cell th {
+		border: none;
 	}
-	
+	&.is-clean {	
+		thead, tbody {
+			border-bottom: $table-border;
+		}
+  }
+
+
 	&.is-striped {
-		tr:nth-child(2n) {
-			background-color: whitesmoke;
-			&:hover {
-				background-color: darken(whitesmoke, 2); 
+		tr {	
+			&:nth-child(2n) {
+				background-color: $light;
+				&:hover {
+					background-color: $hover-background; 
+				}
 			}
 		}
 	}
-
-	&.is-cell {
-		td, th {
-			border:1px solid rgba($dark, .2);
-			border-top: 0;
-			border-bottom: 0;
-
-			&:first-child {
-				border-left: 0;
-			}
-			&:last-child {
-				border-right: 0;
+	&.is-flexible.is-striped {
+		td, th {	
+			&:nth-child(2n) {
+				background-color: $light;
+				&:hover {
+					background-color: $hover-background; 
+				}
 			}
 		}
+		tr {
+			background: none;
+		}
+	}
+
+	&.is-flexible {
+		position: relative;
+		&, thead, tbody, tr {
+			display: flex;
+		}
+		tr {
+			flex-direction: column;
+		}
+
+		thead,
+		thead tr,
+		tbody tr,
+		&.is-cell tbody {
+			border-right: 0;
+		}
+		&.is-clean{
+			td, th {
+				border-bottom: $table-border;
+			}
+		}
+	}
+	&.is-cell, &.is-flexible.is-cell {
+		td, th {
+			border-right: $table-border;
+			border-bottom: $table-border;
+		}
+		thead {
+			border-left: $table-border;
+		}
+		thead, tbody {
+			border-top: $table-border;
+		}
+	}
+}
+
+@include until (600px) {
+	table:not(.default-broswer) *.is-collapse {
+		display: none;
 	}
 }

@@ -1,4 +1,38 @@
+.is-center {
+	align-items: center;
+	justify-content: center;
+}
+.is-center-v {
+	align-items: center;
+}
 
+.is-center-h {
+	justify-content: center;
+}
+
+.is-up {
+	align-items: flex-start;
+}
+
+.is-left {
+	justify-content: flex-start;
+}
+
+.is-down {
+	align-items: flex-end;
+}
+
+.is-right {
+	justify-content: flex-end;
+}
+
+.is-separated {
+	justify-content: space-between;
+}
+
+.is-distributed {
+	justify-content: space-around;
+}
 /*clases flexbox fila y columna*/
 row{
 	display: flex;
@@ -17,13 +51,14 @@ row{
 	&.is-boxed {
 		flex-direction: column;
 	}
+	column {
+		display: block;
+		flex: 1 1 auto;
+		max-width: 100%;
+		min-width: 5%;
+	}
 }
 
-column {
-	display: block;
-	flex: 1 1 auto;
-	max-width: 100%;
-}
 
 .is-block {
 	width: 100%;
@@ -31,11 +66,32 @@ column {
 .is-half {
 	width: 50%;
 }
-
+@include since (300px) {
+	@for $i from 1 through 20 {
+		@if $i == 10 {
+			.mobile-is-half {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		} @else {
+			.mobile-#{$i} {
+				width: grid($i);
+				flex-grow: 0;
+				flex-shrink: 0;
+			}
+		}
+	}
+}
 //media queries hidden with min width
 @include since (touch) {
-	@for $i from 1 through 18 {
-		@if $i == 10 {
+	@for $i from 1 through 20 {
+		@if $i == 20 {
+			.touch-is-block {
+				width: grid($i);
+			}
+		}
+		@else if $i == 10 {
 			.touch-is-half {
 				width: grid($i);
 				flex-grow: 0;
@@ -49,13 +105,56 @@ column {
 			}
 		}
 	}
+	.is-hidden-touch {
+		display: none;
+	}
+	.is-center-touch {
+		align-items: center;
+		justify-content: center;
+	}
+	.is-center-v-touch {
+		align-items: center;
+	}
+
+	.is-center-h-touch {
+		justify-content: center;
+	}
+
+	.is-up-touch {
+		align-items: flex-start;
+	}
+
+	.is-left-touch {
+		justify-content: flex-start;
+	}
+
+	.is-down-touch {
+		align-items: flex-end;
+	}
+
+	.is-right-touch {
+		justify-content: flex-end;
+	}
+
+	.is-separated-touch {
+		justify-content: space-between;
+	}
+
+	.is-distributed-touch {
+		justify-content: space-around;
+	}
 }
 @include since (tablet) {
 	row {
 		flex-direction: row;
 	}
-	@for $i from 1 through 18 {
-		@if $i == 10 {
+	@for $i from 1 through 20 {
+		@if $i == 20 {
+			.tablet-is-block {
+				width: grid($i);
+			}
+		}
+		@else if $i == 10 {
 			.tablet-is-half {
 				width: grid($i);
 				flex-grow: 0;
@@ -69,10 +168,53 @@ column {
 			}
 		}
 	}
+	.is-hidden-tablet {
+		display: none;
+	}
+	.is-center-tablet {
+		align-items: center;
+		justify-content: center;
+	}
+	.is-center-v-tablet {
+		align-items: center;
+	}
+
+	.is-center-h-tablet {
+		justify-content: center;
+	}
+
+	.is-up-tablet {
+		align-items: flex-start;
+	}
+
+	.is-left-tablet {
+		justify-content: flex-start;
+	}
+
+	.is-down-tablet {
+		align-items: flex-end;
+	}
+
+	.is-right-tablet {
+		justify-content: flex-end;
+	}
+
+	.is-separated-tablet {
+		justify-content: space-between;
+	}
+
+	.is-distributed-tablet {
+		justify-content: space-around;
+	}
 }
 @include since (desktop) {
-	@for $i from 1 through 18 {
-		@if $i == 10 {
+	@for $i from 1 through 20 {
+		@if $i == 20 {
+			.desktop-is-block {
+				width: grid($i);
+			}
+		}
+		@else if $i == 10 {
 			.desktop-is-half {
 				width: grid($i);
 				flex-grow: 0;
@@ -86,10 +228,53 @@ column {
 			}
 		}
 	}
+	.is-hidden-desktop {
+		display: none;
+	}
+	.is-center-desktop {
+		align-items: center;
+		justify-content: center;
+	}
+	.is-center-v-desktop {
+		align-items: center;
+	}
+
+	.is-center-h-desktop {
+		justify-content: center;
+	}
+
+	.is-up-desktop {
+		align-items: flex-start;
+	}
+
+	.is-left-desktop {
+		justify-content: flex-start;
+	}
+
+	.is-down-desktop {
+		align-items: flex-end;
+	}
+
+	.is-right-desktop {
+		justify-content: flex-end;
+	}
+
+	.is-separated-desktop {
+		justify-content: space-between;
+	}
+
+	.is-distributed-desktop {
+		justify-content: space-around;
+	}
 }
 @include since (widescreen) {
-	@for $i from 1 through 18 {
-		@if $i == 10 {
+	@for $i from 1 through 20 {
+		@if $i == 20 {
+			.widescreen-is-block {
+				width: grid($i);
+			}
+		}
+		@else if $i == 10 {
 			.widescreen-is-half {
 				width: grid($i);
 				flex-grow: 0;
@@ -102,5 +287,63 @@ column {
 				flex-shrink: 0;
 			}
 		}
+	}
+	.is-hidden-widescreen {
+		display: none;
+	}
+	.is-center-widescreen {
+		align-items: center;
+		justify-content: center;
+	}
+	.is-center-v-widescreen {
+		align-items: center;
+	}
+
+	.is-center-h-widescreen {
+		justify-content: center;
+	}
+
+	.is-up-widescreen {
+		align-items: flex-start;
+	}
+
+	.is-left-widescreen {
+		justify-content: flex-start;
+	}
+
+	.is-down-widescreen {
+		align-items: flex-end;
+	}
+
+	.is-right-widescreen {
+		justify-content: flex-end;
+	}
+
+	.is-separated-widescreen {
+		justify-content: space-between;
+	}
+
+	.is-distributed-widescreen {
+		justify-content: space-around;
+	}
+}
+@include until (touch) {
+	.is-visible-touch {
+		display: none;
+	}
+}
+@include until (tablet) {
+	.is-visible-tablet {
+		display: none;
+	}
+}
+@include until (desktop) {
+	.is-visible-desktop {
+		display: none;
+	}
+}
+@include until (widescreen) {
+	.is-visible-widescreen {
+		display: none;
 	}
 }

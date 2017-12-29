@@ -5,6 +5,7 @@
 $cloud: #FFFFFF !default;
 $dark: #444444 !default;
 $black: #000 !default;
+$light: hsla(0, 0, 96, 255) !default;
 $primary: hsla(202, 100, 56, 255) !default;
 $info: hsla(216, 71, 47, 255) !default;
 $success: hsla(141, 71, 47, 255) !default;
@@ -16,6 +17,7 @@ $color-link: $primary;
 $color-link-hover: $black;
 
 //breakpoints
+$mobile: '200px' !default;
 $touch: '480px' !default;
 $tablet: '768px' !default;
 $desktop: '1024px' !default;
@@ -30,7 +32,7 @@ $only-desktop: '1299px' !default;
 $family: sans-serif !default; // nombre de la fuente a importar
 $family-icons: 'FontAwesome' !default;
 $family-code: monospace !default;
-$font-space: 0.05rem !default;
+$font-space: 0.075rem !default;
 
 //color de texto por default
 $text-color: #555 !default;
@@ -42,6 +44,10 @@ $text-default: 16px !default;
 $text-medium: 1.3rem !default;
 $text-large: 1.6rem !default;
 $text-x-large: 2rem !default;
+
+$text-bold: bold !default;
+$text-upper: uppercase !default;
+$text-lower: lowercase !default;
 
 // rendering text
 $smooting-text: antialiased !default;
@@ -57,10 +63,21 @@ $h6-size: .7em !default;
 
 $heading-color: $black !default;
 
-// variables hr
-$hr-height: 1px !default;
-
 // estilos compartidos
 $line-height-default: 1.5 !default; // line-height initial
 $share-padding: 0.5rem !default;
 $share-border-radius: 0.2rem !default;
+
+//maps
+//colores base
+$colores: (
+	dark: $dark,
+	black: $black,
+	cloud: $cloud,
+	light: $light,
+	primary: $primary,
+	info: $info,
+	success: $success,
+	warning: $warning,
+	danger: $danger
+);

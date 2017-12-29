@@ -22,7 +22,6 @@ tabs, tabs.is-boxed, tabs.is-toggle {
 	&.is-right {
 		justify-content: flex-end;
 	}
-
 	&.is-fluid {
 		width: 100%;
 		max-width: 100%;
@@ -124,5 +123,14 @@ tabs.is-toggle {
 		&:last-child {
 			border-radius: 0 .25rem .25rem 0;
 		}
+	}
+}
+
+@include until (touch) {
+	tabs.is-center {
+		justify-content: flex-start;
+	}
+	tabs.is-right {
+		justify-content: flex-start;
 	}
 }

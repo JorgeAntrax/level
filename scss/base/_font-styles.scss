@@ -1,32 +1,47 @@
+.is-small {
+  &, & * {
+    font-size: $text-small;
+  }
+}
+.is-medium {
+  &, & * {
+    font-size: $text-medium;
+  }
+}
+.is-large {
+  &, & * {
+    font-size: $text-large;
+  }
+}
 //texto etiquetas personalizadas
-tiny, .is-text-tiny {
+tiny, .is-tiny {
   font-size: $text-x-small;
 }
 
-medium, .is-text-medium {
+medium {
   font-size: $text-medium;
 }
 
-large, .is-text-large {
+large {
   font-size: $text-large;
 }
 
-jumbo, .is-text-jumbo {
+jumbo, .is-jumbo {
   font-size: $text-x-large;
 }
 upper, .is-text-upper {
-  text-transform: uppercase;
+  text-transform: $text-upper;
 }
 
 lower, .is-text-lower {
-  text-transform: lowercase;
+  text-transform: $text-lower;
 }
 
 underline, .is-text-underline {
   text-decoration: underline;
 }
 b, .is-text-bolder {
-  font-weight: bold;
+  font-weight: $text-bold;
 }
 // color text
 white, .is-text-white {
@@ -51,6 +66,21 @@ warning, .is-text-warning {
 danger, .is-text-danger {
   color: $danger;
 }
+
+.is-dark,
+.is-primary,
+.is-black,
+.is-info,
+.is-success,
+.is-danger {
+  color: $cloud;
+}
+.is-light,
+.is-warning,
+.is-cloud {
+  color: $dark;
+}
+
 right > *,
 right,
 .is-text-right > *,
@@ -63,7 +93,7 @@ justify > *,
 justify,
 .is-text-justify > *,
 .is-text-justify {
-  display: block;
+  @extend right;
   text-align: justify;
 }
 
@@ -82,29 +112,22 @@ center,
   align-items: center;
   justify-content: center;
 }
-// hgroup
-
-hgroup {margin-bottom: 2em;}
-
 //estilos de etiquetas h1,h2,h3,h4,h5,h6
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   margin: 0;
   -webkit-font-smoothing: $smooting-text;
   text-rendering: $render-text;
-
-  &, a {
+  color: inherit;
+  a {
     color: inherit;
   }
-  & small {
-    font-size: 70%;
-    opacity: 0.65;
-  }
-  &.is-subtitle {
-    opacity: .65;
+  *.is-subtitle {
+    opacity: .6;
+    font-weight: normal;
+    margin: 1rem 0 1.5em 0;
   }
 }
-
 h1 { font-size: $h1-size; }
 h2 { font-size: $h2-size; }
 h3 { font-size: $h3-size; }

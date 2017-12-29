@@ -2,9 +2,10 @@
 dropdown {
 	display: inline-flex;
 	position: relative;
-	flex-wrap: nowrap;
 	padding: 0;
 	text-align: center;
+	align-items: center;
+	align-content: center;
 
 	& > * {
 		margin: 0;
@@ -26,72 +27,58 @@ dropdown {
 			border-radius: 0 rem(3px) rem(3px) 0;
 		}
 	}
-
 	margin-bottom: .5em;
 }
 
-drop-menu {
+dropmenu {
+	min-width: 120%;
 	z-index: 10;
-	position: absolute;
 	display: none;
-	flex-direction: column;
-	min-width: rem(150px);
-	background-color:#fff;
-	border:1px solid rgba(#000, .1);
-	box-shadow: 0 5px 10px -1px rgba($dark, .15);
+	position: absolute;
+	background-color: $cloud;
+	box-shadow: 0 3px 5px -1px rgba($black, .1);
+	border: 1px solid darken(whitesmoke, 2);
 	border-radius: rem(3px);
-	padding: rem(5px) 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	text-align: left;
+	padding: rem(3px) 0;
+	text-align: justify;
+	top: 100%;
 
 	&.is-visible {
-		display: flex;
+		display: block;
 	}
 
 	&.is-up {
-		bottom: 2.5rem;
+		top: initial;
+		bottom: 100%;
 	}
-	&.is-down {
-		top: 2.5rem;
-	}
-	&.is-left {
-		left: 0;
-	}
+
 	&.is-right {
 		right: 0;
 	}
+
+	divider {
+		opacity: .1;
+	}
+
 	item {
 		width: 100%;
-		font-size: $text-small;
-		padding:  0.35rem 1rem;
-		cursor: pointer;
-		height: 2.5rem;
+		padding: .75em 1em;
+
+		&, & * {
+			font-size: $text-small;
+		}
 		&.is-title {
-			height: 1.5rem;
 			color: #aaa;
 			font-size: $text-x-small;
 			pointer-events: none;
-			text-transform: uppercase;
-			opacity: 0.8;
+			opacity: 0.7;
 		}
 		&.is-active {
 			background-color: $primary;
 			color: $cloud;
 		}
 		&:not(.is-active):hover {
-			background-color: rgba(#000, .05);
-		}
-	}
-}
-
-@include until (tablet) {
-	dropdown drop-menu {
-		&.is-mobile-left {
-			left: 0;
-		}
-		&.is-mobile-right {
-			right: 0;
+			background-color: whitesmoke;
 		}
 	}
 }

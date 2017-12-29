@@ -1,0 +1,104 @@
+//galeria de imagenes
+gallery {
+	max-width: 100%;
+
+	&, collage {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: flex-start;
+		overflow: hidden;
+
+		&.is-2x2 {
+			picture:not(.is-expand),
+			collage {
+				max-width: 50%;
+			}
+		}
+		&.is-3x3 {
+			picture:not(.is-expand),
+			collage {
+				max-width: 33%;
+			}
+		}
+		&.is-4x4 {
+			picture:not(.is-expand),
+			collage {
+				max-width: 25%;
+			}
+		}
+		&.is-5x5 {
+			picture:not(.is-expand),
+			collage {
+				max-width: 20%;
+			}
+		}
+		&.is-6x6 {
+			picture:not(.is-expand),
+			collage {
+				max-width: 16.66666666666666666666666%;
+			}
+		}
+	}
+
+	picture {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		padding: rem(1px);
+		flex: 1 1 auto;
+		cursor: pointer;
+		border-radius: rem(5px);
+		overflow: hidden;
+		max-width: 25%;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		&.is-expand {
+			position: fixed;
+			border-radius: 0;
+			top: 0;
+			left: 0;
+			max-width: 100%;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($black, .6);
+			z-index: 900;
+			cursor: initial;
+
+			img {
+				max-height: 80%;
+				width: 120%;
+				height: auto;
+				border-radius: rem(8px);
+				overflow: hidden;
+				backface-visibility: hidden;
+			}
+		}
+	}
+	close {
+		position: absolute;
+		right: 2rem;
+		top: 2rem;
+		color: $cloud;
+		font-size: 3rem;
+		display: none;
+		z-index: 1000;
+		cursor: pointer;
+		&.is-visible {
+			display: block;
+		}
+	}
+}
+@include since (mobile) {
+	gallery picture.is-expand img {
+		max-width: 80%;
+	}
+}
+@include since (tablet) {
+	gallery picture.is-expand img {
+		max-width: 70%;
+	}
+}

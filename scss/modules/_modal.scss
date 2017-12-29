@@ -8,7 +8,20 @@ modal {
 		border-radius: .2rem;
 		overflow-x: hidden;
 		box-shadow: 0 5px 20px 1px rgba($black, .4);
+		padding-top: 2rem;
 		z-index: 510;
+		header {
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: space-between;
+			background-color: $light;
+			padding: .25rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
 	}
 
 	&.is-visible {
@@ -26,6 +39,7 @@ modal {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
+			position: relative;
 		}
 		& > background {
 			display: block;
@@ -34,7 +48,7 @@ modal {
 			left: 0;
 			width: 100vw;
 			height: 100vh;
-			z-index: 510;
+			z-index: 505;
 			cursor: pointer;
 			background-color: rgba($black, .6);
 		}

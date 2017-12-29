@@ -5,10 +5,14 @@ navbar{
 	max-width: 100%;
 	align-items: stretch;
 	z-index: 10;
+	padding: 0 .25rem;
 
 	&, navbrand, navmenu, item {
 		display: flex;
 		position: relative;
+	}
+	navmenu {
+		z-index: 5;
 	}
 
 	&.is-mobile {
@@ -37,6 +41,7 @@ navbar{
 
 	navbrand {
 		justify-content: space-between;
+		z-index: 10;
 		logo, item.is-toggle {
 			height: $navbar-height;
 			padding: rem(5px);
@@ -71,8 +76,8 @@ navbar{
 
 	dropdown {
 		drop-menu {
-			border-top-left-radius: 0 !important;
-			border-top-right-radius: 0 !important;
+			border-top-left-radius: none;
+			border-top-right-radius: none;
 
 			&.is-up {
 				bottom: $navbar-height;
