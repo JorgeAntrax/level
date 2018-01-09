@@ -23,9 +23,6 @@ tabs, tabs.is-boxed, tabs.is-toggle {
 		justify-content: flex-end;
 	}
 	&.is-fluid {
-		width: 100%;
-		max-width: 100%;
-		overflow: hidden;
 		tab {
 			flex-grow: 1;
 			flex-shrink: 0;

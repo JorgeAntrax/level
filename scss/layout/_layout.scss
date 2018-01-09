@@ -78,13 +78,13 @@ layout {
 		"sidebar main sidebar2"
 		"footer footer footer";
 	}
-	layout.is-small {
+	layout.is-small-sidebar {
 		grid-template-columns: 15% 85%;
 	}
-	layout.is-medium {
+	layout.is-medium-sidebar {
 		grid-template-columns: 25% 75%;
 	}
-	layout.is-large {
+	layout.is-large-sidebar {
 		grid-template-columns: 30% 70%;
 	}
 }

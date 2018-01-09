@@ -10,7 +10,7 @@
 	padding: 1rem;
 	height: auto;
 	max-height: rem(200px);
-
+	text-align: left;
 
 	.comment {
 		display: block;
@@ -35,6 +35,7 @@
 	&.monokai {
 		background-color: #000041;
 		color: $cloud;
+		
 		.comment {
 			color: rgba($cloud, .6);
 		}
