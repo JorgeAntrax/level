@@ -5,13 +5,13 @@ npm install kimera
 
 // Puedes hacer una instalación módular mediante el atributo
 
-'<a href="http://kimera.comli.com">km-include</a>'
+'<a href="http://kimera.comli.com">km-include</a>' en conjunto con javascript
 
 de la siguiente forma
 
-&ltbody km-include="components acordeon"&gt
-	&lt!-- Contenido de tu web --&gt
-&lt/body&gt
+><body km-include="components acordeon">
+	<!-- Contenido de tu web -->
+</body>
 
 
 hosteado en CDN JsDelivr:
