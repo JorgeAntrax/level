@@ -32,8 +32,9 @@
 
 /* ================== Condicional para importacion CSS ==================== */
 
-	var include_css = body.attr('km-include').split(' ');
+	var include_css = body.attr('km-include');
 	if (include_css != null) {
+		include_css = body.attr('km-include').split(' ');
 		$('head').prepend('<link rel="stylesheet" id="core-kimera" href="'+PATH_CSS+'base.min.css">');
 		for (var i = 0; i < include_css.length; i++) {
 			if (include_css[i] === 'kimera') {
