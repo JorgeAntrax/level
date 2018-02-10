@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 // mega  bloque de contenido con un encabezado grande y descripcion
 mega {
 	display: block;
@@ -6,6 +8,7 @@ mega {
 	height: auto;
 	position: relative;
 	padding: 3rem;
+	overflow: hidden;
 
 	&.is-horizontal {
 		display: flex;

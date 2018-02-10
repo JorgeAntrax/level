@@ -1,3 +1,7 @@
+@import
+	'../base/_partials',
+	'../base/_placeholders';
+
 $border-group: 1px solid rgba($dark, .1) !default;
 
 group {
@@ -11,7 +15,8 @@ group {
 		display: inline-flex;
 		width: auto;
 	}
-	item {
+	group-item {
+		@extend %item;
 		justify-content: center;
 		flex: 1;
 	}
@@ -29,7 +34,8 @@ listgroup {
 	flex-direction: column; 
 	align-items: stretch;	
 	justify-content: flex-start;
-	item {
+	list-item {
+		@extend %item;
 		flex-grow: 1;
 		justify-content: space-between;
 		border: 0;

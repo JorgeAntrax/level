@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 $breadcrumb-item-padding: 1rem !default;
 
 breadcrumb {
@@ -50,10 +52,9 @@ breadcrumb {
 	
 	//ok no problemas
 	&.is-right {
-
 		&, item {
 			flex-direction: row-reverse;
-			justify-content: flex-end;
+			justify-content: flex-start;
 		}
 
 		& item:after {
@@ -110,7 +111,6 @@ breadcrumb {
 
 // media queries
 @include until (tablet) {
-	breadcrumb.is-right, breadcrumb.is-right item,
 	breadcrumb.is-center, breadcrumb.is-center item {
 		justify-content:flex-start;
 	}

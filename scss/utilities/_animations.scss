@@ -11,8 +11,31 @@
 	}
 }
 .zoom-in {
-	animation-delay: 5s;
-	animation: zoom-in 0.2s;
+	animation: zoom-in 0.25s ease-out;
+}
+
+@keyframes slide-up {
+	from {
+		top: 210%;
+	}
+	to {
+		top: 0;
+	}
+}
+.slide-up {
+	animation: slide-up 0.25s ease-out;
+}
+
+@keyframes slide-down {
+	from {
+		top: -110%;
+	}
+	to {
+		top: 0;
+	}
+}
+.slide-down {
+	animation: slide-down 0.25s ease-out;
 }
 
 //zoom out
@@ -32,7 +55,7 @@
 }
 
 // animacion designada a pogress bar infinite.
-@keyframes progress {
+@keyframes process {
 	0% {
 		width: 0;
 		left: 0;

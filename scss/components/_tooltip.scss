@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 $tooltip-position: 115%;
 $arrow-tooltip-dimentions: 0.7rem;
 [tooltip] {
@@ -18,11 +20,11 @@ $arrow-tooltip-dimentions: 0.7rem;
 	&::after {
 		content: attr(tooltip);
 		padding: .15rem 0.5rem;
-		border-radius: rem(500px);
+		border-radius: rem(4px);
 		z-index: 1000;
 		padding: 0.25rem 1rem;
 		transition: all .5s ease-out;
-		font-size: $text-x-small - .15;
+		font-size: $text-small - .15;
 		text-align: center;
 		color: $cloud;
 		min-width: rem(120px);
@@ -32,6 +34,10 @@ $arrow-tooltip-dimentions: 0.7rem;
 		width: $arrow-tooltip-dimentions;
 		height: $arrow-tooltip-dimentions;
 		z-index: 999;
+	}
+
+	&.is-rounded::after {
+		border-radius: rem(100px);
 	}
 	&.is-up::after,
 	&.is-bottom::after,

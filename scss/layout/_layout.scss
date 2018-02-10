@@ -35,11 +35,11 @@ layout {
 		"footer";
 	}
 	
-	header {grid-area: header;}
-	navbar {grid-area: navbar;}
-	sidebar {grid-area: sidebar;}
-	main {grid-area: main;}
-	footer {grid-area: footer;}
+	& > header {grid-area: header;}
+	& > navbar {grid-area: navbar;}
+	& > sidebar {grid-area: sidebar;}
+	& > main {grid-area: main;}
+	& > footer {grid-area: footer;}
 
 	&.is-dashboard {
 		overflow: hidden;

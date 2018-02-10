@@ -1,0 +1,15 @@
+%item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  min-height: 2.5rem;
+}
+
+%icon {
+	display: inline-flex;
+	align-items:center;
+	justify-content:center;
+  border-radius: rem(3px); 
+}

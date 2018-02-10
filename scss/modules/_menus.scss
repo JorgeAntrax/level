@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 /* clase generica menu */
 
 menu:not(.default-browser) {
@@ -13,17 +15,17 @@ menu:not(.default-browser) {
 	}
 }
 menu {
-	&, footer {
+	&, footer, menu-item {
 		display: flex;
 	}
 
-  &, item, footer {
+  &, menu-item, footer {
 		width: 100%;
 		max-width: 100%;
 		justify-content: flex-start;
 	}
 
-	list {
+	menu-list {
 		display: block;
 		width: 95%;
 		margin: 0.25rem 1rem;
@@ -31,7 +33,7 @@ menu {
 		padding-left: .5rem;
 	}
 
-	item, footer {
+	menu-item, footer {
 		align-content: stretch;
 		align-items: center;
 		position: relative;

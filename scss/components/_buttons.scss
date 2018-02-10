@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 //variables
 $button-background-color: $cloud !default;
 $button-border-color: rgba($black, 0.1) !default;
@@ -16,7 +18,7 @@ $button-shadow-size-focused: 2px !default;
 
 button,
 .button {
-	transition: all .1s linear;
+	transition: all .1s ease-out;
 	background-color: $button-background-color ;
 	color: $button-text-color ;
 	border: $button-border-size solid $button-border-color;
@@ -46,33 +48,27 @@ button,
 		position: absolute;
 		top: 50%;
 		left: 50%;
+		transform-origin: center center;
+		transform: translate(-50%, -50%);
 		width: 0;
 		height: 0;
-		transform: translate(-50%, -50%);
 		pointer-events: none;
 		z-index: -1;
 		border-radius: $button-circle;
-		transition: all .2s ease-out;
+		transition: all .2s ease-in-out;
 	}
 
 	&.is-rounded {
 		border-radius: $button-circle;
 	}
 
-	&:not([inactive]):hover,
-	&.hovered:not([inactive]) {
+	&:not([inactive]):hover {
 		z-index: 1;
 		&::before {
-			background-color: rgba($black, 0.05);
-			width: 50em;
-			height: 50em;
+			width: rem(500px);
+			height: rem(500px);
+			background-color: rgba($dark, .1);
 		}
-	}
-
-	&:focus,
-	&.focused {
-		box-shadow: 0 0 0 $button-shadow-size-focused rgba($dark, .1);
-		background-color: whitesmoke;
 	}
 
 	//flex direction column
@@ -93,6 +89,7 @@ button,
 
 	icon {
 		height: $button-line-height;
+		width: auto;
 		&:first-child:last-child {
 			width: $button-icon-dimentions;
 			height: $button-icon-dimentions;
@@ -131,22 +128,14 @@ button,
 						color: $cloud;
 					}
 				}
-
-				&:focus,
-				&.focused,
-				&-outline:focus,
-				&-outline.focused,
-				&-invert:focus,
-				&-invert.focused,
-				&-inverse:focus {
-					box-shadow: 0 0 0 $button-shadow-size-focused rgba($color, .5);
-				}
 				&[disabled] {
 					background-color: lighten($color, 25);
 				}
 			}
 		}
 	}
+
+	&[disabled] {border: none;}
 
 	&[class$="-outline"],
 	&[class$="-invert"],
@@ -245,9 +234,8 @@ fab {
 		}
 
 		& > * {
-			margin: rem(2px);
+			margin: rem(5px);
 			animation: zoom-in .2s;
-			animation-delay: .05s;
 		}
 
 		&.is-left,

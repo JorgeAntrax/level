@@ -1,3 +1,4 @@
+@import '../base/_partials';
 // alert
 notify {
 	display: flex;
@@ -8,7 +9,7 @@ notify {
 	border-radius: rem(5px);
 	padding: 1rem 2rem 1rem 1rem;
 
-	.is-close {
+	close {
 		position: absolute;
 		top: .25rem;
 		right: .4rem;

@@ -1,3 +1,4 @@
+@import '../base/_partials';
 //variables preload
 $preload-dimentions-tiny: rem(10px) !default;
 $preload-dimentions-small: rem(20px) !default;
@@ -5,8 +6,8 @@ $preload-dimentions: rem(30px) !default;
 $preload-dimentions-medium: rem(40px) !default;
 $preload-dimentions-large: rem(50px) !default;
 
-// progress bar
-progress-bar {
+// process bar
+process {
 	display: block;
 	height: 0.5rem;
 	width: 100%;
@@ -21,6 +22,7 @@ progress-bar {
 	complete {
 		display: flex;
 		height: 100%;
+		width: 1%;
 		background-color: $dark;
 		position: relative;
 		transition: all .2s ease;
@@ -71,18 +73,18 @@ progress-bar {
 		&.is-lower complete,
 		&.is-very-fast complete,
 		&.is-fast complete {
-			animation-name: progress;
+			animation-name: process;
 			animation-timing-function: ease;
 			animation-iteration-count: infinite;
 		}
-		complete {
-			animation-duration: 2s;
-		}
 		&.is-very-lower complete {
-			animation-duration: 3s;
+			animation-duration: 3.5s;
 		}
 		&.is-lower complete {
-			animation-duration: 2.5s;
+			animation-duration: 3s;
+		}
+		complete {
+			animation-duration: 2s;
 		}
 		&.is-fast complete {
 			animation-duration: 1s;

@@ -1,78 +1,51 @@
+@import
+	'../base/_partials',
+	'../base/_placeholders';
+
 //acordeon.
 $acordeon-cloud: $cloud !default;
 $acordeon-border: 1px solid $light !default;
 $acordeon-padding: 1rem !default;
+$acordeon-material-shadow-items: 0 0 0 1px rgba($black, 0.05) !default;
 
 acordeon {
-
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	overflow: hidden;
+	border-radius: rem(5px);
 
-	&, item, content {
+	acordeon-item {
+		@extend %item;
+		line-height: 2.5rem;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	content {
+		transition: max-height .35s ease-in-out;
+		background-color: rgba($cloud, 0.15);
+		display: block;
+		max-height: 0;
 		overflow: hidden;
-	}
-
-	item {
-		flex-direction: column;
-		width: 100%;
-		align-items: stretch;
-
-		[type="checkbox"],
-		[type="radio"] {
-			display: none;
-			&:checked ~ content {
-				max-height: 20em;
-			}
-		}
-
-		content {
-			max-height: 0;
-			-webkit-transition: max-height .35s;
-			transition: max-height .35s;
-			& > * {
-				padding: ($acordeon-padding / 2) $acordeon-padding;
-			}
-		}
-
-		label {
-			margin: 0;
-			cursor: pointer;
-			line-height: 2em;
-			align-content: center;
-			align-items: center;
-			display: flex;
-			justify-content: space-between;
-			font-weight: inherit;
-			user-select: none;
+		&.is-visible {
+			max-height: 100vh;
 		}
 	}
-}
 
-acordeon:not(.is-clear) {
-	item {
-		border: $acordeon-border;
+	&.is-material {
+		box-shadow: 0 3px 10px -1px rgba($black, 0.1);
 
-		&:not(:last-child) {
-			border-bottom: 0;
+		&, item {	
+			background-color: $acordeon-cloud;
 		}
 
-		content {
-			background-color: rgba($cloud, .3);
-			& > * {
-				padding: ($acordeon-padding / 2) $acordeon-padding;
-			}
-		}
+		item {
+			color: $primary;
+			padding: 0 1rem;
+			box-shadow: $acordeon-material-shadow-items;
 
-		label {
-			padding: ($acordeon-padding / 2) $acordeon-padding;
-			transition: background .2s ease-out;
-		}
-
-		[type="checkbox"],
-		[type="radio"] {
-			&:checked + label {
-				background-color: rgba($black, .05);
+			icon:hover {
+				color: $black;
 			}
 		}
 	}

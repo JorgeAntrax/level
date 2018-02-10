@@ -1,14 +1,32 @@
+@import '../base/_partials';
 // ventanas modal
 modal {
+	align-items: center;
+	justify-content: center;
+	z-index: 500;
+
+	&.is-slide-up {
+		align-items: flex-end;
+	}
+	&.is-slide-down {
+		align-items: flex-start;
+	}
+
 	& > content {
 		display: none;
-		max-width: 80%;
-		max-height: 90%;
-		background-color: $cloud;
-		border-radius: .2rem;
+		flex-direction: column;
+		justify-content: flex-start;
+		position: relative;
+		
+		width: 100%;
+		max-width: 100%;
+		max-height: 100%;
 		overflow-x: hidden;
+		
+		background-color: $cloud;
 		box-shadow: 0 5px 20px 1px rgba($black, .4);
 		z-index: 510;
+
 		& > header {
 			display: flex;
 			align-items: center;
@@ -16,12 +34,13 @@ modal {
 			justify-content: space-between;
 			background-color: $light;
 			padding: .25rem;
-			position: absolute;
 			z-index: 515;
-			top: 0;
-			left: 0;
-			right: 0;
 		}
+	}
+
+	&.is-fluid > content {
+		width: 100%;
+		height: 100%;
 	}
 
 	&.is-visible {
@@ -31,15 +50,17 @@ modal {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		align-items: center;
-		justify-content: center;
-		z-index: 500;
 
 		& > content {
 			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			position: relative;
+
+			close {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				font-size: 3em;
+				line-height: 0.75;
+			}
 		}
 		& > background {
 			display: block;
@@ -51,6 +72,13 @@ modal {
 			z-index: 505;
 			cursor: pointer;
 			background-color: rgba($black, .6);
+		}
+
+		@include since(tablet) {
+			&:not(.is-fluid) {
+				padding: 2rem;
+				& > content {	border-radius: rem(4px); }
+			}
 		}
 	}
 }

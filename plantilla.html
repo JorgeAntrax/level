@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,20 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.3.3/css/kimera.min.css"/>
     <style>
-      navbar {
-        box-shadow: 0 2px 8px 1px rgba(0,0,0,.05);
-        font-weight: bolder;
-      }
-      navbar item {
-        color: #ff0050;
-      }
-      navbar item:hover {
-        background-color: whitesmoke;
-        color: #000;
-      }
-      .clear {
+      group {
         max-width: 200px;
         margin: 0 auto;
       }
@@ -35,33 +22,20 @@
       }
     </style>
   </head>
-  <body>
-    <navbar>
-      <navbrand>
-        <item class="is-label is-text-info">Kimera CSS framework</item>
-        <item class="is-toggle">
-            <icon is-large><i class="fa fa-bars"></i></icon>
-        </item>
-      </navbrand>
-      <navmenu>
-        <item>Módular</item>
-        <item>Flexible</item>
-        <item>Simple</item>
-      </navmenu>
-    </navbar>
+  <body km-include="kimera">
     <mega class="is-light is-full-center">
       <center>
-        <hgroup>
+        <hgroup class="padding-v-2">
           <h1 class="is-text-danger is-text-jumbo title">Felicitaciones</h1>
           <h3 class="is-subtitle">kimera se ha instalado correctamente en tu proyecto</h3>
-          <group class="clear">
+          <group>
             <item>
               <a href="https://github.com/JorgeAntrax/kimera">
                 <icon class="is-medium"><i class="fa fa-github"></i></icon>
               </a>
             </item>
             <item>
-              <a href="https://www.facebook.com/kimeralifesystems">
+              <a href="https://www.facebook.com/kimeraCSS">
                 <icon class="is-medium"><i class="fa fa-facebook"></i></icon>
               </a>
             </item>
@@ -72,89 +46,10 @@
             </item>
           </group>
         </hgroup>
-        <button class="is-success is-large is-rounded" inactive>Ultima versión 0.3.7</button>
+        <button class="is-success is-large is-rounded" inactive>Ultima versión 0.4.0</button>
       </center>
     </mega>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kimera@0.4.0/js/kimera.min.js"></script>
   <body>
-=======
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Documento</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.3.3/css/kimera.min.css"/>
-    <style>
-      navbar {
-        box-shadow: 0 2px 8px 1px rgba(0,0,0,.05);
-        font-weight: bolder;
-      }
-      navbar item {
-        color: #ff0050;
-      }
-      navbar item:hover {
-        background-color: whitesmoke;
-        color: #000;
-      }
-      .clear {
-        max-width: 200px;
-        margin: 0 auto;
-      }
-      @media screen and (max-width: 767px) {
-        .is-text-jumbo {
-          font-size: 4rem;
-        }
-      }
-      @media screen and (min-width: 768px) {
-        .is-text-jumbo {
-          font-size: 7rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <navbar>
-      <navbrand>
-        <item class="is-label is-text-info">Kimera CSS framework</item>
-        <item class="is-toggle">
-            <icon is-large><i class="fa fa-bars"></i></icon>
-        </item>
-      </navbrand>
-      <navmenu>
-        <item>Módular</item>
-        <item>Flexible</item>
-        <item>Simple</item>
-      </navmenu>
-    </navbar>
-    <mega class="is-light is-full-center">
-      <center>
-        <hgroup>
-          <h1 class="is-text-danger is-text-jumbo title">Felicitaciones</h1>
-          <h3 class="is-subtitle">kimera se ha instalado correctamente en tu proyecto</h3>
-          <group class="clear">
-            <item>
-              <a href="https://github.com/JorgeAntrax/kimera">
-                <icon class="is-medium"><i class="fa fa-github"></i></icon>
-              </a>
-            </item>
-            <item>
-              <a href="https://www.facebook.com/kimeralifesystems">
-                <icon class="is-medium"><i class="fa fa-facebook"></i></icon>
-              </a>
-            </item>
-            <item>
-              <a href="https://npmjs.com/package/kimera">
-                <icon class="is-medium"><i class="fa fa-ils"></i></icon>
-              </a>
-            </item>
-          </group>
-        </hgroup>
-        <button class="is-success is-large is-rounded" inactive>Ultima versión 0.3.6</button>
-      </center>
-    </mega>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <body>
->>>>>>> 57ff340fda8f954f2f039ece9dd00d437d057fac
 </html>

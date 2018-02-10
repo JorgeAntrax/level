@@ -1,0 +1,78 @@
+@import '../base/_partials';
+slideshow {
+    display: block;
+
+    &, slides, picture {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .previus-slide,
+    .next-slide {
+        -webkit-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
+
+    .previus-slide,
+    .next-slide {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 2.5em;
+        cursor: pointer;
+        z-index: 20;
+        opacity: .7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .previus-slide {
+        left: 0.5rem;
+    }
+
+    .next-slide {
+        right: 0.5rem;
+    }
+
+    slides {
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: left .45s ease-in-out;
+        transition: left .45s ease-in-out;
+
+        picture[caption]::after {
+            content: attr(caption);
+            position: absolute;
+            padding: 1rem;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba($black, 0.5);
+            color: $cloud;
+            z-index: 10;
+
+            &.is-invert {
+                background-color: rgba($cloud, 0.5);
+                color: inherit;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &.is-fade-effect picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

@@ -1,3 +1,4 @@
+@import '../base/_partials';
 // tables
 $table-border: 1px solid rgba($dark, 0.2) !default;
 $hover-background: darken($light, 2) !default;
@@ -65,42 +66,8 @@ table:not(.default-broswer) {
 			}
 		}
 	}
-	&.is-flexible.is-striped {
-		td, th {	
-			&:nth-child(2n) {
-				background-color: $light;
-				&:hover {
-					background-color: $hover-background; 
-				}
-			}
-		}
-		tr {
-			background: none;
-		}
-	}
 
-	&.is-flexible {
-		position: relative;
-		&, thead, tbody, tr {
-			display: flex;
-		}
-		tr {
-			flex-direction: column;
-		}
-
-		thead,
-		thead tr,
-		tbody tr,
-		&.is-cell tbody {
-			border-right: 0;
-		}
-		&.is-clean{
-			td, th {
-				border-bottom: $table-border;
-			}
-		}
-	}
-	&.is-cell, &.is-flexible.is-cell {
+	&.is-cell {
 		td, th {
 			border-right: $table-border;
 			border-bottom: $table-border;

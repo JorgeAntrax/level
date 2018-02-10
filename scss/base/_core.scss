@@ -1,195 +1,198 @@
-// html basico
+@import '_placeholders';
+/* html basico*/
 html {
-  font-size: $text-default;
-  font-family: sans-serif, arial;
-  box-sizing: border-box;
-  min-width: rem(200px);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: $smooting-text;
-  text-rendering: $render-text;
-  text-size-adjust: 100%;
-  
-  & ::selection {
-    background: $primary;
-    color: $cloud;
-  }
+    font-size: $text-default;
+    font-family: sans-serif, arial;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: rem(200px);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: $smooting-text;
+    text-rendering: $render-text;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    & ::-moz-selection {
+        background: $primary;
+        color: $cloud;
+    }
+
+    & ::selection {
+        background: $primary;
+        color: $cloud;
+    }
 }
 
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  color: $dark;
-  font-size: 1rem;
-  max-width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #fff;
-  letter-spacing: $font-space;
-  margin: 0;
+    color: $dark;
+    font-size: 1rem;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #fff;
+    letter-spacing: $font-space;
+    margin: 0;
 }
 
 p {
-	display: block;
-	margin: 0.25rem 0;
-	padding: 0;
-	text-align: justify;
-  font-size: rem($text-default);
-  line-height: $line-height-default;
-  p {
-    margin: 0;
-    display: inline-block;
-  }
-}
+    display: block;
+    margin: 0.25rem 0;
+    padding: 0;
+    font-size: rem($text-default);
+    line-height: $line-height-default;
 
-b, strong, a {
-  margin: 0 rem($text-default / 3);
+    p {
+        margin: 0;
+        display: inline-block;
+    }
 }
 
 a {
-  text-decoration: none;
-  color: $color-link;
-  cursor: pointer;
+    text-decoration: none;
+    color: $color-link;
+    cursor: pointer;
 
-  &:hover {
-    color: $color-link-hover;
-  }
+    &:hover {
+        color: $color-link-hover;
+    }
 }
 
 item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-overflow: ellipsis;
+    @extend %item;
 }
 
 divider {
-  display: block;
-  background-color: $black;
-  margin: rem($text-default) 0;
-  width: 100%;
-  height: 1px;
-  opacity: .2;
-  &.is-white {
-    background-color: $cloud;
-  }
+    display: block;
+    background-color: $black;
+    margin: rem($text-default) 0;
+    width: 100%;
+    height: 1px;
+    opacity: .2;
+
+    &.is-white {
+        background-color: $cloud;
+    }
 }
 
 cite, address {
-  display: inline-block;
-  line-height: 1.5;
-  opacity: 0.7;
-  font-size: $text-small;
+    display: inline-block;
+    line-height: 1.5;
+    opacity: 0.7;
+    font-size: $text-small;
 }
+
 address {
-  font-style: normal;
-  opacity: 1;
+    font-style: normal;
+    opacity: 1;
 }
 
 small, pre, code {
-  font-size: $text-small;
-  font-weight: normal;
-  line-height: $line-height-default;
-  margin: 0;
+    font-size: $text-small;
+    font-weight: normal;
+    line-height: $line-height-default;
+    margin: 0;
 }
 
-//code pre
+/*code pre*/
 code, pre, code *, pre * {
-  -webkit-font-smoothing: auto;
-  font-family: $family-code;
+    -webkit-font-smoothing: auto;
+    font-family: $family-code;
 }
 
 code {
-  background-color: whitesmoke;
-  color: darken($danger, 10);
-  padding: rem(3px) rem($text-default/2);
-  margin-left: rem(3px);
-  margin-right: rem(3px);
-  border-radius: .15rem;
-  word-break: break-word;
+    background-color: $light;
+    color: darken($danger, 10);
+    padding: rem(3px) rem($text-default / 2);
+    margin-left: rem(3px);
+    margin-right: rem(3px);
+    border-radius: .15rem;
 }
+
 /*estilos para entrada por teclado*/
-kbd{
-	@extend code;
-  background-color: $dark;
-  color: $cloud;
+kbd {
+    @extend code;
+
+    background-color: $dark;
+    color: $cloud;
 }
+
 /*estilos de sup y sub indice*/
 sup, sub {
-	font-size: $text-x-small; 
-	padding: rem(2px);
+    font-size: $text-x-small;
+    padding: rem(2px);
 }
 
 mark {
-  background-color: $warning;
-  color: $dark;
+    background-color: $warning;
+    color: $dark;
 }
 
-[disabled], .is-disabled {
-  pointer-events: none;
-  user-select: none;
+[disabled], .is-disabled, [inactive] {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-// listas
+/* listas para revision */
 ol:not(.default-browser),
-ul:not(.default-browser) { 
-  &, & ul, & ol {   
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+ul:not(.default-browser) {
+    &, & ul, & ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
+
 ol, ul {
-  padding-left: 1rem;
+    padding-left: 1rem;
 }
 
-//replace scroll
-// reMplazo del scroll y ocultamiento.
+/*replace scroll*/
+/* reMplazo del scroll y ocultamiento.*/
 * ::-webkit-scrollbar {
-  background-color: rgba($dark, .05);
-  width: rem(5px);
-  height: rem(5px);
+    background-color: rgba($dark, 0.05);
+    width: rem(4px);
+    height: rem(4px);
+    position: relative;
+    
 }
 
-@include until (touch) {
+@include until(touch) {
   * ::-webkit-scrollbar {
     display: none;
   }
-  .is-table::-webkit-scrollbar {
-    display: block;
-  }
 }
 
-@include until (touch) {
+@include until(touch) {
   * ::-moz-scrollbar {
     display: none;
   }
-  .is-table::-moz-scrollbar {
-    display: block;
-  }
-}
-
-@include until (touch) {
-  
-}
-
-@include until (touch) {
 }
 
 * ::-webkit-scrollbar-thumb {
-  background-color: rgba($dark, .1);
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all .2s ease-out;
-  &:hover,
-  &:active {
-    background-color: rgba($dark, .25);
-  }
+    background-color: rgba($dark, 0.1);
+    border-radius: 1rem;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+
+    &:hover,
+    &:active {
+      background-color: rgba($black, 0.2);
+    }
 }
 
 * ::-webkit-scrollbar-track {
-  display: none;
+    display: none;
 }

@@ -23,7 +23,7 @@
 	}
 }
 
-// helpers de reset
+// helpers de reset to margin and padding
 .is-marginless {
 	margin: 0 !important;
 }
@@ -31,9 +31,7 @@
 .is-paddingless {
 	padding: 0 !important;
 }
-.is-rounded {
-	border-radius: 1000em;
-}
+
 .padding-05 {
 	padding: 0.5rem;
 }
@@ -43,45 +41,32 @@
 .padding-h-05 {
 	padding:0  0.5rem;
 }
-.padding-v-1 {
-	padding: 1rem 0;
+// print the margin and padding helper class
+@for $i from 1 through 3 {
+	.padding-#{$i} { padding: #{$i}rem; }
+	.margin-#{$i} { margin: #{$i}rem; }
+
+	.padding-v-#{$i} { padding: #{$i}rem 0; }
+	.margin-v-#{$i} { margin: #{$i}rem 0; }
+
+	.padding-h-#{$i} { padding: 0 #{$i}rem; }
+	.margin-h-#{$i} { margin: 0 #{$i}rem; }
+
+	.padding-t-#{$i} { padding-top: #{$i}rem; }
+	.margin-t-#{$i} { margin-top: #{$i}rem; }
+
+	.padding-b-#{$i} { padding-bottom: #{$i}rem; }
+	.margin-b-#{$i} { margin-bottom: #{$i}rem; }
+
+	.padding-l-#{$i} { padding-left: #{$i}rem; }
+	.margin-l-#{$i} { margin-left: #{$i}rem; }
+
+	.padding-r-#{$i} { padding-right: #{$i}rem; }
+	.margin-r-#{$i} { margin-right: #{$i}rem; }
 }
-.padding-h-1 {
-	padding: 0 1rem;
-}
-.padding-1 {
-	padding: 1rem;
-}
-.padding-v-2 {
-	padding: 2rem 0;
-}
-.padding-h-2 {
-	padding: 0 2rem;
-}
-.padding-2 {
-	padding: 2rem;
-}
-.padding-v-3 {
-	padding: 3rem 0;
-}
-.padding-h-3 {
-	padding: 0 3rem;
-}
-.padding-3 {
-	padding: 2rem;
-}
-.op-01 {
-	opacity: .1;
-}
-.op-02 {
-	opacity: .2;
-}
-.op-03 {
-	opacity: .3;
-}
-.op-04 {
-	opacity: .4;
-}
-.op-05 {
-	opacity: .5;
+// print the opacity class range
+@for $i from 1 through 9 {
+	.op-0#{$i} {
+		opacity: #{'.'}$i;
+	}
 }

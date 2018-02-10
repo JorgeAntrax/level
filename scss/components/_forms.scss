@@ -1,3 +1,5 @@
+@import '../base/_partials';
+
 // variables
 $input-border: $light;
 $input-padding: rem(5px) rem($text-default - 1px) !default;
@@ -95,34 +97,27 @@ color {
 	width: 1.5rem;
 	height: 1.5rem;
 	display: inline-flex;
-	margin: 0 .5rem;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 	border-radius: rem(3px);
-	box-shadow: 0 0 0 3px $cloud, 0 0 6px 5px rgba($black, 0.1);
 	&.is-rounded {
 		border-radius: 50%;
 	}
 	&[disabled] {
 		box-shadow: none;
-		pointer-events: none;
-		opacity: .7;
 	}
-	&.is-dark {
-		box-shadow: 0 0 0 3px $dark, 0 0 6px 5px rgba($black, .1);
+	// input type color
+	input[type='color'] {
+		cursor: pointer !important;
+		overflow: hidden !important;
+		outline: none;
+		border: 0;
+		-moz-appearance: button;
+		-webkit-appearance: button;
+		min-height: 4rem;
+		min-width: 4rem;
 	}
-}
-// input type color
-input[type='color'] {
-	cursor: pointer;
-	overflow: hidden;
-	outline: none;
-	border: 0;
-	-moz-appearance: textfield;
-	-webkit-appearance: textfield;
-	min-height: 5rem;
-	min-width: 5rem;
 }
 
 // textarea
@@ -192,21 +187,18 @@ listbox, date {
 		-moz-appearance: none;
 		border: none;
 		outline: none;
-
-		&:not([multiple]) {
-			padding-right: 2.5rem;
-		}
-
+		padding-right: 2.5rem;
+		
 		&[multiple] {
 			padding: 0;
-			option {
-				padding: .5rem 1rem;
-			}
+		}
+		option {
+			display: flex;
+			align-items: center;
+			padding: .5rem 1rem;
 		}
 	}
-	option {
-		color: $dark;
-	}
+
 	@each $class, $color in $colores {
 		@if ($class == 'light') or ($class == 'black') or ($class == 'dark') or ($class == 'primary') {} @else {
 			&.is-#{$class} select:focus {
@@ -235,7 +227,6 @@ help {
 
 label {
   display: block;
-  font-weight: bold;
   text-align: left;
   margin-bottom: .5rem;
 }
@@ -423,4 +414,75 @@ field {
 			}
 		}
 	}
+}
+
+//*********  Inicio Estilos check & radio Button  ***********
+checkbox, radio {
+	display: inline-flex;
+	min-width: 1.5rem;
+	height: 1.5rem;
+	align-items: center;
+	justify-content: center;
+
+	input {
+		display: none;
+	}
+
+	label {
+		margin: 0;
+	}
+
+	& > label::before {
+		content: '';
+		position: relative;
+		margin-right: 0.5rem;
+		background-color: transparent;
+		display: inline-block;
+		text-overflow: ellipsis;
+		width: 1rem;
+		height: 1rem;
+		border: 1px solid $dark;
+		border-radius: rem(3px);
+		cursor: pointer;
+		transition: all .2s ease-out;
+	}
+	& :checked ~ label::before {
+		background-color: $dark;
+		box-shadow: inset 0 0 0 2px $cloud;
+		border-radius: rem(3px);
+	}
+	&.is-check :checked ~ label::before {
+		width: .5rem;
+		transform: rotate(45deg) translate(-0.4rem, 0.25rem);
+		transform-origin: bottom right;
+		background-color: transparent !important;
+		border-top: 0;
+		border-left: 0;
+		border-radius: 0;
+	}
+	&.is-filled :checked ~ label::before {
+		box-shadow: none;
+	}
+	@each $class, $color in $colores {
+		@if ($class == 'light') or ($class == 'dark') or ($class == 'cloud') or ($class == 'black') {} @else {
+			&.is-#{$class} > label::before {
+				border: 1px solid $color;
+			}
+
+			&.is-#{$class} :checked ~ label::before {
+				box-shadow: inset 0 0 0 2px $cloud;
+				background-color: $color;
+			}
+
+			// en estado checked cambia el color de borde y fondo
+			&.is-check.is-#{$class} :checked ~ label::before {
+				border-color:$color;
+			}
+		}
+	}
+}
+radio > label::before,
+radio :checked ~ label::before,
+radio :checked ~ label.is-check::before {
+	border-radius: 100%;
 }

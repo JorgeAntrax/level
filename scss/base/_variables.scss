@@ -28,6 +28,20 @@ $only-touch: '767px' !default;
 $only-tablet: '1023px' !default;
 $only-desktop: '1299px' !default;
 
+$breakpoint: (
+	mobile: '200px',
+	touch: '480px',
+	tablet: '768px',
+	desktop: '1024px',
+	widescreen: '1300px'
+);
+
+$only-breakpoint: (
+	only-touch: '767px',
+	only-tablet: '1023px',
+	only-desktop: '1299px',
+);
+
 // font family
 $family: sans-serif !default; // nombre de la fuente a importar
 $family-icons: 'FontAwesome' !default;

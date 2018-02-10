@@ -2,55 +2,24 @@
 	align-items: center;
 	justify-content: center;
 }
-.is-center-v {
-	align-items: center;
-}
-
-.is-center-h {
-	justify-content: center;
-}
-
-.is-up {
-	align-items: flex-start;
-}
-
-.is-left {
-	justify-content: flex-start;
-}
-
-.is-down {
-	align-items: flex-end;
-}
-
-.is-right {
-	justify-content: flex-end;
-}
-
-.is-separated {
-	justify-content: space-between;
-}
-
-.is-distributed {
-	justify-content: space-around;
-}
+.is-center-v { align-items: center; }
+.is-center-h { justify-content: center; }
+.is-up { align-items: flex-start; }
+.is-left { justify-content: flex-start; }
+.is-down { align-items: flex-end; }
+.is-right { justify-content: flex-end; }
+.is-separated { justify-content: space-between; }
+.is-distributed { justify-content: space-around; }
 /*clases flexbox fila y columna*/
 row{
 	display: flex;
 	flex: auto;
 	flex-flow: column nowrap;
 
-	&.is-multiline {
-		flex-wrap: wrap;
-	}
-	&.is-mobile {
-		flex-flow: row nowrap;
-	}
-	&.is-inverted {
-		flex-direction: row-reverse;
-	}
-	&.is-boxed {
-		flex-direction: column;
-	}
+	&.is-multiline { flex-wrap: wrap; }
+	&.is-mobile { flex-flow: row nowrap; }
+	&.is-inverted { flex-direction: row-reverse; }
+	&.is-boxed { flex-direction: column; }
 	column {
 		display: block;
 		flex: 1 1 auto;
@@ -59,291 +28,53 @@ row{
 	}
 }
 
+.is-block { width: 100%; }
+.is-half { width: 50%; }
 
-.is-block {
-	width: 100%;
+[class*="mobile-"],
+[class*="touch-"],
+[class*="tablet-"],
+[class*="desktop-"],
+[class*="widescreen-"] {
+	flex-grow: 0;
+	flex-shrink: 0;
 }
-.is-half {
-	width: 50%;
-}
-@include since (300px) {
-	@for $i from 1 through 20 {
-		@if $i == 10 {
-			.mobile-is-half {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
+
+@each $class, $value in $breakpoint {
+	@include since ($class) {
+		@if $class == 'tablet' {
+			row { flex-direction: row;}
+		}
+		@for $i from 1 through 20 {
+			@if $i == 20 {
+				.#{$class}-is-block {width: grid($i);}
 			}
-		} @else {
-			.mobile-#{$i} {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
+			@else if $i == 10 {
+				.#{$class}-is-half {width: grid($i);}
+			} @else {
+				.#{$class}-#{$i} {width: grid($i);}
 			}
 		}
+		.is-hidden-#{$class} { display: none; }
+		.is-center-#{$class} {
+			align-items: center;
+			justify-content: center;
+		}
+		.is-center-v-#{$class} { align-items: center; }
+		.is-center-h-#{$class} { justify-content: center; }
+		.is-up-#{$class} { align-items: flex-start; }
+		.is-left-#{$class} { justify-content: flex-start; }
+		.is-down-#{$class} { align-items: flex-end; }
+		.is-right-#{$class} { justify-content: flex-end; }
+		.is-separated-#{$class} { justify-content: space-between; }
+		.is-distributed-#{$class} { justify-content: space-around; }
 	}
 }
-//media queries hidden with min width
-@include since (touch) {
-	@for $i from 1 through 20 {
-		@if $i == 20 {
-			.touch-is-block {
-				width: grid($i);
-			}
+
+@each $class, $value in $breakpoint {
+	@if $class != 'mobile' {
+		@include until ($class) {
+			.is-visible-#{$class} {	display: none; }
 		}
-		@else if $i == 10 {
-			.touch-is-half {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		} @else {
-			.touch-#{$i} {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		}
-	}
-	.is-hidden-touch {
-		display: none;
-	}
-	.is-center-touch {
-		align-items: center;
-		justify-content: center;
-	}
-	.is-center-v-touch {
-		align-items: center;
-	}
-
-	.is-center-h-touch {
-		justify-content: center;
-	}
-
-	.is-up-touch {
-		align-items: flex-start;
-	}
-
-	.is-left-touch {
-		justify-content: flex-start;
-	}
-
-	.is-down-touch {
-		align-items: flex-end;
-	}
-
-	.is-right-touch {
-		justify-content: flex-end;
-	}
-
-	.is-separated-touch {
-		justify-content: space-between;
-	}
-
-	.is-distributed-touch {
-		justify-content: space-around;
-	}
-}
-@include since (tablet) {
-	row {
-		flex-direction: row;
-	}
-	@for $i from 1 through 20 {
-		@if $i == 20 {
-			.tablet-is-block {
-				width: grid($i);
-			}
-		}
-		@else if $i == 10 {
-			.tablet-is-half {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		} @else {
-			.tablet-#{$i} {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		}
-	}
-	.is-hidden-tablet {
-		display: none;
-	}
-	.is-center-tablet {
-		align-items: center;
-		justify-content: center;
-	}
-	.is-center-v-tablet {
-		align-items: center;
-	}
-
-	.is-center-h-tablet {
-		justify-content: center;
-	}
-
-	.is-up-tablet {
-		align-items: flex-start;
-	}
-
-	.is-left-tablet {
-		justify-content: flex-start;
-	}
-
-	.is-down-tablet {
-		align-items: flex-end;
-	}
-
-	.is-right-tablet {
-		justify-content: flex-end;
-	}
-
-	.is-separated-tablet {
-		justify-content: space-between;
-	}
-
-	.is-distributed-tablet {
-		justify-content: space-around;
-	}
-}
-@include since (desktop) {
-	@for $i from 1 through 20 {
-		@if $i == 20 {
-			.desktop-is-block {
-				width: grid($i);
-			}
-		}
-		@else if $i == 10 {
-			.desktop-is-half {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		} @else {
-			.desktop-#{$i} {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		}
-	}
-	.is-hidden-desktop {
-		display: none;
-	}
-	.is-center-desktop {
-		align-items: center;
-		justify-content: center;
-	}
-	.is-center-v-desktop {
-		align-items: center;
-	}
-
-	.is-center-h-desktop {
-		justify-content: center;
-	}
-
-	.is-up-desktop {
-		align-items: flex-start;
-	}
-
-	.is-left-desktop {
-		justify-content: flex-start;
-	}
-
-	.is-down-desktop {
-		align-items: flex-end;
-	}
-
-	.is-right-desktop {
-		justify-content: flex-end;
-	}
-
-	.is-separated-desktop {
-		justify-content: space-between;
-	}
-
-	.is-distributed-desktop {
-		justify-content: space-around;
-	}
-}
-@include since (widescreen) {
-	@for $i from 1 through 20 {
-		@if $i == 20 {
-			.widescreen-is-block {
-				width: grid($i);
-			}
-		}
-		@else if $i == 10 {
-			.widescreen-is-half {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		} @else {
-			.widescreen-#{$i} {
-				width: grid($i);
-				flex-grow: 0;
-				flex-shrink: 0;
-			}
-		}
-	}
-	.is-hidden-widescreen {
-		display: none;
-	}
-	.is-center-widescreen {
-		align-items: center;
-		justify-content: center;
-	}
-	.is-center-v-widescreen {
-		align-items: center;
-	}
-
-	.is-center-h-widescreen {
-		justify-content: center;
-	}
-
-	.is-up-widescreen {
-		align-items: flex-start;
-	}
-
-	.is-left-widescreen {
-		justify-content: flex-start;
-	}
-
-	.is-down-widescreen {
-		align-items: flex-end;
-	}
-
-	.is-right-widescreen {
-		justify-content: flex-end;
-	}
-
-	.is-separated-widescreen {
-		justify-content: space-between;
-	}
-
-	.is-distributed-widescreen {
-		justify-content: space-around;
-	}
-}
-@include until (touch) {
-	.is-visible-touch {
-		display: none;
-	}
-}
-@include until (tablet) {
-	.is-visible-tablet {
-		display: none;
-	}
-}
-@include until (desktop) {
-	.is-visible-desktop {
-		display: none;
-	}
-}
-@include until (widescreen) {
-	.is-visible-widescreen {
-		display: none;
 	}
 }
