@@ -8,10 +8,11 @@ npm install kimera
 '<a href="http://kimera.comli.com">km-include</a>' en conjunto con javascript
 
 de la siguiente forma
-
-><body km-include="components acordeon">
-	<!-- Contenido de tu web -->
-</body>
+<pre>
+	&ltbody km-include="components acordeon"&gt
+		&lt!-- Contenido de tu web --&gt
+	&lt/body&gt
+</pre>
 
 
 hosteado en CDN JsDelivr:
