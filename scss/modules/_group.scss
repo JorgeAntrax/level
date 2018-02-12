@@ -21,7 +21,7 @@ group {
 		flex: 1;
 	}
 
-	&.is-boxed item {
+	&.is-boxed group-item {
 		flex-direction: column;
 		icon {
 			margin: 0 !important;

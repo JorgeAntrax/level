@@ -37,15 +37,6 @@ icon {
   	width: $width-icon-jumbo;
     height: $width-icon-jumbo;
   }
-  &:first-child:not(:last-child) {
-    margin-right: .5rem;
-  }
-  &:last-child:not(:first-child) {
-    margin-left: .5rem;
-  }
-  &:last-child:first-child {
-    margin: 0;
-  }
 }
 
 close{
@@ -54,18 +45,23 @@ close{
   opacity: .6;
   transition: opacity .2s ease-out;
   width: auto;
+  height: $width-icon;
 
   &:hover {
     opacity: 1;
   }
   
-  &:empty::after {
-    content: '\d7';
+  &:empty {    
+    &::after {
+      content: '\d7';
+    }
   }
 }
 
 burger, ellipsis {
   @extend %icon;
+  width: $width-icon;
+  height: $width-icon;
 
   span {
     position: relative;

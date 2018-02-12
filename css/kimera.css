@@ -1,9 +1,10 @@
 /*
- Kimera 0.4.1 | MIT License
+ Kimera 0.4.2 | MIT License
  GitHub: github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
  pseudo name: Leito Winchester Grimes Salvatore
  Implementation with Javascript minified
+ bugs visualized components
  Contact: spicer_94@hotmail.com
 */
 .is-small, .is-small * {
@@ -149,6 +150,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 /* html basico*/
 html {
@@ -921,6 +928,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 icon {
   width: 1.5rem;
@@ -942,41 +955,39 @@ icon {
   icon.is-jumbo {
     width: 2rem;
     height: 2rem; }
-  icon:first-child:not(:last-child) {
-    margin-right: .5rem; }
-  icon:last-child:not(:first-child) {
-    margin-left: .5rem; }
-  icon:last-child:first-child {
-    margin: 0; }
 
 close {
   cursor: pointer;
   opacity: .6;
   transition: opacity .2s ease-out;
-  width: auto; }
+  width: auto;
+  height: 1.5rem; }
   close:hover {
     opacity: 1; }
   close:empty::after {
     content: '\d7'; }
 
-burger span, ellipsis span {
-  position: relative;
-  max-width: 1.5rem;
-  width: 80%;
-  background-color: #444444; }
-  burger span, burger span:before, burger span:after, ellipsis span, ellipsis span:before, ellipsis span:after {
-    display: block;
-    height: 2px;
-    border-radius: 5em; }
-  burger span:before, burger span:after, ellipsis span:before, ellipsis span:after {
-    content: '';
-    width: 100%;
-    background-color: inherit;
-    position: absolute;
-    transform-origin: center center;
-    top: -6px; }
-  burger span:after, ellipsis span:after {
-    top: 6px; }
+burger, ellipsis {
+  width: 1.5rem;
+  height: 1.5rem; }
+  burger span, ellipsis span {
+    position: relative;
+    max-width: 1.5rem;
+    width: 80%;
+    background-color: #444444; }
+    burger span, burger span:before, burger span:after, ellipsis span, ellipsis span:before, ellipsis span:after {
+      display: block;
+      height: 2px;
+      border-radius: 5em; }
+    burger span:before, burger span:after, ellipsis span:before, ellipsis span:after {
+      content: '';
+      width: 100%;
+      background-color: inherit;
+      position: absolute;
+      transform-origin: center center;
+      top: -6px; }
+    burger span:after, ellipsis span:after {
+      top: 6px; }
 
 ellipsis span,
 ellipsis span:before,
@@ -1322,7 +1333,7 @@ chip {
     z-index: 10; }
   chip chiptext {
     display: block;
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;
     font-size: 0.7rem; }
   chip[class*="is-"]:not(.is-warning) {
     color: #444444; }
@@ -1356,6 +1367,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 dropdown {
   display: inline-flex;
@@ -2553,6 +2570,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 acordeon {
   display: flex;
@@ -2573,13 +2596,13 @@ acordeon {
       max-height: 100vh; }
   acordeon.is-material {
     box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 0.1); }
-    acordeon.is-material, acordeon.is-material item {
+    acordeon.is-material, acordeon.is-material acordeon-item {
       background-color: #FFFFFF; }
-    acordeon.is-material item {
+    acordeon.is-material acordeon-item {
       color: #1fadff;
       padding: 0 1rem;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05); }
-      acordeon.is-material item icon:hover {
+      acordeon.is-material acordeon-item icon:hover {
         color: #000; }
 
 notify {
@@ -3089,6 +3112,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 navbar {
   display: flex;
@@ -3349,6 +3378,12 @@ icon, close, burger, ellipsis {
   align-items: center;
   justify-content: center;
   border-radius: 0.1875rem; }
+  icon:first-child:not(:last-child), close:first-child:not(:last-child), burger:first-child:not(:last-child), ellipsis:first-child:not(:last-child) {
+    margin-right: .5rem; }
+  icon:last-child:not(:first-child), close:last-child:not(:first-child), burger:last-child:not(:first-child), ellipsis:last-child:not(:first-child) {
+    margin-left: .5rem; }
+  icon:last-child:first-child, close:last-child:first-child, burger:last-child:first-child, ellipsis:last-child:first-child {
+    margin: 0; }
 
 group {
   overflow-x: auto;
@@ -3363,9 +3398,9 @@ group {
   group group-item {
     justify-content: center;
     flex: 1; }
-  group.is-boxed item {
+  group.is-boxed group-item {
     flex-direction: column; }
-    group.is-boxed item icon {
+    group.is-boxed group-item icon {
       margin: 0 !important; }
 
 listgroup {

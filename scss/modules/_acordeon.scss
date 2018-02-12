@@ -35,11 +35,11 @@ acordeon {
 	&.is-material {
 		box-shadow: 0 3px 10px -1px rgba($black, 0.1);
 
-		&, item {	
+		&, acordeon-item {	
 			background-color: $acordeon-cloud;
 		}
 
-		item {
+		acordeon-item {
 			color: $primary;
 			padding: 0 1rem;
 			box-shadow: $acordeon-material-shadow-items;

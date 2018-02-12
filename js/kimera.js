@@ -2,9 +2,25 @@
 
 /* ===================== Variable con path de archivos .min.css ================== */
 
-	var PATH_CSS = 'https://cdn.jsdelivr.net/npm/kimera@0.4.0/css/';
+	var PATH_CSS = 'https://cdn.jsdelivr.net/npm/kimera@0.4.2/css/';
 	var url_include;
 
+/* ================== Condicional para importacion CSS ==================== */
+
+	var include_css = body.attr('km-include');
+	if (include_css != null) {
+		include_css = body.attr('km-include').split(' ');
+		$('head').prepend('<link rel="stylesheet" id="core-kimera" href="'+PATH_CSS+'base.min.css">');
+		for (var i = 0; i < include_css.length; i++) {
+			if (include_css[i] === 'kimera') {
+				$('head').find('#core-kimera').remove();
+			}
+			url_include = '<link rel="stylesheet" href="'+PATH_CSS+include_css[i]+'.min.css">';
+			$('head').append(url_include);
+		}
+	}
+
+$(document).ready(function(){
 /* =================== Componentes y modulos almacenados en variables =====================*/
 
 	var acordeon = $('acordeon');
@@ -30,20 +46,6 @@
 	var tabs_content = $('tabs-content');
 	var toggle_button = $('toggle');
 
-/* ================== Condicional para importacion CSS ==================== */
-
-	var include_css = body.attr('km-include');
-	if (include_css != null) {
-		include_css = body.attr('km-include').split(' ');
-		$('head').prepend('<link rel="stylesheet" id="core-kimera" href="'+PATH_CSS+'base.min.css">');
-		for (var i = 0; i < include_css.length; i++) {
-			if (include_css[i] === 'kimera') {
-				$('head').find('#core-kimera').remove();
-			}
-			url_include = '<link rel="stylesheet" href="'+PATH_CSS+include_css[i]+'.min.css">';
-			$('head').append(url_include);
-		}
-	}
 
 /* ============== Js tabs kimera ================= */
 
@@ -59,38 +61,6 @@
 
 /* =================== Js checkbox & radio Kimera ===================== */
 	
-	function created() {
-		var element_name = $(this).get(0).localName;
-		var id = $(this).attr('id');
-    var text = $(this).attr('text');
-
-    var check = $(this).attr('checked');
-    var require = $(this).attr('required');
-    var form = $(this).attr('form');
-    var name = $(this).attr('name');
-    var value = $(this).attr('value'); // de input color and process bar used
-    if (element_name === 'checkbox' || element_name === 'radio') {
-    	$(this).append('<input type="'+ element_name +'"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( check ? check : '') + ' ' + ( require ? require : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '>' + ( text ? text : '') + '</label>');
-    } else if (element_name === 'color') {
-    	$(this).append('<input type="color"'+ (id ? 'id="' + id + '"' : '') + ( value ? 'value="' + value + '"' : '' ) + '/>');
-    } else if (element_name === 'process') {
-    	$(this).append('<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>');
-    	$(this).find('complete').css('width', getProgress);
-    } else if (element_name === 'range') {
-    	var range_step = $(this).attr('step');
-    	var range_min = $(this).attr('min');
-    	var range_max = $(this).attr('max');
-    	$(this).append('<input type="'+ element_name +'"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( value ? 'value="' + value + '"' : '') + ' ' + ( range_max ? 'max="' + range_max + '"' : '') + ' ' + ( range_min ? 'min="' + range_min + '"' : '') + ' ' + ( range_step ? 'step="' + range_step + '"' : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '>' + ( value ? + value + '' : '') + '</label>');
-    	$(this).find('label').css('left', (value - 4)+'%');
-    } else if (element_name === 'toggle') {
-    	$(this).append('<input type="checkbox"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( check ? check : '') + ' ' + ( require ? require : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '></label>');
-    } else if (element_name === 'logo') {
-    	var value_src = $(this).attr('src');
-    	$(this).append('<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>'+text+'</span>' : ''));
-    	$(this).removeAttr('src');
-    }
-    $(this).removeAttr('id text checked required form name');
-  }
 	checkbox.each(created);
 	radio.each(created);
 	form_color.each(created);
@@ -197,3 +167,37 @@ slide_prev.on('click', function(){
 		});
 	}
 });*/
+});
+
+function created() {
+	var element_name = $(this).get(0).localName;
+	var id = $(this).attr('id');
+  var text = $(this).attr('text');
+
+  var check = $(this).attr('checked');
+  var require = $(this).attr('required');
+  var form = $(this).attr('form');
+  var name = $(this).attr('name');
+  var value = $(this).attr('value'); // de input color and process bar used
+  if (element_name === 'checkbox' || element_name === 'radio') {
+  	$(this).append('<input type="'+ element_name +'"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( check ? check : '') + ' ' + ( require ? require : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '>' + ( text ? text : '') + '</label>');
+  } else if (element_name === 'color') {
+  	$(this).append('<input type="color"'+ (id ? 'id="' + id + '"' : '') + ( value ? 'value="' + value + '"' : '' ) + '/>');
+  } else if (element_name === 'process') {
+  	$(this).append('<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>');
+  	$(this).find('complete').css('width', getProgress);
+  } else if (element_name === 'range') {
+  	var range_step = $(this).attr('step');
+  	var range_min = $(this).attr('min');
+  	var range_max = $(this).attr('max');
+  	$(this).append('<input type="'+ element_name +'"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( value ? 'value="' + value + '"' : '') + ' ' + ( range_max ? 'max="' + range_max + '"' : '') + ' ' + ( range_min ? 'min="' + range_min + '"' : '') + ' ' + ( range_step ? 'step="' + range_step + '"' : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '>' + ( value ? + value + '' : '') + '</label>');
+  	$(this).find('label').css('left', (value - 4)+'%');
+  } else if (element_name === 'toggle') {
+  	$(this).append('<input type="checkbox"' + ( id ? ' id="' + id + '"' : '') + ( form ? ' form="' + form + '"' : '') + ( name ? ' name="' + name + '"' : '') + ( check ? check : '') + ' ' + ( require ? require : '') +'/><label' + ( id ? ' for="' + id + '"' : '') + '></label>');
+  } else if (element_name === 'logo') {
+  	var value_src = $(this).attr('src');
+  	$(this).append('<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>'+text+'</span>' : ''));
+  	$(this).removeAttr('src');
+  }
+  $(this).removeAttr('id text checked required form name');
+}

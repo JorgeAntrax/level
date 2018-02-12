@@ -6,7 +6,7 @@ chip {
   position: relative;
   align-items: center;
   justify-content: space-between;
-  background-color: whitesmoke;
+  background-color: $light;
   border-radius: 4em;
   margin: rem(4px);
   line-height: 2rem;
@@ -28,7 +28,7 @@ chip {
 
   chiptext {
     display: block;
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;
     font-size: 0.7rem;
   }
   &[class*="is-"]:not(.is-warning) {

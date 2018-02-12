@@ -11,5 +11,15 @@
 	display: inline-flex;
 	align-items:center;
 	justify-content:center;
-  border-radius: rem(3px); 
+  border-radius: rem(3px);
+
+  &:first-child:not(:last-child) {
+    margin-right: .5rem;
+  }
+  &:last-child:not(:first-child) {
+    margin-left: .5rem;
+  }
+  &:last-child:first-child {
+    margin: 0;
+  }
 }
