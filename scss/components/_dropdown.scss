@@ -4,7 +4,7 @@
 	'../base/_placeholders';
 
 // dropdown solo puede contener maximo 2 opciones
-$dropmenu-max-height: rem(200px); // Define the max height for slide effect
+$dropmenu-max-height: 100vh; // Define the max height for slide effect
 
 dropdown {
 	display: inline-flex;

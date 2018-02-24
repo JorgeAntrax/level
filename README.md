@@ -1,7 +1,7 @@
 # kimera
-Un potente framework CSS basado en flexbox y etiquetas personalizadas
+### Un potente framework CSS basado en flexbox y etiquetas personalizadas
 
-npm install kimera
+**npm install kimera**
 
 // Puedes hacer una instalación módular mediante el atributo
 

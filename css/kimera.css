@@ -142,8 +142,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -920,8 +919,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -1359,8 +1357,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -1395,7 +1392,7 @@ dropdown {
   dropdown.is-hoverable:hover > dropmenu {
     z-index: 10;
     opacity: 1;
-    max-height: 12.5rem; }
+    max-height: 100vh; }
 
 dropmenu {
   width: 100%;
@@ -1413,7 +1410,7 @@ dropmenu {
   dropmenu.is-visible {
     z-index: 10;
     opacity: 1;
-    max-height: 12.5rem; }
+    max-height: 100vh; }
   dropmenu.is-up {
     top: initial;
     bottom: 100%; }
@@ -2562,8 +2559,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -3104,8 +3100,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -3312,7 +3307,7 @@ tabs-content {
     width: 100%; }
   tabs-content tab-content {
     display: none; }
-    tabs-content tab-content.is-visible {
+    tabs-content tab-content.is-active {
       display: block; }
 
 table:not(.default-broswer) {
@@ -3370,8 +3365,7 @@ item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-i
   align-items: center;
   justify-content: space-between;
   text-overflow: ellipsis;
-  max-width: 100%;
-  min-height: 2.5rem; }
+  max-width: 100%; }
 
 icon, close, burger, ellipsis {
   display: inline-flex;
@@ -3396,6 +3390,7 @@ group {
     display: inline-flex;
     width: auto; }
   group group-item {
+    min-height: 2.5rem;
     justify-content: center;
     flex: 1; }
   group.is-boxed group-item {

@@ -1,46 +1,43 @@
-@import
-	'../base/_partials',
-	'../base/_placeholders';
-
+@import '../base/_partials',
+'../base/_placeholders';
 $border-group: 1px solid rgba($dark, .1) !default;
-
 group {
-	overflow-x: auto;
-	display: flex;
-	align-items: stretch;
-	align-content: center;
-	justify-content: stretch;
-	width: 100%;
-	&.is-inline {
-		display: inline-flex;
-		width: auto;
-	}
-	group-item {
-		@extend %item;
-		justify-content: center;
-		flex: 1;
-	}
-
-	&.is-boxed group-item {
-		flex-direction: column;
-		icon {
-			margin: 0 !important;
-		}
-	}
+    overflow-x: auto;
+    display: flex;
+    align-items: stretch;
+    align-content: center;
+    justify-content: stretch;
+    width: 100%;
+    &.is-inline {
+        display: inline-flex;
+        width: auto;
+    }
+    group-item {
+        @extend %item;
+        min-height: 2.5rem;
+        justify-content: center;
+        flex: 1;
+    }
+    &.is-boxed group-item {
+        flex-direction: column;
+        icon {
+            margin: 0 !important;
+        }
+    }
 }
 
 listgroup {
-	display: flex;
-	flex-direction: column; 
-	align-items: stretch;	
-	justify-content: flex-start;
-	list-item {
-		@extend %item;
-		flex-grow: 1;
-		justify-content: space-between;
-		border: 0;
-		&:not(:last-child) {
-			border-bottom: $border-group;
-		}
-	}
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    list-item {
+        @extend %item;
+        flex-grow: 1;
+        justify-content: space-between;
+        border: 0;
+        &:not(:last-child) {
+            border-bottom: $border-group;
+        }
+    }
 }

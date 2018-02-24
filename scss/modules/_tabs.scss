@@ -133,7 +133,7 @@ tabs-content {
 	}
 	tab-content {
 		display: none;
-		&.is-visible {
+		&.is-active{
 			display: block;
 		}
 	}
