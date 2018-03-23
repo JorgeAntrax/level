@@ -1,62 +1,78 @@
-// funcion init que inicializar algunos compoenentes dinamicos
+/*
+initialized function for dinamic components.
 
+@params
+	Supported components {checkbox, radio, color, process, toggle, range, logo}
+	type: string
+ */
 function init(component) {
     var element = document.querySelectorAll(component);
 
     for (var i = 0; i < element.length; i++) {
-        var id = element[i].getAttribute('id'),
-            text = element[i].getAttribute('text'),
-            check = element[i].getAttribute('checked'),
-            require = element[i].getAttribute('required'),
-            form = element[i].getAttribute('form'),
-            name = element[i].getAttribute('name'),
-            value = element[i].getAttribute('value');
+        var currentElement = element[i],
+            id = currentElement.id;
+        text = currentElement.getAttribute('text'),
+            check = currentElement.getAttribute('checked'),
+            require = currentElement.getAttribute('required'),
+            form = currentElement.getAttribute('form'),
+            name = currentElement.name,
+            value = currentElement.getAttribute('value');
 
         switch (component) {
             case 'checkbox':
             case 'radio':
-                element[i].innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '>' + (text ? text : '') + '</label>';
+                currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '>' + (text ? text : '') + '</label>';
                 break;
             case 'color':
-                element[i].innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
+                currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
                 break;
             case 'process':
-                element[i].innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
-                element[i].querySelector('complete').style.width = element[i].getAttribute('value');
+                currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
+                currentElement.querySelector('complete').style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                element[i].innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
                 break;
             case 'logo':
-                var value_src = element[i].getAttribute('src');
-                element[i].innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
+                var value_src = currentElement.getAttribute('src');
+                currentElement.innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
                 break;
             case 'range':
                 var min = range[i].getAttribute('min'),
                     max = range[i].getAttribute('max'),
                     step = range[i].getAttribute('step');
-                element[i].innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
-                initRange(element[i]);
+                currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
+                initRange(currentElement);
                 break;
             default:
                 break;
         }
-        removeAttr(element[i], 'id text form name value checked required src min max step');
+        removeAttr(currentElement, 'id text form name value checked required src min max step');
     }
 }
 
 
 // funcion que genera un elemento link que recibe la url como parametro.
+/*
+	create link element
+	@param
+		url: Dynamic URL for import system
+		type: string
+*/
 function createLink(url) {
     var link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', url);
-    // retorna el elemento link creado con los atributos
     return link;
 }
 
-// multiple Event listeners (elemento, eventos, funcion)
-
+// multiple Add event listeners (element, events, function)
+/* 
+	@param
+		el: element ej. button, link, etc.
+		events: string events ej. ('click load keyup') or ('click')
+		function function(){...}
+*/
 function onEventListener(el, events, func) {
     events = events.split(' ');
     if (events.length > 1) {
@@ -68,7 +84,12 @@ function onEventListener(el, events, func) {
     }
 }
 
-// funcion que valida si en un array hay determinado valor y retorna verdadero
+/* 
+	function that valid a value within an array, and return true
+	@params
+		array: collection of data to be scanned
+		value: value to look for in the array
+*/
 function validateArray(array, value) {
     for (var i = 0; i <= array.length; i++) {
         if (array[i] === value) {
@@ -77,19 +98,22 @@ function validateArray(array, value) {
     }
 }
 
-// recibe como primer parametro un array, y como segundo parametro la clase a remover
-function removeClass(n, target) {
-    // si el arra es mayor a 0 entonces
-    if (n.length > 0) {
-        for (var i = 0; i < n.length; i++) {
-            // si contene la clase pasada a target entonces
-            if (n[i].classList.contains(target)) {
-                n[i].classList.remove(target);
-            }
+// remove class for array
+/* 
+	@params
+		array: collection of data to travel
+		target: class to remove
+*/
+function removeClass(array, target) {
+    if (array.length > 0) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].classList.contains(target)) array[i].classList.remove(target);
         }
     }
 }
 
+// select all previous elements siblings
+/* @param element - type: DOM objet */
 function prevSiblings(target) {
     var siblings = [],
         n = target;
@@ -101,31 +125,36 @@ function prevSiblings(target) {
     }
 }
 
+// select all next elements siblings
+/* @param element - type: DOM objet */
 function nextSiblings(target) {
     var siblings = [],
         n = target;
     if (n !== null && n !== undefined && n !== '') {
-        while (n = n.nextElementSibling) siblings.push(n);
+        while (n = n.nextElementSibling) { siblings.push(n); }
         return siblings;
     } else {
         return siblings;
     }
 }
 
+// save all previous and next elements siblings in array objet
+/* @param element - type: DOM objet */
 function siblings(target) {
     var previus = prevSiblings(target) || [],
         next = nextSiblings(target) || [];
     return previus.concat(next);
 }
 
-// funcion para los eventos fab, dropdown
+// fab, dropdown event listener
 function showToggle(e) {
     e.stopPropagation();
     this.nextElementSibling.classList.toggle('is-visible');
 }
 
 
-// oculta un selector al hacer click en el body
+// hide a element
+/* @param el: DOM element, classContain:  */
 function hideSelector(el, classContain) {
     if (el.length > 0) {
         for (var i = 0; i < el.length; i++) {
@@ -149,11 +178,11 @@ function removeAttr(el, array) {
 }
 
 
-/* módulos y componentes alamacenados en variebles */
+/* módules and components saved in variables */
 
 var acordeon = document.querySelectorAll('acordeon');
-var body = document.querySelector('body'); //elemento body
-var head = document.querySelector('head'); //elemento head almacenado
+var body = document.querySelector('body');
+var head = document.querySelector('head');
 var close_button = document.querySelectorAll('close');
 var checkbox = document.querySelectorAll('checkbox');
 var dropdown = document.querySelectorAll('dropdown');
@@ -167,39 +196,32 @@ var modal = document.querySelectorAll('[modal]');
 var process_bar = document.querySelectorAll('process');
 var range = document.querySelectorAll('range');
 var slideshow = document.querySelectorAll('slideshow');
-var slides = document.querySelectorAll('slides');
-var slide_next = document.querySelectorAll('.next-slide');
-var slide_prev = document.querySelectorAll('.previus-slide');
-var cont_slide = document.querySelectorAll('slides picture');
 var tabs = document.querySelectorAll('tabs');
 var tabsContent = document.querySelectorAll('tabs-content');
 var toggle_button = document.querySelectorAll('toggle');
 
-/* ================== Sistema de importación CSS ==================== */
+/* ================== Import system CSS ==================== */
 
-var includeCSS = body.getAttribute('km-include'); //obtener atributo km-include
+var includeCSS = body.getAttribute('km-include'); //get attribute km-include
 var Path = '//cdn.jsdelivr.net/npm/kimera@0.4.4/css/'; // path CDN
 
 if (includeCSS != undefined) {
     includeCSS = ('base ' + includeCSS).split(' ');
     var haskimera = validateArray(includeCSS, 'kimera');
-    var url_include, link;
+    var url_include;
 
     if (haskimera) {
-        url_include = Path + 'kimera.min.css'; // url del archivo base.min.css
-        link = createLink(url_include); //amcenamiento del link generado
-        head.appendChild(link);
+        url_include = Path + 'kimera.min.css'; // url to file base.min.css
+        head.appendChild(createLink(url_include));
     } else {
-        // ciclo que recorre el array includeCSS e inserta un lemento link por cada valor
         for (var i = 0; i < includeCSS.length; i++) {
-            url_include = Path + includeCSS[i] + '.min.css'; // reestructuración de path CDN
-            link = createLink(url_include); //creacion del link mediante la funcion createLink
-            head.appendChild(link);
+            url_include = Path + includeCSS[i] + '.min.css';
+            head.appendChild(createLink(url_include));
         }
     }
 }
 
-// inicializa estos componentes creados dinamicamente
+// initializes dynamic components
 init('checkbox');
 init('radio');
 init('toggle');
@@ -212,61 +234,46 @@ document.querySelector('body').onclick = function() {
     hideSelector(dropmenu, 'is-visible');
     hideSelector(fab, 'is-visible');
 };
-/* ================== Js Fab buttons floating ===================== */
-// si hay fab button
+/* ================== FAB button event listener ===================== */
 if (fab.length > 0) {
-    // se añade la escuhca del click
     for (var i = 0; i < fab.length; i++) {
         onEventListener(fab[i].querySelector('.is-toggle-fab'), 'click', showToggle);
     }
 }
 
-/* =============== Dropdown ==================== */
-// si hay drodown
+/* =============== Dropdown event listener ==================== */
 if (dropdown.length > 0) {
-    // Se añade la escucha addEventListener al toggle-dropdown
     for (var i = 0; i < dropdown.length; i++) {
         onEventListener(dropdown[i].querySelector('.is-toggle-dropdown'), 'click', showToggle);
     }
 }
 
 /* ====================== Js modal with custom atribute ========================= */
-
-//si hay un elemento con el atributo modal
 if (modal.length > 0) {
     for (var i = 0; i < modal.length; i++) {
-        // se añade el evento onclick
         onEventListener(modal[i], 'click', modalToggle);
 
         function modalToggle() {
-            // extraigo el id del modal
             var modalId = this.getAttribute('modal');
-            // selecciono la ventana modal que tiene el id extraido
             var el = document.querySelector(modalId);
-            //array con clases de los efectos
             var modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
             var modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
 
-            // si tiene alguna clase del arra modalClass añado elefecto del array modalClassSub
             for (var j = 0; j < modalClass.length; j++) {
                 if (el.classList.contains(modalClass[j])) el.classList.toggle(modalClassSub[j]);
             }
-            // toggle de la clase visible
             el.classList.toggle('is-visible');
         }
     }
 }
 /* =================== Navbar Js ======================= */
 
-// si hay navbar
 if (navbar.length > 0) {
-    // guarda el elemento toggle
     var el = document.querySelectorAll('.is-toggle-navbar');
     for (var i = 0; i < el.length; i++) {
-        // añade un evento
         onEventListener(el[i], 'click', navToggle);
     }
-    // funcion local del evento
+
     function navToggle() {
         this.parentNode.parentElement.querySelector('navmenu').classList.toggle('is-visible');
     }
@@ -274,24 +281,17 @@ if (navbar.length > 0) {
 
 /* =================== Js acordeon ===================== */
 
-//si hay acordeones
 if (acordeon.length > 0) {
-    //captura los items
     var acordeonItem = document.querySelectorAll('acordeon-item');
-    //se les agrega el evento click
     for (var i = 0; i < acordeonItem.length; i++) {
         onEventListener(acordeonItem[i], 'click', acordeonToggle);
     }
 
-    //funcion que da interacción
     function acordeonToggle() {
         var contentAcordeon = this.parentNode.querySelectorAll('content');
-        //si tiene el atributo is-multiple
         if (this.parentNode.hasAttribute('is-multiple')) {
-            //permite varios item abiertos
             this.nextElementSibling.classList.toggle('is-visible');
         } else {
-            // remueve la clase is-visible a los content
             for (var i = 0; i < contentAcordeon.length; i++) {
                 contentAcordeon[i].classList.remove('is-visible');
             }
@@ -302,7 +302,6 @@ if (acordeon.length > 0) {
 
 /* ======================== range =========================== */
 
-// funcion que inicializa el input range
 function initRange(el) {
     var input = el.querySelector('input'),
         label = el.querySelector('label'),
@@ -311,7 +310,6 @@ function initRange(el) {
     label.style.left = ((input.value * position) - 10) + 'px';
     label.textContent = input.value;
 
-    //Se añade el evento input y mousedown
     onEventListener(input, 'input mousedown', updateRange);
 
     function updateRange() {
@@ -323,11 +321,9 @@ function initRange(el) {
 
 /* ====================== Tabs ========================== */
 
-/* Asigna al primer elemento del contenedor tabs la clase is-active */
 for (var i = 0; i < tabs.length; i++) {
     tabs[i].firstElementChild.classList.add("is-active");
 }
-/* Asigna al primer elemento del contenedor tabs-content la clase is-active */
 for (var i = 0; i < tabsContent.length; i++) {
     tabsContent[i].firstElementChild.classList.add("is-active");
 }
@@ -342,40 +338,63 @@ for (var i = 0; i < tab.length; i++) {
         showContentTab(this.getAttribute('data-id'));
     }
 }
-//recibe como parametro un elemento unico utilizado con querySelector
+
 function showContentTab(id) {
-    // si no esta vacio entonces
     if (id !== null) {
-        var siblingsId = siblings(document.querySelector(id)); //guarda a sus hermanos en un array
-        removeClass(siblingsId, 'is-active'); //remueve la clase is-active de los elementos de un array
+        var siblingsId = siblings(document.querySelector(id));
+        removeClass(siblingsId, 'is-active');
         document.querySelector(id).classList.add('is-active');
     }
 }
 
-/* ====================== Slider ======================== */
-/*
-var islide = 1;
-var spos = 0;
-slides.css({
-    'width': (cont_slide.length*100)+'%'
-});
+/* if (slideshow.length > 0) {
+    for (var i = 0; i < slideshow.length; i++) {
+        var nextSlider = slideshow[i].querySelector('.next-slide');
+        var previuSlider = slideshow[i].querySelector('.previus-slide');
+        var intervalSlide = slideshow[i].getAttribute('interval') || 5000;
+        var slider = slideshow[i].querySelectorAll('slider');
+        var ctrl = 0;
 
-slide_next.on('click', function(){
-    if(islide<cont_slide.length) {
-        spos = spos-100;
-        slides.css({
-            'left': spos+'%'
-        });
-        islide+=1;
-    }
-});
+        slider[0].classList.add('is-visible');
+        for (var h = 0; h < slider.length; h++) {
+            var sliderImg = slider[h].getAttribute('src');
+            var sliderAlt = slider[h].getAttribute('alt');
+            var img = document.createElement('img');
+            img.setAttribute('src', sliderImg);
+            img.setAttribute('alt', sliderAlt);
+            slider[h].appendChild(img);
+            removeAttr(slider[h], 'src alt');
+        }
 
-slide_prev.on('click', function(){
-    islide-=1;
-    if(spos<0) {
-        spos = spos+100;
-        slides.css({
-            'left': spos+'%'
+        onEventListener(nextSlider, 'click', function() {
+            if (ctrl === slider.length - 1) ctrl = -1;
+            controlSlide(1);
         });
+
+        onEventListener(previuSlider, 'click', function() {
+            if (ctrl === 0) ctrl = slider.length;
+            controlSlide(-1);
+        });
+
+        if (slideshow[i].hasAttribute('autoplay')) {
+            setInterval(controlSlide(1), intervalSlide);
+        }
+
+        function controlSlide(c) {
+            clearSlides();
+            if (c > 0) {
+                ctrl++;
+                slider[ctrl].classList.add('is-visible');
+            } else {
+                ctrl--;
+                slider[ctrl].classList.add('is-visible');
+            }
+        }
+
+        function clearSlides() {
+            for (let i = 0; i < slider.length; i++) {
+                slider[i].classList.remove('is-visible');
+            }
+        }
     }
-});*/
+} */
