@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
-    "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss"
+    "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
+    "compile:ts": "tsc && npm run uglifyjs",
+    "uglifyjs":"uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +41,8 @@
     "@types/npm": "^2.0.29",
     "chai": "^4.1.2",
     "mocha": "^5.0.5",
-    "node-sass": "^4.8.3"
+    "node-sass": "^4.8.3",
+    "uglify-js": "^3.3.16"
   },
   "devDependencies": {
     "sass-true": "^3.1.0"

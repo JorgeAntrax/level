@@ -5,10 +5,10 @@ var head = document.querySelector('head');
 var close_button = document.querySelectorAll('close');
 var checkbox = document.querySelectorAll('checkbox');
 var dropdown = document.querySelectorAll('dropdown');
-var dropmenu = document.querySelectorAll('dropmenu').item(0);
+var dropmenu = document.querySelectorAll('dropmenu');
 var form_color = document.querySelectorAll('color');
 var radio = document.querySelectorAll('radio');
-var fab = document.querySelectorAll('fab').item(0);
+var fab = document.querySelectorAll('fab');
 var fabmenu = document.querySelectorAll('fabmenu');
 var navbar = document.querySelectorAll('navbar');
 var modal = document.querySelectorAll('[modal]');
@@ -243,7 +243,8 @@ function init(component) {
                 break;
             case 'process':
                 currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
-                currentElement.querySelector('complete').style.width = currentElement.getAttribute('value');
+                var querySelector = currentElement.querySelector('complete');
+                querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
                 currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + ' ' + (require_1 ? require_1 : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
@@ -290,7 +291,7 @@ function onEventListener(el, eventsStr, func) {
         }
     }
     else {
-        el.addEventListener.apply(el, events.concat([func, false]));
+        el.addEventListener(events[0], func, false);
     }
 }
 /*

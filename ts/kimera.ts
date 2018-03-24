@@ -6,10 +6,10 @@ let head = document.querySelector('head');
 let close_button = document.querySelectorAll('close');
 let checkbox: NodeListOf<Element> = document.querySelectorAll('checkbox');
 let dropdown: NodeListOf<Element> = document.querySelectorAll('dropdown');
-let dropmenu: Element[] = document.querySelectorAll('dropmenu').item(0);
+let dropmenu: NodeListOf<Element> = document.querySelectorAll('dropmenu');
 let form_color: NodeListOf<Element> = document.querySelectorAll('color');
 let radio: NodeListOf<Element> = document.querySelectorAll('radio');
-let fab: Element[] = document.querySelectorAll('fab').item(0);
+let fab: NodeListOf<Element> = document.querySelectorAll('fab');
 let fabmenu: NodeListOf<Element> = document.querySelectorAll('fabmenu');
 let navbar: NodeListOf<Element> = document.querySelectorAll('navbar');
 let modal: NodeListOf<Element> = document.querySelectorAll('[modal]');
@@ -53,7 +53,7 @@ if (kmInclude) {
 
 // hide a element
 /* @param el: DOM element, classContain:  */
-function hideSelector(el: Element[], classContain: string) {
+function hideSelector(el: NodeListOf<Element>, classContain: string) {
     if (el.length > 0) {
         for (let i = 0; i < el.length; i++) {
             let element = el[i];
@@ -280,7 +280,8 @@ function init(component: string) {
                 break;
             case 'process':
                 currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
-                currentElement.querySelector('complete').style.width = currentElement.getAttribute('value');
+                let querySelector:HTMLElement = currentElement.querySelector('complete');
+                querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
                 currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
@@ -324,13 +325,13 @@ events: string events ej. ('click load keyup') or ('click')
 function function(){...}
 */
 function onEventListener(el: Element, eventsStr: string, func: EventListenerOrEventListenerObject) {
-    let events: string[] | string = eventsStr.split(' ');
+    let events: string[] = eventsStr.split(' ');
     if (events.length > 1) {
         for (let i = 0; i < events.length; i++) {
             el.addEventListener(events[i], func, false);
         }
     } else {
-        el.addEventListener(...events, func, false);
+        el.addEventListener(events[0], func, false);
     }
 }
 
