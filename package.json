@@ -8,7 +8,8 @@
     "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
     "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
     "compile:ts": "tsc && npm run uglifyjs",
-    "uglifyjs":"uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js"
+    "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
+    "pretest": "npm run scss && npm run scss_minified && npm run compile:ts"
   },
   "repository": {
     "type": "git",
