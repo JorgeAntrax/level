@@ -1051,7 +1051,7 @@ layout.is-dashboard > main, layout.is-dashboard > sidebar {
     left: -110%;
   }
   layout.is-sidebar-ofcanvas > sidebar.is-visible {
-    rght: 0;
+    right: 0;
   }
 }
 
@@ -1801,7 +1801,7 @@ button[inactive], button[inactive]:active, button[inactive]:focus, button[inacti
 .button[inactive]:focus,
 .button[inactive]:hover {
   cursor: default;
-  ponter-events: none;
+  pointer-events: none;
   box-shadow: 0 0 0 transparent;
 }
 

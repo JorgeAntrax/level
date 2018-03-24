@@ -61,7 +61,7 @@ process {
 	&[label='static'] complete::before,
 	&[label='floating']:hover complete::before,
 	&[label='static'] complete::after,
-	&[label='floating']:hover complete::after, {
+	&[label='floating']:hover complete::after {
 		display: flex;
 		animation: fade-in .3s ease;
 	}
