@@ -1,6 +1,6 @@
 {
   "name": "kimera",
-  "version": "0.4.1",
+  "version": "0.4.4",
   "description": "A Modern CSS and JS framework based on flexbox and custom tags",
   "main": "css/kimera.css",
   "scripts": {
