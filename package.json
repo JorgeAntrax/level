@@ -5,7 +5,8 @@
   "main": "css/kimera.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --output-style compressed --recursive --output css --source-map true --source-map-contents scss"
+    "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
+    "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss"
   },
   "repository": {
     "type": "git",
