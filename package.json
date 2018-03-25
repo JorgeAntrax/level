@@ -4,12 +4,13 @@
   "description": "A Modern CSS and JS framework based on flexbox and custom tags",
   "main": "css/kimera.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive",
     "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
     "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
     "compile:ts": "tsc && npm run uglifyjs",
     "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
-    "pretest": "npm run scss && npm run scss_minified && npm run compile:ts"
+    "scss:test":"node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
+    "posttest": "npm run scss && npm run scss_minified && npm run compile:ts"
   },
   "repository": {
     "type": "git",
