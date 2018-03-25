@@ -3,22 +3,23 @@
 let acordeon: NodeListOf<Element> = document.querySelectorAll('acordeon');
 let body = document.querySelector('body');
 let head = document.querySelector('head');
-let close_button = document.querySelectorAll('close');
 let checkbox: NodeListOf<Element> = document.querySelectorAll('checkbox');
 let dropdown: NodeListOf<Element> = document.querySelectorAll('dropdown');
 let dropmenu: NodeListOf<Element> = document.querySelectorAll('dropmenu');
-let form_color: NodeListOf<Element> = document.querySelectorAll('color');
 let radio: NodeListOf<Element> = document.querySelectorAll('radio');
 let fab: NodeListOf<Element> = document.querySelectorAll('fab');
 let fabmenu: NodeListOf<Element> = document.querySelectorAll('fabmenu');
 let navbar: NodeListOf<Element> = document.querySelectorAll('navbar');
 let modal: NodeListOf<Element> = document.querySelectorAll('[modal]');
-let process_bar: NodeListOf<Element> = document.querySelectorAll('process');
 let range: NodeListOf<Element> = document.querySelectorAll('range');
 let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 let tabs: NodeListOf<Element> = document.querySelectorAll('tabs');
 let tabsContent: NodeListOf<Element> = document.querySelectorAll('tabs-content');
-let toggle_button: NodeListOf<Element> = document.querySelectorAll('toggle');
+//unused vars
+// let close_button = document.querySelectorAll('close');
+// let form_color: NodeListOf<Element> = document.querySelectorAll('color');
+// let process_bar: NodeListOf<Element> = document.querySelectorAll('process');
+// let toggle_button: NodeListOf<Element> = document.querySelectorAll('toggle');
 
 // initializes dynamic components
 init('checkbox');
