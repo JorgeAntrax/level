@@ -37,6 +37,7 @@
   "bugs": {
     "url": "https://github.com/JorgeAntrax/kimera/issues"
   },
+  "contributors": ["Ruslan López Carro"],
   "homepage": "http://kimera.comli.com",
   "dependencies": {
     "@types/jquery": "^3.3.1",
