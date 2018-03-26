@@ -1,0 +1,53 @@
+{
+  "name": "kimera",
+  "version": "0.4.4",
+  "description": "A Modern CSS and JS framework based on flexbox and custom tags",
+  "main": "css/kimera.css",
+  "scripts": {
+    "test": "mocha --recursive",
+    "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
+    "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
+    "compile:ts": "tsc && npm run uglifyjs",
+    "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
+    "scss:test":"node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
+    "posttest": "npm run scss && npm run scss_minified && npm run compile:ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeAntrax/kimera.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "flexbox",
+    "responsive",
+    "framework",
+    "modular",
+    "library",
+    "etiquetas",
+    "html5",
+    "css3",
+    "grid",
+    "libreria css",
+    "plantillas"
+  ],
+  "author": "Leonardo Quintana Juarez",
+  "email": "spicer_94@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JorgeAntrax/kimera/issues"
+  },
+  "contributors": ["Ruslan López Carro"],
+  "homepage": "http://kimera.comli.com",
+  "dependencies": {
+    "@types/jquery": "^3.3.1",
+    "@types/npm": "^2.0.29",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5",
+    "node-sass": "^4.8.3",
+    "uglify-js": "^3.3.16"
+  },
+  "devDependencies": {
+    "sass-true": "^3.1.0"
+  }
+}

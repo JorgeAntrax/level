@@ -169,7 +169,7 @@ button,
 	&[inactive] {
 		&, &:active, &:focus, &:hover {
 			cursor: default;
-			ponter-events: none;
+			pointer-events: none;
 			box-shadow: 0 0 0 transparent;
 		}
 	}
