@@ -1,26 +1,19 @@
 @import '../base/_partials';
-
 // mega  bloque de contenido con un encabezado grande y descripcion
-mega {
-	display: block;
-	width: 100%;
-	max-width: 100%;
-	height: auto;
-	position: relative;
-	padding: 3rem;
-	overflow: hidden;
-
-	&.is-horizontal {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	& > header {
-		letter-spacing: .2rem;
-		margin-bottom: 1rem;
-	}
-	& > content {
-		text-align: justify;
-		letter-spacing: .05rem;
-	}
+#{$name-mega-module} {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    padding: 3rem;
+    overflow: hidden;
+    &>#{$name-mega-header} {
+        letter-spacing: .2rem;
+        margin-bottom: 1rem;
+    }
+    &>#{$name-mega-content} {
+        text-align: justify;
+        letter-spacing: .05rem;
+    }
 }

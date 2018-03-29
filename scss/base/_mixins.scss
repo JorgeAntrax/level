@@ -1,109 +1,109 @@
-// mixin para la generación de media queries
-
-//$mobile: '200px';
-//$touch: '768px';
-//$tablet: '769px';
-//$desktop: '1024px';
-//$widescreen: '1300px';
-
-@mixin since ($breakpoint){
-	@if $breakpoint == 'touch' {
-		@media screen and (min-width: $touch ){
-			@content
-		}			
-	}	@else if $breakpoint == 'tablet' {
-		@media screen and (min-width: $tablet ){
-			@content
-		}
-	} @else if $breakpoint == 'desktop' {
-		@media screen and (min-width: $desktop ){
-			@content
-		}			
-	} @else if $breakpoint == 'widescreen' {
-		@media screen and (min-width: $widescreen ){
-			@content
-		}			
-	} @else {
-		@media screen and (min-width: $breakpoint ){
-			@content
-		}	
-	}
-}
-//mixin media queries para puntos min & max
-
-@mixin only ($breakpoint, $breakpoint2: $widescreen){
-	@if $breakpoint == 'only-touch' {
-		@media screen and (min-width: 320px) and (max-width: $only-touch) {
-			@content
-		}
-	} @else if $breakpoint == 'only-tablet' {
-		@media screen and (min-width: $tablet) and (max-width: $only-tablet) {
-			@content
-		}			
-	} @else if $breakpoint == 'only-desktop' {
-		@media screen and (min-width: $desktop) and (max-width: $only-desktop) {
-			@content
-		}		
-	} @else {	
-		@media screen and (min-width: $breakpoint) and (max-width: $breakpoint2) {
-			@content
-		}
-	}
+//check the variables in _variables.scss and _setnames.scss
+@mixin since ($breakpoint) {
+    @if $breakpoint==$bp-touch {
+        @media screen and (min-width: $touch) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-tablet {
+        @media screen and (min-width: $tablet) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-desktop {
+        @media screen and (min-width: $desktop) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-widescreen {
+        @media screen and (min-width: $widescreen) {
+            @content
+        }
+    }
+    @else {
+        @media screen and (min-width: $breakpoint) {
+            @content
+        }
+    }
 }
 
-// mixin para media querie con ancho maximo
-@mixin until ($breakpoint){
-	@if $breakpoint == 'touch' {
-		@media screen and (max-width: $touch ){
-			@content
-		}			
-	}	@else if $breakpoint == 'tablet' {
-		@media screen and (max-width: $tablet ){
-			@content
-		}
-	} @else if $breakpoint == 'desktop' {
-		@media screen and (max-width: $desktop ){
-			@content
-		}			
-	} @else if $breakpoint == 'widescreen' {
-		@media screen and (max-width: $widescreen ){
-			@content
-		}			
-	} @else {
-		@media screen and (max-width: $breakpoint ){
-			@content
-		}	
-	}
+@mixin only ($breakpoint, $breakpoint2: $widescreen) {
+    @if $breakpoint=='only-#{$bp-touch}' {
+        @media screen and (min-width: 320px) and (max-width: $only-touch) {
+            @content
+        }
+    }
+    @else if $breakpoint=='only-#{$bp-tablet}' {
+        @media screen and (min-width: $tablet) and (max-width: $only-tablet) {
+            @content
+        }
+    }
+    @else if $breakpoint=='only-#{$bp-desktop}' {
+        @media screen and (min-width: $desktop) and (max-width: $only-desktop) {
+            @content
+        }
+    }
+    @else {
+        @media screen and (min-width: $breakpoint) and (max-width: $breakpoint2) {
+            @content
+        }
+    }
 }
 
-//*****************************************************
-//funcion palete color
+@mixin until ($breakpoint) {
+    @if $breakpoint==$bp-touch {
+        @media screen and (max-width: $touch) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-tablet {
+        @media screen and (max-width: $tablet) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-desktop {
+        @media screen and (max-width: $desktop) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-widescreen {
+        @media screen and (max-width: $widescreen) {
+            @content
+        }
+    }
+    @else {
+        @media screen and (max-width: $breakpoint) {
+            @content
+        }
+    }
+}
 
 @mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2) {
-		.color-#{$class} {
-			background-color: $base-color;
-		}
-		@for $i from 1 through $number-colors {
-			@if ($class == 'black') or ($class =='dark') {
-				.color-#{$class}-lighten-#{$i} {
-					background-color: lighten($base-color, ($i*$interval-color));
-				}
-			} @else if ($class == 'light') or ($class == 'cloud') {
-				.color-#{$class}-darken-#{$i} {
-					background-color: darken($base-color, ($i*$interval-color));
-				}
-			}@else {
-				.color-#{$class}-lighten-#{$i} {
-					background-color: lighten($base-color, ($i*$interval-color));
-				}
-				.color-#{$class}-darken-#{$i} {
-					background-color: darken($base-color, ($i*$interval-color));
-				}
-			}
-		}
+    .#{$class-color-picker}-#{$class} {
+        background-color: $base-color;
+    }
+    @for $i from 1 through $number-colors {
+        @if ($class=='black') or ($class=='dark') {
+            .#{$class-color-picker}-#{$class}-#{$class-lighten-prefix}-#{$i} {
+                background-color: lighten($base-color, ($i*$interval-color));
+            }
+        }
+        @else if ($class=='light') or ($class=='cloud') {
+            .#{$class-color-picker}-#{$class}-#{$class-darken-prefix}-#{$i} {
+                background-color: darken($base-color, ($i*$interval-color));
+            }
+        }
+        @else {
+            .#{$class-color-picker}-#{$class}-#{$class-lighten-prefix}-#{$i} {
+                background-color: lighten($base-color, ($i*$interval-color));
+            }
+            .#{$class-color-picker}-#{$class}-#{$class-darken-prefix}-#{$i} {
+                background-color: darken($base-color, ($i*$interval-color));
+            }
+        }
+    }
 }
 
-//mixin que genera un border con la propiedad box shadow
 @mixin border-shadow ($color, $opacity) {
-	box-shadow: inset 0 0 0 1px rgba($color, $opacity);
+    box-shadow: inset 0 0 0 1px rgba($color, $opacity);
 }

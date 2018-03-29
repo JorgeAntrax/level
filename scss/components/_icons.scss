@@ -1,101 +1,93 @@
-@import
-  '../base/_partials',
-  '../base/_placeholders';
-
+@import '../base/_partials',
+'../base/_placeholders';
 $width-icon-small: 1rem;
 $width-icon-medium: 1.5rem;
 $width-icon-large: 2rem;
 $width-icon-jumbo: 2rem;
 $width-icon: 1.5rem;
-
 $ellipsis-burger-dimentions: 2px;
-
-icon {
-  @extend %icon;
-  width: $width-icon;
-  height: $width-icon;
-  font-size: $text-default;
-
-  &.is-normal {
-    font-size: $text-default;
+#{$name-icon-module} {
+    @extend %icon;
     width: $width-icon;
     height: $width-icon;
-  }
-  &.is-small {
-  	width: $width-icon-small;
-  	height: $width-icon-small;
-  }
-  &.is-medium {
-  	width: $width-icon-medium;
-    height: $width-icon-medium;
-  }
-  &.is-large {
-  	width: $width-icon-large;
-    height: $width-icon-large;
-  }
-  &.is-jumbo {
-  	width: $width-icon-jumbo;
-    height: $width-icon-jumbo;
-  }
+    font-size: $text-default;
+    &.is-normal {
+        font-size: $text-default;
+        width: $width-icon;
+        height: $width-icon;
+    }
+    &.#{$class-small} {
+        width: $width-icon-small;
+        height: $width-icon-small;
+    }
+    &.#{$class-medium} {
+        width: $width-icon-medium;
+        height: $width-icon-medium;
+    }
+    &.#{$class-large} {
+        width: $width-icon-large;
+        height: $width-icon-large;
+    }
+    &.#{$class-jumbo} {
+        width: $width-icon-jumbo;
+        height: $width-icon-jumbo;
+    }
 }
 
-close{
-  @extend %icon;
-  cursor: pointer;
-  opacity: .6;
-  transition: opacity .2s ease-out;
-  width: auto;
-  height: $width-icon;
-
-  &:hover {
-    opacity: 1;
-  }
-  
-  &:empty {    
-    &::after {
-      content: '\d7';
+#{$name-close-module} {
+    @extend %icon;
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .2s ease-out;
+    width: auto;
+    height: $width-icon;
+    &:hover {
+        opacity: 1;
     }
-  }
+    &:empty {
+        &::after {
+            content: '\d7';
+        }
+    }
 }
 
-burger, ellipsis {
-  @extend %icon;
-  width: $width-icon;
-  height: $width-icon;
-
-  span {
-    position: relative;
-    max-width: 1.5rem;
-    width: 80%;
-    background-color: $dark;
-
-    &,
-    &:before,
-    &:after {
-      display: block;
-      height: $ellipsis-burger-dimentions;
-      border-radius: 5em;
+#{$name-burger-module},
+#{$name-ellipsis-module} {
+    @extend %icon;
+    width: $width-icon;
+    height: $width-icon;
+    span {
+        position: relative;
+        max-width: 1.5rem;
+        width: 80%;
+        background-color: $dark;
+        &,
+        &:before,
+        &:after {
+            display: block;
+            height: $ellipsis-burger-dimentions;
+            border-radius: 5em;
+        }
+        &:before,
+        &:after {
+            content: '';
+            width: 100%;
+            background-color: inherit;
+            position: absolute;
+            transform-origin: center center;
+            top: -6px
+        }
+        &:after {
+            top: 6px
+        }
     }
-
-    &:before,
-    &:after {
-      content: '';
-      width: 100%;
-      background-color: inherit;
-      position: absolute;
-      transform-origin: center center;
-      top: -6px
-    }
-    &:after {
-      top: 6px
-    }
-  }
 }
-ellipsis {
-  & span,
-  & span:before,
-  & span:after {
-    width: $ellipsis-burger-dimentions + 1;
-    height: $ellipsis-burger-dimentions + 1;
-  }
+
+#{$name-ellipsis-module} {
+    & span,
+    & span:before,
+    & span:after {
+        width: $ellipsis-burger-dimentions + 1;
+        height: $ellipsis-burger-dimentions + 1;
+    }
 }

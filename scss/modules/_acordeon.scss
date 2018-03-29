@@ -1,52 +1,44 @@
-@import
-	'../base/_partials',
-	'../base/_placeholders';
-
+@import '../base/_partials',
+'../base/_placeholders';
 //acordeon.
 $acordeon-cloud: $cloud !default;
 $acordeon-border: 1px solid $light !default;
 $acordeon-padding: 1rem !default;
 $acordeon-material-shadow-items: 0 0 0 1px rgba($black, 0.05) !default;
-
-acordeon {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	border-radius: rem(5px);
-
-	acordeon-item {
-		@extend %item;
-		line-height: 2.5rem;
-		cursor: pointer;
-		user-select: none;
-	}
-
-	content {
-		transition: max-height .35s ease-in-out;
-		background-color: rgba($cloud, 0.15);
-		display: block;
-		max-height: 0;
-		overflow: hidden;
-		&.is-visible {
-			max-height: 100vh;
-		}
-	}
-
-	&.is-material {
-		box-shadow: 0 3px 10px -1px rgba($black, 0.1);
-
-		&, acordeon-item {	
-			background-color: $acordeon-cloud;
-		}
-
-		acordeon-item {
-			color: $primary;
-			padding: 0 1rem;
-			box-shadow: $acordeon-material-shadow-items;
-
-			icon:hover {
-				color: $black;
-			}
-		}
-	}
+#{$name-acordeon-module} {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: rem(5px);
+    #{$name-acordeon-item} {
+        @extend %item;
+        line-height: 2.5rem;
+        cursor: pointer;
+        user-select: none;
+    }
+    #{$name-acordeon-content} {
+        transition: max-height .35s ease-in-out;
+        background-color: rgba($cloud, 0.15);
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        &.#{$class-visible} {
+            max-height: 100vh;
+        }
+    }
+    &.#{$class-material} {
+        box-shadow: 0 3px 10px -1px rgba($black, 0.1);
+        &,
+        #{$name-acordeon-item} {
+            background-color: $acordeon-cloud;
+        }
+        #{$name-acordeon-item} {
+            color: $primary;
+            padding: 0 1rem;
+            box-shadow: $acordeon-material-shadow-items;
+            icon:hover {
+                color: $black;
+            }
+        }
+    }
 }

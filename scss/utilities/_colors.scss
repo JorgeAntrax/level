@@ -1,22 +1,28 @@
 // style bycolor of text
-.is-text-cloud { color: $cloud; } //no modified, this have a @extend for mixin colors
-.is-text-dark { color: $dark; } //no modified, this have a @extend for mixin colors
-
+.is-text-cloud {
+    color: $cloud;
+} //no modified, this have a @extend for mixin colors
+.is-text-dark {
+    color: $dark;
+} //no modified, this have a @extend for mixin colors
 // palete color
 //@mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2)
-@each $class, $color in $colores {
-	@include color-picker ($class, $color, 4, 5);
+@each $class,
+$color in $colores {
+    @include color-picker ($class, $color, 4, 5);
 }
-[class*='color-dark'],
-[class*='color-primary'],
-[class*='color-black'],
-[class*='color-info'],
-[class*='color-success'],
-[class*='color-danger'] {
-  color: $cloud;
+
+[class*='#{$class-color-picker}-dark'],
+[class*='#{$class-color-picker}-primary'],
+[class*='#{$class-color-picker}-black'],
+[class*='#{$class-color-picker}-info'],
+[class*='#{$class-color-picker}-success'],
+[class*='#{$class-color-picker}-danger'] {
+    color: $cloud;
 }
-[class*='color-light'],
-[class*='color-warning'],
-[class*='color-cloud'] {
-  color: $dark;
+
+[class*='#{$class-color-picker}-light'],
+[class*='#{$class-color-picker}-warning'],
+[class*='#{$class-color-picker}-cloud'] {
+    color: $dark;
 }

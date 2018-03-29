@@ -1,5 +1,7 @@
 @import '_placeholders';
+
 /* html basico*/
+
 html {
     font-size: $text-default;
     font-family: sans-serif, arial;
@@ -9,16 +11,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: $smooting-text;
     text-rendering: $render-text;
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-
     & ::-moz-selection {
         background: $primary;
         color: $cloud;
     }
-
     & ::selection {
         background: $primary;
         color: $cloud;
@@ -49,18 +45,12 @@ p {
     padding: 0;
     font-size: rem($text-default);
     line-height: $line-height-default;
-
-    p {
-        margin: 0;
-        display: inline-block;
-    }
 }
 
 a {
     text-decoration: none;
     color: $color-link;
     cursor: pointer;
-
     &:hover {
         color: $color-link-hover;
     }
@@ -70,20 +60,20 @@ item {
     @extend %item;
 }
 
-divider {
+#{$name-divider-element} {
     display: block;
     background-color: $black;
     margin: rem($text-default) 0;
     width: 100%;
     height: 1px;
     opacity: .2;
-
     &.is-white {
         background-color: $cloud;
     }
 }
 
-cite, address {
+cite,
+address {
     display: inline-block;
     line-height: 1.5;
     opacity: 0.7;
@@ -95,15 +85,22 @@ address {
     opacity: 1;
 }
 
-small, pre, code {
+small,
+pre,
+code {
     font-size: $text-small;
     font-weight: normal;
     line-height: $line-height-default;
     margin: 0;
 }
 
+
 /*code pre*/
-code, pre, code *, pre * {
+
+code,
+pre,
+code *,
+pre * {
     -webkit-font-smoothing: auto;
     font-family: $family-code;
 }
@@ -117,16 +114,20 @@ code {
     border-radius: .15rem;
 }
 
+
 /*estilos para entrada por teclado*/
+
 kbd {
     @extend code;
-
     background-color: $dark;
     color: $cloud;
 }
 
+
 /*estilos de sup y sub indice*/
-sup, sub {
+
+sup,
+sub {
     font-size: $text-x-small;
     padding: rem(2px);
 }
@@ -136,7 +137,9 @@ mark {
     color: $dark;
 }
 
-[disabled], .is-disabled, [inactive] {
+[disabled],
+.is-disabled,
+[inactive] {
     pointer-events: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -144,40 +147,45 @@ mark {
     user-select: none;
 }
 
+
 /* listas para revision */
+
 ol:not(.default-browser),
 ul:not(.default-browser) {
-    &, & ul, & ol {
+    &,
+    & ul,
+    & ol {
         margin: 0;
         padding: 0;
         list-style: none;
     }
 }
 
-ol, ul {
+ol,
+ul {
     padding-left: 1rem;
 }
 
+
 /*replace scroll*/
-/* reMplazo del scroll y ocultamiento.*/
+
 * ::-webkit-scrollbar {
     background-color: rgba($dark, 0.05);
     width: rem(4px);
     height: rem(4px);
     position: relative;
-    
 }
 
 @include until(touch) {
-  * ::-webkit-scrollbar {
-    display: none;
-  }
+    * ::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 @include until(touch) {
-  * ::-moz-scrollbar {
-    display: none;
-  }
+    * ::-moz-scrollbar {
+        display: none;
+    }
 }
 
 * ::-webkit-scrollbar-thumb {
@@ -186,10 +194,9 @@ ol, ul {
     cursor: pointer;
     -webkit-transition: all .2s ease-out;
     transition: all .2s ease-out;
-
     &:hover,
     &:active {
-      background-color: rgba($black, 0.2);
+        background-color: rgba($black, 0.2);
     }
 }
 

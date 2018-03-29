@@ -1,105 +1,102 @@
 @import '../base/_partials';
-
 $tooltip-position: 115%;
 $arrow-tooltip-dimentions: 0.7rem;
-[tooltip] {
-	display: inline-block;
-	position: relative;
-	cursor: pointer;
-	margin: 0 rem(5px);
-	user-select: none;
-	border-bottom: 1px dotted darken(whitesmoke, 20);
-
-	&::after,
-	&::before {
-		position: absolute;
-		display: none;
-		background-color: $dark;
-	}
-
-	&::after {
-		content: attr(tooltip);
-		padding: .15rem 0.5rem;
-		border-radius: rem(4px);
-		z-index: 1000;
-		padding: 0.25rem 1rem;
-		transition: all .5s ease-out;
-		font-size: $text-small - .15;
-		text-align: center;
-		color: $cloud;
-		min-width: rem(120px);
-	}
-	&::before {
-		content: '';
-		width: $arrow-tooltip-dimentions;
-		height: $arrow-tooltip-dimentions;
-		z-index: 999;
-	}
-
-	&.is-rounded::after {
-		border-radius: rem(100px);
-	}
-	&.is-up::after,
-	&.is-bottom::after,
-	&.is-up::before,
-	&.is-bottom::before {
-		left: ($tooltip-position / 2);
-		transform: translateX(-($tooltip-position / 2));
-	}
-	&.is-up::before,
-	&.is-bottom::before {
-		transform: translateX(-($tooltip-position / 2) - 10) rotate(45deg);
-	}
-	&.is-left::after,
-	&.is-right::after,
-	&.is-left::before,
-	&.is-right::before {
-		top: ($tooltip-position / 2);
-		transform: translateY(-($tooltip-position / 2));
-	}
-	&.is-left::before,
-	&.is-right::before {
-		transform: translateY(-($tooltip-position / 2) - 10) rotate(45deg);
-	}
-	&.is-up::after {
-		bottom: $tooltip-position;
-	}
-	&.is-bottom::after {
-		top: $tooltip-position;
-	}
-	&.is-up::before {
-		bottom: $tooltip-position - 15;
-	}
-	&.is-bottom::before {
-		top: $tooltip-position - 15;
-	}
-	&.is-left::after {
-		right: $tooltip-position;
-	}
-	&.is-right::after {
-		left: $tooltip-position;
-	}
-	&.is-left::before {
-		right: $tooltip-position - 2;
-	}
-	&.is-right::before {
-		left: $tooltip-position - 2;
-	}
-	@each $class, $color in $colores {
-		&.is-#{$class} {
-			color: inherit;
-			&::after,
-			&::before {
-				background-color: $color;
-				@if $class == 'warning' {
-					color: map-get($colores, dark);
-				}
-			}
-		}
-	}
-	&:hover::after,
-	&:hover::before {
-		display: block;
-		animation: fade-in .3s ease-out;
-	}
+[#{$name-tooltip-atribute}] {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin: 0 rem(5px);
+    user-select: none;
+    border-bottom: 1px dotted darken(whitesmoke, 20);
+    &::after,
+    &::before {
+        position: absolute;
+        display: none;
+        background-color: $dark;
+    }
+    &::after {
+        content: attr(tooltip);
+        padding: .15rem 0.5rem;
+        border-radius: rem(4px);
+        z-index: 1000;
+        padding: 0.25rem 1rem;
+        transition: all .5s ease-out;
+        font-size: $text-small - .15;
+        text-align: center;
+        color: $cloud;
+        min-width: rem(120px);
+    }
+    &::before {
+        content: '';
+        width: $arrow-tooltip-dimentions;
+        height: $arrow-tooltip-dimentions;
+        z-index: 999;
+    }
+    &.#{$class-rounded}::after {
+        border-radius: rem(100px);
+    }
+    &.#{$class-up}::after,
+    &.#{$class-down}::after,
+    &.#{$class-up}::before,
+    &.#{$class-down}::before {
+        left: ($tooltip-position / 2);
+        transform: translateX(-($tooltip-position / 2));
+    }
+    &.#{$class-up}::before,
+    &.#{$class-down}::before {
+        transform: translateX(-($tooltip-position / 2) - 10) rotate(45deg);
+    }
+    &.#{$class-left}::after,
+    &.#{$class-right}::after,
+    &.#{$class-left}::before,
+    &.#{$class-right}::before {
+        top: ($tooltip-position / 2);
+        transform: translateY(-($tooltip-position / 2));
+    }
+    &.#{$class-left}::before,
+    &.#{$class-right}::before {
+        transform: translateY(-($tooltip-position / 2) - 10) rotate(45deg);
+    }
+    &.#{$class-up}::after {
+        bottom: $tooltip-position;
+    }
+    &.#{$class-down}::after {
+        top: $tooltip-position;
+    }
+    &.#{$class-up}::before {
+        bottom: $tooltip-position - 15;
+    }
+    &.#{$class-down}::before {
+        top: $tooltip-position - 15;
+    }
+    &.#{$class-left}::after {
+        right: $tooltip-position;
+    }
+    &.#{$class-right}::after {
+        left: $tooltip-position;
+    }
+    &.#{$class-left}::before {
+        right: $tooltip-position - 2;
+    }
+    &.#{$class-right}::before {
+        left: $tooltip-position - 2;
+    }
+    @each $class,
+    $color in $colores {
+        &.is-#{$class} {
+            color: inherit;
+            &::after,
+            &::before {
+                background-color: $color;
+                @if $class=='warning' {
+                    color: map-get($colores, dark);
+                }
+            }
+        }
+    }
+    &:hover::after,
+    &:hover::before {
+        display: block;
+        animation: fade-in .3s ease-out;
+    }
 }

@@ -1,5 +1,4 @@
 @import '../base/_partials';
-
 // variables
 $input-border: $light;
 $input-padding: rem(5px) rem($text-default - 1px) !default;
@@ -7,482 +6,450 @@ $input-line-height: 1.5 !default;
 $field-addons-rounded: rem(2000px) !default;
 $field-addons-default-rounded: rem(3px) !default;
 $select-padding: $input-padding !default;
-
 // input con clase input
-.input,
-.date,
+.#{$class-input},
+.#{$name-date-module},
 select,
 textarea {
-	display: inline-flex;
-	align-items: center;
-	vertical-align: top;
-	position: relative;
-	padding: $input-padding;
-	border: none;
-	transition: all .2s ease-out;
-	font-size: rem($text-default);
-	width: 100%;
-	line-height: $input-line-height;
-	margin: 0;
-	outline: none;
-
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'black') or ($class == 'dark') or ($class == 'primary') {} @else {
-			&.is-#{$class}:not(.is-material):focus {
-				border: 1px solid $color;
-				box-shadow: 0 0 0 2px rgba($color, .2);
-			}
-			&.is-material.is-#{$class}:focus {
-				border-color: $color;
-			}
-			&.is-#{$class} {
-				color: $dark;
-			}
-		}
-	}
-
-	//estilo material design con atributo personalizado
-	&.is-material {
-		border: 0;
-		border-bottom: 1px solid darken($light, 5);
-		&:focus {
-			border-color: $primary;
-		}
-	}
-	// estilos para los que no tienen el atributo is-material
-	&:not(.is-material){
-		border-radius: rem(3px);
-		border: 1px solid #ddd;
-		&:focus {
-			border-color: $primary;
-			box-shadow: 0 0 0 2px rgba($primary, .2);
-		}
-		&:required:focus:invalid {
-			box-shadow: 0 0 0 2px rgba($danger, .2);
-		}
-		&:required:valid {
-			box-shadow: 0 0 0 2px rgba($success, .2);
-		}
-	}
-
-	// conponentes redondeados
-	&.is-rounded {
-		border-radius: 1.5rem;
-	}
-
-	//validación de formularios
-	&:focus ~ icon {
-		color: $black;
-	}
-	& ~ .is-validate,
-	&:required:valid ~ .is-validate {
-		opacity: 0;
-		color: $success;
-		transition: opacity .2s ease-out;
-	}
-	&:required:focus:invalid ~ .is-validate {
-		opacity: 1;
-		color: $danger;
-	}
-	&:required:focus:invalid {
-		border-color: $danger;
-	}
-	&:required:valid {
-		border-color: $success;
-	}
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    position: relative;
+    padding: $input-padding;
+    border: none;
+    transition: all .2s ease-out;
+    font-size: rem($text-default);
+    width: 100%;
+    line-height: $input-line-height;
+    margin: 0;
+    outline: none;
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='black') or ($class=='dark') or ($class=='primary') {}
+        @else {
+            &.is-#{$class}:not(.is-material):focus {
+                border: 1px solid $color;
+            }
+            &.is-material.is-#{$class}:focus {
+                border-color: $color;
+            }
+            &.is-#{$class} {
+                color: $dark;
+            }
+        }
+    }
+    //estilo material design con atributo personalizado
+    &.#{$class-material} {
+        border: 0;
+        border-bottom: 1px solid darken($light, 5);
+        &:focus {
+            border-color: $primary;
+        }
+    }
+    // estilos para los que no tienen el atributo is-material
+    &:not(.#{$class-material}) {
+        border-radius: rem(3px);
+        border: 1px solid #ddd;
+        &:focus {
+            border-color: $primary;
+        }
+        &:required:focus:invalid {
+            box-shadow: 0 0 0 2px rgba($danger, .2);
+        }
+        &:required:valid {
+            box-shadow: 0 0 0 2px rgba($success, .2);
+        }
+    }
+    // conponentes redondeados
+    &.#{$class-rounded} {
+        border-radius: 1.5rem;
+    }
+    //validación de formularios
+    &:focus~icon {
+        color: $black;
+    }
+    &~.#{$class-validate},
+    &:required:valid~.#{$class-validate} {
+        opacity: 0;
+        color: $success;
+        transition: opacity .2s ease-out;
+    }
+    &:required:focus:invalid~.#{$class-validate} {
+        opacity: 1;
+        color: $danger;
+    }
+    &:required:focus:invalid {
+        border-color: $danger;
+    }
+    &:required:valid {
+        border-color: $success;
+    }
 }
 
 //contenedor input type color
-color {
-	width: 1.5rem;
-	height: 1.5rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	border-radius: rem(3px);
-	&.is-rounded {
-		border-radius: 50%;
-	}
-	&[disabled] {
-		box-shadow: none;
-	}
-	// input type color
-	input[type='color'] {
-		cursor: pointer !important;
-		overflow: hidden !important;
-		outline: none;
-		border: 0;
-		-moz-appearance: button;
-		-webkit-appearance: button;
-		min-height: 4rem;
-		min-width: 4rem;
-	}
+#{$name-color-module} {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: rem(3px);
+    &.#{$class-rounded} {
+        border-radius: 50%;
+    }
+    &[disabled] {
+        box-shadow: none;
+    }
+    // input type color
+    input[type='color'] {
+        cursor: pointer !important;
+        overflow: hidden !important;
+        outline: none;
+        border: 0;
+        -moz-appearance: button;
+        -webkit-appearance: button;
+        min-height: 4rem;
+        min-width: 4rem;
+    }
 }
 
 // textarea
 textarea {
-	display: block;
-  max-height: rem(500px);
-  min-height: rem(50px);
-  resize: vertical;
-  &.is-fixed {
-  	resize: none;
-  }
-  &[is-readonly]  {
-  	resize: none;
-  	pointer-events: none;
-  	color: #666;
-  }
+    display: block;
+    max-height: rem(500px);
+    min-height: rem(50px);
+    resize: vertical;
+    &.#{$class-fixed} {
+        resize: none;
+    }
+    &[readonly] {
+        resize: none;
+        pointer-events: none;
+        color: #666;
+    }
 }
 
 // select box
-
 $arrow-dimentions: 0.7rem;
-listbox, date {
-	display: inline-flex;
-	position: relative;
-	align-items: center;
-
-	&:not([multiple]) {
-
-		&::before,
-		&::after {
-			content: '';
-			display: block;
-			position: absolute;
-			pointer-events: none;
-			cursor: pointer;
-		}
-		&::before {
-			top: 50%;
-			right: 0.65rem;
-			margin-top: -0.4rem;
-			width: $arrow-dimentions;
-			height: $arrow-dimentions;
-			border: 1px solid $primary;
-			border-top: 0;
-			border-left: 0;
-			transform-origin: top center;
-			transform: rotate(45deg);
-			z-index: 5;
-		}
-		&::after {
-			top: 2px;
-			right: 1px;
-			z-index: 4;
-			width: 2.3rem;
-			height: 2rem;
-			background-color: $cloud;
-		}
-	}
-
-	select,
-	datalist,
-	input {
-		cursor: pointer;
-		padding: $select-padding;
-		background-color: $cloud;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		border: none;
-		outline: none;
-		padding-right: 2.5rem;
-		
-		&[multiple] {
-			padding: 0;
-		}
-		option {
-			display: flex;
-			align-items: center;
-			padding: .5rem 1rem;
-		}
-	}
-
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'black') or ($class == 'dark') or ($class == 'primary') {} @else {
-			&.is-#{$class} select:focus {
-				border: 1px solid $color;
-				box-shadow: 0 0 0 2px rgba($color, .2);
-			}
-			&.is-#{$class}::before {
-				border-color: $color;
-			}
-		}
-	}
+#{$name-listbox-module},
+#{$name-date-module} {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    &:not([multiple]) {
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            pointer-events: none;
+            cursor: pointer;
+        }
+        &::before {
+            top: 50%;
+            right: 0.65rem;
+            margin-top: -0.4rem;
+            width: $arrow-dimentions;
+            height: $arrow-dimentions;
+            border: 1px solid $primary;
+            border-top: 0;
+            border-left: 0;
+            transform-origin: top center;
+            transform: rotate(45deg);
+            z-index: 5;
+        }
+        &::after {
+            top: 2px;
+            right: 1px;
+            z-index: 4;
+            width: 2.3rem;
+            height: 2rem;
+            background-color: $cloud;
+        }
+    }
+    select,
+    datalist,
+    input {
+        cursor: pointer;
+        padding: $select-padding;
+        background-color: $cloud;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: none;
+        outline: none;
+        padding-right: 2.5rem;
+        &[multiple] {
+            padding: 0;
+        }
+        option {
+            display: flex;
+            align-items: center;
+            padding: .5rem 1rem;
+        }
+    }
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='black') or ($class=='dark') or ($class=='primary') {}
+        @else {
+            &.is-#{$class} select:focus {
+                border: 1px solid $color;
+                box-shadow: 0 0 0 2px rgba($color, .2);
+            }
+            &.is-#{$class}::before {
+                border-color: $color;
+            }
+        }
+    }
 }
 
-date:not([multiple]) {
-	display: flex;
-	input:not([multiple]) {
-		padding-right: 0;
-	}
-}
-
-help {
-	display: block;
-	padding: 0.25rem 0;
-	font-size: $text-x-small;
+#{$name-help-module} {
+    display: block;
+    padding: 0.25rem 0;
+    font-size: $text-x-small;
 }
 
 label {
-  display: block;
-  text-align: left;
-  margin-bottom: .5rem;
+    display: block;
+    text-align: left;
+    margin-bottom: .5rem;
 }
 
-.input, textarea, label, select {
-	&.is-small { font-size: $text-small;	}
-	&.is-medium { font-size: $text-medium;	}
-	&.is-large { font-size: $text-large;	}
-}
 //############# Fin de estilos del input ###########
-
 //variables
 $icon-gap: rem(36px) !default;
 $icon-gap-small: rem(30px) !default;
 $icon-gap-medium: rem(42px) !default;
 $icon-gap-large: rem(48px) !default;
-
 //control group
-
-control {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	text-align: left;
-
-	& > icon {
-		position: absolute;
-		top: 0;
-		color: lighten($dark, 40);
-		width: $icon-gap;
-		height: 2.25rem;
-
-		&.is-small {
-			height: rem(32px);
-		}
-		&.is-medium {
-			height: rem(43px);
-		}
-		&.is-large {
-			height: rem(50px);
-		}
-
-		&.is-small {width: $icon-gap-small;}
-		&.is-medium {width: $icon-gap-medium;}
-		&.is-large {width: $icon-gap-large;}
-	}
-	
-	&:not(.is-double-icons) > textarea + icon {top: .5rem; height: auto; width: auto; }
-	&:not(.is-double-icons).is-icon-left > textarea + icon {left: .5rem;}
-	&:not(.is-double-icons).is-icon-right > textarea + icon {right: .5rem;}
-
-	&.is-double-icons {
-		icon:first-of-type {
-			left: 0;
-		}
-		icon:last-of-type {
-			right: 0;
-		}
-		.input, textarea {
-			padding-left: $icon-gap;
-			padding-right: $icon-gap;
-
-			&.is-small {
-				padding-left: $icon-gap-small;
-				padding-right: $icon-gap-small;
-			}
-			&.is-medium {
-				padding-left: $icon-gap-medium;
-				padding-right: $icon-gap-medium;
-			}
-			&.is-large {
-				padding-left: $icon-gap-large;
-				padding-right: $icon-gap-large;
-			}
-		}
-	}
-
-	&.is-icon-left {
-		.input, textarea {	
-			padding-left: $icon-gap;
-
-			&.is-small  {
-				padding-left: $icon-gap-small;
-			}
-			&.is-medium {
-				padding-left: $icon-gap-medium;
-			}
-			&.is-large {
-				padding-left: $icon-gap-large;
-			}
-		}
-		icon {
-			left: 0;
-		}
-	}
-
-	&.is-icon-right {
-		.input, textarea {	
-			padding-right: $icon-gap;
-
-			&.is-small {
-				padding-right: $icon-gap-small;
-			}
-			&.is-medium {
-				padding-right: $icon-gap-medium;
-			}
-			&.is-large {
-				padding-right: $icon-gap-large;
-			}
-		}
-		icon {
-			right: 0;
-		}
-	}
+#{$name-control-module} {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    &>icon {
+        position: absolute;
+        top: 0;
+        color: lighten($dark, 40);
+        width: $icon-gap;
+        height: 2.25rem;
+        &.#{$class-small} {
+            height: rem(32px);
+            width: $icon-gap-small;
+        }
+        &.#{$class-medium} {
+            height: rem(43px);
+            width: $icon-gap-medium;
+        }
+        &.#{$class-large} {
+            height: rem(50px);
+            width: $icon-gap-large;
+        }
+    }
+    &:not(.#{$class-icon-double})>textarea+icon {
+        top: .5rem;
+        height: auto;
+        width: auto;
+    }
+    &:not(.#{$class-icon-double}).#{$class-icon-left}>textarea+icon {
+        left: .5rem;
+    }
+    &:not(.#{$class-icon-double}).#{$class-icon-right}>textarea+icon {
+        right: .5rem;
+    }
+    &.#{$class-icon-double} {
+        icon:first-of-type {
+            left: 0;
+        }
+        icon:last-of-type {
+            right: 0;
+        }
+        .#{$class-input},
+        textarea {
+            padding-left: $icon-gap;
+            padding-right: $icon-gap;
+            &.#{$class-small} {
+                padding-left: $icon-gap-small;
+                padding-right: $icon-gap-small;
+            }
+            &.#{$class-medium} {
+                padding-left: $icon-gap-medium;
+                padding-right: $icon-gap-medium;
+            }
+            &.#{$class-large} {
+                padding-left: $icon-gap-large;
+                padding-right: $icon-gap-large;
+            }
+        }
+    }
+    &.#{$class-icon-left} {
+        .#{$class-input},
+        textarea {
+            padding-left: $icon-gap;
+            &.#{$class-small} {
+                padding-left: $icon-gap-small;
+            }
+            &.#{$class-medium} {
+                padding-left: $icon-gap-medium;
+            }
+            &.#{$class-large} {
+                padding-left: $icon-gap-large;
+            }
+        }
+        icon {
+            left: 0;
+        }
+    }
+    &.#{$class-icon-right} {
+        .#{$class-input},
+        textarea {
+            padding-right: $icon-gap;
+            &.#{$class-small} {
+                padding-right: $icon-gap-small;
+            }
+            &.#{$class-medium} {
+                padding-right: $icon-gap-medium;
+            }
+            &.#{$class-large} {
+                padding-right: $icon-gap-large;
+            }
+        }
+        icon {
+            right: 0;
+        }
+    }
 }
 
 field {
-	display: flex;
-	flex-direction: column;
-
-	&:not([addons]) {
-		justify-content: center;
-		control {
-			width: 100%;
-			&:not(:last-of-type) {
-				margin-bottom: rem(20px);
-			}
-		}
-	}
-
-	&:not(:last-child) {
-		margin-bottom: .5rem;
-	}
-
-	&.is-horizontal {
-		control:not(.is-expand) {
-			width: auto;
-		}
-		control:not(:last-child) {
-			margin-bottom: 0;
-			margin-right: .5rem;
-		}
-	}
-
-	&.is-horizontal,
-	&[addons] {
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-	}
-	
-	&[addons] {
-
-		control {
-			flex-grow: 0;
-			margin-bottom: 0;
-			margin-right: -1px;
-
-			&.is-expand {
-				flex: 1;
-			}
-
-			&:not(:first-child) > *,
-			&:not(:last-child) > * {
-				border-radius: 0;
-			}
-
-			&:first-child > * {
-				border-top-left-radius: $field-addons-default-rounded;
-				border-bottom-left-radius: $field-addons-default-rounded;
-			}
-			&:last-child > * {
-				border-top-right-radius: $field-addons-default-rounded;
-				border-bottom-right-radius: $field-addons-default-rounded;
-			}
-		}
-		&.is-rounded {
-			control:first-child > * {
-				border-top-left-radius: $field-addons-rounded;
-				border-bottom-left-radius: $field-addons-rounded;
-			}
-			control:last-child > * {
-				border-top-right-radius: $field-addons-rounded;
-				border-bottom-right-radius: $field-addons-rounded;
-			}
-		}
-	}
+    display: flex;
+    flex-direction: column;
+    &:not(.#{$class-addons}) {
+        justify-content: center;
+        #{$name-control-module} {
+            width: 100%;
+            &:not(:last-of-type) {
+                margin-bottom: rem(20px);
+            }
+        }
+    }
+    &:not(:last-child) {
+        margin-bottom: .5rem;
+    }
+    &.#{$class-horizontal} {
+        #{$name-control-module}:not(.is-expand) {
+            width: auto;
+        }
+        #{$name-control-module}:not(:last-child) {
+            margin-bottom: 0;
+            margin-right: .5rem;
+        }
+    }
+    &.#{$class-horizontal},
+    &.#{$class-addons} {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &.#{$class-addons} {
+        #{$name-control-module} {
+            flex-grow: 0;
+            margin-bottom: 0;
+            margin-right: -1px;
+            &.#{$class-expand} {
+                flex: 1;
+            }
+            &:not(:first-child)>*,
+            &:not(:last-child)>* {
+                border-radius: 0;
+            }
+            &:first-child>* {
+                border-top-left-radius: $field-addons-default-rounded;
+                border-bottom-left-radius: $field-addons-default-rounded;
+            }
+            &:last-child>* {
+                border-top-right-radius: $field-addons-default-rounded;
+                border-bottom-right-radius: $field-addons-default-rounded;
+            }
+        }
+        &.#{$class-rounded} {
+            #{$name-control-module}:first-child>* {
+                border-top-left-radius: $field-addons-rounded;
+                border-bottom-left-radius: $field-addons-rounded;
+            }
+            #{$name-control-module}:last-child>* {
+                border-top-right-radius: $field-addons-rounded;
+                border-bottom-right-radius: $field-addons-rounded;
+            }
+        }
+    }
 }
 
-//*********  Inicio Estilos check & radio Button  ***********
-checkbox, radio {
-	display: inline-flex;
-	min-width: 1.5rem;
-	height: 1.5rem;
-	align-items: center;
-	justify-content: center;
-
-	input {
-		display: none;
-	}
-
-	label {
-		margin: 0;
-	}
-
-	& > label::before {
-		content: '';
-		position: relative;
-		margin-right: 0.5rem;
-		background-color: transparent;
-		display: inline-block;
-		text-overflow: ellipsis;
-		width: 1rem;
-		height: 1rem;
-		border: 1px solid $dark;
-		border-radius: rem(3px);
-		cursor: pointer;
-		transition: all .2s ease-out;
-	}
-	& :checked ~ label::before {
-		background-color: $dark;
-		box-shadow: inset 0 0 0 2px $cloud;
-		border-radius: rem(3px);
-	}
-	&.is-check :checked ~ label::before {
-		width: .5rem;
-		transform: rotate(45deg) translate(-0.4rem, 0.25rem);
-		transform-origin: bottom right;
-		background-color: transparent !important;
-		border-top: 0;
-		border-left: 0;
-		border-radius: 0;
-	}
-	&.is-filled :checked ~ label::before {
-		box-shadow: none;
-	}
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'dark') or ($class == 'cloud') or ($class == 'black') {} @else {
-			&.is-#{$class} > label::before {
-				border: 1px solid $color;
-			}
-
-			&.is-#{$class} :checked ~ label::before {
-				box-shadow: inset 0 0 0 2px $cloud;
-				background-color: $color;
-			}
-
-			// en estado checked cambia el color de borde y fondo
-			&.is-check.is-#{$class} :checked ~ label::before {
-				border-color:$color;
-			}
-		}
-	}
+//*********  check & radio Button  ***********
+checkbox,
+radio {
+    display: inline-flex;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    input {
+        display: none;
+    }
+    label {
+        margin: 0;
+    }
+    &>label::before {
+        content: '';
+        position: relative;
+        margin-right: 0.5rem;
+        background-color: transparent;
+        display: inline-block;
+        text-overflow: ellipsis;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid $dark;
+        border-radius: rem(3px);
+        cursor: pointer;
+        transition: all .2s ease-out;
+    }
+    & :checked~label::before {
+        background-color: $dark;
+        box-shadow: inset 0 0 0 2px $cloud;
+        border-radius: rem(3px);
+    }
+    &.#{$class-check} :checked~label::before {
+        width: .5rem;
+        transform: rotate(45deg) translate(-0.4rem, 0.25rem);
+        transform-origin: bottom right;
+        background-color: transparent !important;
+        border-top: 0;
+        border-left: 0;
+        border-radius: 0;
+    }
+    &.#{$class-filled} :checked~label::before {
+        box-shadow: none;
+    }
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='dark') or ($class=='cloud') or ($class=='black') {}
+        @else {
+            &.is-#{$class}>label::before {
+                border: 1px solid $color;
+            }
+            &.is-#{$class} :checked~label::before {
+                box-shadow: inset 0 0 0 2px $cloud;
+                background-color: $color;
+            }
+            // en estado checked cambia el color de borde y fondo
+            &.is-check.is-#{$class} :checked~label::before {
+                border-color: $color;
+            }
+        }
+    }
 }
-radio > label::before,
-radio :checked ~ label::before,
-radio :checked ~ label.is-check::before {
-	border-radius: 100%;
+
+radio>label::before,
+radio :checked~label::before,
+radio :checked~label.is-check::before {
+    border-radius: 100%;
 }

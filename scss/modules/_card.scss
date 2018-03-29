@@ -1,48 +1,40 @@
-
 @import '../base/_partials';
 // elemento card
 $border-color: 1px solid rgba($dark, .1);
-
-card{
-	display: flex;
-	flex-direction:column;
-	border: $border-color;
-	border-radius: rem(3px);
-	overflow: hidden;
-	position: relative;
-
-	header,
-	footer {
-		display: flex;
-		height: 3rem;
-		align-items: center;
-	}
-	content {
-		padding: 1rem;
-	}
-	& > :not(:last-child) {
-		border-bottom: $border-color;
-	}
-
-	image {
-		border: 0;
-	}
-	header {
-		padding: 0 0.5rem;
-		justify-content: space-between;
-	}
-	footer {
-		justify-content: stretch;
-
-		item {
-			min-height: 3rem;
-			flex-grow: 1;
-			justify-content: center;
-			min-width: 2rem;
-			text-overflow: ellipsis;
-			&:not(:last-child) {
-				border-right: $border-color;
-			}
-		}
-	}
+#{$name-card-module} {
+    display: flex;
+    flex-direction: column;
+    border: $border-color;
+    border-radius: rem(3px);
+    overflow: hidden;
+    position: relative;
+    #{$name-card-header},
+    #{$name-card-footer} {
+        display: flex;
+        height: 3rem;
+        align-items: center;
+    }
+    #{$name-card-content} {
+        padding: 1rem;
+    }
+    &> :not(:last-child) {
+        border-bottom: $border-color;
+    }
+    #{$name-card-header} {
+        padding: 0 0.5rem;
+        justify-content: space-between;
+    }
+    #{$name-card-footer} {
+        justify-content: stretch;
+        item {
+            min-height: 3rem;
+            flex-grow: 1;
+            justify-content: center;
+            min-width: 2rem;
+            text-overflow: ellipsis;
+            &:not(:last-child) {
+                border-right: $border-color;
+            }
+        }
+    }
 }

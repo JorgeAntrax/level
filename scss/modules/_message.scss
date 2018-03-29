@@ -1,51 +1,40 @@
 @import '../base/_partials';
-// code message
-message, message header {
-	display: flex;
-}
-message {
-	flex-direction:column;
-	border: 1px solid darken($light, 10);
-	border-radius:.2rem;
-	overflow: hidden;
-	margin: .5em 0;
-		
-	header {
-		background-color: darken($light, 10);
-		align-items: center;
-		line-height: normal;
-		justify-content:space-between;
-		padding: 0.25rem .5rem;
-	}
-
-	content {
-		background-color: $light;
-		padding:.5rem;
-		padding-right: 1.5rem;
-	}
-
-	@each $class, $color in $colores {
-		@if $class == 'light' {} @else {	
-			&.is-#{$class} {
-				border-color: $color;
-				header {
-					background-color: $color;
-				}
-				content {
-					background-color: rgba($color, 0.05);
-					color: darken($color, 20);
-				}
-			}
-		}
-	}
-
-	&.is-small * {
-		font-size: $text-small;
-	}
-	&.is-medium * {
-		font-size: $text-medium;
-	}
-	&.is-large * {
-		font-size: $text-large;
-	}
+#{$name-message-module} {
+    &,
+    #{$name-message-header} {
+        display: flex;
+    }
+    flex-direction:column;
+    border: 1px solid darken($light, 10);
+    border-radius:.2rem;
+    overflow: hidden;
+    margin: .5em 0;
+    #{$name-message-header} {
+        background-color: darken($light, 10);
+        align-items: center;
+        line-height: normal;
+        justify-content: space-between;
+        padding: 0.25rem .5rem;
+    }
+    #{$name-message-content} {
+        background-color: $light;
+        padding: .5rem;
+        padding-right: 1.5rem;
+    }
+    @each $class,
+    $color in $colores {
+        @if $class=='light' {}
+        @else {
+            &.is-#{$class} {
+                border-color: $color;
+                #{$name-message-header} {
+                    background-color: $color;
+                }
+                #{$name-message-content} {
+                    background-color: rgba($color, 0.05);
+                    color: darken($color, 20);
+                }
+            }
+        }
+    }
 }

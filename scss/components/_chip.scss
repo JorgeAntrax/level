@@ -1,47 +1,44 @@
-
 @import '../base/_partials';
 //chips
-chip {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $light;
-  border-radius: 4em;
-  margin: rem(4px);
-  line-height: 2rem;
-  height: 2rem;
-  padding: 0 .5rem 0 0;
-  user-select: none;
-  img {
-    display: inline-block;
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%);*/
-    left: 0;
-    width: 2rem;
+#{$name-chip-module} {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $light;
+    border-radius: 4em;
+    margin: rem(4px);
+    line-height: 2rem;
     height: 2rem;
-    border-radius: 100%;
-    overflow: hidden;
-    z-index: 10;
-  }
-
-  chiptext {
-    display: block;
-    padding: 0 0.75rem;
-    font-size: 0.7rem;
-  }
-  &[class*="is-"]:not(.is-warning) {
-    color: $dark;
-    &:hover {
-      color: $cloud;
+    padding: 0 .5rem 0 0;
+    user-select: none;
+    img {
+        display: inline-block;
+        left: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        overflow: hidden;
+        z-index: 10;
     }
-  }
-  @each $class, $color in $colores {
-    @if ($class == 'light') or ($class == 'cloud') or ($class == 'black') {} @else {
-      &.is-#{$class}:hover {
-        background-color: $color;
-      }
+    #{$name-chiptext-module} {
+        display: block;
+        padding: 0 0.75rem;
+        font-size: 0.7rem;
     }
-  }
+    &[class*="is-"]:not(.is-warning) {
+        color: $dark;
+        &:hover {
+            color: $cloud;
+        }
+    }
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='cloud') or ($class=='black') {}
+        @else {
+            &.is-#{$class}:hover {
+                background-color: $color;
+            }
+        }
+    }
 }

@@ -2,87 +2,78 @@
 // tables
 $table-border: 1px solid rgba($dark, 0.2) !default;
 $hover-background: darken($light, 2) !default;
-
-table:not(.default-broswer) {
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: $table-border;
-	
-	&.is-boxed {
-		width: 100%;
-	}
-	&.is-narrow {
-		width: auto;
-		td, th {
-			min-width: 0;
-		}
-	}
-
-	tr {
-		vertical-align: middle;
-		transition: all .1s ease;
-		border-bottom: $table-border;
-
-		&.is-active {
-			background-color: $primary;
-			color: $cloud;
-			border-bottom: 0;
-		}
-		&:not(.is-active):hover {
-			background-color: $hover-background;
-		}
-	}
-
-	td, th {
-		text-align: left;
-		padding: .5rem;
-		min-width: rem(150px);
-		vertical-align: middle;
-	}
-
-  &.is-clean,
-	&.is-striped tbody tr,
-	&.is-flexible,
-	&.is-flexible.is-clean.is-striped td,
-	&.is-flexible.is-clean.is-striped th,
-	&.is-flexible.is-cell td,
-	&.is-flexible.is-cell th {
-		border: none;
-	}
-	&.is-clean {	
-		thead, tbody {
-			border-bottom: $table-border;
-		}
-  }
-
-
-	&.is-striped {
-		tr {	
-			&:nth-child(2n) {
-				background-color: $light;
-				&:hover {
-					background-color: $hover-background; 
-				}
-			}
-		}
-	}
-
-	&.is-cell {
-		td, th {
-			border-right: $table-border;
-			border-bottom: $table-border;
-		}
-		thead {
-			border-left: $table-border;
-		}
-		thead, tbody {
-			border-top: $table-border;
-		}
-	}
+#{$name-table-module} {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: $table-border;
+    &.#{$class-boxed} {
+        width: 100%;
+    }
+    &.#{$class-narrow} {
+        width: auto;
+        td,
+        th {
+            min-width: 0;
+        }
+    }
+    tr {
+        vertical-align: middle;
+        transition: all .1s ease;
+        border-bottom: $table-border;
+        &.#{$class-active} {
+            background-color: $primary;
+            color: $cloud;
+            border-bottom: 0;
+        }
+        &:not(.#{$class-active}):hover {
+            background-color: $hover-background;
+        }
+    }
+    td,
+    th {
+        text-align: left;
+        padding: .5rem;
+        min-width: rem(150px);
+        vertical-align: middle;
+    }
+    &.#{$class-clean},
+    &.#{$class-striped} tbody tr {
+        border: none;
+    }
+    &.#{$class-clean} {
+        thead,
+        tbody {
+            border-bottom: $table-border;
+        }
+    }
+    &.#{$class-striped} {
+        tr {
+            &:nth-child(2n) {
+                background-color: $light;
+                &:hover {
+                    background-color: $hover-background;
+                }
+            }
+        }
+    }
+    &.#{$class-cell} {
+        td,
+        th {
+            border-right: $table-border;
+            border-bottom: $table-border;
+        }
+        thead {
+            border-left: $table-border;
+        }
+        thead,
+        tbody {
+            border-top: $table-border;
+        }
+    }
 }
 
 @include until (600px) {
-	table:not(.default-broswer) *.is-collapse {
-		display: none;
-	}
+    #{$name-table-module} *.#{$class-collapse} {
+        display: none;
+    }
 }

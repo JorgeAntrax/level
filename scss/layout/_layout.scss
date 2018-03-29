@@ -1,103 +1,70 @@
+@import '../base/_partials';
 // layout
-layout {
-	display: grid;
-	position: relative;
-	max-width: 100%;
-	min-height: 100vh;
-	overflow-x: hidden;
-
-	grid-template-areas:
-	"header"
-	"navbar"
-	"sidebar"
-	"main"
-	"footer";
-
-	sidebar:not(:first-of-type):last-of-type {
-		grid-area: sidebar2;
-	}
-
-	&.is-double-sidebar {
-		grid-template-areas:
-		"header"
-		"navbar"
-		"sidebar"
-		"main"
-		"sidebar2"
-		"footer";
-	}
-	&.is-rtl {
-		grid-template-areas:
-		"header"
-		"navbar"
-		"main"
-		"sidebar"
-		"footer";
-	}
-	
-	& > header {grid-area: header;}
-	& > navbar {grid-area: navbar;}
-	& > sidebar {grid-area: sidebar;}
-	& > main {grid-area: main;}
-	& > footer {grid-area: footer;}
-
-	&.is-dashboard {
-		overflow: hidden;
-		
-		& > main, & > sidebar {
-			//bloque terminado
-			height: 100vh;
-			overflow-x: hidden;
-			overflow-y: auto;
-		}
-	}
+#{$name-layout-module} {
+    display: grid;
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    grid-template-areas: "header" "navbar" "sidebar" "main" "footer";
+    &.#{$class-double-sidebar} {
+        grid-template-areas: "header" "navbar" "sidebar" "main" "sidebar2" "footer";
+    }
+    &.#{$class-rtl} {
+        grid-template-areas: "header" "navbar" "main" "sidebar" "footer";
+    }
+    #{$name-layout-sidebar}:not(:first-of-type):last-of-type {
+        grid-area: sidebar2;
+    }
+    & #{$name-layout-head} {
+        grid-area: header;
+    }
+    & #{$name-layout-navbar} {
+        grid-area: navbar;
+    }
+    & #{$name-layout-sidebar} {
+        grid-area: sidebar;
+    }
+    & #{$name-layout-main} {
+        grid-area: main;
+    }
+    & #{$name-layout-foot} {
+        grid-area: footer;
+    }
+    &.#{$class-dashboard} {
+        overflow: hidden;
+        & #{$name-layout-main},
+        & #{$name-layout-sidebar} {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
 }
 
 @include since (899px) {
-	layout {
-		grid-template-columns: 20% auto;
-		grid-template-areas:
-		"header header"
-		"navbar navbar"
-		"sidebar main"
-		"footer footer";
-	}
-	layout.is-rtl {
-		grid-template-columns: auto 20%;
-		grid-template-areas:
-		"header header"
-		"navbar navbar"
-		"main sidebar"
-		"footer footer";
-	}
-	layout.is-double-sidebar {
-		grid-template-columns: 20% auto 20%;
-		grid-template-areas:
-		"header header header"
-		"navbar navbar navbar"
-		"sidebar main sidebar2"
-		"footer footer footer";
-	}
-	layout.is-small-sidebar {
-		grid-template-columns: 15% 85%;
-	}
-	layout.is-medium-sidebar {
-		grid-template-columns: 25% 75%;
-	}
-	layout.is-large-sidebar {
-		grid-template-columns: 30% 70%;
-	}
-}
-@include until (tablet) {
-	layout.is-sidebar-ofcanvas > sidebar {
-		position: fixed;
-		top: 0;
-		z-index: 20;
-		max-width: 40%;
-		transition: all .15s ease-out;
-		left: -110%;
-		&.is-visible {
-			right: 0;
-		}
-	}
+    #{$name-layout-module}:not(.#{$class-block}) {
+        grid-template-columns: 20% auto;
+        grid-template-areas: "header header" "navbar navbar" "sidebar main" "footer footer";
+    }
+    #{$name-layout-module}:not(.#{$class-block}).is-rtl {
+        grid-template-columns: auto 20%;
+        grid-template-areas: "header header" "navbar navbar" "main sidebar" "footer footer";
+    }
+    #{$name-layout-module}:not(.#{$class-block}).is-double-sidebar {
+        grid-template-columns: 20% auto 20%;
+        grid-template-areas: "header header header" "navbar navbar navbar" "sidebar main sidebar2" "footer footer footer";
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-tiny-sidebar} {
+        grid-template-columns: 5% 95%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-small-sidebar} {
+        grid-template-columns: 15% 85%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-medium-sidebar} {
+        grid-template-columns: 25% 75%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-large-sidebar} {
+        grid-template-columns: 30% 70%;
+    }
 }

@@ -1,91 +1,92 @@
 @import '../base/_partials';
 // component tag
-tags {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	max-width: 100%;
-
-	&.is-group {
-		border-radius: .2rem;
-		display: inline-flex;
-		align-items: stretch;
-		flex-wrap: nowrap;
-		overflow: hidden;
-		margin: rem(2px);
-		flex: 0;
-		& > tag {
-			margin: 0;
-			border-radius: 0;
-		}
-
-		// crea un grupo de etiquetas en forma de bloque
-		&.is-boxed {
-			flex-direction: column;
-			& > tag {
-				padding: rem(2px) rem(10px);
-			}
-		}
-	}
-	&:not(:last-child) {
-		margin-bottom: 1rem;
-	}
+#{$name-tags-module} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 100%;
+    &.#{$class-group} {
+        border-radius: .2rem;
+        display: inline-flex;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        margin: rem(2px);
+        flex: 0;
+        &>#{$name-tag-module} {
+            margin: 0;
+            border-radius: 0;
+        }
+        // crea un grupo de etiquetas en forma de bloque
+        &.#{$class-boxed} {
+            flex-direction: column;
+            &>#{$name-tag-module} {
+                padding: rem(2px) rem(10px);
+            }
+        }
+    }
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }
 
-tag {
-	margin: 2px;
-	line-height: 1.25rem;
-	font-size: $text-small;
-	text-overflow: ellipsis;
-	overflow-x: auto;
-	padding: rem(2px) rem(8px);
-	align-items: center;
-	display: inline-flex;
-	justify-content: center;
-	border-radius: rem(3px);
-	background-color: $light;
-	
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'cloud') {} @else {
-			&.is-#{$class} {
-				background-color: $color;
-			}		
-		}
-	}
+#{$name-tag-module} {
+    margin: 2px;
+    line-height: 1.25rem;
+    font-size: $text-small;
+    text-overflow: ellipsis;
+    overflow-x: auto;
+    padding: rem(2px) rem(8px);
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: rem(3px);
+    background-color: $light;
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='cloud') {}
+        @else {
+            &.is-#{$class} {
+                background-color: $color;
+            }
+        }
+    }
 }
 
-tags, tag {
-	&.is-rounded {
-		border-radius: 10000em;
-	}
+#{$name-tags-module},
+#{$name-tag-module} {
+    &.#{$class-rounded} {
+        border-radius: 10000em;
+    }
 }
 
-tags.is-small > tag, tag.is-small {
-	line-height: 1rem;
-	font-size: $text-x-small;
-	padding: rem(2px) rem(5px);
+#{$name-tags-module}.#{$class-small}>#{$name-tag-module},
+#{$name-tag-module}.#{$class-small} {
+    line-height: 1rem;
+    font-size: $text-x-small;
+    padding: rem(2px) rem(5px);
 }
 
-tags.is-large > tag, tag.is-large {
-	font-size: $text-default;
-	line-height: 1.5rem;
-	padding: rem(3px) rem(12px);
+#{$name-tags-module}.#{$class-large}>#{$name-tag-module},
+#{$name-tag-module}.#{$class-large} {
+    font-size: $text-default;
+    line-height: 1.5rem;
+    padding: rem(3px) rem(12px);
 }
 
 badge {
-	@extend tag;
-	border-radius: 100em;
-	position: relative;
-	line-height: normal;
-
-	&:first-child {
-		margin-right: rem($text-default / 2 );
-	}
-	&:last-child {
-		margin-left: rem($text-default / 2 );
-	}
-	&:first-child:last-child {
-		margin: 0;
-	}
+    @extend #{$name-tag-module};
+    border-radius: 100em;
+    position: relative;
+    line-height: normal;
+    &:first-child {
+        margin-right: rem($text-default / 2);
+    }
+    &:last-child {
+        margin-left: rem($text-default / 2);
+    }
+    &:first-child:last-child {
+        margin: 0;
+    }
 }

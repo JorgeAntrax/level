@@ -1,44 +1,43 @@
 @import '../base/_partials';
-
 $icon-position-horizontal: rem(8px) !default;
 $icon-position-vertical: rem(5px) !default;
 $border-left-size: rem(4px);
-blockquote {
-  display: flex;
-  flex-direction: column;
-	position: relative;
-	width: 100%;
-	padding: 1rem;
-	border-left: $border-left-size solid darken($light, 5);
-	border-radius: rem(3px);
-	background-color: $light;
-	font-style: italic;
-	margin: 0;
-
-	@each $class, $color in $colores {
-		@if ($class == 'cloud') or ($class == 'light') or ($class == 'black') {} @else {
-			&.is-#{$class} {
-				color: inherit;
-				border-color: $color;
-				icon {
-					color: $color;
-				}
-			}
-		}
-	}
-
-	&.is-icon-left,
-	&.is-icon-right {
-		padding-top: 1.5rem;
-		icon {
-			position: absolute;
-			top: $icon-position-vertical;
-		}
-	}
-	&.is-icon-left icon {
-		left: $icon-position-horizontal;
-	}
-	&.is-icon-right icon {
-		right: $icon-position-horizontal;
-	}
+#{$name-blockquote-module} {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    border-left: $border-left-size solid darken($light, 5);
+    border-radius: rem(3px);
+    background-color: $light;
+    font-style: italic;
+    margin: 0;
+    @each $class,
+    $color in $colores {
+        @if ($class=='cloud') or ($class=='light') or ($class=='black') {}
+        @else {
+            &.is-#{$class} {
+                color: inherit;
+                border-color: $color;
+                icon {
+                    color: $color;
+                }
+            }
+        }
+    }
+    &.#{$class-icon-left},
+    &.#{$class-icon-right} {
+        padding-top: 1.5rem;
+        icon {
+            position: absolute;
+            top: $icon-position-vertical;
+        }
+    }
+    &.#{$class-icon-left} icon {
+        left: $icon-position-horizontal;
+    }
+    &.#{$class-icon-right} icon {
+        right: $icon-position-horizontal;
+    }
 }

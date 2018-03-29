@@ -5,175 +5,182 @@ $preload-dimentions-small: rem(20px) !default;
 $preload-dimentions: rem(30px) !default;
 $preload-dimentions-medium: rem(40px) !default;
 $preload-dimentions-large: rem(50px) !default;
-
 // process bar
-process {
-	display: block;
-	height: 0.5rem;
-	width: 100%;
-	margin: 1.5rem 0;
-	cursor: pointer;
-	background-color: rgba($black, 0.05);
-	&.is-cloud {
-		background-color: rgba($cloud, 0.4);
-	}
-	box-shadow: inset 0 0 5px -1px rgba($black, 0.05);
-
-	complete {
-		display: flex;
-		height: 100%;
-		width: 1%;
-		background-color: $dark;
-		position: relative;
-		transition: all .2s ease;
-
-		&, &::before, &::after {
-			align-content: center;
-			align-items: center;
-			justify-content: center;
-		}
-
-		&::after, &::before {
-			display: none;
-			left: 50%;
-			top: -3.5em;
-			z-index: 20;
-			width: 1.5rem;
-			color: $cloud;
-			height: 1.5rem;
-			font-size: .5rem;
-			font-weight: bold;
-			border-radius: 50%;
-			content: attr(value);
-			position: absolute;
-			transform: translateX(-50%);
-		}
-		&::after {
-			box-shadow: 2px 0 8px -1px rgba($black, 0.2);
-			background-color: $dark;
-			content: '';
-			left: initial;
-			border-radius: 50% 50% 0 50%;
-			z-index: 15;
-			transform: rotate(45deg);
-		}
-	}
-	&[label='static'] complete::before,
-	&[label='floating']:hover complete::before,
-	&[label='static'] complete::after,
-	&[label='floating']:hover complete::after {
-		display: flex;
-		animation: fade-in .3s ease;
-	}
-
-	&.is-infinite {
-		overflow: hidden;
-
-		& complete, &.is-very-lower complete,
-		&.is-lower complete,
-		&.is-very-fast complete,
-		&.is-fast complete {
-			animation-name: process;
-			animation-timing-function: ease;
-			animation-iteration-count: infinite;
-		}
-		&.is-very-lower complete {
-			animation-duration: 3.5s;
-		}
-		&.is-lower complete {
-			animation-duration: 3s;
-		}
-		complete {
-			animation-duration: 2s;
-		}
-		&.is-fast complete {
-			animation-duration: 1s;
-		}
-		&.is-very-fast complete {
-			animation-duration: .5s;
-		}
-	}
-
-	&, & complete {	
-		border-radius: rem(500px);
-	}
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'black') {} @else {
-			&.is-#{$class} complete, &.is-#{$class} complete::before,
-			&.is-#{$class} complete::after {
-				background-color: $color;
-			}	
-		}
-	}
-	&.is-warning complete, &.is-warning complete::before,
-	&.is-warning complete::after {
-		color: $dark;
-	}
-
-	&.is-slim {
-		height: 0.1rem;
-	}
-	&.is-small {
-		height: 0.3rem;
-	}
-	&.is-medium {
-		height: 0.8rem;
-	}
-	&.is-large {
-		height: 1rem;
-	}
+#{$name-process-module} {
+    display: block;
+    height: 0.5rem;
+    width: 100%;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    background-color: rgba($black, 0.05);
+    &.is-cloud {
+        background-color: rgba($cloud, 0.4);
+    }
+    box-shadow: inset 0 0 5px -1px rgba($black, 0.05);
+    #{$name-complete-module} {
+        display: flex;
+        height: 100%;
+        width: 1%;
+        background-color: $dark;
+        position: relative;
+        transition: all .2s ease;
+        &,
+        &::before,
+        &::after {
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+        &::after,
+        &::before {
+            display: none;
+            left: 50%;
+            top: -3.5em;
+            z-index: 20;
+            width: 1.5rem;
+            color: $cloud;
+            height: 1.5rem;
+            font-size: .5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            content: attr(value);
+            position: absolute;
+            transform: translateX(-50%);
+        }
+        &::after {
+            box-shadow: 2px 0 8px -1px rgba($black, 0.2);
+            background-color: $dark;
+            content: '';
+            left: initial;
+            border-radius: 50% 50% 0 50%;
+            z-index: 15;
+            transform: rotate(45deg);
+        }
+    }
+    &[label='static'] #{$name-complete-module}::before,
+    &[label='floating']:hover #{$name-complete-module}::before,
+    &[label='static'] #{$name-complete-module}::after,
+    &[label='floating']:hover #{$name-complete-module}::after,
+    {
+        display: flex;
+        animation: fade-in .3s ease;
+    }
+    &.is-infinite {
+        overflow: hidden;
+        & #{$name-complete-module},
+        &.is-very-lower #{$name-complete-module},
+        &.is-lower #{$name-complete-module},
+        &.is-very-fast #{$name-complete-module},
+        &.is-fast #{$name-complete-module} {
+            animation-name: process;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+        &.#{$class-very-lower} #{$name-complete-module} {
+            animation-duration: 3.5s;
+        }
+        &.#{$class-lower} #{$name-complete-module} {
+            animation-duration: 3s;
+        }
+        #{$name-complete-module} {
+            animation-duration: 2s;
+        }
+        &.#{$class-fast} #{$name-complete-module} {
+            animation-duration: 1s;
+        }
+        &.#{$class-very-fast} #{$name-complete-module} {
+            animation-duration: .5s;
+        }
+    }
+    &,
+    & #{$name-complete-module} {
+        border-radius: rem(500px);
+    }
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='black') {}
+        @else {
+            &.is-#{$class} #{$name-complete-module},
+            &.is-#{$class} #{$name-complete-module}::before,
+            &.is-#{$class} #{$name-complete-module}::after {
+                background-color: $color;
+            }
+        }
+    }
+    &.is-warning #{$name-complete-module} {
+        &,
+        &::before,
+        &::after {
+            color: $dark;
+        }
+    }
+    &.#{$class-tiny} {
+        height: 0.1rem;
+    }
+    &.#{$class-small} {
+        height: 0.3rem;
+    }
+    &.#{$class-medium} {
+        height: 0.8rem;
+    }
+    &.#{$class-large} {
+        height: 1rem;
+    }
 }
 
 // preloader
-
 preload {
-	display: inline-block;
-	border: 2px solid $primary;
-	border-radius: 100%;
-	width: $preload-dimentions;
-	height: $preload-dimentions;
-	margin: .5em;
-	animation-duration: 1s;
-
-	@each $class, $color in $colores {
-		@if ($class == 'light') or ($class == 'black') {} @else {
-			&.is-#{$class} {
-				border-color: $color;
-			}
-		}
-	}
-	&.is-tiny {
-		width: $preload-dimentions-tiny;
-		height: $preload-dimentions-tiny;
-		border: 1px solid $primary;
-	}
-	&.is-small {
-		width: $preload-dimentions-small;
-		height: $preload-dimentions-small;
-	}
-	&.is-medium {
-		width: $preload-dimentions-medium;
-		height: $preload-dimentions-medium;
-	}
-	&.is-large {
-		width: $preload-dimentions-large;
-		height: $preload-dimentions-large;
-	}
-	&.is-lower {
-		animation-duration: 2s;
-	}
-	&.is-fast {
-		animation-duration: 0.5s;
-	}
-	&, &.is-lower, &.is-fast {
-		animation-name: preload;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
-	}
-	&.is-dinamic {
-		animation-name: preload-dinamic;
-	}
-	&, &.is-dinamic {
-		border-top-color: transparent !important;
-	}
+    display: inline-block;
+    border: 2px solid $primary;
+    border-radius: 100%;
+    width: $preload-dimentions;
+    height: $preload-dimentions;
+    margin: .5em;
+    animation-duration: 1s;
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='black') {}
+        @else {
+            &.is-#{$class} {
+                border-color: $color;
+            }
+        }
+    }
+    &.#{$class-tiny} {
+        width: $preload-dimentions-tiny;
+        height: $preload-dimentions-tiny;
+        border: 1px solid $primary;
+    }
+    &.#{$class-small} {
+        width: $preload-dimentions-small;
+        height: $preload-dimentions-small;
+    }
+    &.#{$class-medium} {
+        width: $preload-dimentions-medium;
+        height: $preload-dimentions-medium;
+    }
+    &.#{$class-large} {
+        width: $preload-dimentions-large;
+        height: $preload-dimentions-large;
+    }
+    &.#{$class-lower} {
+        animation-duration: 2s;
+    }
+    &.#{$class-fast} {
+        animation-duration: 0.5s;
+    }
+    &,
+    &.#{$class-lower},
+    &.#{$class-fast} {
+        animation-name: preload;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    &.#{$class-dinamic} {
+        animation-name: preload-dinamic;
+    }
+    &,
+    &.#{$class-dinamic} {
+        border-top-color: transparent !important;
+    }
 }

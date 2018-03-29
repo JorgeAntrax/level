@@ -1,5 +1,4 @@
 @import '../base/_partials';
-
 //variables
 $button-background-color: $cloud !default;
 $button-border-color: rgba($black, 0.1) !default;
@@ -15,244 +14,225 @@ $button-icon-dimentions: 1.5em !default;
 $button-line-height: 1.5 !default;
 $button-padding: rem(5px) rem($text-default - 1px) !default;
 $button-shadow-size-focused: 2px !default;
-
-button,
-.button {
-	transition: all .1s ease-out;
-	background-color: $button-background-color ;
-	color: $button-text-color ;
-	border: $button-border-size solid $button-border-color;
-
-	font-size: rem($text-default);
-	outline: none;
-	cursor: pointer;
-	z-index: 1;
-
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	vertical-align: top;
-	line-height: $button-line-height;
-
-	user-select: none;
-
-	border-radius: $button-border-radius;
-	padding: $button-padding;
-
-	position: relative;
-	overflow: hidden;
-
-	&::before {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform-origin: center center;
-		transform: translate(-50%, -50%);
-		width: 0;
-		height: 0;
-		pointer-events: none;
-		z-index: -1;
-		border-radius: $button-circle;
-		transition: all .2s ease-in-out;
-	}
-
-	&.is-rounded {
-		border-radius: $button-circle;
-	}
-
-	&:not([inactive]):hover {
-		z-index: 1;
-		&::before {
-			width: rem(500px);
-			height: rem(500px);
-			background-color: rgba($dark, .1);
-		}
-	}
-
-	//flex direction column
-	&.is-boxed {
-		flex-direction: column;
-		padding: 0.5em;
-		icon:first-child,
-		icon:last-child {
-			margin: 0 0 0.5rem 0;
-		}
-		justify-content: space-between;
-	}
-
-	// block estyle button
-	&.is-block {
-		display: flex;
-	}
-
-	icon {
-		height: $button-line-height;
-		width: auto;
-		&:first-child:last-child {
-			width: $button-icon-dimentions;
-			height: $button-icon-dimentions;
-			margin-left: rem(-10px);
-			margin-right: rem(-10px);
-		}
-	}
-
-	@each $class, $color in $colores {
-		@if $class == 'cloud' {} @else {
-			&.is-#{$class} {
-				&,
-				&-outline:hover::before {
-					background-color: $color;
-				}
-
-				&,
-				&-outline {
-					border: $button-border-size solid $color;
-				}
-
-				&-outline,
-				&-invert,
-				&-inverse:hover {
-					@if $class == 'warning' {
-						color: $color;
-					}@else {
-						color: $color;
-					}
-				}
-
-				&, &-outline:hover {
-					@if ($class == 'warning') or ($class == 'light') {
-						color: $dark;
-					}@else {
-						color: $cloud;
-					}
-				}
-				&[disabled] {
-					background-color: lighten($color, 25);
-				}
-			}
-		}
-	}
-
-	&[disabled] {border: none;}
-
-	&[class$="-outline"],
-	&[class$="-invert"],
-	&[class$="-inverse"]:hover::before {
-		background-color: $cloud;
-	}
-
-	&[class$='-invert'] {
-		border-color: $cloud;
-	}
-
-	&[class$='-inverse'] {
-		background-color: transparent;
-		border: $button-border-size solid $cloud;
-		color: $cloud;
-	}
-
-
-	// clase que hace un boton flotante
-	&[type='floating'] {
-		z-index: 40;
-		margin: rem(5px);
-		border-radius: $button-circle;
-		box-shadow: $button-floating-shadow;
-		padding: rem(10px) rem($text-default + 4px);
-		&:hover {
-			box-shadow: $button-floating-shadow-hover;
-		}
-	}
-
-	&[inactive] {
-		&, &:active, &:focus, &:hover {
-			cursor: default;
-			pointer-events: none;
-			box-shadow: 0 0 0 transparent;
-		}
-	}
+//styles
+#{$name-button-module},
+.#{$name-button-module} {
+    transition: all .1s ease-out;
+    background-color: $button-background-color;
+    color: $button-text-color;
+    border: $button-border-size solid $button-border-color;
+    font-size: rem($text-default);
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    line-height: $button-line-height;
+    user-select: none;
+    border-radius: $button-border-radius;
+    padding: $button-padding;
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center center;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        z-index: -1;
+        border-radius: $button-circle;
+        transition: all .2s ease-in-out;
+    }
+    &.#{$class-rounded} {
+        border-radius: $button-circle;
+    }
+    &:not([inactive]):hover {
+        z-index: 1;
+        &::before {
+            width: rem(500px);
+            height: rem(500px);
+            background-color: rgba($dark, .1);
+        }
+    }
+    //flex direction column
+    &.#{$class-boxed} {
+        flex-direction: column;
+        padding: 0.5em;
+        icon:first-child,
+        icon:last-child {
+            margin: 0 0 0.5rem 0;
+        }
+        justify-content: space-between;
+    }
+    // block estyle button
+    &.#{$class-block} {
+        display: flex;
+    }
+    #{$name-icon-module} {
+        height: #{$button-line-height}em;
+        width: auto;
+        &:first-child:last-child {
+            width: $button-icon-dimentions;
+            height: $button-icon-dimentions;
+            margin-left: rem(-10px);
+            margin-right: rem(-10px);
+        }
+    }
+    @each $class,
+    $color in $colores {
+        @if $class=='cloud' {}
+        @else {
+            &.is-#{$class} {
+                &,
+                &-outline:hover::before {
+                    background-color: $color;
+                }
+                &,
+                &-outline {
+                    border: $button-border-size solid $color;
+                }
+                &-outline,
+                &-invert,
+                &-inverse:hover {
+                    @if $class=='warning' {
+                        color: $color;
+                    }
+                    @else {
+                        color: $color;
+                    }
+                }
+                &,
+                &-outline:hover {
+                    @if ($class=='warning') or ($class=='light') {
+                        color: $dark;
+                    }
+                    @else {
+                        color: $cloud;
+                    }
+                }
+                &[disabled] {
+                    background-color: lighten($color, 25);
+                }
+            }
+        }
+    }
+    &[disabled] {
+        border: none;
+    }
+    &[class$="-outline"],
+    &[class$="-invert"],
+    &[class$="-inverse"]:hover::before {
+        background-color: $cloud;
+    }
+    &[class$='-invert'] {
+        border-color: $cloud;
+    }
+    &[class$='-inverse'] {
+        background-color: transparent;
+        border: $button-border-size solid $cloud;
+        color: $cloud;
+    }
+    // clase que hace un boton flotante
+    &[type='floating'] {
+        z-index: 40;
+        margin: rem(5px);
+        border-radius: $button-circle;
+        box-shadow: $button-floating-shadow;
+        padding: rem(10px) rem($text-default + 4px);
+        &:hover {
+            box-shadow: $button-floating-shadow-hover;
+        }
+    }
+    &[inactive] {
+        &,
+        &:active,
+        &:focus,
+        &:hover {
+            cursor: default;
+            pointer-events: none;
+            box-shadow: 0 0 0 transparent;
+        }
+    }
 }
 
-buttons {
-	display: flex;
-	flex-wrap: wrap;
-
-	&.is-addons {
-		flex-wrap: nowrap;
-	}
-
-	&.is-addons {
-		&, &.is-rounded {
-			* {
-				border-radius: 0;
-				margin-right: -1px;
-			}
-		}
-
-		:first-child {
-			border-top-left-radius: $button-border-radius;
-			border-bottom-left-radius: $button-border-radius;
-		}
-		:last-child {
-			border-top-right-radius: $button-border-radius;
-			border-bottom-right-radius: $button-border-radius;
-		}
-		&.is-rounded {
-			:first-child {
-				border-top-left-radius: $button-circle;
-				border-bottom-left-radius: $button-circle;
-			}
-			:last-child {
-				border-top-right-radius: $button-circle;
-				border-bottom-right-radius: $button-circle;
-			}
-		}
-	}
-	&:not(.is-addons) {
-		button, .button {
-			margin-bottom: .2rem;
-		}
-	}
+#{$name-buttons-module} {
+    display: flex;
+    flex-wrap: wrap;
+    &.#{$class-addons} {
+        flex-wrap: nowrap;
+        &,
+        &.#{$class-rounded} {
+            * {
+                border-radius: 0;
+                margin-right: -1px;
+            }
+        }
+         :first-child {
+            border-top-left-radius: $button-border-radius;
+            border-bottom-left-radius: $button-border-radius;
+        }
+         :last-child {
+            border-top-right-radius: $button-border-radius;
+            border-bottom-right-radius: $button-border-radius;
+        }
+        &.#{$class-rounded} {
+             :first-child {
+                border-top-left-radius: $button-circle;
+                border-bottom-left-radius: $button-circle;
+            }
+             :last-child {
+                border-top-right-radius: $button-circle;
+                border-bottom-right-radius: $button-circle;
+            }
+        }
+    }
+    &:not(.#{$class-addons}) {
+        #{$name-button-module},
+        .#{$name-button-module} {
+            margin-bottom: .2rem;
+        }
+    }
 }
 
-fab {
-	display: inline-flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	z-index: 100;
-
-	fabmenu {
-		display: none;
-		flex-direction: column;
-
-		&.is-visible {	
-			display: flex;
-			position: absolute;
-		}
-
-		& > * {
-			margin: rem(5px);
-			animation: zoom-in .2s;
-		}
-
-		&.is-left,
-		&.is-right {
-		flex-direction: row;	
-		}
-		&.is-left {
-			right: $button-floating-position;
-		}
-		&.is-right {
-			left: $button-floating-position;
-		}
-		&.is-up {
-			bottom: $button-floating-position;
-		}
-		&.is-down {
-			top: $button-floating-position;
-		}
-	}
+#{$name-fab-module} {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    #{$name-fabmenu-module} {
+        display: none;
+        flex-direction: column;
+        &.#{$class-visible} {
+            display: flex;
+            position: absolute;
+        }
+        &>* {
+            margin: rem(5px);
+            animation: zoom-in .2s;
+        }
+        &.#{$class-left},
+        &.#{$class-right} {
+            flex-direction: row;
+        }
+        &.#{$class-left} {
+            right: $button-floating-position;
+        }
+        &.#{$class-right} {
+            left: $button-floating-position;
+        }
+        &.#{$class-up} {
+            bottom: $button-floating-position;
+        }
+        &.#{$class-down} {
+            top: $button-floating-position;
+        }
+    }
 }

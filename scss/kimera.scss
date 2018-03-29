@@ -1,16 +1,13 @@
 /*
- Kimera 0.4.3 | MIT License
+ Kimera 0.4.4 | MIT License
  GitHub: github.com/JorgeAntrax/kimera
  Autor: Leonardo Quintana
- pseudo name: Leito Winchester Grimes Salvatore
- Implementation with Javascript minified
- bugs visualized components
- Contact: spicer_94@hotmail.com
+ migration a typescript
 */
 
 @charset "utf-8";
-@import 'base/all',
-'layout/all',
-'components/all',
-'modules/all',
-'utilities/all';
+@import 'base/_all',
+'layout/_all',
+'components/_all',
+'modules/_all',
+'utilities/_all';

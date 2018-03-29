@@ -1,68 +1,59 @@
 @import '../base/_partials';
-
-/* clase generica menu */
-
-menu:not(.default-browser) {
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
-	flex-direction: column;
-	justify-content: space-between;
-
-	divider {
-		opacity: .2;
-	}
-}
-menu {
-	&, footer, menu-item {
-		display: flex;
-	}
-
-  &, menu-item, footer {
-		width: 100%;
-		max-width: 100%;
-		justify-content: flex-start;
-	}
-
-	menu-list {
-		display: block;
-		width: 95%;
-		margin: 0.25rem 1rem;
-		margin-right: 0;
-		padding-left: .5rem;
-	}
-
-	menu-item, footer {
-		align-content: stretch;
-		align-items: center;
-		position: relative;
-		cursor: pointer;
-		min-height: 3rem;
-		width: 100%;
-		padding: 0 1rem;
-		text-overflow: ellipsis;
-		user-select: none;
-		border-radius: rem(3px);
-	}
-	footer {
-		padding: 0;
-		font-size: $text-small;
-		flex-direction: column;
-	}
-
-	.is-label {
-		text-transform: uppercase;
-		pointer-events: none;
-		font-size: $text-small;
-		/* padding-left: 0.5rem; */
-		opacity: .75;
-	}
-
-	.is-active {
-		background-color: $primary;
-		&, * {
-			color: $cloud;
-		}
-	}
+#{$name-menu-module} {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    &,
+    #{$name-menu-footer},
+    #{$name-menu-item} {
+        display: flex;
+    }
+    &,
+    #{$name-menu-item},
+    #{$name-menu-footer} {
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+    }
+    #{$name-menu-list} {
+        display: block;
+        width: 95%;
+        margin: 0.25rem 1rem;
+        margin-right: 0;
+        padding-left: .5rem;
+    }
+    #{$name-menu-item},
+    #{$name-menu-footer} {
+        align-content: stretch;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        min-height: 3rem;
+        width: 100%;
+        padding: 0 1rem;
+        text-overflow: ellipsis;
+        user-select: none;
+        border-radius: rem(3px);
+    }
+    #{$name-menu-footer} {
+        padding: 0;
+        font-size: $text-small;
+        flex-direction: column;
+    }
+    .#{$class-title} {
+        text-transform: uppercase;
+        pointer-events: none;
+        font-size: $text-small;
+        opacity: .75;
+    }
+    .#{$class-active} {
+        background-color: $primary;
+        &,
+        * {
+            color: $cloud;
+        }
+    }
 }

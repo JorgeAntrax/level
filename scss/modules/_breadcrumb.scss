@@ -1,117 +1,104 @@
 @import '../base/_partials';
-
 $breadcrumb-item-padding: 1rem !default;
-
-breadcrumb {
-	overflow-x: auto;
-	display: flex;
-
-	max-width: 100%;
-	padding: rem(4px) 0;
-
-	item {
-		flex: 0 0 auto;
-		cursor: pointer;
-		position: relative;
-		justify-content: center;
-		padding: 0 $breadcrumb-item-padding;
-		word-break: keep-all;
-
-		&:before, &:after {
-		 	content: '\\';
-			position: absolute;
-			font-family: $family-icons;
-			width: 0.8rem;
-			right: -.4rem;
-			text-align: center;
-			font-size: $text-small;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-		&:after {
-			display: none;
-		}
-
-		&:not(.is-active):hover {
-			color: $black !important;
-		}
-		&.is-active * {
-			color: $black;
-		}
-	}
-
-	&:not(.is-right) item:first-child {
-		padding-left: 0;
-	}
-	&:not(.is-right) item:last-child {
-		padding-right: 0;
-		&:before {
-			display: none;
-		}
-	}
-	
-	//ok no problemas
-	&.is-right {
-		&, item {
-			flex-direction: row-reverse;
-			justify-content: flex-start;
-		}
-
-		& item:after {
-			display: block;
-			right: initial;
-			left: -$breadcrumb-item-padding / 2;
-			content: '/';
-		}
-
-		item:first-child {
-			padding-right: 0;
-		}
-
-		item:last-child {
-			padding-left: 0;
-			&:after {
-				display: none;
-				
-			}
-		}
-
-		& item:before {
-			display: none;
-		}
-	}
-	//flecha ->
-
-	&.is-arrowed item:before {
-		content: '\02192';
-	}
-	&.is-right.is-arrowed item:after {
-		content: '\02190';
-	}
-
-	// circulo pequeño
-	&.is-dotted item:before {
-		content: '\02022';
-		font-size: $text-x-small;
-	}
-
-	&.is-small {
-		& item:before,
-		& item:after {
-			font-size: $text-x-small;
-		}
-	}
-	&.is-large {
-		& item:before,
-		& item:after {
-			font-size: $text-medium;
-		}
-	}
+#{$name-breadcrumb-module} {
+    overflow-x: auto;
+    display: flex;
+    max-width: 100%;
+    padding: rem(4px) 0;
+    #{$name-breadcrumb-item} {
+        flex: 0 0 auto;
+        cursor: pointer;
+        position: relative;
+        justify-content: center;
+        padding: 0 $breadcrumb-item-padding;
+        word-break: no-all;
+        &:before,
+        &:after {
+            content: '\\';
+            position: absolute;
+            font-family: $family-icons;
+            width: 0.8rem;
+            right: -.4rem;
+            text-align: center;
+            font-size: $text-small;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:after {
+            display: none;
+        }
+        &:not(.#{$class-active}):hover {
+            color: $black;
+        }
+        &.#{$class-active} * {
+            color: $black;
+        }
+    }
+    &:not(.#{$class-right}) item:first-child {
+        padding-left: 0;
+    }
+    &:not(.#{$class-right}) item:last-child {
+        padding-right: 0;
+        &:before {
+            display: none;
+        }
+    }
+    //ok no problemas
+    &.#{$class-right} {
+        &,
+        #{$name-breadcrumb-item} {
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+        & #{$name-breadcrumb-item}:after {
+            display: block;
+            right: initial;
+            left: -$breadcrumb-item-padding / 2;
+            content: '/';
+        }
+        #{$name-breadcrumb-item}:first-child {
+            padding-right: 0;
+        }
+        #{$name-breadcrumb-item}:last-child {
+            padding-left: 0;
+            &:after {
+                display: none;
+            }
+        }
+        & #{$name-breadcrumb-item}:before {
+            display: none;
+        }
+    }
+    //flecha ->
+    &.#{$class-arrowed} #{$name-breadcrumb-item}:before {
+        content: '\02192';
+    }
+    &.#{$class-right}.#{$class-arrowed} #{$name-breadcrumb-item}:after {
+        content: '\02190';
+    }
+    // circulo pequeño
+    &.#{$class-dotted} #{$name-breadcrumb-item}:before {
+        content: '\02022';
+        font-size: $text-x-small;
+    }
+    &.#{$class-small} {
+        & #{$name-breadcrumb-item}:before,
+        & #{$name-breadcrumb-item}:after {
+            font-size: $text-x-small;
+        }
+    }
+    &.#{$class-large} {
+        & #{$name-breadcrumb-item}:before,
+        & #{$name-breadcrumb-item}:after {
+            font-size: $text-medium;
+        }
+    }
 }
 
 // media queries
 @include until (tablet) {
-	breadcrumb.is-center, breadcrumb.is-center item {
-		justify-content:flex-start;
-	}
+    #{$name-breadcrumb-module}.#{$class-center},
+    #{$name-breadcrumb-module}.#{$class-center} #{$name-breadcrumb-item} {
+        justify-content: flex-start;
+    }
 }

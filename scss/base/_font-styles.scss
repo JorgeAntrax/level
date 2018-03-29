@@ -1,70 +1,78 @@
-.is-small {
-  &, & * {
-    font-size: $text-small;
-  }
+.#{$class-small} {
+    &,
+    & * {
+        font-size: $text-small;
+    }
 }
-.is-medium {
-  &, & * {
-    font-size: $text-medium;
-  }
+
+.#{$class-medium} {
+    &,
+    & * {
+        font-size: $text-medium;
+    }
 }
-.is-large {
-  &, & * {
-    font-size: $text-large;
-  }
+
+.#{$class-large} {
+    &,
+    & * {
+        font-size: $text-large;
+    }
 }
+
 //texto etiquetas personalizadas
-tiny, .is-tiny {
-  font-size: $text-x-small;
+.#{$class-tiny} {
+    &,
+    & * {
+        font-size: $text-x-small;
+    }
 }
 
-medium {
-  font-size: $text-medium;
+.#{$class-jumbo} {
+    &,
+    & * {
+        font-size: $text-x-large;
+    }
 }
 
-large {
-  font-size: $text-large;
+.#{$class-text-upper} {
+    text-transform: $text-upper;
 }
 
-jumbo, .is-jumbo {
-  font-size: $text-x-large;
-}
-upper, .is-text-upper {
-  text-transform: $text-upper;
+.#{$class-text-lower} {
+    text-transform: $text-lower;
 }
 
-lower, .is-text-lower {
-  text-transform: $text-lower;
+.#{$class-text-underline} {
+    text-decoration: underline;
 }
 
-underline, .is-text-underline {
-  text-decoration: underline;
+.#{$class-text-bolder} {
+    font-weight: $text-bold;
 }
-b, .is-text-bolder {
-  font-weight: $text-bold;
-}
+
 // color text
-white, .is-text-white {
-  color: $cloud;
-}
-primary, .is-text-primary {
-  color: $primary;
+.#{$class-text-white} {
+    color: $cloud;
 }
 
-info, .is-text-info {
-  color: $info;
+.#{$class-text-primary} {
+    color: $primary;
 }
 
-success, .is-text-success {
-  color: $success;
+.#{$class-text-info} {
+    color: $info;
 }
 
-warning, .is-text-warning {
-  color: darken($warning, 10);
+.#{$class-text-success} {
+    color: $success;
 }
 
-danger, .is-text-danger {
-  color: $danger;
+.#{$class-text-warning} {
+    color: darken($warning, 10);
+}
+
+.#{$class-text-danger} {
+    color: $danger;
 }
 
 .is-dark,
@@ -73,64 +81,88 @@ danger, .is-text-danger {
 .is-info,
 .is-success,
 .is-danger {
-  color: $cloud;
+    color: $cloud;
 }
+
 .is-light,
 .is-warning,
 .is-cloud {
-  color: $dark;
+    color: $dark;
 }
 
-right > *,
-right,
-.is-text-right > *,
-.is-text-right {
-  display: block;
-  text-align: right;
+.#{$class-text-right} {
+    &,
+    & * {
+        text-align: right;
+    }
 }
 
-justify > *,
-justify,
-.is-text-justify > *,
-.is-text-justify {
-  @extend right;
-  text-align: justify;
+.#{$class-text-justify} {
+    &,
+    & * {
+        text-align: justify;
+    }
 }
 
-center > *,
-center,
-.is-text-center > *,
-.is-text-center {
-  text-align: center;
+.#{$class-text-center} {
+    &,
+    & * {
+        text-align: center;
+    }
 }
-.is-full-center {
-  text-align: left;
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+.#{$class-full-center} {
+    text-align: left;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 //estilos de etiquetas h1,h2,h3,h4,h5,h6
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  margin: 0;
-  -webkit-font-smoothing: $smooting-text;
-  text-rendering: $render-text;
-  color: inherit;
-  a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    margin: 0;
+    -webkit-font-smoothing: $smooting-text;
+    text-rendering: $render-text;
     color: inherit;
-  }
-  *.is-subtitle {
-    opacity: .6;
-    font-weight: normal;
-    margin: 1rem 0 1.5em 0;
-  }
+    a {
+        color: inherit;
+    }
+    *.is-subtitle {
+        opacity: .6;
+        font-weight: normal;
+        margin: 1rem 0 1.5em 0;
+    }
 }
-h1 { font-size: $h1-size; }
-h2 { font-size: $h2-size; }
-h3 { font-size: $h3-size; }
-h4 { font-size: $h4-size; }
-h5 { font-size: $h5-size; }
-h6 { font-size: $h6-size; }
+
+h1 {
+    font-size: $h1-size;
+}
+
+h2 {
+    font-size: $h2-size;
+}
+
+h3 {
+    font-size: $h3-size;
+}
+
+h4 {
+    font-size: $h4-size;
+}
+
+h5 {
+    font-size: $h5-size;
+}
+
+h6 {
+    font-size: $h6-size;
+}

@@ -1,24 +1,24 @@
 @import '../base/_partials',
 '../base/_placeholders';
 $border-group: 1px solid rgba($dark, .1) !default;
-group {
+#{$name-group-module} {
     overflow-x: auto;
     display: flex;
     align-items: stretch;
     align-content: center;
     justify-content: stretch;
     width: 100%;
-    &.is-inline {
+    &.#{$class-inline} {
         display: inline-flex;
         width: auto;
     }
-    group-item {
+    #{$name-group-item} {
         @extend %item;
         min-height: 2.5rem;
         justify-content: center;
         flex: 1;
     }
-    &.is-boxed group-item {
+    &.#{$class-boxed} #{$name-group-item} {
         flex-direction: column;
         icon {
             margin: 0 !important;
@@ -26,12 +26,12 @@ group {
     }
 }
 
-listgroup {
+#{$name-listgroup-module} {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    list-item {
+    #{$name-listgroup-item} {
         @extend %item;
         flex-grow: 1;
         justify-content: space-between;

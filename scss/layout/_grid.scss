@@ -1,80 +1,153 @@
-.is-center {
-	align-items: center;
-	justify-content: center;
+.#{$class-center} {
+    align-items: center;
+    justify-content: center;
 }
-.is-center-v { align-items: center; }
-.is-center-h { justify-content: center; }
-.is-up { align-items: flex-start; }
-.is-left { justify-content: flex-start; }
-.is-down { align-items: flex-end; }
-.is-right { justify-content: flex-end; }
-.is-separated { justify-content: space-between; }
-.is-distributed { justify-content: space-around; }
+
+.#{$class-center-v} {
+    align-items: center;
+}
+
+.#{$class-center-h} {
+    justify-content: center;
+}
+
+.#{$class-up} {
+    align-items: flex-start;
+}
+
+.#{$class-left} {
+    justify-content: flex-start;
+}
+
+.#{$class-down} {
+    align-items: flex-end;
+}
+
+.#{$class-right} {
+    justify-content: flex-end;
+}
+
+.#{$class-separated} {
+    justify-content: space-between;
+}
+
+.#{$class-distributed} {
+    justify-content: space-around;
+}
+
+
 /*clases flexbox fila y columna*/
-row{
-	display: flex;
-	flex: auto;
-	flex-flow: column nowrap;
 
-	&.is-multiline { flex-wrap: wrap; }
-	&.is-mobile { flex-flow: row nowrap; }
-	&.is-inverted { flex-direction: row-reverse; }
-	&.is-boxed { flex-direction: column; }
-	column {
-		display: block;
-		flex: 1 1 auto;
-		max-width: 100%;
-		min-width: 5%;
-	}
+#{$name-row-module} {
+    display: flex;
+    flex: auto;
+    flex-flow: column nowrap;
+    &-multiple {
+        @extend #{$name-row-module};
+        flex-wrap: wrap;
+    }
+    &-mobile {
+        @extend #{$name-row-module};
+        flex-flow: row nowrap;
+    }
+    &-invert {
+        @extend #{$name-row-module};
+        flex-direction: row-reverse;
+    }
+    &.#{$class-boxed} {
+        flex-direction: column;
+    }
+    #{$name-column-module} {
+        display: block;
+        flex: 1 1 auto;
+        max-width: 100%;
+        min-width: 5%;
+    }
 }
 
-.is-block { width: 100%; }
-.is-half { width: 50%; }
+.#{$class-block-grid} {
+    width: 100%;
+}
+
+.#{$class-half-grid} {
+    width: 50%;
+}
 
 [class*="mobile-"],
 [class*="touch-"],
 [class*="tablet-"],
 [class*="desktop-"],
 [class*="widescreen-"] {
-	flex-grow: 0;
-	flex-shrink: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
-@each $class, $value in $breakpoint {
-	@include since ($class) {
-		@if $class == 'tablet' {
-			row { flex-direction: row;}
-		}
-		@for $i from 1 through 20 {
-			@if $i == 20 {
-				.#{$class}-is-block {width: grid($i);}
-			}
-			@else if $i == 10 {
-				.#{$class}-is-half {width: grid($i);}
-			} @else {
-				.#{$class}-#{$i} {width: grid($i);}
-			}
-		}
-		.is-hidden-#{$class} { display: none; }
-		.is-center-#{$class} {
-			align-items: center;
-			justify-content: center;
-		}
-		.is-center-v-#{$class} { align-items: center; }
-		.is-center-h-#{$class} { justify-content: center; }
-		.is-up-#{$class} { align-items: flex-start; }
-		.is-left-#{$class} { justify-content: flex-start; }
-		.is-down-#{$class} { align-items: flex-end; }
-		.is-right-#{$class} { justify-content: flex-end; }
-		.is-separated-#{$class} { justify-content: space-between; }
-		.is-distributed-#{$class} { justify-content: space-around; }
-	}
+@each $class,
+$value in $breakpoint {
+    @include since ($class) {
+        @if $class==$bp-tablet {
+            #{$name-row-module} {
+                flex-direction: row;
+            }
+        }
+        @for $i from 1 through 20 {
+            @if $i==20 {
+                .#{$class}-#{$class-block-grid} {
+                    width: grid($i);
+                }
+            }
+            @else if $i==10 {
+                .#{$class}-#{$class-half-grid} {
+                    width: grid($i);
+                }
+            }
+            @else {
+                .#{$class}-#{$i} {
+                    width: grid($i);
+                }
+            }
+        }
+        .#{$class-hidden}-#{$class} {
+            display: none;
+        }
+        .#{$class-center}-#{$class} {
+            align-items: center;
+            justify-content: center;
+        }
+        .#{$class-center-v}-#{$class} {
+            align-items: center;
+        }
+        .#{$class-center-h}-#{$class} {
+            justify-content: center;
+        }
+        .#{$class-up}-#{$class} {
+            align-items: flex-start;
+        }
+        .#{$class-left}-#{$class} {
+            justify-content: flex-start;
+        }
+        .#{$class-down}-#{$class} {
+            align-items: flex-end;
+        }
+        .#{$class-right}-#{$class} {
+            justify-content: flex-end;
+        }
+        .#{$class-separated}-#{$class} {
+            justify-content: space-between;
+        }
+        .#{$class-distributed}-#{$class} {
+            justify-content: space-around;
+        }
+    }
 }
 
-@each $class, $value in $breakpoint {
-	@if $class != 'mobile' {
-		@include until ($class) {
-			.is-visible-#{$class} {	display: none; }
-		}
-	}
+@each $class,
+$value in $breakpoint {
+    @if $class !='mobile' {
+        @include until ($class) {
+            .#{$class-visible-grid}-#{$class} {
+                display: none;
+            }
+        }
+    }
 }

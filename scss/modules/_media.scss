@@ -1,5 +1,4 @@
 @import '../base/_partials';
-
 //module images
 $square-16: rem(16px) !default;
 $square-24: rem(24px) !default;
@@ -9,82 +8,82 @@ $square-64: rem(64px) !default;
 $square-96: rem(96px) !default;
 $square-128: rem(128px) !default;
 $square-256: rem(256px) !default;
-
-responsive {
-	display: block;
-	max-width: 100%;
-	width: 100%;
-	position: relative;
-	&.is-table {
-		overflow-x: auto;
-	}
-
-	&.is-square-16 {
-		width: $square-16;
-		height: $square-16;
-	}
-	&.is-square-24 {
-		width: $square-24;
-		height: $square-24;
-	}
-	&.is-square-32 {
-		width: $square-32;
-		height: $square-32;
-	}
-	&.is-square-48 {
-		width: $square-48;
-		height: $square-48;
-	}
-	&.is-square-64 {
-		width: $square-64;
-		height: $square-64;
-	}
-	&.is-square-96 {
-		width: $square-96;
-		height: $square-96;
-	}
-	&.is-square-128 {
-		width: $square-128;
-		height: $square-128;
-	}
-	&.is-square-256 {
-		width: $square-256;
-		height: $square-256;
-	}
+#{$name-responsive-module} {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    &.is-table {
+        overflow-x: auto;
+    }
+    &.is-square-16 {
+        width: $square-16;
+        height: $square-16;
+    }
+    &.is-square-24 {
+        width: $square-24;
+        height: $square-24;
+    }
+    &.is-square-32 {
+        width: $square-32;
+        height: $square-32;
+    }
+    &.is-square-48 {
+        width: $square-48;
+        height: $square-48;
+    }
+    &.is-square-64 {
+        width: $square-64;
+        height: $square-64;
+    }
+    &.is-square-96 {
+        width: $square-96;
+        height: $square-96;
+    }
+    &.is-square-128 {
+        width: $square-128;
+        height: $square-128;
+    }
+    &.is-square-256 {
+        width: $square-256;
+        height: $square-256;
+    }
 }
-img, video, audio, embed, object {
-	max-width: 100%;
-	width: 100%;
-	height: auto;
-	overflow: hidden;
+
+img,
+video,
+audio,
+embed,
+object {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 
 img {
-	&[alt] {
-		color: $dark;
-		font-size: $text-small;
-	}
-	&.blur-2 {
-		filter: blur(2px);
-	}
-	
-	&.blur-4 {
-		filter: blur(4px);
-	}
-	&.blur-6 {
-		filter: blur(6px);
-	}
-	&.blur-8 {
-		filter: blur(8px);
-	}
-	&.blur-10 {
-		filter: blur(10px);
-	}
-
-	&.is-rounded {
-		border-radius: 100000em;
-	}
-
+    &[alt] {
+        color: $dark;
+        font-size: $text-small;
+    }
+    &.blur-2 {
+        filter: blur(2px);
+    }
+    &.blur-4 {
+        filter: blur(4px);
+    }
+    &.blur-6 {
+        filter: blur(6px);
+    }
+    &.blur-8 {
+        filter: blur(8px);
+    }
+    &.blur-10 {
+        filter: blur(10px);
+    }
+    &.#{$class-rounded} {
+        border-radius: 100000em;
+    }
 }
 
 img.is-bg-5,
@@ -92,26 +91,29 @@ img.is-bg-4,
 img.is-bg-3,
 img.is-bg-2,
 img.is-bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	backface-visibility: visible;
-	background-position: center center;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: visible;
+    background-position: center center;
 }
 
 img.is-bg-5 {
-	z-index: -5;
+    z-index: -5;
 }
+
 img.is-bg-4 {
-	z-index: -4;
+    z-index: -4;
 }
+
 img.is-bg-3 {
-	z-index: -3;
+    z-index: -3;
 }
+
 img.is-bg-2 {
-	z-index: -2;
+    z-index: -2;
 }
+
 img.is-bg {
-	z-index: -1;
+    z-index: -1;
 }

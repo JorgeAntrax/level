@@ -1,0 +1,346 @@
+// *************************************************************
+// ****************** Set name components **********************
+// *************************************************************
+//divider
+$name-divider-element: 'divider';
+//blockquote component
+$name-blockquote-module: 'blockquote';
+//box component
+$name-box-module: 'box';
+//button component
+$name-button-module: 'button';
+$name-buttons-module: 'buttons';
+$name-fab-module: 'fab';
+$name-fabmenu-module: 'fabmenu';
+//Chip component
+$name-chip-module: 'chip';
+$name-chiptext-module: 'chiptext';
+//Dropdown component
+$name-dropdown-module: 'dropdown';
+$name-dropmenu-module: 'dropmenu';
+$name-dropmenu-item: 'drop-item';
+//process component
+$name-process-module: 'process';
+$name-complete-module: 'complete';
+//preload component
+$name-preload-module: 'preload';
+//range component
+$name-range-module: 'range';
+//tags component
+$name-tags-module: 'tags';
+$name-tag-module: 'tag';
+// toggle button component
+$name-toggle-group: 'toggles';
+$name-toggle-button: 'toggle';
+//tooltip component
+$name-tooltip-atribute: 'tooltip';
+//icon component
+$name-icon-module: 'icon';
+$name-burger-module: 'burger';
+$name-ellipsis-module: 'ellipsis';
+$name-close-module: 'close';
+// ********************  Grid layout ***************************
+// row module
+$name-row-module: 'row';
+// column module
+$name-column-module: 'column';
+// ************************** Form controls ********************
+//Checkbox and radio component
+$name-checkbox-module: 'checkbox';
+$name-radio-module: 'radio';
+//control forms components
+$name-field-module: 'field';
+$name-control-module: 'control';
+$name-help-module: 'help';
+$name-date-module: 'date';
+$name-listbox-module: 'listbox';
+$name-color-module: 'color';
+// *************************************************************
+// ****************** Set name layout **************************
+// *************************************************************
+$name-layout-module: 'layout';
+$name-layout-head: 'header';
+$name-layout-navbar: 'navbar';
+$name-layout-sidebar: 'sidebar';
+$name-layout-main: 'main';
+$name-layout-foot: 'footer';
+// *************************************************************
+// ****************** Set name modules *************************
+// *************************************************************
+//acordeon module
+$name-acordeon-module: 'acordeon';
+$name-acordeon-item: 'acordeon-item';
+$name-acordeon-content: 'content';
+//breadcrumb module
+$name-breadcrumb-module: 'breadcrumb';
+$name-breadcrumb-item: 'item';
+//card module
+$name-card-module: 'card';
+$name-card-header: 'header';
+$name-card-content: 'content';
+$name-card-footer: 'footer';
+//group module
+$name-group-module: 'group';
+$name-group-item: 'group-item';
+$name-listgroup-module: 'listgroup';
+$name-listgroup-item: 'list-item';
+//responsive module
+$name-responsive-module: 'responsive';
+//mega module
+$name-mega-module: 'mega';
+$name-mega-header: 'header';
+$name-mega-content: 'content';
+// vertical menu module
+$name-menu-module: 'menu';
+$name-menu-footer: 'footer';
+$name-menu-item: 'menu-item';
+$name-menu-list: 'menu-list';
+// message module
+$name-message-module: 'message';
+$name-message-header: 'header';
+$name-message-content: 'content';
+//modal module
+$name-modal-module: 'modal';
+$name-modal-background: 'background';
+$name-modal-content: 'content';
+$name-modal-header: 'header';
+//navbar module
+$name-navbar-module: 'navbar';
+$name-navbrand-module: 'navbrand';
+$name-navbrand-logo: 'logo';
+$class-toggle-navbar: 'is-toggle-navbar'; // this class is manipulated from js
+$name-navmenu-module: 'navmenu';
+$name-navbar-item: 'nav-item';
+//notify module
+$name-notify-module: 'notify';
+//social module
+$name-social-module: 'social';
+$name-social-media: 'media';
+$name-social-content: 'content';
+$name-social-header: 'header';
+$name-social-footer: 'footer';
+//table module
+$name-table-module: 'table';
+//tabs module
+$name-tabs-module: 'tabs';
+$name-tabs-item: 'tab';
+$name-tabs-content-module: 'tabs-content';
+$name-tabs-content-item: 'tab-content';
+// *************************************************************
+// ****************** Set name class ***************************
+// *************************************************************
+// IMPORTANT
+//These classess are manipulated from js,
+//you will have to change them also in the
+//file kimera.ts or in kimera.js and
+//recompile kimera.js to kimera.min.js
+//
+//let classActive = 'is-active';  at line 1 to kimera.ts | kimera.js
+//let classVisible = 'is-visible';  at line 2 to kimera.ts | kimera.js
+$class-visible: 'is-visible';
+$class-active: 'is-active';
+//used on: modal
+$class-slide-up: 'is-slide-up'; //this class is manipulated from js
+$class-slide-down: 'is-slide-down'; //this class is manipulated from js
+//used on dropdown
+$class-toggle-dropdown: 'is-toggle-dropdown';
+//used on: group
+$class-inline: 'is-inline';
+//the input element class for apply styles
+$class-input: 'input';
+//used on: blockquote, textarea
+$class-icon-left: 'is-icon-left';
+$class-icon-right: 'is-icon-right';
+//used on: field>control
+$class-icon-double: 'is-double-icons';
+//used on: box, row
+$class-mobile: 'is-mobile';
+//used on: button, tags, tooltips, input, textarea, field
+$class-rounded: 'is-rounded';
+//used on: button, tags, group, table, tabs
+$class-boxed: 'is-boxed';
+//used on: button, layout
+$class-block: 'is-block';
+//used on: button, field,
+$class-addons: 'is-addons';
+//used on: row tooltip
+$class-left: 'is-left';
+//used on: dropdown, tooltip, breadcrumb, tabs
+$class-right: 'is-right';
+//used on: dropdown, row, tooltip
+$class-up: 'is-up';
+//used on: row, tooltip
+$class-down: 'is-down';
+//used on: dropmenu
+$class-hoverable: 'is-hoverable';
+//used on: dropmenu
+$class-title: 'is-title';
+//used on: input, textarea, acordeon
+$class-material: 'is-material';
+$class-validate: 'is-validate';
+//used on: tabs
+$class-toggle: 'is-toggle';
+//used on: breadcrumb
+$class-arrowed: 'is-arrowed';
+$class-dotted: 'is-dotted';
+//used on: table
+$class-collapse: 'is-collapse';
+$class-cell: 'is-cell';
+$class-striped: 'is-striped';
+$class-clean: 'is-clean';
+$class-narrow: 'is-narrow';
+//used on textarea
+$class-fixed: 'is-fixed';
+//used on: modal, tabs
+$class-fluid: 'is-fluid';
+//Classes used in all modules and components.
+$class-tiny: 'is-tiny';
+$class-small: 'is-small';
+$class-medium: 'is-medium';
+$class-large: 'is-large';
+$class-jumbo: 'is-jumbo';
+//used on: field
+$class-horizontal: 'is-horizontal';
+//used on: flied > control
+$class-expand: 'is-expand';
+// apply on checkbox and radio components
+$class-check: 'is-check';
+$class-filled: 'is-filled';
+// used on: progress, preload
+$class-lower: 'is-lower';
+$class-fast: 'is-fast';
+$class-very-lower: 'is-very-lower';
+$class-very-fast: 'is-very-fast';
+$class-dinamic: 'is-dinamic';
+//used on: tags
+$class-group: 'is-group';
+//used on: layout
+$class-double-sidebar: 'is-double-sidebar';
+$class-rtl: 'is-rtl';
+$class-dashboard: 'is-dashboard';
+$class-tiny-sidebar: 'is-tiny-sidebar';
+$class-small-sidebar: 'is-small-sidebar';
+$class-medium-sidebar: 'is-medium-sidebar';
+$class-large-sidebar: 'is-large-sidebar';
+//Classes for grid layout
+$class-center: 'is-center';
+$class-center-v: 'is-center-v';
+$class-center-h: 'is-center-h';
+$class-hidden: 'is-hidden';
+$class-visible-grid: 'is-visible';
+$class-separated: 'is-separated';
+$class-distributed: 'is-distributed';
+$class-block-grid: 'is-block';
+$class-half-grid: 'is-half';
+//Classes for text styles.
+$class-text-upper: 'is-text-upper';
+$class-text-lower: 'is-text-lower';
+$class-text-underline: 'is-text-underline';
+$class-text-bolder: 'is-text-bolder';
+$class-text-white: 'is-text-white';
+$class-text-primary: 'is-text-primary';
+$class-text-info: 'is-text-info';
+$class-text-success: 'is-text-success';
+$class-text-warning: 'is-text-warning';
+$class-text-danger: 'is-text-danger';
+$class-text-right: 'is-text-right';
+$class-text-justify: 'is-text-justify';
+$class-text-center: 'is-text-center';
+$class-full-center: 'is-full-center';
+//margin class name
+$class-margin: 'margin';
+$class-margin-top: 'margin-t';
+$class-margin-bottom: 'margin-b';
+$class-margin-left: 'margin-l';
+$class-margin-right: 'margin-r';
+$class-margin-vertical: 'margin-v';
+$class-margin-horizontal: 'margin-h';
+//padding class name
+$class-padding: 'padding';
+$class-padding-top: 'padding-t';
+$class-padding-bottom: 'padding-b';
+$class-padding-left: 'padding-l';
+$class-padding-right: 'padding-r';
+$class-padding-vertical: 'padding-v';
+$class-padding-horizontal: 'padding-h';
+//class name opacity
+$class-opacity: 'op';
+// class name color picker
+//color name picker ej: #{$class-color-picker}-primary = .color-primary
+$class-color-picker: 'color';
+// prefix for class darken
+// ej: .color-#{$class-darken-prefix}-1 = .color-darken-1
+$class-darken-prefix: 'darken';
+// prefix for class lighten
+// ej: .color-#{$class-lighten-prefix}-1 = .color-lighten-1
+$class-lighten-prefix: 'lighten';
+// **************************************************************************************
+// *************************************  Variables *************************************
+// **************************************************************************************
+//colores predefinidos
+$cloud: #FFFFFF !default;
+$dark: #444444 !default;
+$black: #000 !default;
+$light: hsla(0, 0, 96, 255) !default;
+$primary: hsla(202, 100, 56, 255) !default;
+$info: hsla(216, 71, 47, 255) !default;
+$success: hsla(141, 71, 47, 255) !default;
+$warning: hsla(47, 100, 61, 255) !default;
+$danger: hsla(341, 100, 50, 255) !default;
+//color link
+$color-link: $primary;
+$color-link-hover: $black;
+//breakpoints
+$mobile: '200px' !default;
+$touch: '480px' !default;
+$tablet: '768px' !default;
+$desktop: '1024px' !default;
+$widescreen: '1300px' !default;
+//breakpoints entre min y max width
+$only-touch: '767px' !default;
+$only-tablet: '1023px' !default;
+$only-desktop: '1299px' !default;
+//breakpoint names
+$bp-mobile: 'mobile';
+$bp-touch: 'touch';
+$bp-tablet: 'tablet';
+$bp-desktop: 'desktop';
+$bp-widescreen: 'widescreen';
+//breakpoint maps
+$breakpoint: ( $bp-mobile: '200px', $bp-touch: '480px', $bp-tablet: '768px', $bp-desktop: '1024px', $bp-widescreen: '1300px');
+$only-breakpoint: ( only-#{$bp-touch}: '767px', only-#{$bp-tablet}: '1023px', only-#{$bp-desktop}: '1299px', );
+// font family
+$family: sans-serif !default; // nombre de la fuente a importar
+$family-icons: 'FontAwesome' !default;
+$family-code: monospace !default;
+$font-space: 0.075rem !default;
+//color de texto por default
+$text-color: #555 !default;
+// variables para tamaño de texto
+$text-x-small: 0.7rem !default;
+$text-small: 0.8rem !default;
+$text-default: 16px !default;
+$text-medium: 1.3rem !default;
+$text-large: 1.6rem !default;
+$text-x-large: 2rem !default;
+$text-bold: bold !default;
+$text-upper: uppercase !default;
+$text-lower: lowercase !default;
+// rendering text
+$smooting-text: antialiased !default;
+$render-text: optimizeLegibility !default;
+// Tamaño de encabezados
+$h1-size: 2em !default;
+$h2-size: 1.8em !default;
+$h3-size: 1.6em !default;
+$h4-size: 1.3em !default;
+$h5-size: 1em !default;
+$h6-size: .7em !default;
+$heading-color: $black !default;
+// estilos compartidos
+$line-height-default: 1.5 !default; // line-height initial
+$share-padding: 0.5rem !default;
+$share-border-radius: 0.2rem !default;
+//maps
+//colores base
+$colores: ( dark: $dark, black: $black, cloud: $cloud, light: $light, primary: $primary, info: $info, success: $success, warning: $warning, danger: $danger);

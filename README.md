@@ -1,6 +1,7 @@
 # kimera
 ### A powerfull custom tags and flexbox based CSS framework
-
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/JorgeAntrax/kimera.svg)](http://isitmaintained.com/project/JorgeAntrax/kimera "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/JorgeAntrax/kimera.svg)](http://isitmaintained.com/project/JorgeAntrax/kimera "Percentage of issues still open")
 Installation
 ----
 
@@ -20,18 +21,18 @@ hosted at JsDelivr CDN:
 # CDN Github
 
 // development file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.1/css/kimera.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.4/css/kimera.css
 
 // distribution file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.1/css/kimera.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.4/css/kimera.min.css
 
 # CDN Node Package Manager
 
 // development file
-https://cdn.jsdelivr.net/npm/kimera@0.4.1/css/kimera.css
+https://cdn.jsdelivr.net/npm/kimera@0.4.4/css/kimera.css
 
 // distribution file
-https://cdn.jsdelivr.net/npm/kimera@0.4.1/css/kimera.min.css
+https://cdn.jsdelivr.net/npm/kimera@0.4.4/css/kimera.min.css
 
 Thank you for using kimera, we appreciate your wupport with a star so the project can still be growing.
 
@@ -72,18 +73,18 @@ hosteado en CDN JsDelivr:
 # CDN Github
 
 // archivo de desarrollo
-https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.1/css/kimera.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.4/css/kimera.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.1/css/kimera.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.4/css/kimera.min.css
 
 # CDN Node Package Manager
 
 // archivo de desarrollo
-https://cdn.jsdelivr.net/npm/kimera@0.4.1/css/kimera.css
+https://cdn.jsdelivr.net/npm/kimera@0.4.4/css/kimera.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/npm/kimera@0.4.1/css/kimera.min.css
+https://cdn.jsdelivr.net/npm/kimera@0.4.4/css/kimera.min.css
 
 Gracias por utilizar kimera, te agradecemos no apoyes con una estrellita
 para que el proyecto siga creciendo.
