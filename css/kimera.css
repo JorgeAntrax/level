@@ -3442,8 +3442,9 @@ social {
     align-content: flex-start; }
   social {
     margin: 0.5rem 0;
-    padding: 0.5rem 0;
-    border-top: 1px solid whitesmoke; }
+    padding: 0.5rem 0; }
+    social:not(first-child) {
+      border-top: 1px solid whitesmoke; }
   social media {
     max-width: 20%;
     margin-right: .5rem; }
