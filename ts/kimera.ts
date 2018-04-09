@@ -148,9 +148,9 @@ role initializes a elment type renage
 @param el: The parent element <range></range> selected
 */
 function initRange(el: Element) {
-    let input = el.querySelector('input'),
-        label = el.querySelector('label'),
-        position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
+    let input = el.querySelector('input');
+    let label = el.querySelector('label');
+    let position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
 
     label.style.left = `${((parseInt(input.value) * position) - 10)}px`;
     label.textContent = input.value;
@@ -382,8 +382,8 @@ function removeAttr(el: Element, attr: string) {
 // select all previous elements siblings
 /* @param element - type: DOM objet */
 function prevSiblings(target: Element): Element[] {
-    let siblings: Element[] = [],
-        n = target;
+    let siblings: Element[] = [];
+    let n = target;
     if (n !== null && n !== undefined && n+'' !== '') {
         while (n = n.previousElementSibling) {
             siblings.push(n);
@@ -412,8 +412,8 @@ function nextSiblings(target: Element): Element[] {
 // save all previous and next elements siblings in array objet
 /* @param element - type: DOM objet */
 function siblings(target: Element): Element[] {
-    let previus = prevSiblings(target) || [],
-        next = nextSiblings(target) || [];
+    let previus:Element[] = prevSiblings(target) || [];
+    let next:Element[] = nextSiblings(target) || [];
     return previus.concat(next);
 }
 
