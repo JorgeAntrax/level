@@ -2,6 +2,11 @@
 ### A powerfull custom tags and flexbox based CSS framework
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/JorgeAntrax/kimera.svg)](http://isitmaintained.com/project/JorgeAntrax/kimera "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/JorgeAntrax/kimera.svg)](http://isitmaintained.com/project/JorgeAntrax/kimera "Percentage of issues still open")
+
+For now it seems no to be working on windows.
+
+Bazel branch, please ignore the following.
+
 Installation
 ----
 
