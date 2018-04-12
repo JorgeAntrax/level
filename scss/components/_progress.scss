@@ -60,7 +60,7 @@ $preload-dimentions-large: rem(50px) !default;
     &[label='static'] #{$name-complete-module}::before,
     &[label='floating']:hover #{$name-complete-module}::before,
     &[label='static'] #{$name-complete-module}::after,
-    &[label='floating']:hover #{$name-complete-module}::after,
+    &[label='floating']:hover #{$name-complete-module}::after
     {
         display: flex;
         animation: fade-in .3s ease;
