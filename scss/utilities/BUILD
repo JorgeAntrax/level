@@ -1,10 +1,16 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@io_bazel_rules_sass//sass:sass.bzl", "sass_library")
+
 sass_library(
     name = "utilities",
     srcs = ["_all.scss"],
-    deps = ["helpers","colors","animations"]
+    deps = [
+        "animations",
+        "colors",
+        "helpers",
+        "//scss/base:partials",
+    ],
 )
 
 sass_library(
