@@ -5,6 +5,9 @@
 
 For now it seems no to be working on windows.
 
+Instalar paquetes:
+> sudo bazel run @nodejs//:npm install
+
 Bazel branch, please ignore the following.
 
 Installation
