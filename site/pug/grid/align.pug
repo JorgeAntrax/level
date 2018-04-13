@@ -1,0 +1,348 @@
+h1.title Distribucion flexible
+tags.is-group
+	tag.is-info Path
+	tag layout/_grid.scss
+p Algunas clases adicionales que te ayudarán con la distribución del contenido.
+divider
+p.bloque Esta sección es de utilidad para contenedores con la propiedad
+	code display: flex
+	span o
+	code inline-flex
+	span no es exclusiva del sistema de rejilla, recuerda que las propiedades de flexbox se invierten cuando la propiedad
+	code flex-direction: column
+	span se aplica a un contenedor.
+h4.subtitle Alineacion vertical
+p.bloque Kimera incluye 3 clases que te permiten alinear los contenedores verticalmente
+ul.default-browser
+	li: code .is-up
+	li: code .is-center-v
+	li: code .is-down
+p.bloque Añadiendo la clase
+	code .is-up
+row.bloque.is-mobile.is-up
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-up"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Añadiendo la clase
+	code .is-center-v
+row.bloque.is-mobile.is-center-v
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-center-v"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Añadiendo la clase
+	code .is-down
+row.bloque.is-mobile.is-down
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-down"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Alineación centrada
+p.bloque Añadiendo al elemento
+	code row
+	span la clase
+	code is-center
+	span , los contenedores
+	code column
+	span se centran de form vertical y horizontal.
+row.bloque.is-mobile.is-center
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-center"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Alineacion horizontal
+p.bloque Kimera incluye 3 clases que te permiten alinear los contenedores horizontalmente, es necesario definir un ancho para el contenedor
+	code column
+	span para que se apliquen estas distribuciones, con motivos demostrativos añadimos la siguiente linea de codigo css a los siguientes ejemplos:
+snippet
+	pre
+		tg flex:
+		span 0 1 auto
+		tg ;
+ul.default-browser
+	li: code .is-left
+	li: code .is-center-h
+	li: code .is-right
+p.bloque Añadiendo la clase
+	code .is-left
+row.bloque.is-mobile.is-left
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-left"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Añadiendo la clase
+	code .is-center-h
+row.bloque.is-mobile.is-center-h
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-center-h"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Añadiendo la clase
+	code .is-right
+row.bloque.is-mobile.is-right
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-right"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Espacio disponible
+p.bloque Kimera incluye 2 clases que te permiten distribuir el espacio disponible del contenedor
+	code row
+	span en sus contenedores
+	code column
+	span horizontalmente, estas dos clases funcionan también cuando el contenedor
+	code row
+	span tiene la propiedad
+	code flex-direction: column
+	span .
+ul.default-browser
+	li: code .is-separated
+	li: code .is-distributed
+p.bloque Añadiendo la clase
+	code .is-separated
+row.bloque.is-mobile.is-separated
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-separated"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Añadiendo la clase
+	code .is-distributed
+row.bloque.is-mobile.is-distributed
+	column C1
+	column C2
+	column C3
+snippet
+	pre
+		tg &ltrow
+		at class=
+		vat "is-distributed"
+		tg &gt
+		br
+		tg     &ltcolumn&gt
+		span C1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn&gt
+		span C3
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Alineación adaptativa
+p.bloque
+	b Kimera
+	span permite alternar la alineación de los contenedores dentro de
+	code row
+	span en diferentes resoluciones, añadiendo uno de los siguientes prefijos a las clases anteriormente mencionadas.
+ul.default-browser
+	li: code -touch
+	li: code -tablet
+	li: code -desktop
+	li: code -widescreen
+responsive.bloque.is-table
+	table.is-cell
+		thead
+			th Clase
+			th Ejemplo
+			th Descripción
+		tbody
+			tr
+				td
+					small.is-text-bolder is-up
+				td: code .is-up-mobile
+				td Alineación hacía arriba apartir de
+			tr
+				td
+					small.is-text-bolder is-center-v
+				td: code .is-center-v-touch
+				td Centrado vertical apartir de
+			tr
+				td
+					small.is-text-bolder is-down
+				td: code .is-down-tablet
+				td Alineación hacía abajo apartir de
+			tr
+				td
+					small.is-text-bolder is-left
+				td: code .is-left-desktop
+				td Alineación a la izquierda apartir de
+			tr
+				td
+					small.is-text-bolder is-center-h
+				td: code .is-center-h-widescreen
+				td Centrado horizontal apartir de
+			tr
+				td
+					small.is-text-bolder is-right
+				td: code is-right-mobile
+				td Alineación a la derecha apartir de
+			tr
+				td
+					small.is-text-bolder is-center
+				td: code .is-center-touch
+				td Centrado apartir de
+			tr
+				td
+					small.is-text-bolder is-separated
+				td: code .is-separated-tablet
+				td Separar contenedores apartir de
+			tr
+				td
+					small.is-text-bolder is-distributed
+				td: code .is-distributed-desktop
+				td Distribuir contenedores apartir de

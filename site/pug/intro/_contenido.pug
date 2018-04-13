@@ -1,0 +1,169 @@
+h1.title Contenido
+tags.is-group
+	tag.is-info Path
+	tag _helpers.scss
+tag.is-success Nuevo!
+p Kimera incluye algunas clases que te ayudarán en el proceso de construcción de tu website.
+divider
+h4.subtitle Añadiendo padding y margin
+p.bloque En algunas ocasiones necesitas añadir cierto espacio de separación en tu contenido o estructura, para estos casos
+	b kimera
+	span te proporciona algunas clases para añadir
+	b padding
+	span y
+	b margin
+	span de una manera muy sencilla.
+row.bloque
+	column
+		responsive.is-table
+			table.is-cell.is-narrow
+				thead
+					tr
+						th Clase
+						th prefijo
+						th valor
+						th Unidad
+						th Descripción
+						th Ejemplo
+				tbody
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span general de
+						td: code.is-text-info .padding-1
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -v-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span vertical de
+						td: code.is-text-info .margin-v-2
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -h-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span horizontal de
+						td: code.is-text-info .padding-h-3
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -t-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span top de
+						td: code.is-text-info .margin-t-1
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -b-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span bottom de
+						td: code.is-text-info .padding-b-2
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -l-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span left de
+						td: code.is-text-info .margin-l-3
+					tr
+						td
+							code .padding
+							span ,<br>
+							code .margin
+						td: code.color-light -r-
+						td
+							code.color-light 1, 2
+							small o
+							code.color-light 3
+						td: code.color-success rem
+						td.is-small
+							code.color-light padding
+							span o
+							code.color-light margin
+							span right de
+						td: code.is-text-info .padding-r-1
+h4.subtitle Añadiendo opacidad
+p.bloque Puede agregar opacidad a los contenedores utilizando las siguientes clases:
+row.bloque
+	column
+		responsive.is-table
+			table.is-cell.is-narrow
+				thead
+					tr
+						th Clase
+						th Prefijo
+						th Ejemplo
+						th Descripción
+						th muestra
+				tbody.is-small
+					-for(var i = 1; i < 10; i++)
+						tr
+							td: code .op-
+							td: code.color-light 0#{i}
+							td: code.is-text-info .op-0#{i}
+							td Añade una opacidad de
+								b 0.#{i}
+							<td class="op-0#{i}"> Este es un texto con opacidad de 0.#{i}</td>

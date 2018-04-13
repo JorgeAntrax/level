@@ -1,0 +1,459 @@
+h1.title Maquetación
+tags.is-group
+	tag.is-info Path
+	tag _layout.scss
+	tag.is-success Estable
+divider
+message.is-info
+	header Importante
+	content Te recomendamos visualizar esta sección en un ordenador para que puedas apreciar el resultado, por defecto en resoluciones menores a
+		code 768px
+		span todos los contenedores tienen el 100% de ancho.
+p.bloque La organización de las diferentes secciones de una web es trabajo duro, este novedoso sistema de
+	b  layout 
+	span te permitira crear estructuras que solo eran posibles mediante
+	tag.is-warning.is-text-bolder javascript
+	span .
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code layout
+		span Contenedor principal
+		ul.default-browser
+			li
+				code header
+				span Cabecera del layout.
+			li
+				code navbar
+				span Barra de navegación horizontal.
+			li
+				code sidebar
+				span Menu vertical.
+			li
+				code main
+				span Contenido principal del layout.
+			li
+				code footer
+				span Pie del layout.
+h4.subtitle Plantilla estandar
+row.bloque
+	column
+		layout.bloque
+			header.color-primary Header
+			navbar.color-warning Navbar
+			sidebar.color-dark-lighten-4 Side menu
+			main.color-info-lighten-4 Content
+			footer.color-danger Footer
+		snippet
+			pre
+				cm // Layout basico
+				tg &ltlayout&gt
+				br
+				tg     &ltheader
+				at class=
+				vat "color-primary"
+				tg &gt
+				span @content
+				tg &lt/header&gt
+				br
+				tg     &ltnavbar
+				at class=
+				vat "color-warning"
+				tg &gt
+				span @content
+				tg &lt/navbar&gt
+				br
+				tg     &ltsidebar
+				at class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span @content
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at class=
+				vat "color-info-lighten-4"
+				tg &gt
+				span @content
+				tg &lt/main&gt
+				br
+				tg     &ltfooter
+				at class=
+				vat "color-danger"
+				tg &gt
+				span @content
+				tg &lt/footer&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Personalizando el layout
+p.bloque Cualquier contenedor dentro de las etiquetas
+	code layout
+	span puede ser omitido, logrando así, una versátilidad para la creación de diferentes
+	b plantillas
+	span .
+h5.subtitle Plantilla estilo dashboard
+p Añadiendo clase 
+	code .is-dashboard
+	span .
+row.bloque
+	column
+		layout.is-dashboard.bloque
+			sidebar.color-dark-lighten-4 Sidebar
+			main.color-info-lighten-4 Main
+		snippet
+			pre
+				tg &ltlayout
+				at  class=
+				vat "is-dashboard"
+				tg &gt
+				br
+				tg     &ltsidebar
+				at  class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span @Content
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at  class=
+				vat "color-info-lighten-4"
+				tg &gt
+				span @content
+				tg &lt/main&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Plantilla dashboard derecho
+p Añadiendo la clase
+	code .is-rtl
+	span a un
+	code layout
+	span con la clase
+	code is-dashboard
+	span .
+row.bloque
+	column
+		layout.bloque.is-dashboard.is-rtl
+			sidebar.color-dark-lighten-4 Sidebar
+			main.color-info-lighten-4 Main
+		snippet
+			pre
+				tg &ltlayout
+				at class=
+				vat "is-dashboard is-rtl"
+				tg &gt
+				br
+				tg     &ltsidebar
+				at  class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span @Content
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at  class=
+				vat "color-info-lighten-4"
+				tg &gt
+				span @content
+				tg &lt/main&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Navbar + dashboard
+p.bloque añadiendo el módulo
+	code navbar
+	span dentro del contenedor
+	code layout
+	span .
+row.bloque
+	column
+		layout.bloque
+			navbar.color-warning Navbar
+			sidebar.color-dark-lighten-4 Sidebar
+			main.color-info-lighten-4 Content
+		snippet
+			pre
+				tg &ltlayout
+				at class=
+				vat "is-dashboard"
+				tg &gt
+				br
+				tg     &ltnavbar
+				at class=
+				vat "color-warning"
+				tg &gt
+				span Navbar
+				tg &lt/navbar&gt
+				br
+				tg     &ltsidebar
+				at class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span Sidebar
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at  class=
+				vat "color-info-lighten-4"
+				tg &gt
+				span Content
+				tg &lt/main&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Sidebar doble
+p.bloque Añadiendo la clase
+	code is-double-sidebar
+	span al contenedor
+	code layout
+	span , y sus respectivos elementos
+	code sidebar
+	span .
+row.bloque
+	column
+		layout.is-double-sidebar
+			navbar.color-warning Navbar
+			sidebar.color-dark-lighten-4 Sidebar A
+			main.color-info-lighten-4 Content
+			sidebar.color-dark-lighten-4 Sidebar B
+		snippet
+			pre
+				tg &ltlayout
+				at class=
+				vat "is-double-sidebar"
+				tg &gt
+				br
+				tg     &ltnavbar
+				at class=
+				vat "color-warning"
+				tg &gt
+				span Navbar
+				tg &lt/navbar&gt
+				br
+				tg     &ltsidebar
+				at class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span Sidebar A
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at  class=
+				vat "color-info-lighten-4"
+				tg &gt
+				span Content
+				tg &lt/main&gt
+				br
+				tg     &ltsidebar
+				at class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span Sidebar B
+				tg &lt/sidebar&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Navbar anidado
+p Los
+	code layout
+	span y sus contenedores soportan perfectamente la anidación de forma independiente.
+row.bloque
+	column
+		layout.bloque
+			sidebar.color-dark-lighten-4 Sidebar
+			main.color-info-lighten-4.no-padding
+				navbar.color-warning Navbar anidado
+		snippet
+			pre
+				tg &ltlayout
+				at class=
+				vat "is-dashboard"
+				tg &gt
+				br
+				tg     &ltsidebar
+				at class=
+				vat "color-dark-lighten-4"
+				tg &gt
+				span Sidebar
+				tg &lt/sidebar&gt
+				br
+				tg     &ltmain
+				at  class=
+				vat "color-info-lighten-4"
+				tg &gt
+				br
+				tg         &ltnavbar
+				at class=
+				vat "color-warning"
+				tg &gt
+				span Navbar anidado
+				tg &lt/navbar&gt
+				br
+				tg     &lt/main&gt
+				br
+				tg &lt/layout&gt
+h4.subtitle Ajustando el ancho del sidebar
+p.bloque El componente
+	code layout
+	span esta construido utilizando
+	b.is-text-info Grid CSS3
+	span .
+p.bloque Por defecto el ancho del sidebar es de un
+	code 20%
+	span y el contenedor
+	code main
+	span tiene el espacio restante, kimera incluye 3 clases adicionales para modificar el tamaño del sidebar:
+ul.default-browser
+	li
+		code is-small-sidebar
+		small.is-text-bolder asigna un ancho del 15%.
+	li
+		code is-medium-sidebar
+		small.is-text-bolder asigna un ancho del 25%
+	li
+		code is-large-sidebar
+		small.is-text-bolder asigna un ancho del 30%
+message.is-info.is-small
+	content Estas clases no tienen soporte para el elemento
+		code layout
+		span que tenga asignada la clase
+		code is-double-sidebar
+		span .
+p.bloque puedes modificar estos valores sobreescribiendo el estilo por defecto de la siguiente forma:
+snippet.bloque
+	pre
+		tg .mi-layout
+		at {
+		br
+		tg     grid-template-columns:
+		vat 20% auto
+		tg ;
+		span /*los porcentajes corresponden al ancho del sidebar, el contenedor main toma todo el espacio restante*/
+		br
+		at }
+p.bloque Puedes modificar el layout con la clase
+	code is-double-sidebar
+	span  de la siguiente forma:
+snippet.bloque
+	pre
+		tg .mi-layout
+		at {
+		br
+		tg     grid-template-columns:
+		vat <danger>20%</danger> auto <danger>20%</danger>
+		tg ;
+		span /*los porcentajes en rojo corresponden al ancho de los sidebar*/
+		br
+		at }
+row.bloque
+	column
+		row.is-mobile.demo-layout-size
+			column.mobile-3.touch-3.color-dark-lighten-4
+				b Small
+			column.mobile-17.touch-17.color-info-lighten-4
+				b content
+snippet.bloque
+	pre
+		tg &ltlayout
+		at class=
+		vat "is-dashboard is-small-sidebar"
+		tg &gt
+		br
+		tg     &ltsidebar
+		at  class=
+		vat "color-dark-lighten-4"
+		tg &gt
+		span Small
+		tg &lt/sidebar&gt
+		br
+		tg     &ltmain
+		at  class=
+		vat "color-info-lighten-4"
+		tg &gt
+		span @content
+		tg &lt/main&gt
+		br
+		tg &lt/layout&gt
+row.bloque
+	column
+		row.is-mobile.demo-layout-size
+			column.mobile-4.touch-4.color-dark-lighten-4
+				b Sidebar
+			column.mobile-16.touch-16.color-info-lighten-4
+				b content
+snippet.bloque
+	pre
+		tg &ltlayout
+		at class=
+		vat "is-dashboard"
+		tg &gt
+		br
+		tg     &ltsidebar
+		at  class=
+		vat "color-dark-lighten-4"
+		tg &gt
+		span Default
+		tg &lt/sidebar&gt
+		br
+		tg     &ltmain
+		at  class=
+		vat "color-info-lighten-4"
+		tg &gt
+		span @content
+		tg &lt/main&gt
+		br
+		tg &lt/layout&gt
+row.bloque
+	column
+		row.is-mobile.demo-layout-size
+			column.mobile-5.touch-5.color-dark-lighten-4
+				b Medium
+			column.mobile-15.touch-15.color-info-lighten-4
+				b content
+snippet.bloque
+	pre
+		tg &ltlayout
+		at class=
+		vat "is-dashboard is-medium-sidebar"
+		tg &gt
+		br
+		tg     &ltsidebar
+		at  class=
+		vat "color-dark-lighten-4"
+		tg &gt
+		span Medium
+		tg &lt/sidebar&gt
+		br
+		tg     &ltmain
+		at  class=
+		vat "color-info-lighten-4"
+		tg &gt
+		span @content
+		tg &lt/main&gt
+		br
+		tg &lt/layout&gt
+row.bloque
+	column
+		row.is-mobile.demo-layout-size
+			column.mobile-6.touch-6.color-dark-lighten-4
+				b Large
+			column.mobile-14.touch-14.color-info-lighten-4
+				b content
+snippet.bloque
+	pre
+		tg &ltlayout
+		at class=
+		vat "is-dashboard is-large-sidebar"
+		tg &gt
+		br
+		tg     &ltsidebar
+		at  class=
+		vat "color-dark-lighten-4"
+		tg &gt
+		span Large
+		tg &lt/sidebar&gt
+		br
+		tg     &ltmain
+		at  class=
+		vat "color-info-lighten-4"
+		tg &gt
+		span @content
+		tg &lt/main&gt
+		br
+		tg &lt/layout&gt

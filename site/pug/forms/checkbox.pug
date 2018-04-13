@@ -1,0 +1,314 @@
+h1.title Checkbox
+tags.is-group
+	tag.is-info Path
+	tag _check-radio.scss
+	tag.is-success Actualizado
+tags.is-group
+	tag.is-info 0.4.0
+	tag.is-warning.is-text-bolder JQuery 1.7
+divider
+p.bloque Hemos actualizado este componente y
+	b simplificado
+	span su sintaxis, mediante un pequeño
+	code script
+	span de
+	b jquery
+	span .
+h4.subtitle Proceso de implementación
+p.bloque La manera de construir este tipo de
+	b componente
+	span era añadir los siguientes elementos
+	code html5
+	span .
+ol.default-browser
+	li Elemento de tipo
+		code input checkbox
+		span con su respectivo
+		code id
+		span .
+	li Elemento
+		code label
+		span enlazado mediante el atributo
+		code for
+		span .
+p.bloque Apartir de la versión
+	code.color-success 0.4.0
+	span solamente tienes que añadir nuestro tag personalizado
+	code checkbox
+	span .
+h4.subtitle Que ha cambiado
+p.bloque Solamente necesitas una linea de código
+	code html5
+	span ,
+	b jquery
+	span hace el resto.
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-warning 0.3.8
+		.margin-v-1
+			checkbox(text="Versión sin jquery")#checkbox-old
+		snippet
+			pre
+				tg &ltcheckbox&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "checkbox"
+				at id=
+				vat "checkbox-old"
+				tg /&gt
+				br
+				tg   &ltlabel
+				at for=
+				vat "checkbox-old"
+				tg &gt
+				span Versión sin jquery
+				tg &lt/label&gt
+				br
+				tg &ltcheckbox&gt
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-success 0.4.0
+		.margin-v-1
+			checkbox(text="Versión con jquery")#checkbox-new
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "checkbox-new"
+				at text=
+				vat "Versión con jquery"
+				tg &gt&ltcheckbox&gt
+h4.subtitle Implementación sin Jquery
+p.bloque si decides no utilizar
+	b jquery
+	span con kimera, puedes hacer la implementación de la siguiente manera y obtendrás el mismo resultado.
+snippet
+	pre
+		tg &ltcheckbox&gt
+		br
+		tg   &ltinput
+		at type=
+		vat "checkbox"
+		at id=
+		vat "checkbox-old"
+		tg /&gt
+		br
+		tg   &ltlabel
+		at for=
+		vat "checkbox-old"
+		tg &gt
+		span Versión sin jquery
+		tg &lt/label&gt
+		br
+		tg &ltcheckbox&gt
+row.bloque
+	column.tablet-is-half
+		message.is-primary.is-small
+			header Importante
+			content
+				b JQuery
+				span se encarga de generar dinamicamente el elemento
+				code input
+				span y
+				code label
+				span enlazados por su id, si tomas la desición de implementar otro
+				b framework JS
+				span utiliza el método de la Versión sin jquery.
+	column.tablet-is-half
+		message.is-info.is-small
+			header Importante
+			content Los atributos definidos en el elemento
+				code checkbox
+				span son pasados al elemento
+				code input checkbox
+				span que se generá dinámicamente.
+h4.subtitle Uso de atributos
+p.bloque
+	span El elemento
+	code checkbox
+	span soporta los atributos más comúnes, utilizados por un elemento de tipo
+	code checkbox
+	span .
+ol.default-browser
+	li: code id
+	li: code name
+	li: code form
+	li: code required
+	li: code checked
+	li
+		code text
+		small (atributo personalizado).
+p Observa el siguiente ejemplo
+row.bloque
+	column.tablet-is-half
+		p Tú código html
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at checked
+				at  required
+				tg &gt&ltcheckbox&gt
+	column.tablet-is-half
+		p Código en el inspector
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "checkbox"
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at checked
+				at  required
+				tg /&gt
+p.bloque No hay que expecificar a detalle que hace cada atributo, pues su nombre lo dice todo, la unica excepción es el atributo personalizado
+	code text
+	span el cúal sirve para especificar el texto del elemento
+	code label
+	span que es generado de forma dinámica.
+row.bloque
+	column.tablet-is-half
+		checkbox(text="Texto del atributo text")#check-text
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "check-text"
+				at.is-text-underline text=
+				vat "Texto del atributo text"
+				tg &gt&lt/checkbox&gt
+h4.subtitle Estilos de checkbox
+row.bloque
+	column.tablet-is-half
+		checkbox(text="Checkbox básico")#c1
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "c1"
+				at text=
+				vat "Checkbox básico"
+				tg &gt&lt/checkbox&gt
+row.bloque
+	column.tablet-is-half
+		checkbox(text="Checkbox con la clase <code>.is-check</code>")#c2.is-check
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "c2"
+				at text=
+				vat "Checkbox con la clase &ltcode&gt.is-check&lt/code&gt"
+				at class=
+				vat "is-check"
+				tg &gt&lt/checkbox&gt
+row.bloque
+	column.tablet-is-half
+		checkbox(text="Checkbox con la clase <code>.is-filled</code>")#b1.is-filled
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "b1"
+				at text=
+				vat "Checkbox con la clase &ltcode&gt.is-filled&lt/code&gt"
+				at class=
+				vat "is-filled"
+				tg &gt&lt/checkbox&gt
+message.is-primary.is-small
+	header Tip:
+	content Como pudiste observar en los ejemplos anteriores, se ha introducido la etiqueta
+		code &ltcode&gt
+		span dentro del atributo text, por lo que puedes pasar texto con formato simple.
+h4.subtitle Estado checked
+p.bloque añadiendo el atributo
+	code checked
+	span al elemento
+	code checkbox.
+row.bloque
+	column.tablet-is-half
+		checkbox(checked)#c3
+		checkbox(checked)#c4.is-check
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at checked id=
+				vat "c3"
+				tg &gt&lt/checkbox&gt
+				br
+				tg &ltcheckbox
+				at checked id=
+				vat "c4"
+				tg &gt&lt/checkbox&gt
+h4.title.subtitle Colores
+p Al contenedor padre
+	code checkbox
+	span se le añade una de las siguientes clases de color:
+ul.default-browser
+	li: code is-primary
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		checkbox#e1.is-primary
+		checkbox#e2.is-info
+		checkbox#e3.is-success
+		checkbox#e4.is-warning
+		checkbox#e5.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcheckbox
+				at id=
+				vat "e1"
+				at class=
+				vat "is-primary"
+				tg &gt&lt/checkbox&gt
+				br
+				tg &ltcheckbox
+				at id=
+				vat "e2"
+				at class=
+				vat "is-info"
+				tg &gt&lt/checkbox&gt
+				br
+				tg &ltcheckbox
+				at id=
+				vat "e3"
+				at class=
+				vat "is-success"
+				tg &gt&lt/checkbox&gt
+				br
+				tg &ltcheckbox
+				at id=
+				vat "e4"
+				at class=
+				vat "is-warning"
+				tg &gt&lt/checkbox&gt
+				br
+				tg &ltcheckbox
+				at id=
+				vat "e5"
+				at class=
+				vat "is-danger"
+				tg &gt&lt/checkbox&gt

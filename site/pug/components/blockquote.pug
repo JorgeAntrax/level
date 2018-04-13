@@ -1,0 +1,370 @@
+h1.title Blockquotes
+tags.is-group
+	tag.is-info Path
+	tag _blockquote.scss
+	tag.is-success Colores
+p Pequeño componente
+	b flexible
+	span para realizar citas textuales, bloques de comentarios, etc.
+divider
+h4.subtitle Estructura
+p.bloque Utilizando la etiqueta nativa
+	code &ltblockquote&gt
+	span .
+row.bloque
+	column.tablet-is-half
+		blockquote
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltblockquote&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+h4.subtitle Añadiendo iconos
+p El elemento
+	code blockquote
+	span , posee las siguientes clases personalizadas:
+ul.default-browser
+	li: code .is-icon-left
+	li: code .is-icon-right
+p.bloque Dichas clases posicionan el icono que este definido dentro del contenedor.
+row.bloque
+	column.tablet-is-half
+		medium Icono a la Izquierda.
+		blockquote.is-icon-left
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-quote-left"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+row.bloque
+	column.tablet-is-half
+		medium Icono a la Derecha.
+		blockquote.is-icon-right
+			icon
+				i.fa.fa-quote-right
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltblockquote
+				at class
+				vat "is-icon-right"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-quote-right"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+h4.subtitle Citas y direcciones
+p.bloque Haciendo uso de las etiquetas html5
+	code cite
+	span y
+	code address
+row.bloque
+	column.tablet-is-half
+		blockquote.is-icon-left
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+			right
+				cite (John Smith, 2017)
+				address , Ciudad de méxico.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-quote-left"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg   &ltright&gt
+				br
+				tg     &ltcite&gt
+				span (John Smith, 2017)
+				tg &lt/cite&gt
+				br
+				tg     &ltaddress&gt
+				span , Ciudad de méxico.
+				tg &lt/address&gt
+				br
+				tg   &lt/right&gt
+				br
+				tg &lt/blockquote&gt
+h4.subtitle Colores
+p Añadiendo al elemento
+	code blockquote
+	span una de las siguientes clases de color:
+ul.default-browser
+	li: code .is-dark
+	li: code .is-primary
+	li: code .is-info
+	li: code .is-success
+	li: code .is-warning
+	li: code .is-danger
+row.bloque
+	column.tablet-is-half
+		blockquote.is-icon-left.is-dark
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+		blockquote.is-icon-left.is-primary
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+		blockquote.is-icon-left.is-info
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+		blockquote.is-icon-left.is-success
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+		blockquote.is-icon-left.is-warning
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+		blockquote.is-icon-left.is-danger
+			icon
+				i.fa.fa-quote-left
+			p Lorem ipsum dolor sit amet, 
+				underline consectetur adipisicing
+				span  elit, Tenetur saepe.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-dark"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+				br
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-primary"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+				br
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-info"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+				br
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-success"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+				br
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-warning"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt
+				br
+				tg &ltblockquote
+				at class=
+				vat "is-icon-left is-danger"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltp&gt
+				br
+				span     Lorem ipsum dolor sit amet,
+				br 
+				tg     &ltunderline&gt
+				span consectetur adipisicing
+				tg &lt/underline&gt
+				br
+				span     elit, Tenetur saepe.
+				br
+				tg   &lt/p&gt
+				br
+				tg &lt/blockquote&gt

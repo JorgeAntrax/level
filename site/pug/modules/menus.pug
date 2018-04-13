@@ -1,0 +1,674 @@
+h1.title Menu vertical
+tags.is-group
+	tag.is-info Path
+	tag _menus.scss
+	tag.is-danger Estilos visuales
+divider
+p Módulo para generar menus verticales, por defecto no se incluyen estilos visuales para este modulo, solamente es una estructura
+	code html
+	span .
+h4.subtitle Estructura
+ul.default-browser
+	li Contenedor
+		code menu
+	li Contenedor que separa el menu
+		code content
+		ul.default-browser
+			li Items del menu
+				code menu-item
+			li listas del menu
+				code menu-list
+	li Contenedor
+		code footer
+		ul.default-browser
+			li Items del footer
+				code item
+row.bloque
+	column.tablet-is-half
+		menu.color-light
+			content
+				menu-item.padding-1.is-separated.is-disabled
+					menu-item.is-paddingless.is-disabled
+						responsive.is-square-48
+							img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="Autor de kimera").is-rounded
+							icon.is-text-success#conectado
+								i.fa.fa-circle
+						section.padding-h-1
+							justify.is-text-bolder @KimeraCSS
+							tiny: i Editar perfil
+					icon
+						i.fa.fa-angle-right
+				divider.is-marginless
+				menu-item Inicio
+				menu-item Proyectos
+				menu-item Servicios
+				menu-item Notificaciones
+				menu-item Configuración
+			footer
+				menu-item.is-label
+					small &copy Kimera 2018
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-separated"
+				tg &gt
+				br
+				tg       &ltmenu-item&gt
+				br
+				tg         &ltresponsive
+				at class=
+				vat "is-square-48"
+				tg &gt
+				br
+				tg           &ltimg
+				at class=
+				vat "is-rounded"
+				at src=
+				vat "url"
+				tg &gt
+				br
+				tg           &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lt/responsive&gt
+				br
+				tg         &ltsection&gt
+				br
+				tg           &ltjustify&gt
+				span @KimeraCSS
+				tg &ltjustify&gt
+				br
+				tg           &lttiny&gt
+				span Editar perfil
+				tg &lttiny&gt
+				br
+				tg         &lt/section&gt
+				br
+				tg       &lt/menu-item&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Inicio
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Proyectos
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Servicios
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Notificaciones
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Configuración
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltmenu-item&gt
+				span &copy Kimera 2018 
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/menu&gt
+h4.subtitle Añadiendo etiquetas
+p Mediante la clase
+	code .is-label
+	span le indicamos al elemento
+	code menu-item
+	span que se trata de una etiqueta.
+row.bloque
+	column.tablet-is-half
+		menu.color-light
+			content
+				menu-item.padding-1.is-separated.is-disabled
+					menu-item.is-paddingless.is-disabled
+						responsive.is-square-48
+							img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="Autor de kimera").is-rounded
+							icon.is-text-success#conectado
+								i.fa.fa-circle
+						section.padding-h-1
+							justify.is-text-bolder @KimeraCSS
+							tiny: i Editar perfil
+					icon
+						i.fa.fa-angle-right
+				divider.is-marginless
+				menu-item.is-label General
+				menu-item Inicio
+				menu-item Proyectos
+				menu-item Servicios
+				menu-item.is-label Otros
+				menu-item Notificaciones
+				menu-item Configuración
+			footer
+				menu-item.is-label
+					small &copy Kimera 2018
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-separated"
+				tg &gt
+				br
+				tg       &ltmenu-item&gt
+				br
+				tg         &ltresponsive
+				at class=
+				vat "is-square-48"
+				tg &gt
+				br
+				tg           &ltimg
+				at class=
+				vat "is-rounded"
+				at src=
+				vat "url"
+				tg &gt
+				br
+				tg           &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lt/responsive&gt
+				br
+				tg         &ltsection&gt
+				br
+				tg           &ltjustify&gt
+				span @KimeraCSS
+				tg &ltjustify&gt
+				br
+				tg           &lttiny&gt
+				span Editar perfil
+				tg &lttiny&gt
+				br
+				tg         &lt/section&gt
+				br
+				tg       &lt/menu-item&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/menu-item&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span general
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Inicio
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Proyectos
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Servicios
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span otros
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Notificaciones
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Configuración
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltmenu-item&gt
+				span &copy Kimera 2018 
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/menu&gt
+h4.subtitle Añadiendo listas
+p se añade el elemento personalizado
+	code menu-list
+row.bloque
+	column.tablet-is-half
+		menu.color-light
+			content
+				menu-item.padding-1.is-separated.is-disabled
+					menu-item.is-paddingless.is-disabled
+						responsive.is-square-48
+							img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="Autor de kimera").is-rounded
+							icon.is-text-success#conectado
+								i.fa.fa-circle
+						section.padding-h-1
+							justify.is-text-bolder @KimeraCSS
+							tiny: i Editar perfil
+					icon
+						i.fa.fa-angle-right
+				divider.is-marginless
+				menu-item.is-label General
+				menu-item Inicio
+				menu-item Proyectos
+				menu-item Servicios
+				menu-list
+					menu-item Freelance
+					menu-item Diseño
+				menu-item.is-label Otros
+				menu-item Notificaciones
+				menu-item Configuración
+			footer
+				menu-item.is-label
+					small &copy Kimera 2018
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-separated"
+				tg &gt
+				br
+				tg       &ltmenu-item&gt
+				br
+				tg         &ltresponsive
+				at class=
+				vat "is-square-48"
+				tg &gt
+				br
+				tg           &ltimg
+				at class=
+				vat "is-rounded"
+				at src=
+				vat "url"
+				tg &gt
+				br
+				tg           &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lt/responsive&gt
+				br
+				tg         &ltsection&gt
+				br
+				tg           &ltjustify&gt
+				span @KimeraCSS
+				tg &ltjustify&gt
+				br
+				tg           &lttiny&gt
+				span Editar perfil
+				tg &lttiny&gt
+				br
+				tg         &lt/section&gt
+				br
+				tg       &lt/menu-item&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/menu-item&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span general
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Inicio
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Proyectos
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Servicios
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-list&gt
+				br
+				tg       &ltmenu-item&gt
+				span Freelance
+				tg &lt/menu-item&gt
+				br
+				tg       &ltmenu-item&gt
+				span Diseño
+				tg &lt/menu-item&gt
+				br
+				tg     &lt/menu-list&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span otros
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Notificaciones
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Configuración
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltmenu-item&gt
+				span &copy Kimera 2018 
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/menu&gt
+h4.subtitle Item activo y separadores
+p La clase
+	code .is-active
+	span se añade al elemento
+	code menu-item
+	span para indicar que ese elemento esta seleccionado.
+p Para añadir separadores simplemente añadir la etiqueta personalizada
+	code divider
+	span .
+row.bloque
+	column.tablet-is-half
+		menu.color-light#m2
+			content
+				menu-item.padding-1.is-separated.is-disabled
+					menu-item.is-paddingless.is-disabled
+						responsive.is-square-48
+							img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="Autor de kimera").is-rounded
+							icon.is-text-success#conectado
+								i.fa.fa-circle
+						section.padding-h-1
+							justify.is-text-bolder @KimeraCSS
+							tiny: i Editar perfil
+					icon
+						i.fa.fa-angle-right
+				divider.is-marginless
+				menu-item.is-label General
+				menu-item Inicio
+				menu-item Proyectos
+				menu-item.is-active Servicios
+				list
+					menu-item Freelance
+					menu-item Diseño
+				menu-item.is-label Otros
+				divider
+				menu-item Notificaciones
+				menu-item Configuración
+			footer
+				menu-item.is-label
+					small &copy Kimera 2018
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-separated"
+				tg &gt
+				br
+				tg       &ltmenu-item&gt
+				br
+				tg         &ltresponsive
+				at class=
+				vat "is-square-48"
+				tg &gt
+				br
+				tg           &ltimg
+				at class=
+				vat "is-rounded"
+				at src=
+				vat "url"
+				tg &gt
+				br
+				tg           &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lt/responsive&gt
+				br
+				tg         &ltsection&gt
+				br
+				tg           &ltjustify&gt
+				span @KimeraCSS
+				tg &ltjustify&gt
+				br
+				tg           &lttiny&gt
+				span Editar perfil
+				tg &lttiny&gt
+				br
+				tg         &lt/section&gt
+				br
+				tg       &lt/menu-item&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/menu-item&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span general
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Inicio
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Proyectos
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-active"
+				tg &gt
+				span Servicios
+				tg &lt/menu-item&gt
+				br
+				tg     &ltlist&gt
+				br
+				tg       &ltmenu-item&gt
+				span Freelance
+				tg &lt/menu-item&gt
+				br
+				tg       &ltmenu-item&gt
+				span Diseño
+				tg &lt/menu-item&gt
+				br
+				tg     &lt/list&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-label"
+				tg &gt
+				span otros
+				tg &lt/menu-item&gt
+				br
+				tg     &ltdivider&gt&lt/divider&gt
+				br
+				tg     &ltmenu-item&gt
+				span Notificaciones
+				tg &lt/menu-item&gt
+				br
+				tg     &ltmenu-item&gt
+				span Configuración
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltmenu-item&gt
+				span &copy Kimera 2018 
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/menu&gt
+h4.subtitle Distribución de contenido
+p.bloque Kimera incluye un conjunto de clases aplicables a los contenedores
+	code menu-item
+	span que te ayudarán a distribuir el contenido.
+ul.default-browser
+	li
+		code .is-center
+		span Centrar el contenido.
+	li
+		code .is-right
+		span Alinear contenido a la derecha.
+	li
+		code .is-separated
+		span Aplica la propiedad
+		code justify-content: space-between
+	li
+		code .is-distributed
+		span Aplica la propiedad
+		code justify-content: space-around
+row.bloque
+	column.tablet-is-half
+		menu.color-light.reset
+			content
+				menu-item.is-center
+					icon
+						i.fa.fa-home
+					span Inicio
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-center"
+				tg &gt
+				span @Content
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/menu&gt
+row.bloque
+	column.tablet-is-half
+		menu.color-light.reset
+			content
+				menu-item.is-right
+					icon
+						i.fa.fa-home
+					span Inicio
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-right"
+				tg &gt
+				span @Content
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/menu&gt
+row.bloque
+	column.tablet-is-half
+		menu.color-light.reset
+			content
+				menu-item.is-separated
+					icon
+						i.fa.fa-home
+					span Inicio
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-separated"
+				tg &gt
+				span @Content
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/menu&gt
+row.bloque
+	column.tablet-is-half
+		menu.color-light.reset
+			content
+				menu-item.is-distributed
+					icon
+						i.fa.fa-home
+					span Inicio
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmenu&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltmenu-item
+				at class=
+				vat "is-distributed"
+				tg &gt
+				span @Content
+				tg &lt/menu-item&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/menu&gt

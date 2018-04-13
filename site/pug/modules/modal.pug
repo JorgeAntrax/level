@@ -1,0 +1,381 @@
+h1.title Modal
+tags.is-group
+	tag.is-info Path
+	tag _modal.scss
+	tag.is-success Actualizado
+p Un pequeño
+	b módulo
+	span para crear ventanas
+	b Pop-Up
+	span .
+divider
+p.bloque Este módulo es una simple
+	b estructura flexible
+	span sin más estilos que un contenedor flotante con sombra y un fondo negro, puedes crear lo que tu quieras dentro del contenedor
+	code content
+	span el limite lo pones tú.
+h4.subtitle Estructura
+p La estructura de este pequeño
+	b módulo
+	span es muy simple.
+row.bloque
+	column.tablet-is-half
+		ul.default-browser
+			li Elemento con el atributo
+				code modal
+				span que recibe como valor el
+				code id
+				span de modal.
+			li Contenedor
+				code modal
+				span con un
+				b id
+				span .
+				ul.default-browser
+					li
+						code background
+						span con el atributo
+						code modal
+						span el cual recibe como valor el
+						code id
+						span del modal.
+					li Contenido de la ventana modal
+						code content
+						span .
+						ul.default-browser
+							li
+								code header
+								span Barra de titulo de la ventana modal (opcional).
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltelement
+				at modal=
+				vat(tooltip="Id de la ventana modal").is-rounded.is-bottom "$id"
+				tg &gt&lt/elemet&gt
+				br
+				tg &ltmodal
+				at id=
+				vat "$id"
+				tg &gt
+				br
+				tg   &ltbackground
+				at modal=
+				vat(tooltip="Id de la ventana modal").is-rounded.is-bottom "$id"
+				tg &gt&lt/background&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltheader&gt&lt/header&gt
+				br
+				tg     &ltsection&gt&lt/section&gt
+				br
+				tg     &ltfooter&gt&lt/footer&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/modal&gt
+item
+	h4.subtitle Animación de entrada
+	tag.is-success.is-rounded Nuevo!
+p.bloque Ahora puedes controlar de forma individual
+	b la animación
+	span con la cúal se muestra el
+	code modal
+	span , añadiendo una de las siguientes clases:
+ul.default-browser
+	li: code .is-zoom-in
+	li: code .is-slide-up
+	li: code .is-slide-down
+message.is-primary.is-small
+	header Nota:
+	content La animación es controlada mediante
+		b jquery
+		span añadiendo su clase asociada.
+row.bloque
+	column.tablet-is-half
+		button(modal="#md-azom") Animación de zoom
+		modal#md-azom.is-zoom-in
+			background(modal="#md-azom")
+			content.padding-1(style="max-width: 400px")
+				h3 Animación de zoom
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmodal
+				at class=
+				vat "is-zoom-in"
+				tg &gt
+				span •••
+				tg &lt/modal&gt
+row.bloque
+	column.tablet-is-half
+		button(modal="#md-slup") Animación slide up
+		modal#md-slup.is-slide-up
+			background(modal="#md-slup")
+			content.padding-1(style="max-width: 400px")
+				h3 Animación deslizar hacía arriba
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmodal
+				at class=
+				vat "is-slide-up"
+				tg &gt
+				span •••
+				tg &lt/modal&gt
+row.bloque
+	column.tablet-is-half
+		button(modal="#md-sldon") Animación slide down
+		modal#md-sldon.is-slide-down
+			background(modal="#md-sldon")
+			content.padding-1(style="max-width: 400px")
+				h3 Animación deslizar hacía abajo
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmodal
+				at class=
+				vat "is-slide-down"
+				tg &gt
+				span •••
+				tg &lt/modal&gt
+h4.subtitle Modal toggle
+p.bloque Puedes añadir multiples elementos con el atributo
+	code modal
+	span haciendo una correcta referencia al
+	code id
+	span del elemento
+	code modal
+	span .
+row.bloque
+	column.tablet-is-half
+		button(modal="#md1").is-primary Open modal
+		modal#md1.is-zoom-in
+			background(modal="#md1")
+			content(style="max-width: 400px")
+				section.padding-2
+					h3 Aviso de privacidad
+					divider
+					justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit sunt quae voluptatum quia, dolores ut, debitis accusamus molestiae officia tenetur eius, eos veniam ab soluta iure numquam consequuntur beatae.
+					justify.bloque Sapiente, corporis, asperiores iure ipsa delectus eveniet expedita maiores in. Nobis tempora optio blanditiis laboriosam pariatur, unde animi dolore dolorem iusto ratione. Numquam sit, aliquam voluptates fugit iure iusto facere!
+					center.paddding-v-1
+						button(modal="#md1").is-info-outline Acepto
+						button(modal="#md1").is-danger Cancelar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at modal=
+				vat "#md1"
+				tg &gt
+				span Open modal
+				tg &ltbutton&gt
+				br
+				tg &ltmodal
+				at id=
+				vat "md1"
+				tg &gt
+				br
+				tg   &ltbackground
+				at modal=
+				vat "#md1"
+				tg &gt
+				span Open modal
+				tg &lt/background&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &lth3&gt
+				span Aviso de privacidad
+				tg &lt/h3&gt
+				br
+				tg     &ltdivider&gt&lt/divider&gt
+				br
+				tg     &ltp&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit sunt quae voluptatum quia, dolores ut, debitis accusamus molestiae officia tenetur eius, eos veniam ab soluta iure numquam consequuntur beatae.
+				tg &lt/p&gt
+				br
+				tg     &ltp&gt
+				span Sapiente, corporis, asperiores iure ipsa delectus eveniet expedita maiores in. Nobis tempora optio blanditiis laboriosam pariatur, unde animi dolore dolorem iusto ratione. Numquam sit, aliquam voluptates fugit iure iusto facere!
+				tg &lt/p&gt
+				br
+				tg     &ltbutton
+				at modal=
+				vat "#md1"
+				at class=
+				vat "is-info-outline"
+				tg &gt
+				span Acepto
+				tg &lt/button&gt
+				br
+				tg     &ltbutton
+				at modal=
+				vat "#md1"
+				at class=
+				vat "is-danger"
+				tg &gt
+				span Cancelar
+				tg &lt/button&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/modal&gt
+message.is-info.is-small
+	header Nota:
+	content Por defecto en una resolución menor a
+		code 768px
+		span la ventana modal ocupará el
+		b 100%
+		span de ancho.
+item
+	h4.subtitle Modal a pantalla completa
+	tag.is-success.is-rounded Nuevo!
+p.bloque añadiendo la clase
+	code .is-fluid
+	span al contenedor
+	code modal
+	span el elemento
+	code content
+	span  ocupará el
+	b 100% de la pantalla
+	span por lo que se puede omitir sin problemas el elemento
+	code background
+	span .
+row.bloque
+	column.tablet-is-half
+		button(modal="#modal-fluid").is-info Ver modal fluid
+		modal#modal-fluid.is-fluid.is-slide-up
+			content
+				mega.is-full-center
+					jumbo.is-text-bolder Modal a pantalla Completa.
+				close(modal="#modal-fluid")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at modal=
+				vat "#modal-fluid"
+				tg &gt
+				span Ver modal fluid
+				tg &ltbutton&gt
+				br
+				tg &ltmodal
+				at id=
+				vat "#modal-fluid"
+				at class=
+				vat "is-fluid"
+				tg &gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg       &ltclose
+				at modal=
+				vat "#modal-fluid"
+				tg &gt&lt/close&gt
+				cm     //Content
+				tg   &lt/content&gt
+				br
+				tg &lt/modal&gt
+message.is-primary.is-small
+	header Tips:
+	content El componente
+		code close
+		span automaticamente se posiciona en la esquina superior derecha cuando es definido
+h4.subtitle Modal con ancho fijo
+p simplemente define un ancho al elemento
+	code content
+	span .
+row.bloque
+	column.tablet-is-half
+		button(modal="#md2").is-success open modal
+		modal#md2.is-slide-down
+			background(modal="#md2")
+			content(style="max-width: 400px")
+				header
+					group.is-inline.mac
+						icon(modal="#md2").is-small.is-text-danger
+							i.fa.fa-circle
+						icon.is-small.is-text-warning
+							i.fa.fa-circle
+						icon.is-small.is-text-success
+							i.fa.fa-circle
+				section.padding-2
+					item.is-center
+						responsive.is-square-48
+							img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="avatar").is-rounded
+						p.padding-h-1 KimeraCSS
+					group.is-boxed.is-text-primary.padding-v-1
+						group-item
+							icon
+								i.fa.fa-comment
+							tiny message
+						group-item
+							icon
+								i.fa.fa-phone
+							tiny call
+						group-item
+							icon
+								i.fa.fa-video-camera
+							tiny video
+						group-item
+							icon
+								i.fa.fa-envelope
+							tiny mail
+					responsive.is-table#modal-demo-table
+						table.is-clean.is-narrow.is-small.is-disabled
+							tbody
+								tr
+									td.is-text-bolder Phone 
+									td.is-text-justify (55) 4781-5610
+								tr
+									td.is-text-cloud _
+									td.is-text-justify Kimera
+								tr
+									td.is-text-bolder Email 
+									td.is-text-justify john.smith@kimeracss.com
+								tr
+									td.is-text-bolder Birthday
+									td.is-text-justify December 05
+								tr
+									td.is-text-bolder Address
+									td.is-text-justify México City #2843
+								tr
+									td.is-text-bolder Note
+									td.is-text-cloud _
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at modal=
+				vat "#md1"
+				tg &gt
+				span Open modal
+				tg &ltbutton&gt
+				br
+				tg &ltmodal
+				at id=
+				vat "md1"
+				tg &gt
+				br
+				tg   &ltbackground
+				at modal=
+				vat "#md1"
+				tg &gt
+				span Open modal
+				tg &lt/background&gt
+				br
+				tg   &ltcontent
+				at style=
+				vat "max-width: 400px"
+				tg &gt
+				br
+				tg     &ltheader&gt
+				span •••
+				tg &lt/header&gt
+				br
+				span       @Content
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/modal&gt

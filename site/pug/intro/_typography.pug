@@ -1,0 +1,209 @@
+h1.title Tipografía
+tags.is-group
+	tag.is-info Path
+	tag _font-styles.scss
+p Kimera
+	b no incluye
+	span archivos de alguna fuente tipografíca específica.
+divider
+message.is-info
+	content
+		p Estilos personalizables mediante el archivo
+			code _font-styles.scss
+h4.subtitle Estilos de fuente
+responsive.is-table.bloque
+	table.is-cell.is-narrow
+		thead
+			info
+				tr
+					th Etiqueta      
+					th Clase auxiliar
+					th Descripción
+					th Muestra
+		tbody
+			tr
+				td: small.is-text-info &ltupper&gt
+				td: code .is-text-upper
+				td Texto en mayúsculas.
+				td: upper text upper
+			tr
+				td: small.is-text-info &ltlower&gt
+				td: code .is-text-lower
+				td Texto en minúsculas.
+				td: lower TEXT LOWER
+			tr
+				td: small.is-text-info &ltunderline&gt
+				td: code .is-text-underline
+				td Texto subrayado.
+				td: underline underline
+			tr
+				td: small.is-text-info &ltb&gt
+				td: code .is-text-bolder
+				td Texto en negrita.
+				td: b text bold
+			tr
+				td: small.is-text-info &ltwhite&gt
+				td: code .is-text-white
+				td: kbd.color-dark white
+				td.color-dark: white text white
+			tr
+				td: small.is-text-info &ltprimary&gt
+				td: code .is-text-primary
+				td: kbd.color-primary primary
+				td: primary text primary
+			tr
+				td: small.is-text-info &ltinfo&gt
+				td: code .is-text-info
+				td: kbd.color-info info
+				td: info text info
+			tr
+				td: small.is-text-info &ltsuccess&gt
+				td: code .is-text-success
+				td: kbd.color-success success
+				td: success text success
+			tr
+				td: small.is-text-info &ltwarning&gt
+				td: code .is-text-warning
+				td: kbd.color-warning warning
+				td: warning text warning
+			tr
+				td: small.is-text-info &ltdanger&gt
+				td: code .is-text-danger
+				td: kbd.color-danger danger
+				td: danger text danger
+h4.subtitle Tamaño de encabezados:
+responsive.is-table.bloque
+	table.is-cell.is-narrow
+		info
+			thead
+				tr
+					th Variable
+					th Etiqueta      
+					th tamaño
+					th Muestra
+		tbody
+			tr
+				td: code $h6-size
+				td: small.is-text-info &lth6&gt
+				td: small.is-text-bolder 0.7 em
+				td: h6 Heading h6
+			tr
+				td: code $h5-size
+				td: small.is-text-info &lth5&gt
+				td: small.is-text-bolder 1 em
+				td: h5 Heading h5
+			tr
+				td: code $h4-size
+				td: small.is-text-info &lth4&gt
+				td: small.is-text-bolder 1.3 em
+				td: h4 Heading h4
+			tr
+				td: code $h3-size
+				td: small.is-text-info &lth3&gt
+				td: small.is-text-bolder 1.6 em
+				td: h3 Heading h3
+			tr
+				td: code $h2-size
+				td: small.is-text-info &lth2&gt
+				td: small.is-text-bolder 1.8 em
+				td: h2 Heading h2
+			tr
+				td: code $h1-size
+				td: small.is-text-info &lth1&gt
+				td: small.is-text-bolder 2 em
+				td: h1 Heading h1
+h4.subtitle Tamaño de Texto
+responsive.is-table.bloque
+	table.is-cell.is-narrow
+		info
+			thead
+				tr
+					th Variable
+					th Etiqueta      
+					th Clase auxiliar
+					th Tamaño
+					th Muestra
+		tbody
+			tr
+				td: small.is-text-info $text-x-small
+				td: small.is-text-bolder &lttiny&gt
+				td: code .is-tiny
+				td: small.is-text-bolder 0.7 em
+				td: tiny Lorem ipsum dolor sit amet.
+			tr
+				td: small.is-text-info $text-small
+				td: small.is-text-bolder &ltsmall&gt
+				td: code .is-small
+				td: small.is-text-bolder 0.8 em
+				td: small Lorem ipsum dolor sit amet.
+			tr
+				td: small.is-text-info $text-default
+				td: small.is-text-bolder no aplica
+				td: code no aplica
+				td: small.is-text-bolder 16px
+				td Lorem ipsum dolor sit amet.
+			tr
+				td: small.is-text-info $text-medium
+				td: small.is-text-bolder &ltmedium&gt
+				td: code .is-medium
+				td: small.is-text-bolder 1.3 em
+				td: medium Lorem ipsum dolor sit amet.
+			tr
+				td: small.is-text-info $text-large
+				td: small.is-text-bolder &ltlarge&gt
+				td: code .is-large
+				td: small.is-text-bolder 1.6 em
+				td: large Lorem ipsum dolor sit amet.
+			tr
+				td: small.is-text-info $text-x-large
+				td: small.is-text-bolder &ltjumbo&gt
+				td: code .is-jumbo
+				td: small.is-text-bolder 2 em
+				td: jumbo Lorem ipsum dolor sit amet.
+message.is-info
+	header
+		span Importante
+	content
+		p Los tamaños pueden ser modificados en el archivo
+			code _variables.scss
+h4.subtitle Alineación
+responsive.is-table.bloque
+	table.is-cell
+		thead
+			info
+				tr
+					th Etiqueta
+					th Clase auxiliar      
+					th Descripción
+					th Muestra
+		tbody
+			tr
+				td: small.is-text-info No aplica
+				td: code no aplica
+				td: small.is-text-bolder Texto a la izquierda.
+				td: p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe possimus praesentium, corrupti iure perspiciatis distinctio.
+			tr
+				td: small.is-text-info &ltright&gt
+				td: code .is-text-right
+				td: small.is-text-bolder Texto a la derecha
+				td: right  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia recusandae alias, accusantium numquam laudantium asperiores minima quasi placeat corrupti ducimus!
+			tr
+				td: small.is-text-info &ltjustify&gt
+				td: code .is-text-justify
+				td: small.is-text-bolder Texto justificado.
+				td: justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fuga exercitationem quia ut nobis officiis voluptas, quibusdam ex error libero enim dicta.
+			tr
+				td: small.is-text-info &ltcenter&gt
+				td: code .is-text-center
+				td: small.is-text-bolder Texto centrado.
+				td: center  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eum, pariatur. Harum minus, delectus.
+message.is-info
+	header
+		span Importante
+	content
+		p Las etiquetas personalizadas
+			code right, justify, center
+			span no son contenedores genericos, unicamente son un reemplazo al tipico parrafo de html5. En lugar de escribir:<br>
+			code &ltp class="text-right"&gt...&lt/p&gt<br>
+			span escribe<br>
+			code &ltright&gt...&lt/right&gt

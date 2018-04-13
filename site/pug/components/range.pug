@@ -1,0 +1,310 @@
+h1.title Range
+tags.is-group
+	tag.is-info Path
+	tag _range.scss
+tags.is-group
+	tag.is-success Actualización
+	tag.is-warning.is-text-bolder JQuery 1.7
+p Elemento de tipo
+	b control slider
+	span .
+divider
+p.bloque Hemos actualizado este componente y
+	b simplificado
+	span su sintaxis, mediante un pequeño
+	code script
+	span de
+	b jquery
+	span .
+h4.subtitle Proceso de implementación
+p.bloque La manera de construir este tipo de
+	b componente
+	span era añadir los siguientes elementos
+	code html5
+	span .
+ol.default-browser
+	li Elemento de tipo
+		code input range
+		span con su respectivo
+		code id
+		span .
+	li Elemento
+		code label
+		span enlazado mediante el atributo
+		code for
+		span .
+p.bloque Apartir de la versión
+	code.color-success 0.4.0
+	span solamente tienes que añadir nuestro tag personalizado
+	code range
+	span .
+h4.subtitle Que ha cambiado
+p.bloque Solamente necesitas una linea de código
+	code html5
+	span ,
+	b jquery
+	span hace el resto.
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-warning 0.3.8
+		.margin-v-1
+			range(value="25")#range-old
+		snippet
+			pre
+				tg &ltrange&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "range"
+				at id=
+				vat "range-old"
+				at value=
+				vat "25%"
+				tg /&gt
+				br
+				tg   &ltlabel
+				at for=
+				vat "range-old"
+				tg &gt&lt/label&gt
+				br
+				tg &ltrange&gt
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-success 0.4.0
+		.margin-v-1
+			range(value="25")#range-new
+		snippet
+			pre
+				tg &ltrange
+				at id=
+				vat "range-new"
+				at value=
+				vat "25%"
+				tg &gt&ltrange&gt
+h4.subtitle Implementación sin Jquery
+p.bloque si decides no utilizar
+	b jquery
+	span con kimera, puedes hacer la implementación de la siguiente manera y obtendrás el mismo resultado.
+snippet
+	pre
+		tg &ltrange&gt
+		br
+		tg   &ltinput
+		at type=
+		vat "range"
+		at id=
+		vat "range-old"
+		at value=
+		vat "25%"
+		tg /&gt
+		br
+		tg   &ltlabel
+		at for=
+		vat "range-old"
+		tg &gt&lt/label&gt
+		br
+		tg &ltrange&gt
+row.bloque
+	column.tablet-is-half
+		message.is-primary.is-small
+			header Importante
+			content
+				b JQuery
+				span se encarga de generar dinamicamente el elemento
+				code input
+				span y
+				code label
+				span enlazados por su id, si tomas la desición de implementar otro
+				b framework JS
+				span utiliza el método de la versión inferior a 0.3.8.
+	column.tablet-is-half
+		message.is-info.is-small
+			header Importante
+			content Los atributos definidos en el elemento
+				code range
+				span son pasados al elemento
+				code input range
+				span que se generá dinámicamente.
+h4.subtitle Uso de atributos
+p.bloque
+	span El elemento
+	code range
+	span soporta los atributos más comúnes, utilizados por un elemento de tipo
+	code range
+	span .
+ol.default-browser
+	li: code id
+	li: code name
+	li: code form
+	li: code value
+	li: code min
+	li: code max
+	li: code step
+p Observa el siguiente ejemplo
+row.bloque
+	column.tablet-is-half
+		p Tú código html
+		snippet
+			pre
+				tg &ltrange
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at min=
+				vat "5"
+				at max=
+				vat "10"
+				at  value=
+				vat "6"
+				at  step=
+				vat "0.5"
+				tg &gt&ltrange&gt
+	column.tablet-is-half
+		p Código en el inspector
+		snippet
+			pre
+				tg &ltinput
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at min=
+				vat "5"
+				at max=
+				vat "10"
+				at  value=
+				vat "6"
+				at  step=
+				vat "0.5"
+				tg /&gt
+message.is-danger.is-small
+	content
+		p Si necesitas este componente por defecto, añade la clase
+			code .default-browser
+h4.subtitle Colores
+p Utilizando el control nativo de
+	code html5
+	span .
+row.bloque
+	column.tablet-is-half
+		range.is-primary#range2
+		range.is-info#range3
+		range.is-success#range4
+		range.is-warning#range5
+		range.is-danger#range6
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltrange
+				at class=
+				vat "is-primary"
+				at value=
+				vat "50%"
+				at id=
+				vat "range2"
+				tg &gt&lt/range&gt
+				br
+				tg &ltrange
+				at class=
+				vat "is-info"
+				at value=
+				vat "50%"
+				at id=
+				vat "range3"
+				tg &gt&lt/range&gt
+				br
+				tg &ltrange
+				at class=
+				vat "is-success"
+				at value=
+				vat "50%"
+				at id=
+				vat "range4"
+				tg &gt&lt/range&gt
+				br
+				tg &ltrange
+				at class=
+				vat "is-warnng"
+				at value=
+				vat "50%"
+				at id=
+				vat "range5"
+				tg &gt&lt/range&gt
+				br
+				tg &ltrange
+				at class=
+				vat "is-danger"
+				at value=
+				vat "50%"
+				at id=
+				vat "range6"
+				tg &gt&lt/range&gt
+h4.subtitle Implementación JS
+p.bloque Este pequeño
+	b script
+	span es el utilizdo para los ejemplos de esta documentación
+snippet.bloque(value="jquery")
+	pre
+		tg $(
+		vat 'range'
+		tg )
+		span .
+		at on
+		tg (
+		vat 'mousemove mousedown'
+		span ,
+		vat 'input'
+		at function
+		tg (){
+		br
+		at     var
+		span  value_range
+		span =
+		tg $(
+		vat this
+		tg )
+		span .
+		at attr
+		tg (
+		vat 'value'
+		tg )
+		span ;
+		br
+		at     var
+		span  label
+		span =
+		tg $(
+		vat this
+		tg )
+		span .
+		at siblings
+		tg (
+		vat 'label'
+		tg )
+		span ;
+		br
+		span     label
+		span .
+		at css
+		tg (
+		vat 'left'
+		span ,
+		tg (
+		vat value_range - 4
+		tg )
+		span +
+		vat '%'
+		tg )
+		span .
+		at text
+		tg (
+		vat value_range
+		tg )
+		span ;
+		br
+		tg })
+		span ;

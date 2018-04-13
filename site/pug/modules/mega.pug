@@ -1,0 +1,114 @@
+h1.title Mega titles
+tags.is-group
+	tag.is-info Path
+	tag _mega.scss
+	tag.is-danger Estilos visuales
+divider
+p Pequeño
+	b módulo
+	span que permite crear un
+	b bloque
+	span de gran tamaño para indicar que su contenido es de mayor importancía.
+h4.subtitle Estructura
+row.bloque
+	column.tablet-is-half
+		mega.color-light
+			header
+				hgroup
+					h1 Kimera CSS framework
+					h5.is-subtitle Una moderna librería css basada en etiquetas personalizadas.
+			divider
+			content.padding-v-05
+				button.is-info Leer más
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmega
+				at class=
+				vat "color-light"
+				tg &gt
+				br
+				tg   &ltheader&gt
+				br
+				tg     &lthgroup&gt
+				br
+				tg       &lth1&gt
+				span Kimera CSS framework
+				tg &lt/h1&gt
+				br
+				tg       &ltp
+				at class=
+				vat "is-subtitle"
+				tg &gt
+				span Una moderna librería basada en etiquetas personalizadas.
+				tg &lt/p&gt
+				br
+				tg     &lt/hgroup&gt
+				br
+				tg   &lt/header&gt
+				br
+				tg   &ltdivider&gt&lt/divider&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Leer más
+				tg &lt/button&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/mega&gt
+h4.subtitle Añadiendo fondos
+p solo basta con añadir dentro del elemento
+	code mega
+	span un elemento de tipo
+	code img
+	span con la clase
+	code .is-bg
+	span o en su defecto aplicar un color de fondo personalizado o mediante nuestra
+	b biblioteca
+	span de color.
+row.bloque
+	column.tablet-is-half
+		white
+			mega
+				img(src="https://images.pexels.com/photos/443356/pexels-photo-443356.jpeg?w=940&h=650&auto=compress&cs=tinysrgb", alt="Demo image").is-bg
+				header
+					h1 Encabezado con imagén de fondo
+				content
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, perferendis.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmega
+				at class=
+				vat "is-text-cloud"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg"
+				at src=
+				vat "url"
+				tg &gt
+				br
+				tg   &ltheader&gt
+				br
+				tg     &lth1&gt
+				span Encabezado con imagén de fondo
+				tg &lt/h1&gt
+				br
+				tg   &lt/header&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, perferendis.
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/mega&gt

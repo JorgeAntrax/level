@@ -1,0 +1,382 @@
+h1.title Acordeon
+p Pequeño módulo para la creación de acordeones.
+tags.is-group
+	tag.is-info Path
+	tag _acordeon.scss
+tags.is-group
+	tag.is-success Actualizado
+	tag.is-warning JQuery 1.7
+divider
+h4.subtitle Estructura
+p.bloque Este módulo solamente te proporciona una
+	b estructura flexible
+	span con las siguientes carateristicas.
+ul.default-browser
+	li
+		code acordeon
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code acordeon-item
+				span Item del acordeon.
+			li
+				code content
+				span Contenido principal.
+row.bloque
+	column.tablet-is-half
+		acordeon.desktop-15
+			acordeon-item Acordeon responsive
+				icon +
+			content
+				p.padding-v-05 Este módulo es completamente adaptable a
+					underline diferentes resoluciones
+					span basado en
+					b flexbox CSS3
+					span .
+			acordeon-item Contenido oculto
+				icon +
+			content
+				p.padding-v-05 De manera predeterminada el contenedor
+					code content
+					span posee la propiedad
+					code max-height: 0;
+					span , la cual es cambiada mediante
+					b javascript.
+			acordeon-item Interacción jquery
+				icon +
+			content
+				p.padding-v-05 Con una funcionalidad básica mediante
+					b jquery
+					span .
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltacordeon&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Acordeon responsive
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				span ...
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Contenido oculto
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				span ...
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Interacción jquery
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				span ...
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/acordeon&gt
+h4.subtitle Añade tu estilo
+p.bloque Añade el estilo que más te guste, unas cuantas lineas de
+	code css
+	span , o puedes utilizar el estilo que incluye kimera, añadiendo la clase
+	code .is-material
+	span al contenedor
+	code acordeon
+	span .
+row.bloque
+	column.tablet-is-half
+		acordeon.desktop-15.is-material
+			acordeon-item Acordeon material
+				icon +
+			content
+				p.padding-1 Con un estilo
+					b material design
+					span limpio e increible.
+			acordeon-item Contenido oculto
+				icon +
+			content
+				p.padding-1 De manera predeterminada el contenedor
+					code content
+					span posee la propiedad
+					code max-height: 0;
+					span , la cual es cambiada mediante
+					b javascript.
+			acordeon-item Interacción jquery
+				icon +
+			content
+				p.padding-1 Con una funcionalidad básica mediante
+					b jquery
+					span .
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltacordeon
+				at class=
+				vat "is-material"
+				tg &gt
+				cm   //Content
+				tg &lt/acordeon&gt
+message.is-success.is-small
+	header Tips:
+	content Puedes usar las clases auxiliares de la sección de
+		b tipografías,
+		span para modificar el tamaño de fuente
+h4.subtitle Acordeon multiple
+p.bloque Para crear un
+	b acordeon multiple
+	span necesitas añadir el atributo personalizado
+	code is-multiple
+	span pasando como valor
+	code true
+	span .
+row.bloque
+	column.tablet-is-half
+		acordeon(is-multiple="true").desktop-15.is-material
+			acordeon-item Acordeon multiple
+				icon +
+			content
+				p.padding-1 Con un estilo
+					b material design
+					span limpio e increible.
+			acordeon-item Contenido oculto
+				icon +
+			content
+				p.padding-1 De manera predeterminada el contenedor
+					code content
+					span posee la propiedad
+					code max-height: 0;
+					span , la cual es cambiada mediante
+					b javascript.
+			acordeon-item Interacción jquery
+				icon +
+			content
+				p.padding-1 Con una funcionalidad básica mediante
+					b jquery
+					span .
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltacordeon
+				at is-multiple=
+				vat "true"
+				at class=
+				vat "is-material"
+				tg &gt
+				cm   //Content
+				tg &lt/acordeon&gt
+h4.subtitle Anidación
+p.bloque La anidación de este módulo es completamente soportada.
+row.bloque
+	column.tablet-is-half
+		acordeon(is-multiple="true").desktop-15.is-material
+			acordeon-item Acordeon multiple
+				icon +
+			content
+				p.padding-1 Con un estilo
+					b material design
+					span limpio e increible.
+			acordeon-item Contenido oculto
+				icon +
+			content
+				.padding-1
+					p Contenido oculto del acordeon
+					acordeon.is-small
+						acordeon-item.color-primary Acordeon anidado
+							icon +
+						content
+							p.padding-1 Acordeon anidado dentro de otro
+						acordeon-item.color-primary Mas contenido
+							icon +
+						content
+							p.padding-1 Contenido dentro de un acordeon anidado.
+			acordeon-item Interacción jquery
+				icon +
+			content
+				p.padding-1 Con una funcionalidad básica mediante
+					b jquery
+					span .
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltacordeon&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Acordeon responsive
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				span ...
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Contenido oculto
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				br
+				tg       &ltacordeon&gt
+				cm         //Contenido de acordeon anidado.
+				tg       &lt/acordeon&gt
+				br
+				tg     &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltacordeon-item&gt
+				br
+				span     Interacción jquery
+				br
+				tg     &lticon&gt
+				span +
+				tg &lt/icon&gt
+				br
+				tg   &lt/acordeon-item&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp
+				at class=
+				vat "padding-1"
+				tg &gt
+				span ...
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/acordeon&gt
+row.bloque
+	column.tablet-is-half
+		message.is-info.is-small
+			header Tips
+			content Puedes hacer uso de la
+				underline  biblioteca de color
+				span  para darle diferentes estilos de color.
+	column.tablet-is-half
+		message.is-success.is-small
+			header Tips
+			content Puedes hacer uso de las
+				underline  clases auxiliares
+				span  para cambiar el tamaño de fuente, estilo, etc.
+row.bloque
+	column.tablet-is-half
+		acordeon.desktop-15.color-info-darken-4
+			acordeon-item.padding-h-1 Acordeon responsive
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 Este módulo es completamente adaptable a
+					underline diferentes resoluciones
+					span basado en
+					b flexbox CSS3
+					span .
+			acordeon-item.padding-h-1 Contenido oculto
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 De manera predeterminada el contenedor
+					code content
+					span posee la propiedad
+					code max-height: 0;
+					span , la cual es cambiada mediante
+					b javascript.
+			acordeon-item.padding-h-1 Sin javascript
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 Desarrollado con puro CSS3, sin una sola linea de
+					b javascript
+					span .
+	column.tablet-is-half
+		acordeon.desktop-15.color-danger-darken-4
+			acordeon-item.padding-h-1 Acordeon responsive
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 Este módulo es completamente adaptable a
+					underline diferentes resoluciones
+					span basado en
+					b flexbox CSS3
+					span .
+			acordeon-item.padding-h-1 Contenido oculto
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 De manera predeterminada el contenedor
+					code content
+					span posee la propiedad
+					code max-height: 0;
+					span , la cual es cambiada mediante
+					b javascript.
+			acordeon-item.padding-h-1 Sin javascript
+				icon
+					i.fa.fa-angle-down
+			content
+				p.padding-1 Desarrollado con puro CSS3, sin una sola linea de
+					b javascript
+					span .

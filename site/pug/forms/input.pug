@@ -1,0 +1,988 @@
+h1.title Input controls.
+tags.is-group
+	tag.is-info Path
+	tag _forms.scss
+	tag.is-success Colores
+tag.is-success Actualización
+divider
+p.bloque Por defecto, los elementos de tipo
+	code input
+	span tienen un ancho del 100%.
+h4.subtitle Soporte
+p.bloque
+	b Kimera
+	span actualmente tiene soporte para los siguientes tipos de controles, añadiendo la clase
+	code .input
+	span , y para elementos de tipo date añadiendo la clase
+	code .date
+	span .
+ul.default-browser
+	li: code text
+	li: code password
+	li: code mail
+	li: code number
+	li: code tel
+	li: code search
+	li: code url
+	li: code date
+	li: code datetime
+	li: code datetime-local
+	li: code time
+	li: code month
+	li: code week
+message.is-info
+	content
+		p Te recomendamos revisar la
+			b: a(href="https://w3c-tutorials.org") compatibilidad
+			span con navegadores de estos elementos.
+row.bloque
+	column.tablet-is-half
+		form
+			field
+				control
+					input(type="text" placeholder="Input text").input
+			field
+				control
+					input(type="email" placeholder="Input mail" autocomplete="username").input
+			field
+				control
+					input(type="password" placeholder="Input password" autocomplete="current-password").input
+			field
+				control
+					input(type="number" placeholder="Input number").input
+			field
+				control
+					input(type="tel" placeholder="Input tel").input
+			field
+				control
+					input(type="search" placeholder="Input search").input
+			field
+				control
+					input(type="url" placeholder="Input url").input
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input text"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "mail"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input mail"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "password"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input password"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "number"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input number"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "tel"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input tel"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "search"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input search"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "url"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Input url"
+				tg /&gt
+				br
+h4.title.subtitle Colores
+p Los elementos de tipo
+	code input 
+	span soportan la siguientes clases de color:
+ul.default-browser
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		field
+			input(type="text" placeholder="Default").input
+		field
+			input(type="text" placeholder="Info").input.is-info
+		field
+			input(type="text" placeholder="Success").input.is-success
+		field
+			input(type="text" placeholder="Warning").input.is-warning
+		field
+			input(type="text" placeholder="Danger").input.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Default"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-info"
+				at placeholder=
+				vat "Info"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-success"
+				at placeholder=
+				vat "Success"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-warning"
+				at placeholder=
+				vat "Warning"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-danger"
+				at placeholder=
+				vat "Danger"
+				tg /&gt
+h4.subtitle Material design
+p Añadiendo la clase
+	code .is-material
+	span .
+row.bloque
+	column.tablet-is-half
+		field
+			input(type="text" placeholder="Default").input.is-material
+		field
+			input(type="text" placeholder="Info").input.is-material.is-info
+		field
+			input(type="text" placeholder="Success").input.is-material.is-success
+		field
+			input(type="text" placeholder="Warning").input.is-material.is-warning
+		field
+			input(type="text" placeholder="Danger").input.is-material.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltinput
+				at class=
+				vat "is-material"
+				at placeholder
+				vat "Default material"
+				at type=
+				vat "text"
+				tg /&gt
+				br
+				tg &ltinput
+				at class=
+				vat "is-material input is-info"
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Info material"
+				tg /&gt
+				br
+				tg &ltinput
+				at class=
+				vat "is-material input is-success"
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Success material"
+				tg /&gt
+				br
+				tg &ltinput
+				at class=
+				vat "is-material input is-warning"
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Warning material"
+				tg /&gt
+				br
+				tg &ltinput
+				at class=
+				vat "is-material input is-danger"
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Danger material"
+				tg /&gt
+h4.title.subtitle Input redondeado
+p Añadiendo la clase
+	code .is-rounded
+	span .
+row.bloque
+	column.tablet-is-half
+		field
+			input(type="text" placeholder="Default").input.is-rounded
+		field
+			input(type="text" placeholder="Info").input.is-info.is-rounded
+		field
+			input(type="text" placeholder="Success").input.is-success.is-rounded
+		field
+			input(type="text" placeholder="Warning").input.is-warning.is-rounded
+		field
+			input(type="text" placeholder="Danger").input.is-danger.is-rounded
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Default"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-rounded is-info"
+				at placeholder=
+				vat "Info"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-rounded is-success"
+				at placeholder=
+				vat "Success"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-rounded is-warning"
+				at placeholder=
+				vat "Warning"
+				tg /&gt
+				br
+				tg &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-rounded is-danger"
+				at placeholder=
+				vat "Danger"
+				tg /&gt
+h4.subtitle Añadiendo iconos
+p Añadiendo una de las siguientes clases al elemento
+	code control
+	span .
+ul.default-browser
+	li
+		code .is-double-icons
+		span le indica al contenedor que el
+		code input
+		span tendra un icono a la izquierda y otro a la derecha.
+	li
+		code .is-icon-left
+		span le indica al contenedor que solo tendra un icono a la izquierda
+	li
+		code .is-icon-right
+		span le indica al contenedor que solo tendra un icono a la derecha
+message.is-success
+	content
+		p Los iconos son posicionados
+			b automaticamente
+			span sin añadir ninguna clase adicional.
+row.bloque
+	column.tablet-is-half
+		form
+			field
+				control.is-double-icons
+					input(type="text" placeholder="Usuario" autocomplete="username").input
+					icon
+						i.fa.fa-user
+					icon
+						i.fa.fa-globe
+			field
+				control.is-icon-left
+					input(type="text" placeholder="Correo electrónico" autocomplete="username").input
+					icon
+						i.fa.fa-envelope
+			field
+				control.is-icon-right
+					input(type="password" placeholder="Contraseña" autocomplete="current-password").input
+					icon#show-password
+						i.fa.fa-eye
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Ejemplo al añadir 2 iconos.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-double-icons"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Usuario"
+				tg &gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				cm // Ejemplo al añadir icono a la izquierda.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "mail"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Correo electrónico"
+				tg &gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				br
+				cm // Ejemplo al añadir icono a la derecha.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-right"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "password"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Contraseña"
+				tg &gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h3.title Tamaños
+p Por defecto
+	b kimera
+	span incluye
+	b 4 tamaños
+	span para los elementos de tipo
+	code input
+	span .
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+row.bloque
+	column.tablet-is-half
+		field
+			control.is-icon-left
+				input(type="text" placeholder="small").input.is-small
+				icon.is-small
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				input(type="text" placeholder="default").input
+				icon
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				input(type="text" placeholder="medium").input.is-medium
+				icon.is-medium
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				input(type="text" placeholder="large").input.is-large
+				icon.is-large
+					i.fa.fa-github
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Ejemplo size de inputs & icons.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "small"
+				at class=
+				vat "input is-small"
+				tg &gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-small"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "Default"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "medium"
+				at class=
+				vat "input is-medium"
+				tg &gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-medium"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at placeholder=
+				vat "large"
+				at class=
+				vat "input is-large"
+				tg &gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-large"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subtitle Validación html5
+p.bloque Este tipo de validación esta basada en los nuevos atributos
+	code html5
+	span proporcionados por la
+	a(href="https://w3c.org") W3C
+	span .
+ul.default-browser
+	li
+		code required
+		span Atributo para indicar que un campo es requerido.
+	li
+		code :invalid
+		span selector para indicar que un campo es invalido
+	li
+		code :valid
+		span selector para indicar que un campo es valido
+message.is-info
+	content
+		p Recuerda que este tipo de validación
+			b no es suficiente
+			span ,por lo que recomendamos realizar una segunda validación del lado del servidor.
+p.bloque Añadiendo el atributo
+	code required
+	span a un elemento de tipo input.
+row.bloque
+	column.tablet-is-half
+		form
+			field
+				label Usuario
+				control
+					input(type="text" placeholder="Usuario" required autocomplete="username").input
+			field
+				label Contraseña
+				control
+					input(type="password" min="6" placeholder="Contraseña" required autocomplete="current-password").input
+			button(type="submit").is-info Enviar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltform&gt
+				br
+				tg   &ltfield&gt
+				br
+				tg     &ltlabel&gt
+				span Usuario
+				tg &lt/label&gt
+				br
+				tg     &ltcontrol&gt
+				br
+				tg       &ltinput
+				at required type=
+				vat "text"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Usuario"
+				tg &gt
+				br
+				tg     &lt/control&gt
+				br
+				tg   &lt/field&gt
+				br
+				tg   &ltfield&gt
+				br
+				tg     &ltlabel&gt
+				span Contraseña
+				tg &lt/label&gt
+				br
+				tg     &ltcontrol&gt
+				br
+				tg       &ltinput
+				at required type=
+				vat "password"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Contraseña"
+				tg &gt
+				br
+				tg     &lt/control&gt
+				br
+				tg   &lt/field&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-info"
+				at type=
+				vat "submit"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg &lt/form&gt
+h4.subtitle Validación secundaria
+p.bloque Añadiendo a un elemento la clase
+	code .is-validate
+	span , y que este se encuentre definido en el
+	b DOM
+	span despues de un elemento de tipo
+	code input
+	span , cambia de color según la validación mediante los selectores
+	code :invalid
+	span y
+	code :valid
+	span .
+row.bloque
+	column.tablet-is-half
+		form
+			field
+				label Usuario
+				control.is-double-icons
+					input(type="text" placeholder="Usuario" required autocomplete="username").input
+					icon
+						i.fa.fa-user
+					icon.is-validate
+						i.fa.fa-asterisk
+					help.is-validate Este campo es obligatorío.
+			field
+				label Contraseña
+				control.is-double-icons
+					input(type="password" placeholder="Contraseña" required autocomplete="current-password").input
+					icon
+						i.fa.fa-lock
+					icon.is-validate
+						i.fa.fa-asterisk
+					help.is-validate La contraseña debe tener como minímo 6 carácteres.
+			button(type="submit").is-info Enviar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltform&gt
+				br
+				tg   &ltfield&gt
+				br
+				tg     &ltlabel&gt
+				span Usuario
+				tg &lt/label&gt
+				br
+				tg     &ltcontrol
+				at class=
+				vat "is-double-icons"
+				tg &gt
+				br
+				tg       &ltinput
+				at required type=
+				vat "text"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Usuario"
+				tg &gt
+				br
+				tg       &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg       &lticon
+				at class=
+				vat "is-validate"
+				tg &gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg       &lthelp
+				at class=
+				vat "is-validate"
+				tg &gt
+				span Este campo es obligatorío.
+				tg &lt/help&gt
+				br
+				tg     &lt/control&gt
+				br
+				tg   &lt/field&gt
+				br
+				tg   &ltfield&gt
+				br
+				tg     &ltlabel&gt
+				span Contraseña
+				tg &lt/label&gt
+				br
+				tg     &ltcontrol
+				at class=
+				vat "is-double-icons"
+				tg &gt
+				br
+				tg       &ltinput
+				at required type=
+				vat "password"
+				at class=
+				vat "input"
+				at placeholder=
+				vat "Contraseña"
+				tg &gt
+				br
+				tg       &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg       &lticon
+				at class=
+				vat "is-validate"
+				tg &gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg       &lthelp
+				at class=
+				vat "is-validate"
+				tg &gt
+				span La contraseña debe tener como minímo 6 carácteres.
+				tg &lt/help&gt
+				br
+				tg     &lt/control&gt
+				br
+				tg   &lt/field&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-info"
+				at type=
+				vat "submit"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg &lt/form&gt
+h4.subtitle Control del tiempo.
+p.bloque Controles de formularío que te permitirán manipular datos como el
+	b tiempo y el calendario
+	span .
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code date
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code .date
+				span Elemento de tipo input.
+row.bloque
+	column.tablet-is-half
+		label Input date
+		date
+			input(type="date" value="2018-01-18").date
+		label Datetime
+		date
+			input(type="datetime" value="2018-01-18T14:21:46").date
+		label Datetime local
+		date
+			input(type="datetime-local" value="2018-01-18T14:21").date
+		label Input date month
+		date
+			input(type="month" value="2018-01").date
+		label Input date time
+		date
+			input(type="time" value="14:21").date
+		label Input date week
+		date
+			input(type="week" value="2018-W40").date
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "date"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type date"
+				tg &gt
+				br
+				tg &lt/date&gt
+				br
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "datetime"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type datetime"
+				tg &gt
+				br
+				tg &lt/date&gt
+				br
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "datetime-local"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type datetime-local"
+				tg &gt
+				br
+				tg &lt/date&gt
+				br
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "time"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type time"
+				tg &gt
+				br
+				tg &lt/date&gt
+				br
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "month"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type month"
+				tg &gt
+				br
+				tg &lt/date&gt
+				br
+				tg &ltdate&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "week"
+				at class=
+				vat "date"
+				at placeholder=
+				vat "Input type week"
+				tg &gt
+				br
+				tg &lt/date&gt
+h4.subtitle Lista de datos
+p.bloque El elemento
+	code datalist
+	span hace posible incluir una lista de opciones, que va a ser mostrada en un elemento de tipo
+	code input
+	span como valores sugeridos, proceso que anteriormente se realizaba con librerias o
+	b APIS
+	span externas, esta lista de opciones esta relacionada con un elemento de tipo
+	code input
+	span por medio del atributo
+	code list
+	span y un
+	code id
+	span asignado al contenedor
+	code datalist
+	span .
+row.bloque
+	column.tablet-is-half
+		input(type="search" list="social" placeholder="Buscar").input
+		datalist(id="social")
+			option(value="Facebook")
+			option(value="Twitter")
+			option(value="Google")
+			option(value="Github")
+			option(value="Linkedin")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "search"
+				at class=
+				vat "input"
+				at list=
+				vat "social"
+				tg &gt
+				br
+				tg &ltdatalist
+				at id=
+				vat "social"
+				tg &gt
+				br
+				tg   &ltoption
+				at value=
+				vat "Facebook"
+				tg &gt&lt/option&gt
+				br
+				tg   &ltoption
+				at value=
+				vat "Twitter"
+				tg &gt&lt/option&gt
+				br
+				tg   &ltoption
+				at value=
+				vat "Google"
+				tg &gt&lt/option&gt
+				br
+				tg   &ltoption
+				at value=
+				vat "Github"
+				tg &gt&lt/option&gt
+				br
+				tg   &ltoption
+				at value=
+				vat "Linkedin"
+				tg &gt&lt/option&gt
+				br
+				tg &lt/datalist&gt

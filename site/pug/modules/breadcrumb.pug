@@ -1,0 +1,400 @@
+h1.title Breadcrumbs
+tags.is-group
+	tag.is-info Path
+	tag _breadcrumb.scss
+p Módulo que indíca la ubicación de la pagína actual dentro de una
+	b jerarquía de navegación
+	span .
+divider
+h4.subtitle Estructura
+p Los separadores son añadidos automaticamente mediante los
+	b pseudo-elementos
+	code ::after & ::before
+row.bloque
+	column.tablet-is-half
+		breadcrumb
+			item: a(href="#" rel="nofollow") Home
+			item: a(href="#" rel="nofollow") Library
+			item: a(href="#" rel="nofollow") Data
+			item.is-active: a(href="#") Kimera
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbreadcrumb&gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+message.is-small.is-info
+	header Importante
+	content Puedes añadir la clase
+		code .is-active
+		span a un elemento
+		code item
+		span para indicar que es el item seleccionado.
+h4.subtitle Separadores
+row.bloque
+	column.tablet-is-half
+		p.title Añadiendo la clase
+			code .is-dotted
+		breadcrumb.is-dotted
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		p.title Añadiendo la clase
+			code .is-arrowed
+		breadcrumb.is-arrowed
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbreadcrumb
+				at class=
+				vat "is-dotted"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+				br
+				tg &ltbreadcrumb
+				at class=
+				vat "is-arrowed"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+h4.subtitle Alineación
+row.bloque
+	column
+		p Alineación al centro con la clase
+			code .is-center
+		breadcrumb.padding-v-2.is-center
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		snippet
+			pre
+				tg &ltbreadcrumb
+				at class=
+				vat "is-center"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+p.title Alineación a la derecha con la clase
+	code .is-right
+message.is-success.is-small
+	header Tips:
+	content
+		p Al añadir la clase
+			code is-right
+			span automaticamente se invierte el separador asignado.
+row.bloque
+	column
+		breadcrumb.is-right
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		breadcrumb.padding-v-2.is-right.is-arrowed
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		snippet
+			pre
+				tg &ltbreadcrumb
+				at class=
+				vat "is-right"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+				br
+				tg &ltbreadcrumb
+				at class=
+				vat "is-right is-arrowed"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+h4.subtitle Tamaños
+row.bloque
+	column
+		breadcrumb.is-small
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		breadcrumb.padding-v-1
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		breadcrumb.is-large
+			item: a(href="#") Home
+			item: a(href="#") Library
+			item: a(href="#") Data
+			item.is-active: a(href="#") Kimera
+		br
+		snippet
+			pre
+				tg &ltbreadcrumb
+				at class=
+				vat "is-small"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+				br
+				tg &ltbreadcrumb&gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+				br
+				tg &ltbreadcrumb
+				at class=
+				vat "is-large"
+				tg &gt
+				br
+				tg   &ltitem&gt
+				span Home
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Library
+				tg &lt/item&gt
+				br
+				tg   &ltitem&gt
+				span Data
+				tg &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Kimera
+				tg &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt
+h4.subtitle Añadiendo iconos
+row.bloque
+	column
+		breadcrumb
+			item
+				a(href="#" rel="nofollow")
+					icon
+						i.fa.fa-home
+					span Home
+			item
+				a(href="#" rel="nofollow")
+					icon
+						i.fa.fa-code-fork
+					span Library
+			item
+				a(href="#" rel="nofollow")
+					icon
+						i.fa.fa-tag
+					span Data
+			item.is-active
+				a(href="#")
+					span Kimera
+					icon
+						i.fa.fa-git
+		br
+		snippet
+			pre
+				tg &ltbreadcrumb&gt
+				br
+				tg   &ltitem&gt
+				br
+				tg         &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span         Home
+				br
+				tg   &lt/item&gt
+				br
+				tg   &ltitem&gt
+				br
+				tg         &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span         Library
+				br
+				tg   &lt/item&gt
+				br
+				tg   &ltitem&gt
+				br
+				tg         &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span         Data
+				br
+				tg   &lt/item&gt
+				br
+				tg   &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				br
+				span         Kimera
+				br
+				tg         &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &lt/item&gt
+				br
+				tg &lt/breadcrumb&gt

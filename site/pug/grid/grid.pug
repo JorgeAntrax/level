@@ -1,0 +1,508 @@
+h1.title Columnas
+tags.is-group
+	tag.is-info Path
+	tag _grid.scss
+	tag.is-success flexbox
+p Conjunto de elementos que te permitirán distribuir el contenido de tu web.
+divider
+h4.subtitle 20 Columnas
+p.bloque El sistema de cuadricula que implementa
+	b kimera
+	span , por defecto tiene
+	code 20
+	span columnas con un ancho minimo del
+	code 5%
+	span .
+row.is-mobile.bloque#demo-doce
+	column.demo.color-danger: span 1
+	column.demo.color-danger: span 2
+	column.demo.color-danger: span 3
+	column.demo.color-danger: span 4
+	column.demo.color-danger: span 5
+	column.demo.color-danger: span 6
+	column.demo.color-danger: span 7
+	column.demo.color-danger: span 8
+	column.demo.color-danger: span 9
+	column.demo.color-danger: span 10
+	column.demo.color-danger: span 11
+	column.demo.color-danger: span 12
+	column.demo.color-danger: span 13
+	column.demo.color-danger: span 14
+	column.demo.color-danger: span 15
+	column.demo.color-danger: span 16
+	column.demo.color-danger: span 17
+	column.demo.color-danger: span 18
+	column.demo.color-danger: span 19
+	column.demo.color-danger: span 20
+h4.subtitle Estructura
+ul.default-browser.bloque
+	li
+		code row
+		span Contenedor principal.
+		span .
+		ul.default-browser
+			li
+				code column
+				span Contenedor secundarío.
+p.bloque El elemento
+	code column
+	span debe estar contenido dentro un contenedor padre
+	code row
+	span , esta es la estructura estandar para contenedores con la propiedad
+	code display: flex
+	span .
+row.bloque
+	column.tablet-is-half
+		div.demo.color-primary Column
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltrow&gt
+				br
+				tg     &ltcolumn
+				at class=
+				vat "color-primary"
+				tg &gt
+				span column
+				tg &lt/column&gt
+				br
+				tg &lt/row&gt
+h4.subtitle Espacio disponible
+p.bloque De manera predeterminada el contenedor
+	code column
+	span toma el ancho de todo el espacio disponible en la fila
+	code row
+	span .
+row.bloque
+	row
+		column.demo.color-primary column 1
+		column.demo.color-info column 2
+		column.demo.color-success column 3
+		column.demo.color-warning column 4
+snippet.bloque
+	pre
+		tg &ltrow&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-primary"
+		tg &gt
+		span column 1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-info"
+		tg &gt
+		span column 2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-success"
+		tg &gt
+		span column 3
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-warning"
+		tg &gt
+		span column 4
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Diseño responsivo.
+p.bloque Kimera incluye un conjunto de clases que te permitirán controlar el ancho de un contenedor partiendo de cierto
+	code breakpoint
+	span , utilizando la siguiente estructura:
+code .<info>breakpoint</info>-n
+p.bloque Donde
+	code n
+	span es el número de columnas que cubrirá el contenedor, y
+	code breakpoint
+	span es igual a:
+ul.default-browser
+	li: code mobile
+	li: code touch
+	li: code tablet
+	li: code desktop
+	li: code widescreen
+responsive.is-table.bloque
+	table.is-cell.is-boxed
+		thead
+			th 
+			th
+				p.is-text-bolder Mobile
+				span screen
+				code.is-text-info <= 480px
+			th
+				p.is-text-bolder Touch
+				span screen
+				code.is-text-info < 768px
+			th
+				p.is-text-bolder Tablet
+				span screen
+				code.is-text-info < 1024px
+			th
+				p.is-text-bolder Desktop
+				span screen
+				code.is-text-info < 1300px
+			th
+				p.is-text-bolder Widescreen
+				span screen
+				code.is-text-info >= 1300px
+		tbody
+			tr
+				td.is-text-bolder Prefijo de clase
+				td: code .mobile-
+				td: code .touch-
+				td: code .tablet-
+				td: code .desktop-
+				td: code .widescreen-
+			tr
+				td.is-text-bolder Número de Columnas
+				td: small.is-text-bolder 20
+				td: small.is-text-bolder 20
+				td: small.is-text-bolder 20
+				td: small.is-text-bolder 20
+				td: small.is-text-bolder 20
+			tr
+				td.is-text-bolder Ejemplo
+				td
+					code .mobile-8
+					small.is-text-bolder width: 40%;
+				td
+					code .touch-15
+					small.is-text-bolder width: 75%;
+				td
+					code .tablet-12
+					small.is-text-bolder width: 60%;
+				td
+					code .desktop-2
+					small.is-text-bolder width: 10%;
+				td
+					code .widescreen-4
+					small.is-text-bolder width: 20%;
+			tr
+				td.is-text-bolder Clase is half
+				td
+					code .mobile-is-half
+					small.is-text-bolder width: 50%;
+				td
+					code .touch-is-half
+					small.is-text-bolder width: 50%;
+				td
+					code .tablet-is-half
+					small.is-text-bolder width: 50%;
+				td
+					code .desktop-is-half
+					small.is-text-bolder width: 50%;
+				td
+					code .widescreen-is-half
+					small.is-text-bolder width: 50%;
+			tr
+				td.is-text-bolder Clase is block
+				td
+					code .mobile-is-block
+					small.is-text-bolder width: 100%;
+				td
+					code .touch-is-block
+					small.is-text-bolder width: 100%;
+				td
+					code .tablet-is-block
+					small.is-text-bolder width: 100%;
+				td
+					code .desktop-is-block
+					small.is-text-bolder width: 100%;
+				td
+					code .widescreen-is-block
+					small.is-text-bolder width: 100%;
+p.bloque Combinando las clases anteriormente mencionadas, podemos crear una estructura como la siguiente:
+message.is-info
+	content Te recomendamos redimensionar la ventana de tu navegador para visualizar los cambios. 
+row.bloque.is-mobile
+	column.demo.touch-2.tablet-is-half.desktop-5.color-primary: code .touch-2 .tablet-is-half .desktop-5
+	column.demo.touch-8.tablet-6.desktop-is-half.color-info: code .touch-8 .tablet-6 .desktop-is-half
+	column.demo.touch-is-half.tablet-4.desktop-5.color-danger: code .touch-is-half .tablet-4 .desktop-5
+snippet.bloque
+	pre
+		tg &ltrow
+		at class=
+		vat "is-mobile"
+		tg &gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-primary touch-2 tablet-is-half desktop-5"
+		tg &gt
+		span .touch-2 .tablet-is-half .desktop-5
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-info touch-8 tablet-6 desktop-is-half"
+		tg &gt
+		span .touch-8 .tablet-6 .desktop-is-half
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-success touch-is-half tablet-4"
+		tg &gt
+		span .touch-is-half .tablet-4 .desktop-5
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Grid multilinea
+p.bloque Añadiendo la clase
+	code .is-multiline
+	span al contenedor principal
+	code row
+	span , generará un salto de linéa si ya no hay espacio disponible en la fila.
+row.bloque
+	column
+		row.is-multiline
+			column.tablet-5.desktop-12
+				.demo.color-primary: code .tablet-5 .desktop-12
+			column.tablet-8
+				.demo.color-info: code .tablet-8
+			column.tablet-7.desktop-is-half
+				.demo.color-success: code .tablet-7  .desktop-is-half
+			column.tablet-is-half.desktop-5
+				.demo.color-warning: code .tablet-is-half .desktop-5
+			column.tablet-3.desktop-5
+				.demo.color-black: code .tablet-3 .desktop-5
+			column.is-block
+				.demo.color-danger: code column .is-block
+snippet.bloque
+	pre
+		tg &ltrow
+		at class=
+		vat "is-multiline"
+		tg &gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-primary tablet-5 desktop-12"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-info tablet-8"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-success tablet-7 desktop-is-half"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-warning tablet-is-half desktop-5"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-black tablet-3 desktop-5"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "is-block color-danger"
+		tg &gt
+		span @content
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Grid mobile
+p.bloque Añadiendo la clase
+	code .is-mobile
+	span al contenedor principal
+	code row
+	span , evitará el salto de linéa del elemento
+	code column
+	span .
+row.bloque
+	row.is-mobile
+		column.mobile-is-half.touch-is-half: .demo.color-primary Column 1
+		column: .demo.color-info Col 2
+		column: .demo.color-success Col 3
+		column: .demo.color-warning Col 4
+snippet.bloque
+	pre
+		tg &ltrow
+		at class=
+		vat "is-mobile"
+		tg &gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-primary mobile-is-half touch-is-half"
+		tg &gt
+		span Column 1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-info"
+		tg &gt
+		span Col 2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-success"
+		tg &gt
+		span Col 3
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-warning"
+		tg &gt
+		span Col 4
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Grid invertida
+p.bloque Añadiendo la clase
+	code .is-inverted
+	span al contenedor principal
+	code row
+	span .
+row.bloque
+	row.is-inverted
+		column: .demo.color-primary Column 1
+		column: .demo.color-info Column 2
+		column: .demo.color-success Column 3
+		column: .demo.color-warning Column 4
+snippet.bloque
+	pre
+		tg &ltrow
+		at class=
+		vat "is-inverted"
+		tg &gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-primary"
+		tg &gt
+		span Column 1
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-info"
+		tg &gt
+		span Column 2
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-success"
+		tg &gt
+		span Column 3
+		tg &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "color-warning"
+		tg &gt
+		span Column 4
+		tg &lt/column&gt
+		br
+		tg &lt/row&gt
+h4.subtitle Anidaciones
+row.bloque
+	row
+		column.tablet-is-half
+			column: .demo.color-info column 1
+			row.is-mobile
+				column: .demo.color-info Nested 1
+				column: .demo.color-info Nested 2
+		column.tablet-is-half
+			column: .demo.color-danger column 2
+			row.is-mobile
+				column: .demo.color-danger Nested 3
+				column: .demo.color-danger Nested 4
+snippet.bloque
+	pre
+		cm //columnas anidadas
+		tg &ltrow&gt
+		cm     //columnas de color azul
+		tg     &ltcolumn&gt
+		br
+		tg         &ltcolumn
+		at  class=
+		vat "color-info"
+		tg &gt
+		span column 1
+		tg &lt/column&gt
+		cm        // Primera anidación
+		tg         &ltrow
+		at class=
+		vat "is-mobile"
+		tg &gt
+		br
+		tg             &ltcolumn
+		at class=
+		vat "color-info"
+		tg &gt
+		span Nested 1
+		tg &lt/column&gt
+		br
+		tg             &ltcolumn
+		at class=
+		vat "color-info"
+		tg &gt
+		span Nested 2
+		tg &lt/column&gt
+		br
+		tg         &lt/row&gt
+		br
+		tg     &lt/column&gt
+		cm    //columnas de color rojo
+		tg     &ltcolumn&gt
+		br
+		tg         &ltcolumn
+		at class=
+		vat "color-danger"
+		tg &gt
+		span column 1
+		tg &lt/column&gt
+		cm        // Primera anidación
+		tg         &ltrow
+		at class=
+		vat "is-mobile"
+		tg &gt
+		br
+		tg             &ltcolumn
+		at class=
+		vat "color-danger"
+		tg &gt
+		span Nested 1
+		tg &lt/column&gt
+		br
+		tg             &ltcolumn
+		at class=
+		vat "color-danger"
+		tg &gt
+		span Nested 2
+		tg &lt/column&gt
+		br
+		tg         &lt/row&gt
+		br
+		tg     &lt/column&gt
+		br
+		tg &lt/row&gt

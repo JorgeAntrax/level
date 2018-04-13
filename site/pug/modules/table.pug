@@ -1,0 +1,1089 @@
+h1.title Tables
+tags.is-group
+	tag.is-info Path
+	tag _tables.scss
+	tag.is-success Estilo visual
+divider
+p Utilizando las etiquetas nativas de
+	code html5
+	span .
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code table
+		span Contenedor principal.
+		ul.default-browser
+			li La clase
+				code .default-browser
+				span aplica los estilos por defecto de
+				code.is-text-dark html5
+				span .
+	li
+		code thead (opcional)
+		span Parte superior de la tabla.
+	li
+		code tbody
+		span Contenido de la tabla.
+		ul.default-browser
+			li
+				code tr
+				span Filas.
+				ul.default-browser
+					li
+						code td
+						span Celdas.
+	li
+		code tfoot (opcional)
+		span Parte inferior de la tabla
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable&gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table cell
+p Añadiendo la clase
+	code .is-cell
+	span al elemento
+	code table
+	span se añaden bordes laterales a las celdas.
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-cell
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-cell"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table stripe
+p Añadiendo la clase
+	code .is-striped
+	span al elemento
+	code table
+	span .
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-striped
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+					tr
+						td Albert
+						td Einstein
+					tr
+						td Nicola
+						td Tesla
+					tr
+						td Leonardo
+						td Da vinci
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-striped"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Albert
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Einstein
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Nicola
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Tesla
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Leonardo
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Da vinci
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table clean
+p Añadiendo la clase
+	code .is-clean
+	span al elemento
+	code table
+	span .
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-clean
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+					tr
+						td Albert
+						td Einstein
+					tr
+						td Nicola
+						td Tesla
+					tr
+						td Leonardo
+						td Da vinci
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-clean"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Albert
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Einstein
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Nicola
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Tesla
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Leonardo
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Da vinci
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table clean + striped
+p Añadiendo la clase
+	code .is-clean
+	span al elemento
+	code table
+	span con la clase
+	code .is-striped
+	span .
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-clean.is-striped
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+					tr
+						td Albert
+						td Einstein
+					tr
+						td Nicola
+						td Tesla
+					tr
+						td Leonardo
+						td Da vinci
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-clean is-striped"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Albert
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Einstein
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Nicola
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Tesla
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Leonardo
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Da vinci
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table boxed
+p Añadiendo la clase
+	code .is-boxed
+	span al elemento
+	code table
+	span se indica que tendra un ancho del 100%.
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-boxed
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-boxed"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Table narrow
+p Añadiendo la clase
+	code .is-narrow
+	span al elemento
+	code table
+	span se indica que sus columnas tendran un ancho de acuerdo a su contenido.
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-narrow
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-narrow"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Combinando estilos
+p.bloque Utilizando todas las clases anteriores podemos hacer variaciones en el estilo de las tablas.
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-cell.is-striped.is-boxed
+				thead
+					tr
+						th Name
+						th Last name
+				tbody
+					tr
+						td John
+						td Smith
+					tr
+						td Charles
+						td Darwin
+					tr
+						td Issac
+						td Newton
+				tfoot
+					tr
+						th Name
+						th Last name
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttable
+				at class=
+				vat "is-cell is-striped is-boxed"
+				tg &gt
+				br
+				tg   &ltthead&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/thead&gt
+				br
+				tg   &lttbody&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span John
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Smith
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Charles
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Darwin
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg     &lttr&gt
+				br
+				tg       &lttd&gt
+				span Issac
+				tg &lt/td&gt
+				br
+				tg       &lttd&gt
+				span Newton
+				tg &lt/td&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tbody&gt
+				br
+				tg   &lttfoot&gt
+				br
+				tg     &lttr&gt
+				br
+				tg       &ltth&gt
+				span Name
+				tg &lt/th&gt
+				br
+				tg       &ltth&gt
+				span Last name
+				tg &lt/th&gt
+				br
+				tg     &lt/tr&gt	
+				br
+				tg   &lt/tfoot&gt
+				br
+				tg &lt/table&gt
+h4.subtitle Tablas adaptativas
+p.bloque Para crear una tabla adaptativa, simplemente debemos de colocar el elemento table dentro de la etiqueta personalizada
+	code responsive
+	span y añadir la clase
+	code .is-table
+	span indicando que el elemento dentro de ese contendor es una tabla, lo cual permitirá realizar
+	code scroll horizontal
+	span sobre la tabla.
+row.bloque
+	column.tablet-is-half
+		responsive.is-table
+			table.is-striped.is-clean
+				thead
+					tr
+						th Name
+						th Last name
+						th E-mail
+						th User
+						th Password
+				tbody
+					tr
+						td John
+						td Smith
+						td.is-text-info john@kimeracss.com
+						td #john123
+						td •••••••••
+					tr
+						td Charles
+						td Darwin
+						td.is-text-info darwin@kimeracss.com
+						td #darwin123
+						td •••••••
+					tr
+						td Issac
+						td Newton
+						td.is-text-info issac@kimeracss.com
+						td #issac123
+						td ••••••••••••
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltresponsive
+				at class=
+				vat "is-table"
+				tg &gt
+				br
+				tg   &lttable
+				at class=
+				vat "is-striped is-clean"
+				tg &gt
+				br
+				span     @Content
+				br
+				tg   &lt/table&gt
+				br
+				tg &lt/responsive&gt

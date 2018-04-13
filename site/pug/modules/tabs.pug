@@ -1,0 +1,484 @@
+h1.title Tabs
+tags.is-group
+	tag.is-info Path
+	tag _tabs.scss
+tag.is-success Actualizado
+divider
+p Pequeño
+	b módulo
+	span  para la creación de pestañas.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code tabs
+		span contenedor principal
+		ul.default-browser
+			li
+				code tab
+				span items o pestañas.
+				ul.default-browser
+					li
+						code [data-id]
+						span Atributo que recibe como parametro el id del elemento
+						code tab-content
+						span .
+					li
+						code .is-active
+						span Clase que indica una pestaña activa.
+	li
+		code tabs-content
+		span Contenedor principal de los contenidos.
+		ul.default-browser
+			li
+				code tab-content
+				span Contenido de la pestaña (por defecto oculto).
+				ul.default-browser
+					li
+						code [id]
+						span Atributo obligatorío.
+					li
+						code .is-visible
+						span Clase que indica el contenido activo.
+message.is-small.is-primary.bloque
+	header Nota:
+	content Las clases
+		code .is-active
+		span ,
+		code .is-visible
+		span son asignadas mediante
+		b js
+		span .
+.bloque
+	tabs
+		tab(data-id="#td1").is-active Tab 1
+		tab(data-id="#td2") Tab2
+		tab(data-id="#td3") Tab3
+		tab(data-id="#td4") Tab4
+	tabs-content
+		tab-content#td1.padding-1
+			h3 Contenido tab 1
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, placeat.
+		tab-content#td2.padding-1
+			h3 Contenido tab 2
+			p Lorem ipsum dolor sit amet.
+		tab-content#td3.padding-1
+			h3 Contenido tab 3
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eligendi nihil fuga at atque exercitationem.
+		tab-content#td4.padding-1
+			h3 Contenido tab 4
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+snippet.margin-v-2
+	pre
+		cm &lt!-- Tabs --&gt
+		tg &lttabs&gt
+		br
+		tg   &lttab
+		at data-id=
+		vat "id0"
+		at class=
+		vat "is-active"
+		tg &gt
+		span •••
+		tg &lt/tab&gt
+		br
+		tg   &lttab
+		at data-id=
+		vat "id1"
+		tg &gt
+		span •••
+		tg &lt/tab&gt
+		br
+		tg   &lttab
+		at data-id=
+		vat "id2"
+		tg &gt
+		span •••
+		tg &lt/tab&gt
+		br
+		tg   &lttab
+		at data-id=
+		vat "id3"
+		tg &gt
+		span •••
+		tg &lt/tab&gt
+		br
+		tg &lt/tabs&gt
+		cm &lt!-- Container tabs --&gt
+		tg &lttabs-content&gt
+		br
+		tg   &lttab-content
+		at id=
+		vat "id0"
+		at class=
+		vat "is-visible"
+		tg &gt
+		span •••
+		tg &lt/tab-content&gt
+		br
+		tg   &lttab-content
+		at id=
+		vat "id1"
+		tg &gt
+		span •••
+		tg &lt/tab-content&gt
+		br
+		tg   &lttab-content
+		at id=
+		vat "id2"
+		tg &gt
+		span •••
+		tg &lt/tab-content&gt
+		br
+		tg   &lttab-content
+		at id=
+		vat "id3"
+		tg &gt
+		span •••
+		tg &lt/tab-content&gt
+		br
+		tg &lt/tabs-content&gt
+h4.subtitle Tamaño de pestañas
+p.bloque añadiendo una de las siguientes clases al elemento
+	code tabs
+	span .
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+.bloque
+	tabs#tabs5
+		tab.is-active Code
+		tab Issues
+		tab Pull request
+		tab Forks
+	br
+	buttons#toggle-size-tabs.margin-v-1
+		button.is-light.is-small is-small
+		button.is-light.is-small is-medium
+		button.is-light.is-small is-large
+		button.is-light.is-small default
+snippet.margin-b-2
+	pre
+		cm &lt!-- Small tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-small"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+		cm &lt!-- Medium tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-medium"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+		cm &lt!-- Large tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-large"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+h4.subtitle Alineación
+p.bloque Añadiendo una de las siguientes clases al elemento
+	code tabs
+	span .
+ul.default-browser
+	li: code .is-center
+	li: code .is-right
+	li: code .is-fluid
+.bloque
+	tabs#tabs6
+		tab.is-active Code
+		tab Issues
+		tab Pull request
+		tab Forks
+	br
+	buttons#toggle-align-tabs.margin-v-1
+		button.is-light.is-small default
+		button.is-light.is-small is-right
+		button.is-light.is-small is-center
+		button.is-light.is-small is-fluid
+snippet.margin-b-2
+	pre
+		cm &lt!-- Right tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-right"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+		cm &lt!-- Center tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-center"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+		cm &lt!-- Fluid tabs --&gt
+		tg &lttabs
+		at class=
+		vat "is-fluid"
+		tg &gt
+		span •••
+		tg &lt/tabs&gt
+h4.subtitle.margin-t-1 Añadiendo Iconos
+.bloque
+	tabs
+		tab.is-active
+			icon
+				i.fa.fa-code
+			span Code
+		tab
+			icon
+				i.fa.fa-info-circle
+			span Issues
+		tab
+			icon
+				i.fa.fa-bolt
+			span Pull request
+		tab
+			icon
+				i.fa.fa-code-fork
+			span Forks
+snippet
+	pre
+		tg &lttabs&gt
+		br
+		tg   &lttab
+		at class=
+		vat "is-active"
+		tg &gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Code
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Issues
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Pull request
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Forks
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg &lt/tabs&gt
+h4.subtitle.bloque Tabs boxed
+p Añadiendo la clase
+	code .is-boxed
+.bloque
+	tabs.is-boxed.bloque
+		tab.is-active
+			icon
+				i.fa.fa-code
+			span Code
+		tab
+			icon
+				i.fa.fa-info-circle
+			span Issues
+		tab
+			icon
+				i.fa.fa-bolt
+			span Pull request
+		tab
+			icon
+				i.fa.fa-code-fork
+			span Forks
+snippet
+	pre
+		tg &lttabs
+		at class=
+		vat "is-boxed"
+		tg &gt
+		br
+		tg   &lttab
+		at class=
+		vat "is-active"
+		tg &gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Code
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Issues
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Pull request
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Forks
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg &lt/tabs&gt
+h4.subtitle.bloque Tabs toggler
+p Añadiendo la clase
+	code .is-toggle
+.bloque
+	tabs.is-toggle.bloque
+		tab.is-active
+			icon
+				i.fa.fa-code
+			span Code
+		tab
+			icon
+				i.fa.fa-info-circle
+			span Issues
+		tab
+			icon
+				i.fa.fa-bolt
+			span Pull request
+		tab
+			icon
+				i.fa.fa-code-fork
+			span Forks
+snippet
+	pre
+		tg &lttabs
+		at class=
+		vat "is-boxed"
+		tg &gt
+		br
+		tg   &lttab
+		at class=
+		vat "is-active"
+		tg &gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Code
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Issues
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Pull request
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg   &lttab&gt
+		br
+		tg     &lta
+		at href=
+		vat "#"
+		tg &gt
+		tg &lticon&gt
+		span ...
+		tg &lt/icon&gt
+		span Forks
+		tg &lt/a&gt
+		br
+		tg   &lt/tab&gt
+		br
+		tg &lt/tabs&gt

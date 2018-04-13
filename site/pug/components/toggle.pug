@@ -1,0 +1,358 @@
+h1.title Toggle Buttons
+tags.is-group
+	tag.is-info Path
+	tag _toggle-button.scss
+	tag.is-success Actualizado
+tags.is-group
+	tag.is-info 0.4.0
+	tag.is-warning.is-text-bolder JQuery 1.7
+divider
+p.bloque Hemos actualizado este componente y
+	b simplificado
+	span su sintaxis, mediante un pequeño
+	code script
+	span de
+	b jquery
+	span .
+h4.subtitle Proceso de implementación
+p.bloque La manera de construir este tipo de
+	b componente
+	span era añadir los siguientes elementos
+	code html5
+	span .
+ol.default-browser
+	li Elemento de tipo
+		code input checkbox
+		span con su respectivo
+		code id
+		span .
+	li Elemento
+		code label
+		span enlazado mediante el atributo
+		code for
+		span .
+p.bloque Apartir de la versión
+	code.color-success 0.4.0
+	span solamente tienes que añadir nuestro tag personalizado
+	code toggle
+	span .
+h4.subtitle Que ha cambiado
+p.bloque Solamente necesitas una linea de código
+	code html5
+	span ,
+	b jquery
+	span hace el resto.
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-warning 0.3.8
+		.margin-v-1
+			toggle#toggle-old
+		snippet
+			pre
+				tg &lttoggle&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "checkbox"
+				at id=
+				vat "toggle-old"
+				tg /&gt
+				br
+				tg   &ltlabel
+				at for=
+				vat "toggle-old"
+				tg &gt&lt/label&gt
+				br
+				tg &lttoggle&gt
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-success 0.4.0
+		.margin-v-1
+			toggle#toggle-new
+		snippet
+			pre
+				tg &lttoggle
+				at id=
+				vat "toggle-new"
+				tg &gt&lttoggle&gt
+h4.subtitle Implementación sin Jquery
+p.bloque si decides no utilizar
+	b jquery
+	span con kimera, puedes hacer la implementación de la siguiente manera y obtendrás el mismo resultado.
+snippet
+	pre
+		tg &lttoggle&gt
+		br
+		tg   &ltinput
+		at type=
+		vat "checkbox"
+		at id=
+		vat "toggle-old"
+		tg /&gt
+		br
+		tg   &ltlabel
+		at for=
+		vat "toggle-old"
+		tg &gt&lt/label&gt
+		br
+		tg &lttoggle&gt
+row.bloque
+	column.tablet-is-half
+		message.is-primary.is-small
+			header Importante
+			content
+				b JQuery
+				span se encarga de generar dinamicamente el elemento
+				code input
+				span y
+				code label
+				span enlazados por su id, si tomas la desición de implementar otro
+				b framework JS
+				span utiliza el método de la Versión sin jquery.
+	column.tablet-is-half
+		message.is-info.is-small
+			header Importante
+			content Los atributos definidos en el elemento
+				code toggle
+				span son pasados al elemento
+				code input checkbox
+				span que se generá dinámicamente.
+h4.subtitle Uso de atributos
+p.bloque
+	span El elemento
+	code toggle
+	span soporta los atributos más comúnes, utilizados por un elemento de tipo
+	code checkbox
+	span .
+ol.default-browser
+	li: code id
+	li: code name
+	li: code form
+	li: code required
+	li: code checked
+p Observa el siguiente ejemplo
+row.bloque
+	column.tablet-is-half
+		p Tú código html
+		snippet
+			pre
+				tg &lttoggle
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at checked
+				tg &gt&lttoggle&gt
+	column.tablet-is-half
+		p Código en el inspector
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "checkbox"
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at  checked
+				tg /&gt
+h4.title.subtitle Colores
+p El componente
+	code toggle
+	span incluye 6 colores base, añadiendo una de las siguientes clases:
+ul.default-browser
+	li: code is-cloud
+	li: code is-primary
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		toggles
+			toggle(type="checkbox" checked)#d1.is-cloud
+			toggle(type="checkbox" checked)#d2.is-primary
+			toggle(type="checkbox" checked)#d3.is-info
+			toggle(type="checkbox" checked)#d4.is-success
+			toggle(type="checkbox" checked)#d5.is-warning
+			toggle(type="checkbox" checked)#d6.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttoggle
+				at class=
+				vat "is-cloud"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+				tg &lttoggle
+				at class=
+				vat "is-primary"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+				tg &lttoggle
+				at class=
+				vat "is-info"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+				tg &lttoggle
+				at class=
+				vat "is-success"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+				tg &lttoggle
+				at class=
+				vat "is-warning"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+				tg &lttoggle
+				at class=
+				vat "is-danger"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+				br
+h4.subtitle Tamaños
+p.bloque Añadiendo una de las siguientes clases al elemento
+	code toggle
+	span .
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+row.is-center-tablet.is-distributed-desktop.bloque
+	column.tablet-6
+		div.padding-05
+			toggle.is-small#demo7
+		snippet
+			pre
+				tg &lttoggle
+				at class=
+				vat "is-small"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+	column.tablet-6
+		div.padding-05
+			toggle.is-medium.is-success#demo8
+		snippet
+			pre
+				tg &lttoggle
+				at class=
+				vat "is-medium"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+	column.tablet-6
+		div.padding-05
+			toggle.is-large.is-danger#demo9
+		snippet
+			pre
+				tg &lttoggle
+				at class=
+				vat "is-large"
+				at id=
+				vat "toggle"
+				tg &gt&lt/toggle&gt
+h4.subtitle Toggle group
+p Por
+	b defecto
+	span el elemento
+	code toggle
+	span tiene un
+	code display: flex
+	span , utilizando el contenedor
+	code toggles
+	span podemos crear grupos de elementos
+	code toggle
+	span en linea y
+	b centrados verticalmente
+	span .
+row.bloque
+	column.tablet-is-half
+		toggles
+			toggle.is-primary#cuatro
+			toggle.is-small.is-info#cinco
+			toggle.is-large.is-danger#seis
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Toggle group
+				tg &lttoggles&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg &lt/toggles&gt
+h4.subtitle Estado
+	small: code [disabled]
+p El atributo
+	code [disabled]
+	span es soportado por el contenedor
+	code toggles
+	span y por el elemento
+	code toggle
+	span .
+row.bloque
+	column.tablet-is-half
+		p Grupo con el atributo
+			code [disabled]
+			span .
+		toggles(disabled)
+			toggle.is-primary#cuatro1
+			toggle.is-small.is-info#cinco1
+			toggle.is-large.is-danger#seis1
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttoggles
+				at disabled
+				tg &gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg &lt/toggles&gt
+row.bloque
+	column.tablet-is-half
+		p Elemento con el atributo
+			code [disabled]
+			span .
+		toggles
+			toggle.is-primary#dtog2
+			toggle(disabled).is-small.is-info#dtog3
+			toggle.is-large.is-danger#dtog4
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttoggles&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg   &lttoggle
+				at disabled
+				tg &gt&lt/toggle&gt
+				br
+				tg   &lttoggle&gt&lt/toggle&gt
+				br
+				tg &lt/toggles&gt

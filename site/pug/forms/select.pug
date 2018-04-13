@@ -1,0 +1,296 @@
+h1.title Select
+tags(is-group)
+	tag.is-info Path
+	tag _forms.scss
+divider
+p El elemento
+	code select
+	span tambien conocido como
+	code list-box
+	span con un nuevo aspecto.
+h4.subtitle Estilo Basíco
+row.bloque
+	column.tablet-is-half
+		listbox
+			select
+				option(value="Option1") Option1
+				option(value="Option2") Option2
+				option(value="Option3") Option3
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltlistbox&gt
+				br
+				tg   &ltselect
+				at name=
+				vat "demo"
+				tg &gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 1"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 2"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 3"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+h4.subtitle Selección múltiple
+p Uso el atributo
+	code [multiple]
+row.bloque
+	column.tablet-is-half
+		listbox(multiple)
+			select(multiple size="6").is-info
+				option(value="Option1") Option1
+				option(value="Option2") Option2
+				option(value="Option3") Option3
+				option(value="Option1") Option4
+				option(value="Option2") Option5
+				option(value="Option3") Option6
+		message.is-info
+			content
+				p El atributo
+					code multiple
+					span se añade a los contendores:
+				ul.default-browser
+					li: code &ltlistbox&gt
+					li: code &ltselect&gt
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltlistbox
+				at multiple
+				tg &gt
+				br
+				tg   &ltselect
+				at multiple name=
+				vat "demo"
+				at class=
+				vat "is-info"
+				tg &gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 1"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 2"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 3"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 4"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 5"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Option 6"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+h4.subtitle Colores
+p Al elemento
+	code listbox
+	span se le añade una de las siguientes clases de color:
+ul.default-browser
+	li: code is-primary
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		field
+			listbox.is-primary
+				select
+					option(value="Option1") Primary
+					option(value="Option2") Options select box
+		field
+			listbox.is-info
+				select
+					option(value="Option1") Info
+					option(value="Option2") Options select box
+		field
+			listbox.is-success
+				select
+					option(value="Option1") Success
+					option(value="Option2") Options select box
+		field
+			listbox.is-warning
+				select
+					option(value="Option1") Warning
+					option(value="Option2") Options select box
+		field
+			listbox.is-danger
+				select
+					option(value="Option1") Danger
+					option(value="Option2") Options select box
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltlistbox
+				at class=
+				vat "is-primary"
+				tg &gt
+				br
+				tg   &ltselect&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Primary"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Options select box"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+				br
+				tg &ltlistbox
+				at class=
+				vat "is-info"
+				tg &gt
+				br
+				tg   &ltselect&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Info"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Options select box"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+				br
+				tg &ltlistbox
+				at class=
+				vat "is-success"
+				tg &gt
+				br
+				tg   &ltselect&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Success"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Options select box"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+				br
+				tg &ltlistbox
+				at class=
+				vat "is-warning"
+				tg &gt
+				br
+				tg   &ltselect&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Warning"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Options select box"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt
+				br
+				tg &ltlistbox
+				at class=
+				vat "is-danger"
+				tg &gt
+				br
+				tg   &ltselect&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Danger"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg     &ltoption
+				at value=
+				vat "Options select box"
+				tg &gt
+				span ...
+				tg &lt/option&gt
+				br
+				tg   &lt/select&gt
+				br
+				tg &lt/listbox&gt

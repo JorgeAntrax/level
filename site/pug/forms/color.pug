@@ -1,0 +1,163 @@
+h1.title Input color
+tags.is-group
+	tag.is-info Path
+	tag _forms.scss
+tag.is-success Nuevo!
+p Un elemento de tipo
+	code input
+	span para la selección de color.
+divider
+h4.subtitle Soporte
+p.bloque Este componente ha sido probado en los siguientes navegadores:
+ul.default-browser
+	li: small.is-text-success Chrome +60
+	li: small.is-text-success Firefox +56
+	li: small.is-text-success Edge +38
+	li: small.is-text-success Opera
+p.bloque Te recomendamos revisar el
+	b soporte
+	span que brindan los navegadores a este componente, para el caso del navegador
+	code safari
+	span te recomendamos el uso de la librería
+	a(href="https://jscolor.com").is-text-info JSColor
+	span .
+h4.subtitle Implementación
+row.bloque
+	column.tablet-is-half
+		color
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcolor&gt&lt/color&gt
+message.is-primary.is-small
+	header Nota:
+	content Mediante
+		code jquery
+		span se añade el elemento
+		code input
+		span de tipo
+		code color
+h4.subtitle Atributos
+p.bloque Este componente soporta actualmente los siquientes atributos:
+ol.default-browser
+	li: code id
+	li: code name
+	li: code value
+	li: code required
+span Observa el siguiente ejemplo
+row.bloque
+	column.tablet-is-half
+		p Tú código html
+		snippet
+			pre
+				tg &ltcolor
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at value=
+				vat "#22adff"
+				at  required
+				tg &gt&ltcolor&gt
+	column.tablet-is-half
+		p Código en el inspector
+		snippet
+			pre
+				tg &ltcolor&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "color"
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at value=
+				vat "#22adff"
+				at  required
+				tg /&gt
+				br
+				tg &lt/color&gt
+h4.subtitle Color rounded
+p.bloque Añadiendo la clase
+	code .is-rounded
+	span al elemento
+	code color
+	span .
+row.bloque
+	column.tablet-is-half
+		color.is-rounded
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				tg &gt&lt/color&gt
+h4.subtitle Valor por defecto
+p.bloque Añadiendo el atributo
+	code value
+	span al elemento
+	code input
+	span podemos asignar su color por defecto, si no se especifíca su valor por defecto es negro.
+row.bloque
+	column.tablet-is-half
+		color.is-rounded(value="#22adff")
+		color.is-rounded(value="#2264C8")
+		color.is-rounded(value="#22c85c")
+		color.is-rounded(value="#ffd232")
+		color.is-rounded(value="#ff0050")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				at value=
+				vat.is-text-upper "#22adff"
+				tg &gt&lt/color&gt
+				br
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				at value=
+				vat.is-text-upper "#2264c8"
+				tg &gt&lt/color&gt
+				br
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				at value=
+				vat.is-text-upper "#22c85c"
+				tg &gt&lt/color&gt
+				br
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				at value=
+				vat.is-text-upper "#ffd232"
+				tg &gt&lt/color&gt
+				br
+				tg &ltcolor
+				at class=
+				vat "is-rounded"
+				at value=
+				vat.is-text-upper "#ff0050"
+				tg &gt&lt/color&gt
+h4.subtitle Estado inactivo
+p.bloque Añadiendo el atributo
+	code [disabled]
+	span al elemento
+	code color
+	span .
+row.bloque
+	column.tablet-is-half
+		color(disabled value="#ff0050")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltcolor
+				at disabled
+				at value=
+				vat "#22adff"
+				tg &gt&lt/color&gt

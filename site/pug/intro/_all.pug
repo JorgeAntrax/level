@@ -1,0 +1,26 @@
+tabs.shadow-y
+	tab(data-id="#page-intro").is-active Introducción
+	tab(data-id="#page-colors") Colores
+	tab(data-id="#page-fonts") Tipografía
+	tab(data-id="#page-contenido") Contenido
+	tab(data-id="#page-modular") Modular
+	tab(data-id="#page-functions") Funciones
+	tab(data-id="#page-anim") Animaciones
+	tab(data-id="#page-mixin") Mixins
+tabs-content.app
+	tab-content#page-intro
+		include _introduccion
+	tab-content#page-colors
+		include _colors
+	tab-content#page-fonts
+		include _typography
+	tab-content#page-contenido
+		include _contenido
+	tab-content#page-modular
+		include _modular
+	tab-content#page-functions
+		include _functions
+	tab-content#page-anim
+		include _anim
+	tab-content#page-mixin
+		include _mixins

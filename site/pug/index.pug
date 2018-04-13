@@ -1,0 +1,44 @@
+- var urlimage = 'http://kimera.comli.com/img/';
+doctype
+html
+	head
+		include main/_headers
+	body
+		layout.is-dashboard
+			sidebar#menu-principal
+				include main/_menu
+			main
+				group.is-boxed#bottom-nav.is-hidden-desktop
+					item#mostrar-side-menu
+						icon.is-medium
+							i.fa.fa-bars
+						tiny Menú
+					item
+						a(href="https://github.com/JorgeAntrax/kimera")
+							icon.is-medium
+								i.fa.fa-github
+						tiny Github
+					item
+						a(href="#footer").is-medium
+							icon
+								i.fa.fa-angle-down
+						tiny Ir abajo
+				#home
+				.menu_content#layout-home.visible
+					include intro/_home
+				.menu_content#layout-intro
+					include intro/_all
+				.menu_content#layout-grid
+					include grid/_all
+				.menu_content#layout-components
+					include components/_all
+				.menu_content#layout-forms
+					include forms/_all
+				.menu_content#layout-modules
+					include modules/_all
+				#footer
+					include main/_footer
+		script(src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
+		script(src="js/kimera.min.js")
+		script(src="js/main.js")
+		script(src="https://platform.twitter.com/widgets.js" charset="utf-8")

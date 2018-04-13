@@ -1,0 +1,344 @@
+h1.title Social media
+tags.is-group
+	tag.is-info Path
+	tag _social.scss
+	tag.is-danger Estilo Visual
+p Pequeño módulo para construir componentes
+	b sociales
+	span .
+divider
+p.bloque Este pequeño módulo  por lo regular es utilizado en redes sociales, blogs, páginas de noticias, etc.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code social
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code media
+				span Contenedor del avatar o imagen (añade un margen derecho).
+			li
+				code content
+				span Contenido del módulo (añade padding lateral interno).
+				ul.default-browser
+					li
+						code header
+						span Cabecera del contenido.
+					li
+						code section
+						span Contenido.
+					li
+						code footer
+						span Sección inferior, normalmente utilizada para colocar enlaces o iconos.
+			li
+				code icon
+				span Icono de cierre u opciones del módulo.
+p.bloque Todos los componentes del módulo pueden ser omitidos sin afectar el producto.
+row.bloque
+	column.tablet-is-half
+		social.structure
+			media
+			content
+				header
+				section
+				footer
+			span.icon
+	column.tablet-is-half
+		social
+			media
+				responsive.is-square-48
+					img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4clCrPXBy2rJEVFHYoybzHQmxvcFXkCV8u4IDrLqbyocvqRt0Zg", alt="").is-rounded
+			content
+				header
+					.is-text-info Kimera CSS
+				section
+					p Un potente framework css basado en
+						b flexbox
+						span y etiquetas personalizadas.
+				footer
+					a(href="#").is-text-info
+						icon.is-small
+							i.fa.fa-thumbs-o-up
+					a(href="#").is-text-info
+						icon.is-small
+							i.fa.fa-reply
+					a(href="#").is-text-info
+						icon.is-small
+							i.fa.fa-comments-o
+			close
+				i.fa.fa-times-circle
+snippet.bloque
+	pre
+		tg &ltsocial&gt
+		br
+		tg   &ltmedia&gt
+		br
+		tg     &ltimg
+		at src=
+		vat "img40x40.png"
+		tg &gt
+		br
+		tg   &lt/media&gt
+		br
+		tg   &ltcontent&gt
+		br
+		tg     &ltheader&gt
+		br
+		tg       &ltinfo&gt
+		span Kimera CSS
+		tg &lt/info&gt
+		br
+		tg     &lt/header&gt
+		br
+		tg     &ltsection&gt
+		br
+		tg       &ltp&gt
+		span Un potente framework basado en
+		tg &ltb&gt
+		span flexbox
+		tg &lt/b&gt
+		span y etiquetas personalizadas.
+		tg &lt/p&gt
+		br
+		tg     &lt/section&gt
+		br
+		tg     &ltfooter&gt
+		br
+		tg       &lticon&gt
+		br
+		tg         &lti
+		at class=
+		vat "fa fa-thumbs-o-up"
+		tg &gt&lt/i&gt
+		br
+		tg       &lt/icon&gt
+		br
+		tg       &lticon&gt
+		br
+		tg         &lti
+		at class=
+		vat "fa fa-reply"
+		tg &gt&lt/i&gt
+		br
+		tg       &lt/icon&gt
+		br
+		tg       &lticon&gt
+		br
+		tg         &lti
+		at class=
+		vat "fa fa-comments-o"
+		tg &gt&lt/i&gt
+		br
+		tg       &lt/icon&gt
+		br
+		tg     &lt/footer&gt
+		br
+		tg   &lt/content&gt
+		br
+		tg   &ltclose&gt
+		br
+		tg     &lti
+		at class=
+		vat "fa fa-times-circle"
+		tg &gt&lt/i&gt
+		br
+		tg   &lt/close&gt
+		br
+		tg &lt/social&gt
+h4.subtitle Anidación
+p.bloque Puedes anidar este módulos para crear una estructura de arbol.
+row.bloque
+	column.tablet-is-half
+		box
+			social
+				media
+					responsive.is-square-48
+						img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4clCrPXBy2rJEVFHYoybzHQmxvcFXkCV8u4IDrLqbyocvqRt0Zg", alt="").is-rounded
+				content
+					header
+						b Kimera CSS
+					section
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex natus quae dignissimos aspernatur similique, ducimus voluptatum facere ad, consectetur animi!
+					footer
+						a(href="#").is-text-info
+							icon.is-small
+								i.fa.fa-thumbs-o-up
+						a(href="#").is-text-info
+							icon.is-small
+								i.fa.fa-comments-o
+						a(href="#").is-text-info
+							icon.is-small
+								i.fa.fa-share
+					social
+						media
+							responsive.is-square-32
+								img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="").is-rounded
+						content
+							header
+								b Jane Doe
+							section
+								p Lorem ipsum dolor sit amet.
+							footer
+								a(href="#").is-text-info
+									icon.is-small
+										i.fa.fa-thumbs-o-up
+								a(href="#").is-text-info
+									icon.is-small
+										i.fa.fa-reply
+								small.op-03 • Hace 3 horas
+					social
+						media
+							responsive.is-square-32
+								img(src="https://runner.fitradio.com/resources/artwork/2136864304_monopoli_prof.jpg", alt="").is-rounded
+						content
+							header
+								b John Smith
+							section
+								p  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							footer
+								a(href="#").is-text-info
+									icon.is-small
+										i.fa.fa-thumbs-o-up
+								a(href="#").is-text-info
+									icon.is-small
+										i.fa.fa-reply
+								small.op-03 • Hace 25 minutos
+							social
+								media
+									responsive.is-square-32
+										img(src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/25659728_1503334959787685_1657382726692292790_n.jpg?oh=5d22e1fe2efeb3d3d899e68a08916c96&oe=5AF990F3", alt="").is-rounded
+								content
+									header
+										b Leito Winchester
+									section
+										p  Kimera is amazing
+									footer
+										a(href="#").is-text-info
+											icon.is-small
+												i.fa.fa-thumbs-o-up
+										a(href="#").is-text-info
+											icon.is-small
+												i.fa.fa-reply
+										small.op-03 • Hace un momento
+				close
+					i.fa.fa-ellipsis-v
+			social
+				media
+					responsive.is-square-48
+						img(src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/25659728_1503334959787685_1657382726692292790_n.jpg?oh=5d22e1fe2efeb3d3d899e68a08916c96&oe=5AF990F3", alt="").is-rounded
+				content
+					header
+						textarea(placeholder="Descripción" rows="1").is-rounded.is-info
+					section
+						group.test-hover
+							item
+								icon.op-03.is-small
+									i.fa.fa-thumbs-o-up
+							item
+								icon.op-03.is-small
+									i.fa.fa-camera
+							item
+								icon.op-03.is-small
+									i.fa.fa-link
+							item
+								icon.op-03.is-small
+									i.fa.fa-plus-square-o
+				button.is-info.is-small
+					span Publicar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltsocial&gt
+				cm   @Content
+				tg   &ltsocial&gt
+				cm     @Content
+				tg   &lt/social&gt
+				br
+				tg   &ltsocial&gt
+				cm     @Content
+				tg     &ltsocial&gt
+				cm       @Content
+				tg     &lt/social&gt
+				br
+				tg   &lt/social&gt
+				br
+				tg   &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg &lt/social&gt
+				br
+				tg &ltsocial&gt
+				cm   @Content
+				tg &lt/social&gt
+h4.subtitle Que puedes hacer!
+p.bloque No hay una
+	b limitación
+	span en lo que puedes hacer con este módulo, su estructura es genérica, por lo que
+	b puedes insertar
+	span lo que tu quieras dentro de ella.
+row.bloque
+	column.tablet-is-half
+		box
+			social
+				media
+					responsive.is-square-48
+						img(src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/25659728_1503334959787685_1657382726692292790_n.jpg?oh=5d22e1fe2efeb3d3d899e68a08916c96&oe=5AF990F3", alt="").is-rounded
+				content
+					header
+						textarea(placeholder="Descripción" rows="1").is-rounded.is-info
+					section
+						group.test-hover
+							item
+								icon.op-03.is-small
+									i.fa.fa-thumbs-o-up
+							item
+								icon.op-03.is-small
+									i.fa.fa-camera
+							item
+								icon.op-03.is-small
+									i.fa.fa-link
+							item
+								icon.op-03.is-small
+									i.fa.fa-plus-square-o
+				button.is-info.is-small
+					span Publicar
+	column.tablet-is-half
+		box
+			social
+				media
+					responsive.is-square-48
+						img(src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/25659728_1503334959787685_1657382726692292790_n.jpg?oh=5d22e1fe2efeb3d3d899e68a08916c96&oe=5AF990F3", alt="").is-rounded
+				content
+					header
+						span
+							info Kimera CSS
+							icon
+								i.fa.fa-caret-right
+							info Público
+							p.op-02.is-tiny Hace un momento •
+								icon.is-tiny
+									i.fa.fa-globe
+						icon.is-medium
+							i.fa.fa-ellipsis-v
+					section
+						responsive
+							img(src="https://images.pexels.com/photos/744672/pexels-photo-744672.jpeg?h=350&auto=compress&cs=tinysrgb", alt="pexels.com")
+						p.is-tiny
+							icon.is-text-danger
+								i.fa.fa-gratipay
+							span Tú y 2 personas más
+					footer
+						group.test-hover
+							item.is-text-info.is-small
+								icon
+									i.fa.fa-thumbs-up
+								span Me gusta
+							item.is-small
+								icon
+									i.fa.fa-comment
+								span Comentar
+							item.is-small
+								icon
+									i.fa.fa-share
+								span Compartir

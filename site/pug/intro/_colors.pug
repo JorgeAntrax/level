@@ -1,0 +1,318 @@
+h1.title Colores
+tags.is-group
+	tag.is-info Path
+	tag _colors.scss
+p
+	b Biblioteca de color con
+	b 7 colores base
+	span y
+	b 8 tonos
+	span diferentes.
+divider
+h4.subtitle Mixin
+p.bloque Kimera incluye un mixin que te ayudará a crear tu biblioteca personalizada de colores
+p El
+	code mixin requiere de
+	b 4 parámetros
+	span :
+responsive.is-table.bloque
+	table.is-cell
+		thead
+			tr
+				th Parámetro
+				th Descripción
+		tbody
+			tr
+				td: code $class
+				td.is-small.is-text-bolder Nombre de la clase para dicho color
+			tr
+				td: code $base-color
+				td.is-small.is-text-bolder Color base
+			tr
+				td: code $number-color
+				td.is-small.is-text-bolder Número de colores a generar, por defecto son 5.
+			tr
+				td: code $interval-color
+				td.is-small.is-text-bolder Este valor controla el rango de color generado (se multiplica por el número de colores), por defecto es 2.
+snippet.bloque
+	pre
+		cm //Paleta de color rojo
+		tg @include
+		vat color-picker
+		tg (
+		span danger
+		vat ,
+		kbd.is-rounded.color-danger #FF0050
+		vat ,
+		span 3
+		vat ,
+		span 5
+		tg )
+		span ;
+p.bloque El resultado sería algo como esto:
+row.bloque
+	column.color-danger-lighten-3: code .color-danger-lighten-3
+	column.color-danger-lighten-2: code .color-danger-lighten-2
+	column.color-danger-lighten-1: code .color-danger-lighten-1
+	column.color-danger: code .color-danger
+	column.color-danger-darken-1: code .color-danger-darken-1
+	column.color-danger-darken-2: code .color-danger-darken-2
+	column.color-danger-darken-3: code .color-danger-darken-3
+row.bloque
+	column.tablet-is-half
+		p.bloque Mapa de colores en
+			b SASS
+			span .
+		snippet#map-sass
+			pre
+				span $colores
+				tg (
+				br
+				span    cloud
+				tg :
+				kbd.is-rounded.color-cloud #FFF
+				tg ,
+				br
+				span    light
+				tg :
+				kbd.is-rounded.color-light #F5F5F5
+				tg ,
+				br
+				span    black
+				tg :
+				kbd.is-rounded.color-black #000
+				tg ,
+				br
+				span    dark
+				tg :
+				kbd.is-rounded.color-dark #444
+				tg ,
+				br
+				span    primary
+				tg :
+				kbd.is-rounded.color-primary #23CBFE
+				tg ,
+				br
+				span    info
+				tg :
+				kbd.is-rounded.color-info #2264C8
+				tg ,
+				br
+				span    success
+				tg :
+				kbd.is-rounded.color-success #22C85C
+				tg ,
+				br
+				span    warning
+				tg :
+				kbd.is-rounded.color-warning #FFD232
+				tg ,
+				br
+				span    danger
+				tg :
+				kbd.is-rounded.color-danger #FF0050
+				br
+				tg );
+	column.tablet-is-half
+		p.bloque Código que genera la biblioteca de color.
+		snippet
+			pre
+				cm //Paleta de color rojo
+				tg @each
+				span $class
+				vat ,
+				span $color
+				tg in
+				span $colores
+				tg {
+				br
+				tg    @include
+				vat color-picker
+				tg (
+				span $class
+				vat ,
+				span $color
+				vat ,
+				span 4
+				vat ,
+				span 5
+				tg )
+				span ;
+				br
+				tg }
+h4.bloque.subtitle Estructura de clases
+b: code .color- $color-base- $luminancia- $cantidad
+h4.bloque.subtitle Paleta de colores
+row.docs-colors
+	column.touch-8
+		span.color-black color-black
+	column
+		span.color-black-lighten-1 -lighten-1
+	column
+		span.color-black-lighten-2 -lighten-2
+	column
+		span.color-black-lighten-3 -lighten-3
+	column
+		span.color-black-lighten-4 -lighten-4
+row.docs-colors
+	column.touch-8
+		span.color-dark color-dark
+	column
+		span.color-dark-lighten-1 -lighten-1
+	column
+		span.color-dark-lighten-2 -lighten-2
+	column
+		span.color-dark-lighten-3 -lighten-3
+	column
+		span.color-dark-lighten-4 -lighten-4
+row.docs-colors
+	column.touch-8
+		span.color-light color-light
+	column
+		span.color-light-darken-1 -darken-1
+	column
+		span.color-light-darken-2 -darken-2
+	column
+		span.color-light-darken-3 -darken-3
+	column
+		span.color-light-darken-4 -darken-4
+row.docs-colors
+	column.touch-8
+		span.color-primary color-primary
+	column
+		span.color-primary-lighten-1 -lighten-1
+		span.color-primary-darken-1 -darken-1
+	column
+		span.color-primary-lighten-2 -lighten-2
+		span.color-primary-darken-2 -darken-2
+	column
+		span.color-primary-lighten-3 -lighten-3
+		span.color-primary-darken-3 -darken-3
+	column
+		span.color-primary-lighten-4 -lighten-4
+		span.color-primary-darken-4 -darken-4
+row.docs-colors
+	column.touch-8
+		span.color-info color-info
+	column
+		span.color-info-lighten-1 -lighten-1
+		span.color-info-darken-1 -darken-1
+	column
+		span.color-info-lighten-2 -lighten-2
+		span.color-info-darken-2 -darken-2
+	column
+		span.color-info-lighten-3 -lighten-3
+		span.color-info-darken-3 -darken-3
+	column
+		span.color-info-lighten-4 -lighten-4
+		span.color-info-darken-4 -darken-4
+row.docs-colors
+	column.touch-8
+		span.color-success color-success
+	column
+		span.color-success-lighten-1 -lighten-1
+		span.color-success-darken-1 -darken-1
+	column
+		span.color-success-lighten-2 -lighten-2
+		span.color-success-darken-2 -darken-2
+	column
+		span.color-success-lighten-3 -lighten-3
+		span.color-success-darken-3 -darken-3
+	column
+		span.color-success-lighten-4 -lighten-4
+		span.color-success-darken-4 -darken-4
+row.docs-colors
+	column.touch-8
+		span.color-warning color-warning
+	column
+		span.color-warning-lighten-1 -lighten-1
+		span.color-warning-darken-1 -darken-1
+	column
+		span.color-warning-lighten-2 -lighten-2
+		span.color-warning-darken-2 -darken-2
+	column
+		span.color-warning-lighten-3 -lighten-3
+		span.color-warning-darken-3 -darken-3
+	column
+		span.color-warning-lighten-4 -lighten-4
+		span.color-warning-darken-4 -darken-4
+row.docs-colors
+	column.touch-8
+		span.color-danger color-danger
+	column
+		span.color-danger-lighten-1 -lighten-1
+		span.color-danger-darken-1 -darken-1
+	column
+		span.color-danger-lighten-2 -lighten-2
+		span.color-danger-darken-2 -darken-2
+	column
+		span.color-danger-lighten-3 -lighten-3
+		span.color-danger-darken-3 -darken-3
+	column
+		span.color-danger-lighten-4 -lighten-4
+		span.color-danger-darken-4 -darken-4
+h4.subtitle Variables
+p.bloque Las variables permiten controlar mejor el cambio de color cuando utilizas un
+	b preprocesador CSS
+	span , kimera esta desarrollado utilizando sass.
+responsive.is-table.bloque
+	table.is-cell
+		thead
+			info
+				tr
+					th Variable
+					th Color HSLA
+					th Color Hex
+					th Muestra
+		tbody
+			tr
+				td: code $cloud
+				td: small.is-text-bolder hsla(0, 0, 100, 255)
+				td: small.is-text-bolder #FFFFFF
+				td: small.is-text-bolder cloud
+			tr
+				td: code $light
+				td: small.is-text-bolder hsla(0, 0, 96, 255)
+				td: small.is-text-bolder #F5F5F5
+				td: kbd.color-light light
+			tr
+				td: code $dark
+				td: small.is-text-bolder hsla(0, 0, 26, 255)
+				td: small.is-text-bolder #444444
+				td: kbd.color-dark dark
+			tr
+				td: code $black
+				td: small.is-text-bolder hsla(0, 0, 0, 255)
+				td: small.is-text-bolder #000000
+				td: kbd.color-black black
+			tr
+				td: code $primary
+				td: small.is-text-bolder hsla(194, 100, 57, 255)
+				td: small.is-text-bolder #23CBFE
+				td: kbd.color-primary primary
+			tr
+				td: code $info
+				td: small.is-text-bolder hsla(216, 71, 47, 255)
+				td: small.is-text-bolder #2264C8
+				td: kbd.color-info info
+			tr
+				td: code $success
+				td: small.is-text-bolder hsla(141, 71, 47, 255)
+				td: small.is-text-bolder #22C85C
+				td: kbd.color-success success
+			tr
+				td: code $warning
+				td: small.is-text-bolder hsla(47, 100, 61, 255)
+				td: small.is-text-bolder #FFD232
+				td: kbd.color-warning warning
+			tr
+				td: code $danger
+				td: small.is-text-bolder hsla(341, 100, 50, 255)
+				td: small.is-text-bolder #FF0050
+				td: kbd.color-danger danger
+message.is-info
+	header
+		span Importante
+	content
+		p Los colores base pueden ser modificados en el archivo de
+		code _variables.scss

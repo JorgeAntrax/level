@@ -1,0 +1,14 @@
+tabs.shadow-y
+	tab(data-id="#page-responsive").is-active Adaptabilidad
+	tab(data-id="#page-grid") Columnas
+	tab(data-id="#page-align") Distribución
+	tab(data-id="#page-layout") Maquetación
+tabs-content.app
+	tab-content#page-responsive
+		include responsive
+	tab-content#page-grid
+		include grid
+	tab-content#page-align
+		include align
+	tab-content#page-layout
+		include layout

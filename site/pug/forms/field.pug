@@ -1,0 +1,298 @@
+h1.title Fields
+tags.is-group
+	tag.is-info Path
+	tag _forms.scss
+	tag.is-danger estilos visuales
+tag.is-success Actualización
+divider
+p.bloque El elemento
+	code field
+	span es unicamente un
+	b contenedor flexible
+	span , para distribuir los elementos relacionados con la entrada de información.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code field
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code control
+				span Item del contenedor principal.
+p.bloque El elemento
+	code field
+	span por defecto aplica la propiedad
+	code flex-direction: column
+	span .
+row.bloque
+	column.tablet-is-half
+		field
+			control
+				input(type="text" placeholder="Usuario").input
+			control
+				input(type="text" placeholder="Correo electronico").input
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subtitle Field horizontal
+p.bloque Añadiendo la clase
+	code .is-horizontal
+	span al elemento
+	code field
+	span aplica la propiedad
+	code flex-direction: row
+	span , y los elementos
+	code control
+	span tienen un ancho automatico.
+row.bloque
+	column.tablet-is-half
+		field.is-horizontal
+			control
+				input(type="text" placeholder="Usuario").input
+			control
+				button.is-info Enviar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield
+				at class=
+				vat "is-horizontal"
+				tg &gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subitle Espacio disponible
+p.bloque Añadiendo la clase
+	code .is-expand
+	span a un elemento
+	code control
+	span este tomará todo el espacio sobrante de su contenedor padre.
+row.bloque
+	column.tablet-is-half
+		field.is-horizontal
+			control.is-expand
+				input(type="text" placeholder="Usuario").input
+			control
+				button.is-info Enviar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield
+				at class=
+				vat "is-horizontal"
+				tg &gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-expand"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subitle Field addons
+p.bloque Añadiendo el atributo personalizado
+	code addons
+	span al elemento
+	code field
+	span eliminara los margenes y bordes redondeados de sus elementos
+	code control
+	span .
+row.bloque
+	column.tablet-is-half
+		field(addons)
+			control
+				listbox.is-info
+					select(name="demo-field")
+						option(value="+52") +52
+						option(value="+88") +88
+						option(value="+22") +22
+			control.is-expand
+				input(type="tel" placeholder="Telefono").input
+			control
+				button.is-info Buscar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield
+				at addons
+				tg &gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltlistbox&gt
+				br
+				tg       &ltselect
+				at name=
+				vat "demo"
+				tg &gt
+				br
+				tg         &ltoption
+				at value=
+				vat "+52"
+				tg &gt
+				span 52
+				tg &lt/option&gt
+				br
+				tg         &ltoption
+				at value=
+				vat "+88"
+				tg &gt
+				span +88
+				tg &lt/option&gt
+				br
+				tg         &ltoption
+				at value=
+				vat "+22"
+				tg &gt
+				span +22
+				tg &lt/option&gt
+				br
+				tg       &lt/select&gt
+				br
+				tg     &lt/listbox&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-expand"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subitle Addons redondeados
+p.bloque Añadiendo la clase
+	code .is-rounded
+	span al elemento
+	code field
+	span que ya posee el atributo
+	code addons
+	span creará bordes redondeados a su primer y último elemento
+	code control
+	span .
+row.bloque
+	column.tablet-is-half
+		field(addons).is-rounded
+			control.is-expand
+				input(type="text" placeholder="Usuario").input
+			control
+				button.is-info Buscar
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield
+				at addons
+				at class=
+				vat "is-rounded"
+				tg &gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-expand"
+				tg &gt
+				br
+				tg     &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input"
+				tg &gt
+				br
+				tg   &lt/control&gt
+				br
+				tg   &ltcontrol&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Enviar
+				tg &lt/button&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt

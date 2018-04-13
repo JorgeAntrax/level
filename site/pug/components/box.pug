@@ -1,0 +1,143 @@
+h1.title Box
+tags.is-group
+	tag.is-info Path
+	tag _box.scss
+p El componente
+	code box
+	span es un
+	b simple contenedor flexible
+	span con padding y sombra.
+divider
+h4.subtitle Implementación
+p.bloque Este componente por defecto aplica la propiedad
+	code flex-direction: column
+	span .
+row.bloque
+	column.tablet-is-half
+		box
+			h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquid.
+	column.tablet-is-half
+		snippet
+			pre
+				cm // flexible Box component
+				tg &ltbox&gt<br>
+				tg   &lth2&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquid.
+				tg &lt/h2&gt<br>
+				tg &lt/box&gt
+p.bloque Puedes aplicar la biblioteca de color que incluye kimera, para darle más estilos.
+row.bloque
+	column.tablet-is-half
+		box.color-info
+			h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquid.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbox
+				at class=
+				vat "color-info"
+				tg &gt<br>
+				tg   &lth2&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, aliquid.
+				tg &lt/h2&gt<br>
+				tg &lt/box&gt
+h4.subtitle Box mobile
+p.bloque Añadiendo la clase
+	code .is-mobile
+	span al elemento
+	code box
+	span .
+row.bloque
+	column.tablet-is-half
+		box.is-mobile
+			social
+				media
+					img(src=urlimage+'logo-circular-white.png' alt="Imagen" style="width: 80px")
+				content
+					header
+						.is-text-primary KimeraCSS
+						tiny.op-03 Hace un momento
+					section
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit, natus facilis necessitatibus.
+					footer
+						a(href="#")
+							icon.is-small
+								i.fa.fa-thumbs-o-up
+						a(href="#")
+							icon.is-small
+								i.fa.fa-reply
+						a(href="#")
+							icon.is-small
+								i.fa.fa-comments-o
+				icon.op-03
+					i.fa.fa-times-circle
+	column.tablet-is-half
+		snippet
+			pre
+				cm // flexible Box component
+				tg &ltbox
+				at class=
+				vat "is-mobile"
+				tg &gt
+				br
+				tg   &ltsocial&gt
+				br
+				tg     &ltmedia&gt
+				br
+				tg       &ltimg
+				at src=
+				vat "img/logo.png"
+				at style=
+				vat "width: 80px"
+				tg &gt
+				br
+				tg     &lt/media&gt
+				br
+				tg     &ltcontent&gt
+				br
+				tg       &ltheader&gt
+				br
+				tg         &ltprimary&gt
+				span KimeraCSS
+				tg &lt/primary&gt
+				br
+				tg         &lttiny&gt
+				span Hace un momento
+				tg &lt/tiny&gt
+				br
+				tg       &lt/header&gt
+				br
+				tg       &ltsection&gt
+				br
+				tg         &ltp&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit, natus facilis necessitatibus.
+				tg &lt/p&gt
+				br
+				tg       &lt/section&gt
+				br
+				tg       &ltfooter&gt
+				br
+				tg         &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg         &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg       &lt/footer&gt
+				br
+				tg     &lt/content&gt
+				br
+				tg     &lticon&gt&lti
+				at class=
+				vat "fa fa-times-circle"
+				tg &lt/i&gt&lt/icon&gt
+				br
+				tg   &lt/social&gt
+				br
+				tg &lt/box&gt		

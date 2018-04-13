@@ -1,0 +1,308 @@
+h1.title Adaptabilidad
+tags.is-group
+	tag.is-info Path
+	tag _grid.scss
+divider
+h4.subtitle Mixins
+p 
+	b Kimera 
+	span  utiliza
+	b  3
+	span mixin para diseño responsive:
+row.bloque
+	column.tablet-is-half
+		b Breakpoints soportados
+		ul.default-browser
+			li
+				code mobile
+				small.is-text-bolder = screen <  480px
+			li
+				code touch
+				small.is-text-bolder = screen <  768px
+			li
+				code only-touch
+				small.is-text-bolder = screen > 480px < 767px
+			li
+				code tablet
+				small.is-text-bolder = screen > 768px
+			li
+				code only-tablet
+				small.is-text-bolder = screen > 769px < 1023px
+			li
+				code desktop
+				small.is-text-bolder = screen > 1024px
+			li
+				code only-desktop
+				small.is-text-bolder = screen > 1024px < 1299px
+			li
+				code widescreen
+				small.is-text-bolder = screen > 1300px
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Revisa del lado izquierdo los breakpoints soportados.
+				tg @include since (
+				span.op-03 $breakpoint
+				tg )
+				at {
+				br
+				vat   display: flex;
+				br
+				at }
+				br
+				tg @include until (
+				span.op-03 $breakpoint
+				tg )
+				at {
+				br
+				vat   display: flex;
+				br
+				at }
+				br
+				tg @include only (
+				span.op-03 $breakpoint
+				tg )
+				at {
+				br
+				vat   display: flex;
+				br
+				at }
+				br
+message.is-info
+	header
+		span Importante
+	content
+		ul.default-browser
+			li Los breakpoints
+				code only-touch, only-tablet, only-desktop
+				span son exclusivos del mixin only().
+			li Cualquiera de los 3 mixins soportan valores, que no esten dentro de los breakpoints soportados.
+			li Los breakpoints pueden ser personalizados modificando el archivo
+			code _variables.scss
+h4.subtitle Uso de valores genericos.
+p.bloque
+	b Kimera
+	span permite pasar como parametro valores genericos a los mixins.
+snippet
+	pre
+		tg @include since (
+		span.op-03 560px
+		tg )
+		at {
+		br
+		vat   display: flex;
+		br
+		at }
+		br
+		tg @include until (
+		span.op-03 70rem
+		tg )
+		at {
+		br
+		vat   display: flex;
+		br
+		at }
+		br
+		tg @include only (
+		span.op-03 480px
+		tg ,
+		span.op-03 650px
+		tg )
+		at {
+		br
+		vat   display: flex;
+		br
+		at }
+h4.subtitle Mapa visual
+responsive.bloque.is-table
+	table.is-cell.is-boxed#responsive-map
+		thead
+			tr
+				th
+					div
+						b Mobile<br> 
+							span screen > 
+							code 300px
+							span < 
+							code 480px
+				th
+					div
+						b Touch<br> 
+							span screen < 
+							code 767px
+				th
+					div
+						b Tablet<br> 
+							span screen > 
+							code 768px
+							span < 
+							code 1023px
+				th
+					div
+						b Desktop<br> 
+							span screen > 
+							code 1024px
+							span < 
+							code 1299px
+				th
+					div
+						b Widescreen<br> 
+							span screen > 
+							code 1300px
+		tbody
+			tr
+				td
+					.docs-responsive.color-success
+						b Mobile
+				td(colspan="4")
+					.docs-responsive $
+			tr
+				td(colspan="2")
+					.docs-responsive.color-success
+						b Touch
+				td(colspan="3")
+					.docs-responsive $
+			tr
+				td(colspan="3")
+					.docs-responsive.color-success
+						b Tablet
+				td(colspan="2")
+					.docs-responsive $
+			tr
+				td(colspan="4")
+					.docs-responsive.color-success
+						b Desktop
+				td
+					.docs-responsive $
+			tr
+				td(colspan="5")
+					.docs-responsive.color-success
+						b Widescreen
+			tr
+				td
+					.docs-responsive $
+				td
+					.docs-responsive.color-success
+						b Only-Touch
+				td(colspan="3")
+					.docs-responsive $
+			tr
+				td(colspan="2")
+					.docs-responsive $
+				td
+					.docs-responsive.color-success
+						b Only-Tablet
+				td(colspan="2")
+					.docs-responsive $
+			tr
+				td(colspan="3")
+					.docs-responsive $
+				td
+					.docs-responsive.color-success
+						b Only-Desktop
+				td
+					.docs-responsive $
+h4.subtitle Visibilidad de contenido
+p.bloque Kimera incluye un conjunto de clases que te permitirán ocultar
+	b bloques de contenido
+	span en cierto tipo de resoluciones.
+responsive.bloque.is-table
+	table.is-cell.is-boxed#responsive-map
+		thead
+			tr
+				th
+					div
+						b Mobile<br> 
+							span screen > 
+							code 300px
+							span < 
+							code 480px
+				th
+					div
+						b Touch<br> 
+							span screen < 
+							code 767px
+				th
+					div
+						b Tablet<br> 
+							span screen > 
+							code 768px
+							span < 
+							code 1023px
+				th
+					div
+						b Desktop<br> 
+							span screen > 
+							code 1024px
+							span < 
+							code 1299px
+				th
+					div
+						b Widescreen<br> 
+							span screen > 
+							code 1300px
+		tbody
+			tr
+				td(colspan="5")
+					.docs-responsive
+						code .is-hidden
+			tr
+				td(colspan="1")
+					.docs-responsive.color-success
+						b Visible
+				td(colspan="4")
+					.docs-responsive
+						code .is-hidden-touch
+			tr
+				td(colspan="2")
+					.docs-responsive.color-success
+						b Visible
+				td(colspan="3")
+					.docs-responsive
+						code .is-hidden-tablet
+			tr
+				td(colspan="3")
+					.docs-responsive.color-success
+						b Visible
+				td(colspan="2")
+					.docs-responsive
+						code .is-hidden-desktop
+			tr
+				td(colspan="4")
+					.docs-responsive.color-success
+						b Visible
+				td(colspan="1")
+					.docs-responsive
+						code .is-hidden-widescreen
+			tr
+				td(colspan="5")
+					.docs-responsive.color-success
+						b Visible
+			tr
+				td(colspan="1")
+					.docs-responsive
+						b Hidden
+				td(colspan="4")
+					.docs-responsive.color-success
+						code .is-visible-touch
+			tr
+				td(colspan="2")
+					.docs-responsive
+						b Hidden
+				td(colspan="3")
+					.docs-responsive.color-success
+						code .is-visible-tablet
+			tr
+				td(colspan="3")
+					.docs-responsive
+						b Hidden
+				td(colspan="2")
+					.docs-responsive.color-success
+						code .is-visible-desktop
+			tr
+				td(colspan="4")
+					.docs-responsive
+						b Hidden
+				td(colspan="1")
+					.docs-responsive.color-success
+						code .is-visible-widescreen

@@ -1,0 +1,426 @@
+h1.title Progress bar
+tags.is-group
+	tag.is-info Path
+	tag _progress.scss
+tags.is-group
+	tag.is-success Actualización
+	tag.is-warning.is-text-bolder JQuery 1.7
+p Elemento que permite indicar al usuario el progreso de alguna tarea.
+divider
+p.bloque Hemos actualizado este componente y
+	b simplificado
+	span su sintaxis, mediante un pequeño
+	code script
+	span de
+	b jquery
+	span .
+h4.subtitle Proceso de implementación
+p.bloque La manera de construir este tipo de
+	b componente
+	span en versiones inferiores a 
+	code.color-warning 0.3.8
+	span simplemente se añadian los siguientes
+	b elementos personalizados
+	span .
+ol.default-browser
+	li Elemento
+		code progress-bar
+		span .
+	li Elemento
+		code complete
+		span que contenía el atributo
+		code value
+		span el cúal definía el progreso completado de una tarea.
+p.bloque Apartir de la versión
+	code.color-success 0.4.0
+	span y con la implementación de
+	b jquery
+	span , solamente tienes que añadir nuestro tag personalizado
+	code process
+	span .
+h4.subtitle Que ha cambiado
+p.bloque Solamente necesitas una linea de código
+	code html5
+	span ,
+	b jquery
+	span hace el resto.
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-warning 0.3.8
+		.margin-v-1
+			process(value="10%")
+		snippet
+			pre
+				tg &ltprogress-bar&gt
+				br
+				tg   &ltcomplete
+				at value=
+				vat "10%"
+				tg &gt&lt/complete&gt
+				br
+				tg &lt/progress-bar&gt
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-success 0.4.0
+		.margin-v-1
+			process(value="10%")
+		snippet
+			pre
+				tg &ltprocess
+				at value=
+				vat "10%"
+				tg &gt&lt/process&gt
+h4.subtitle Implementación sin Jquery
+p.bloque si decides no utilizar
+	b jquery
+	span con kimera, puedes hacer la implementación de la siguiente manera y obtendrás el mismo resultado.
+snippet
+	pre
+		tg &ltprocess&gt
+		br
+		tg   &ltcomplete
+		at value=
+		vat "10%"
+		tg &gt&lt/complete&gt
+		br
+		tg &lt/process&gt
+row.bloque
+	column.tablet-is-half
+		message.is-primary.is-small
+			header Importante
+			content
+				b JQuery
+				span se encarga de generar dinamicamente el elemento
+				code complete
+				span .
+	column.tablet-is-half
+		message.is-info.is-small
+			header Importante
+			content Los atributos definidos en el elemento
+				code process
+				span definen el comportamiento de su hijo
+				code complete
+				span que se generá dinámicamente.
+h4.subtitle Colores
+p Añadiendo una de las siguientes clases de color al elemento
+	code process
+	span .
+ul.default-browser
+	li: code .is-cloud
+	li: code .is-primary
+	li: code .is-info
+	li: code .is-success
+	li: code .is-warning
+	li: code .is-danger
+row.bloque
+	column.tablet-is-half
+		.color-black.padding-05
+			process.is-cloud(value="5%")
+		process.is-primary(value="20%")
+		process.is-info(value="40%")
+		process.is-success(value="60%")
+		process.is-warning(value="80%")
+		process.is-danger(value="100%")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-cloud"
+				at value=
+				vat "20%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-primary"
+				at value=
+				vat "20%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-info"
+				at value=
+				vat "40%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-success"
+				at value=
+				vat "60%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-warning"
+				at value=
+				vat "80%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-danger"
+				at value=
+				vat "100%"
+				tg &gt&lt/process&gt
+h4.subtitle Tamaños
+p Añadiendo una de las siguientes clases al elemento
+	code process
+	span.
+ul.default-browser
+	li: code .is-slim
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+row.bloque
+	column.tablet-is-half
+		process.is-slim.is-primary(value="20%")
+		process.is-small.is-info(value="40%")
+		process.is-success(value="60%")
+		process.is-medium.is-warning(value="80%")
+		process.is-large.is-danger(value="100%")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-slim is-primary"
+				at value=
+				vat "20%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-small is-info"
+				at value=
+				vat "40%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-success"
+				at value=
+				vat "60%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-medium is-warning"
+				at value=
+				vat "80%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-large is-danger"
+				at value=
+				vat "100%"
+				tg &gt&lt/process&gt
+h4.subtitle Etiquetas
+p.bloque Añadiendo el atributo personalizado
+	code label
+	span al elemento
+	code process
+	span , y asignando uno de sus 2 valores posibles.
+ul.default-browser
+	li: code static
+	li: code floating
+h5.subtitle Label static
+row.bloque
+	column.tablet-is-half
+		process(label="static" value="20%").is-slim.is-primary
+		process(label="static" value="40%").is-small.is-info
+		process(label="static" value="60%").is-success
+		process(label="static" value="80%").is-medium.is-warning
+		process(label="static" value="100%").is-large.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-slim is-primary"
+				at label=
+				vat "static"
+				at value=
+				vat "20%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-small is-info"
+				at label=
+				vat "static"
+				at value=
+				vat "40%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-success"
+				at label=
+				vat "static"
+				at value=
+				vat "60%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-medium is-warning"
+				at label=
+				vat "static"
+				at value=
+				vat "80%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-large is-danger"
+				at label=
+				vat "static"
+				at value=
+				vat "100%"
+				tg &gt&lt/process&gt
+h5.subtitle Label floating
+row.bloque
+	column.tablet-is-half
+		process(label="floating" value="20%").is-slim.is-primary
+		process(label="floating" value="40%").is-small.is-info
+		process(label="floating" value="60%").is-success
+		process(label="floating" value="80%").is-medium.is-warning
+		process(label="floating" value="100%").is-large.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-slim is-primary"
+				at label=
+				vat "floating"
+				at value=
+				vat "20%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-small is-info"
+				at label=
+				vat "floating"
+				at value=
+				vat "40%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-success"
+				at label=
+				vat "floating"
+				at value=
+				vat "60%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-medium is-warning"
+				at label=
+				vat "floating"
+				at value=
+				vat "80%"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-large is-danger"
+				at label=
+				vat "floating"
+				at value=
+				vat "100%"
+				tg &gt&lt/process&gt
+h4.subtitle Progresss is-infinite
+p.bloque Añadiendo al elemento
+	code process
+	span la clase
+	code .is-infinite
+	span .
+row.bloque
+	column.tablet-is-half
+		process.is-slim.is-infinite.is-primary
+		process.is-small.is-infinite.is-info
+		process.is-infinite.is-success
+		process.is-medium.is-infinite.is-warning
+		process.is-large.is-infinite.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-slim is-infinite is-primary"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-small is-infinite is-info"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-infinite is-success"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-medium is-infinite is-warning"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-large is-infinite is-danger"
+				tg &gt&lt/process&gt
+p.bloque Por defecto la animación de la clase
+	code .is-inifinite
+	span es de 2 segundos, puedes controlar la velocidad de la animación mediante una de las siguientes clases:
+ul.default-browser
+	li
+		code .is-very-fast
+		small Velocidad de la animación de 0.5s
+	li
+		code .is-fast
+		small Velocidad de la animación de 1s
+	li
+		code .is-lower
+		small Velocidad de la animación de 3s
+	li
+		code .is-very-lower
+		small Velocidad de la animación de 3.5s
+row.bloque
+	column
+		process.is-infinite.is-primary.is-very-fast
+		process.is-infinite.is-info.is-fast
+		process.is-infinite.is-success.is-lower
+		process.is-infinite.is-danger.is-very-lower
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltprocess
+				at class=
+				vat "is-infinite is-primary is-very-fast"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-infinite is-info is-fast"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-infinite is-success is-lower"
+				tg &gt&lt/process&gt
+				br
+				tg &ltprocess
+				at class=
+				vat "is-infinite is-danger is-very-lower"
+				tg &gt&lt/process&gt

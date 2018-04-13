@@ -1,0 +1,23 @@
+tabs.shadow-y
+	tab(data-id="#page-field").is-active Fields
+	tab(data-id="#page-input") Input
+	tab(data-id="#page-textarea") Textarea
+	tab(data-id="#page-checkbox") Checkbox
+	tab(data-id="#page-radio") Radio
+	tab(data-id="#page-color") Color
+	tab(data-id="#page-select") Select
+tabs-content.app
+	tab-content#page-field
+		include field
+	tab-content#page-input
+		include input
+	tab-content#page-textarea
+		include textarea
+	tab-content#page-checkbox
+		include checkbox
+	tab-content#page-radio
+		include radio
+	tab-content#page-color
+		include color
+	tab-content#page-select
+		include select

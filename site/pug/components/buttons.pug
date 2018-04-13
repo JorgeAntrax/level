@@ -1,0 +1,1080 @@
+h1.title Buttons
+tags.is-group
+	tag.is-info File
+	tag _buttons.scss
+	tag.is-success Colores
+divider
+p.bloque El típico botón
+	code html5
+	span de manera predeterminada no tienes que añadir ninguna ninguna clase.
+row.bloque
+	column.tablet-is-half
+		button Button
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton&gt
+				span button
+				tg &lt/button&gt
+p.title La clase auxiliar
+	code .button
+	span extiende los estilos del elemento
+	code button
+	span a otros elementos html soportados:
+ul.default-browser
+	li
+		code &lta&gt
+	li
+		code &ltdiv&gt
+	li
+		span Elementos de formulario
+		ul.default-browser
+			li: code &ltinput type="button"&gt
+			li: code &ltinput type="submit"&gt
+			li: code &ltinput type="reset"&gt
+	li
+		code &ltlabel&gt
+	li
+		code &ltspan&gt
+	li
+		code &ltstrong&gt
+row.bloque
+	column.tablet-is-half
+		button Button
+		a(href="#").button link
+		span.button button
+		input( type="submit" value="Submit").button
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Button con diferentes tags html
+				tg &ltbutton&gt
+				span button
+				tg &lt/button&gt
+				br
+				tg &lta
+				at class=
+				vat "button"
+				tg &gt
+				span link
+				tg &lt/a&gt
+				br
+				tg &ltspan
+				at class=
+				vat "button"
+				tg &gt
+				span button
+				tg &lt/span&gt
+				br
+				tg &ltinput
+				at type=
+				vat "submit"
+				at class=
+				vat "button"
+				at value=
+				vat "Submit"
+				tg /&gt
+h4.subtitle Colores
+row.bloque
+	column.tablet-is-half
+		buttons.padding-v-05
+			button.is-light Light
+			button.is-black Black
+			button.is-dark Dark
+			button.is-primary Primary
+		buttons
+			button.is-info Info
+			button.is-success Success
+			button.is-warning Warning
+			button.is-danger Danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at class=
+				vat "is-light"
+				tg &gt
+				span Light
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-black"
+				tg &gt
+				span black
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-dark"
+				tg &gt
+				span dark
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-primary"
+				tg &gt
+				span primary
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span info
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-success"
+				tg &gt
+				span success
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-warning"
+				tg &gt
+				span warning
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-danger"
+				tg &gt
+				span danger
+				tg &lt/button&gt
+h4.subtitle Color invert
+p El prefijo
+	code invert
+	span se añade a la clase base.
+row.bloque
+	column.tablet-is-half
+		row.is-mobile.padding-v-05
+			button.is-dark-invert invert
+			button.is-primary-invert invert
+			button.is-info-invert invert
+		row.is-mobile
+			button.is-success-invert invert
+			button.is-warning-invert invert
+			button.is-danger-invert invert
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Estilo invertido
+				tg &ltbutton
+				at class=
+				vat "is-dark-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-primary-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-info-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-success-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-warning-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-danger-invert"
+				tg &gt
+				span invert
+				tg &lt/button&gt
+h4.subtitle Color outline
+p El prefijo
+	code outline
+	span se añade a la clase base.
+row.bloque
+	column.tablet-is-half
+		row.is-mobile.padding-v-05
+			button.is-dark-outline outline
+			button.is-primary-outline outline
+			button.is-info-outline outline
+		row.is-mobile
+			button.is-success-outline outline
+			button.is-warning-outline outline
+			button.is-danger-outline outline
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Estilo outline
+				tg &ltbutton
+				at class=
+				vat "is-dark-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-primary-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-info-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-success-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-warning-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-danger-outline"
+				tg &gt
+				span outline
+				tg &lt/button&gt
+h4.subtitle Color inverse
+p El prefijo
+	code inverse
+	span se añadea la clase base.
+row.bloque.color-info-darken-2
+	column.tablet-is-half
+		row.is-mobile.padding-v-05
+			button.is-dark-inverse inverse
+			button.is-primary-inverse inverse
+			button.is-info-inverse inverse
+		row.is-mobile
+			button.is-success-inverse inverse
+			button.is-warning-inverse inverse
+			button.is-danger-inverse inverse
+	column.tablet-is-half
+		snippet.monokai
+			pre
+				cm // Estilo inverse
+				tg &ltbutton
+				at class=
+				vat "is-dark-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-primary-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-info-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-success-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-warning-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-danger-inverse"
+				tg &gt
+				span inverse
+				tg &lt/button&gt
+h3 Estados
+row
+	column.tablet-is-half
+		h4.subtitle Normal
+		row.bloque
+			column.tablet-is-half
+				row.is-mobile.padding-v-05
+					button.is-dark normal
+					button.is-primary normal
+					button.is-info normal
+				row.is-mobile
+					button.is-success normal
+					button.is-warning normal
+					button.is-danger normal
+		h4.subtitle Hover
+		row.bloque
+			column.tablet-is-half
+				row.is-mobile.padding-v-05
+					button.hovered.is-dark hover
+					button.hovered.is-primary hover
+					button.hovered.is-info hover
+				row.is-mobile
+					button.hovered.is-success hover
+					button.hovered.is-warning hover
+					button.hovered.is-danger hover
+		h4.subtitle Active & focus
+		row.bloque
+			column.tablet-is-half
+				row.is-mobile.padding-v-05
+					button.focused.is-dark focus
+					button.focused.is-primary focus
+					button.focused.is-info focus
+				row.is-mobile
+					button.focused.is-success focus
+					button.focused.is-warning focus
+					button.focused.is-danger focus
+	column.tablet-is-half
+		h4.subtitle
+			span Disabled
+			code [disabled]
+		row.bloque
+			column.tablet-is-half
+				row.is-mobile.padding-v-05
+					button(disabled title="disabled").is-dark disable
+					button(disabled title="disabled").is-primary disable
+					button(disabled title="disabled").is-info disable
+				row.is-mobile
+					button(disabled title="disabled").is-success disable
+					button(disabled title="disabled").is-warning disable
+					button(disabled title="disabled").is-danger disable
+		h4.subtitle
+			span Inactive
+			code [inactive]
+		row.bloque
+			column.tablet-is-half
+				row.is-mobile.padding-v-05
+					button(inactive title="inactive").is-dark inactive
+					button(inactive title="inactive").is-primary inactive
+					button(inactive title="inactive").is-info inactive
+				row.is-mobile
+					button(inactive title="inactive").is-success inactive
+					button(inactive title="inactive").is-warning inactive
+					button(inactive title="inactive").is-danger inactive
+h4.subtitle Iconos
+row.is-distributed.bloque
+	column.tablet-6
+		div.padding-1
+			button
+				icon
+					i.fa.fa-github
+		snippet
+			pre
+				cm // Sintaxis
+				tg &ltbutton&gt
+				br
+				tg   &lticon&gt
+				br
+				span    @Content...
+				br 
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+	column.tablet-6
+		div.padding-1
+			button
+				icon
+					i.fa.fa-github
+				span GitHub
+		snippet
+			pre
+				cm // Sintaxis
+				tg &ltbutton&gt
+				br
+				tg   &lticon&gt
+				br
+				span     @Content...
+				br 
+				tg   &lt/icon&gt
+				br
+				span   GitHub
+				br
+				tg &lt/button&gt
+	column.tablet-6
+		div.padding-1
+			button
+				span GitHub
+				icon
+					i.fa.fa-github
+		snippet
+			pre
+				cm // Sintaxis
+				tg &ltbutton&gt
+				br
+				span   GitHub
+				br
+				tg   &lticon&gt
+				br
+				span     @Content...
+				br 
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+message.is-info
+	header
+		span Atención
+	content
+		p El elemento
+			code &lticon&gt
+			span automaticamente añade una separación, dependiendo de su posición dentro del elemento
+			code button
+h4.subtitle Rounded
+p Creando botones redondeados añadiendo la clase
+	code .is-rounded
+row.bloque
+	column.tablet-is-half
+		button.is-rounded circle
+		button.is-rounded
+			icon
+				i.fa.fa-github
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Sintaxis
+				tg &ltbutton
+				at class=
+				vat "is-rounded"
+				tg &gt
+				span circle
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-rounded"
+				tg &gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg &lt/button&gt
+h4.subtitle Tamaños
+p Utilizando las siguientes clases
+	span , podemos modificar el tamaño del elemento
+	code button
+	span .
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+row.bloque
+	column.tablet-is-half
+		div.padding-v-05
+			p
+				button.is-small
+					icon.is-small
+						i.fa.fa-github
+			p
+				button
+					icon
+						i.fa.fa-github
+			p
+				button.is-medium
+					icon.is-medium
+						i.fa.fa-github
+			p
+				button.is-large
+					icon.is-large
+						i.fa.fa-github
+		div.padding-v-05
+			p
+				button.is-small
+					span Github
+					icon.is-small
+						i.fa.fa-github 
+			p
+				button
+					span Github
+					icon
+						i.fa.fa-github 
+			p
+				button.is-medium
+					span Github
+					icon.is-medium
+						i.fa.fa-github 
+			p
+				button.is-large
+					span Github
+					icon.is-large
+						i.fa.fa-github
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Tamaños
+				tg &ltbutton
+				at class=
+				vat "is-small"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton&gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-medium"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-large"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				br
+				tg &ltbutton
+				at class=
+				vat "is-small"
+				tg &gt
+				br
+				tg   &lticon
+				at class=
+				vat "is-small"
+				tg &gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span   @Content
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton&gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span   @Content
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-medium"
+				tg &gt
+				br
+				tg   &lticon
+				at class=
+				vat "is-medium"
+				tg &gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span   @Content
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-large"
+				tg &gt
+				br
+				tg   &lticon
+				at class=
+				vat "is-large"
+				tg &gt
+				span ...
+				tg &lt/icon&gt
+				br
+				span   @Content
+				br
+				tg &lt/button&gt
+h4.subtitle Block button
+p.bloque La clase
+	code .is-block
+	span te permitirá crear botones estilo bloque.
+row.bloque
+	column.tablet-is-half
+		button.is-dark.is-block Block button
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at class=
+				vat "is-dark is-block"
+				tg &gt
+				span Block button
+				tg &lt/button&gt
+h4.subtitle Box button
+p.bloque Este tipo de boton
+	b modifica la distribución
+	span de su contenido haciendo uso de la clase
+	code .is-boxed
+	span .
+row.bloque
+	column.tablet-is-half
+		row.is-mobile.padding-v-05
+			button.is-boxed.is-dark
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+			button.is-boxed.is-primary
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+			button.is-boxed.is-info
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+		row.is-mobile
+			button.is-boxed.is-success
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+			button.is-boxed.is-warning
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+			button.is-boxed.is-danger
+				icon.is-large
+					i.fa.fa-github
+				span Box button
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Sintaxis box button
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-dark"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-primary"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-info"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-success"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-warning"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at class=
+				vat "is-boxed is-danger"
+				tg &gt
+				span ...
+				tg &lt/button&gt
+				br
+h4.subtitle Buttons group
+p.bloque Utilizando el elemento
+	code buttons
+	span podemos crear grupos de botones.
+row.bloque
+	column.tablet-is-half
+		buttons
+			button Left
+			button Center
+			button Right
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Sintaxis Button group<br>
+				tg &ltbuttons&gt
+				br
+				tg   &ltbutton&gt
+				span Left
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Center
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Right
+				tg &lt/button&gt
+				br
+				tg &lt/buttons&gt
+h4.subtitle Addons
+p.bloque Al añadir la clase
+	code .is-addons
+	span al elemento
+	code buttons
+	span se elimina la separación de los botones.
+row.bloque
+	column.tablet-is-half
+		buttons.is-addons
+			button Left
+			button Center
+			button Right
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Sintaxis Button group<br>
+				tg &ltbuttons
+				at class=
+				vat "is-addons"
+				tg &gt
+				br
+				tg   &ltbutton&gt
+				span Left
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Center
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Right
+				tg &lt/button&gt
+				br
+				tg &lt/buttons&gt
+h4.subtitle Redondeando grupos
+p.bloque Haciendo uso de la clase
+	code .is-rounded
+	span y la clase
+	code is-addons
+	span tambien podemos crear grupos redondeados.
+row.bloque
+	column.tablet-is-half
+		buttons.is-addons.is-rounded
+			button Left
+			button Center
+			button Right
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Sintaxis Button group addons<br>
+				tg &ltbuttons
+				at class=
+				vat "is-addons is-rounded"
+				tg &gt
+				br
+				tg   &ltbutton&gt
+				span Left
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Center
+				tg &lt/button&gt
+				br
+				tg   &ltbutton&gt
+				span Right
+				tg &lt/button&gt
+				br
+				tg &lt/buttons&gt
+h4.subtitle#docs-floating-button Floating Action Buttons
+row.bloque
+	column.tablet-is-half
+		button(type="floating").is-small
+			icon.is-small
+				i.fa.fa-github
+		button(type="floating")
+			icon
+				i.fa.fa-github
+		button(type="floating").is-medium
+			icon.is-medium
+				i.fa.fa-github
+		button(type="floating").is-large
+			icon.is-large
+				i.fa.fa-github
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-small"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-github"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at type=
+				vat "floating"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-github"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-medium"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-github"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+				br
+				tg &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-large"
+				tg &gt
+				br
+				tg   &lticon&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-github"
+				tg &gt&lt/i&gt
+				br
+				tg   &lt/icon&gt
+				br
+				tg &lt/button&gt
+				br
+h4.subtitle Floating Action Groups
+p Componente que normalmente se posiciona en la parte inferior derecha de la pantalla.
+h4.subtitle Estructura:
+ul.default-browser
+	li
+		code fab
+		span Contenedor principal.
+		ul.default-browser
+			li
+				span Elemento con la clase
+				code .is-toggle-fab
+				span que accionará el menu flotante.
+			li
+				code fabmenu
+				span Contenedor del menu flotante.
+				ul.default-browser
+					li
+						span El elemento
+						code fabmenu
+						span necesita una de las siguientes clases indicando la dirección de despliegue:
+						code .is-up, .is-down, .is-left, .is-right
+						span .
+					li Items del menu, por lo regular botones del tipo
+						a(href="#docs-floating-button") flotante
+						span .
+					li La clase
+						code .is-visible
+						span se añade dinamicamente al elemento
+						code fabmenu
+						span para mostrar su contenido.
+tabs.is-boxed
+	tab(data-id="#fab-result") Resultado
+	tab(data-id="#fab-html") HTML
+tabs-content
+	tab-content#fab-result.padding-3
+		center
+			fab
+				button(type="floating").is-toggle-fab.is-medium.is-info
+					icon.is-medium
+						i.fa.fa-plus
+				fabmenu.is-left
+					a.button(type="floating").is-success
+						icon
+							i.fa.fa-bookmark
+					a.button(type="floating").is-warning
+						icon
+							i.fa.fa-pencil
+					a.button(type="floating").is-primary
+						icon
+							i.fa.fa-bolt
+			fab
+				button(type="floating").is-toggle-fab.is-medium.is-success
+					icon.is-medium
+						i.fa.fa-plus
+				fabmenu.is-up
+					button(type="floating").is-success
+						icon
+							i.fa.fa-bookmark
+					button(type="floating").is-warning
+						icon
+							i.fa.fa-pencil
+					a.button(type="floating").is-primary
+						icon
+							i.fa.fa-bolt
+			fab
+				button(type="floating").is-toggle-fab.is-medium.is-warning
+					icon.is-medium
+						i.fa.fa-plus
+				fabmenu.is-down
+					button(type="floating").is-success
+						icon
+							i.fa.fa-bookmark
+					button(type="floating").is-warning
+						icon
+							i.fa.fa-pencil
+					a.button(type="floating").is-primary
+						icon
+							i.fa.fa-bolt
+			fab
+				button(type="floating").is-toggle-fab.is-medium.is-danger
+					icon.is-medium
+						i.fa.fa-plus
+				fabmenu.is-right
+					button(type="floating").is-success
+						icon
+							i.fa.fa-bookmark
+					button(type="floating").is-warning
+						icon
+							i.fa.fa-pencil
+					a.button(type="floating").is-primary
+						icon
+							i.fa.fa-bolt
+	tab-content#fab-html
+		snippet
+			pre
+				tg &ltfab&gt
+				cm   // Button toggle
+				tg   &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-toggle-fab is-medium"
+				tg &gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-plus"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				tg   &lt/button&gt
+				cm   // Fab menu  
+				tg   &ltfabmenu
+				at class=
+				vat "
+				span(tooltip="Posibles direcciones: is-up, is-down, is-left, is-right").is-up.is-success $dirección 
+				vat "
+				tg &gt
+				br
+				tg     &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-success"
+				tg &gt
+				br
+				tg       &lticon&gt
+				br
+				tg         &lti
+				at class=
+				vat "fa fa-bookmark"
+				tg &gt&lt/i&gt
+				br
+				tg       &lt/icon&gt
+				br
+				tg     &lt/button&gt
+				br
+				tg     &ltbutton
+				at type=
+				vat "floating"
+				at class=
+				vat "is-warning"
+				tg &gt
+				br
+				tg       &lticon&gt
+				br
+				tg         &lti
+				at class=
+				vat "fa fa-pencil"
+				tg &gt&lt/i&gt
+				br
+				tg       &lt/icon&gt
+				br
+				tg     &lt/button&gt
+				br
+				tg     &lta
+				at type=
+				vat "floating"
+				at class=
+				vat "button is-primary"
+				tg &gt
+				br
+				tg       &lticon&gt
+				br
+				tg         &lti
+				at class=
+				vat "fa fa-bolt"
+				tg &gt&lt/i&gt
+				br
+				tg       &lt/icon&gt
+				br
+				tg     &lt/a&gt
+				br
+				tg   &lt/fabmenu&gt
+				br
+				tg &lt/fab&gt

@@ -1,0 +1,314 @@
+h1.title Radio
+tags.is-group
+	tag.is-info Path
+	tag _check-radio.scss
+	tag.is-success Actualizado
+tags.is-group
+	tag.is-info 0.4.0
+	tag.is-warning.is-text-bolder JQuery 1.7
+divider
+p.bloque Hemos actualizado este componente y
+	b simplificado
+	span su sintaxis, mediante un pequeño
+	code script
+	span de
+	b jquery
+	span .
+h4.subtitle Proceso de implementación
+p.bloque La manera de construir este tipo de
+	b componente
+	span era añadir los siguientes elementos
+	code html5
+	span .
+ol.default-browser
+	li Elemento de tipo
+		code input radio
+		span con su respectivo
+		code id
+		span .
+	li Elemento
+		code label
+		span enlazado mediante el atributo
+		code for
+		span .
+p.bloque Apartir de la versión
+	code.color-success 0.4.0
+	span solamente tienes que añadir nuestro tag personalizado
+	code radio
+	span .
+h4.subtitle Que ha cambiado
+p.bloque Solamente necesitas una linea de código
+	code html5
+	span ,
+	b jquery
+	span hace el resto.
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-warning 0.3.8
+		.margin-v-1
+			radio(text="Versión sin jquery")#radio-old
+		snippet
+			pre
+				tg &ltradio&gt
+				br
+				tg   &ltinput
+				at type=
+				vat "radio"
+				at id=
+				vat "radio-old"
+				tg /&gt
+				br
+				tg   &ltlabel
+				at for=
+				vat "radio-old"
+				tg &gt
+				span Versión sin jquery
+				tg &lt/label&gt
+				br
+				tg &ltradio&gt
+	column.tablet-is-half
+		tags.is-group
+			tag Kimera
+			tag.is-success 0.4.0
+		.margin-v-1
+			radio(text="Versión con jquery")#radio-new
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "radio-new"
+				at text=
+				vat "Versión con jquery"
+				tg &gt&ltradio&gt
+h4.subtitle Implementación sin Jquery
+p.bloque si decides no utilizar
+	b jquery
+	span con kimera, puedes hacer la implementación de la siguiente manera y obtendrás el mismo resultado.
+snippet
+	pre
+		tg &ltradio&gt
+		br
+		tg   &ltinput
+		at type=
+		vat "radio"
+		at id=
+		vat "radio-old"
+		tg /&gt
+		br
+		tg   &ltlabel
+		at for=
+		vat "radio-old"
+		tg &gt
+		span Versión sin jquery
+		tg &lt/label&gt
+		br
+		tg &ltradio&gt
+row.bloque
+	column.tablet-is-half
+		message.is-primary.is-small
+			header Importante
+			content
+				b JQuery
+				span se encarga de generar dinamicamente el elemento
+				code input
+				span y
+				code label
+				span enlazados por su id, si tomas la desición de implementar otro
+				b framework JS
+				span utiliza el método de la versión inferior a 0.3.8.
+	column.tablet-is-half
+		message.is-info.is-small
+			header Importante
+			content Los atributos definidos en el elemento
+				code radio
+				span son pasados al elemento
+				code input radio
+				span que se generá dinámicamente.
+h4.subtitle Uso de atributos
+p.bloque
+	span El elemento
+	code radio
+	span soporta los atributos más comúnes, utilizados por un elemento de tipo
+	code radio
+	span .
+ol.default-browser
+	li: code id
+	li: code name
+	li: code form
+	li: code required
+	li: code checked
+	li
+		code text
+		small (atributo personalizado).
+p Observa el siguiente ejemplo
+row.bloque
+	column.tablet-is-half
+		p Tú código html
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at checked
+				at  required
+				tg &gt&ltradio&gt
+	column.tablet-is-half
+		p Código en el inspector
+		snippet
+			pre
+				tg &ltinput
+				at type=
+				vat "radio"
+				at id=
+				vat "id1"
+				tg name=
+				vat "demo"
+				at form=
+				vat "login"
+				at checked
+				at  required
+				tg /&gt
+p.bloque No hay que expecificar a detalle que hace cada atributo, pues su nombre lo dice todo, la unica excepción es el atributo personalizado
+	code text
+	span el cúal sirve para especificar el texto del elemento
+	code label
+	span que es generado de forma dinámica.
+row.bloque
+	column.tablet-is-half
+		radio(text="Texto del atributo text")#radio-text
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "radio-text"
+				at.is-text-underline text=
+				vat "Texto del atributo text"
+				tg &gt&lt/radio&gt
+h4.subtitle Estilos de radio
+row.bloque
+	column.tablet-is-half
+		radio(text="radio básico")#rd1
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "rd1"
+				at text=
+				vat "radio básico"
+				tg &gt&lt/radio&gt
+row.bloque
+	column.tablet-is-half
+		radio(text="radio con la clase <code>.is-check</code>")#rd2.is-check
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "rd2"
+				at text=
+				vat "radio con la clase &ltcode&gt.is-check&lt/code&gt"
+				at class=
+				vat "is-check"
+				tg &gt&lt/radio&gt
+row.bloque
+	column.tablet-is-half
+		radio(text="radio con la clase <code>.is-filled</code>")#br1.is-filled
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "br1"
+				at text=
+				vat "radio con la clase &ltcode&gt.is-filled&lt/code&gt"
+				at class=
+				vat "is-filled"
+				tg &gt&lt/radio&gt
+message.is-primary.is-small
+	header Tip:
+	content Como pudiste observar en los ejemplos anteriores, se ha introducido la etiqueta
+		code &ltcode&gt
+		span dentro del atributo text, por lo que puedes pasar texto con formato simple.
+h4.subtitle Estado checked
+p.bloque añadiendo el atributo
+	code checked
+	span al elemento
+	code radio.
+row.bloque
+	column.tablet-is-half
+		radio(checked)#rd3
+		radio(checked)#rd4.is-check
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at checked id=
+				vat "rd3"
+				tg &gt&lt/radio&gt
+				br
+				tg &ltradio
+				at checked id=
+				vat "rd4"
+				tg &gt&lt/radio&gt
+h4.title.subtitle Colores
+p Al contenedor padre
+	code radio
+	span se le añade una de las siguientes clases de color:
+ul.default-browser
+	li: code is-primary
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		radio#er1.is-primary
+		radio#er2.is-info
+		radio#er3.is-success
+		radio#er4.is-warning
+		radio#er5.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltradio
+				at id=
+				vat "er1"
+				at class=
+				vat "is-primary"
+				tg &gt&lt/radio&gt
+				br
+				tg &ltradio
+				at id=
+				vat "er2"
+				at class=
+				vat "is-info"
+				tg &gt&lt/radio&gt
+				br
+				tg &ltradio
+				at id=
+				vat "er3"
+				at class=
+				vat "is-success"
+				tg &gt&lt/radio&gt
+				br
+				tg &ltradio
+				at id=
+				vat "er4"
+				at class=
+				vat "is-warning"
+				tg &gt&lt/radio&gt
+				br
+				tg &ltradio
+				at id=
+				vat "er5"
+				at class=
+				vat "is-danger"
+				tg &gt&lt/radio&gt

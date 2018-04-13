@@ -1,0 +1,98 @@
+modal#cambios.is-fluid
+	content
+		close(modal="#cambios" style="z-index: 2000")
+		row
+			column.tablet-8.padding-2#cambios-imagen
+				.is-visible-tablet
+					responsive.is-square-128.margin-v-3
+						img(src=urlimage+"logo-white.png", alt="kimera")
+				hgroup
+					h1 Kimera CSS
+					h4.subtitle Registro de cambios
+				buttons.margin-t-2.is-visible-tablet
+					a(href="https://github.com/JorgeAntrax/kimera").button.is-rounded.is-success-inverse Ver en Github
+					a(href="https://github.com/JorgeAntrax/kimera/stargazers").button.is-rounded.is-info-invert
+						icon
+							i.fa.fa-star
+						span Github 6
+				item#version-text.padding-1
+					group.is-inline.op-07
+						a(href="https://facebbok.com/kimeraCSS").is-text-cloud
+							icon.is-medium: i.fa.fa-facebook
+						a(href="https://twitter.com/kimeracssframew").is-text-cloud
+							icon.is-medium: i.fa.fa-twitter
+						a(href="https://github.com/JorgeAntrax/kimera").is-text-cloud.is-hidden-tablet
+							icon.is-medium: i.fa.fa-github
+					span Latest •
+						b  0.4.3
+			column.tablet-12#cambios-versiones
+				acordeon(is-multiple="true").tablet-14
+					acordeon-item.padding-05
+						span
+							b.is-text-info 0.4.3
+							small.op-07 Latest
+						icon: i.fa.fa-angle-down
+					content
+						ol.default-browser
+							li Añadimos el fichero
+								code kimera.min.js
+								span .
+							li Optimización del sistema
+								code grid
+								span .
+							li Se resolvierón pequeños bugs de visualización en:
+								ul.default-browser
+									li: code icon burger
+									li: code acordeon
+									li: code group
+									li: code table
+					acordeon-item.padding-05
+						span
+							b.is-text-info 0.4.2
+							small.op-07 beta
+						icon: i.fa.fa-angle-down
+					content
+						.padding-v-05.padding-h-1
+							ol.default-browser
+								li Integración de kimera con
+									b Jquery
+									span .
+								li Actualización del módulo:
+									ul.default-browser
+										li: code acordeon
+										li: code tab
+										li: code modal
+										li: code navbar
+										li: code group
+										li: code menus
+								li Actualización del componente:
+									ul.default-browser
+										li: code toggle button
+										li: code button
+										li: code checkbox
+										li: code color
+										li: code dropdown
+										li: code progress
+										li: code radio
+										li: code range
+								li Se resolvierón bugs en el módulo
+									code breadcrumb
+								li Se resolvierón bugs en el módulo
+									code navbar
+								li Se resolvierón bugs en el componente
+									code dropdown
+								li Nuevo diseño de componente
+									code button
+					acordeon-item.padding-05
+						span
+							b.is-text-info 0.4.0
+							small.op-07 beta
+						icon: i.fa.fa-angle-down
+					content
+						.padding-v-05.padding-h-1
+							p.op-07 Contenido en proceso...
+				center
+					a(href="https://github.com/JorgeAntrax/kimera/issues").button.is-dark-outline
+						icon
+							i.fa.fa-exclamation
+						span Reportar bugs

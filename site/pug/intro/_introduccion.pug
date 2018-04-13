@@ -1,0 +1,443 @@
+h1.title Introducción
+p.bloque
+	b Kimera
+	span cuenta con las siguientes opciones, para que puedas comenzar a trabajar:
+ol.default-browser
+	li Realizando una instalación mediante
+		a(href="https://npmjs.com" title="Node Package Manager").is-text-info NPM
+		span .
+	li Clonando el repositorío de
+		a(href="https://github.com").is-text-info Github
+	li Intalación mediante nuestro
+		a(href="#sys-mod").is-text-info sistema módular
+row.bloque
+	column.tablet-is-half
+		h4.subtitle Trabajando con SASS y 
+			abbr(title="Node Package Manager").is-text-info NPM
+		snippet(value="node js")
+			pre
+				at npm install
+				vat  kimera
+	column.tablet-is-half
+		h4.subtitle Clonando el repositorío de 
+			a(href="https://github.com").is-text-info Github
+		snippet(value="git")
+			pre
+				at git clone
+				vat  https://github.com/JorgeAntrax/kimera.git
+h4.subtitle Primeros pasos
+p.bloque Si estas utilizando el plugin
+	a(href="https://emmet.io") Emmet
+	span en tu editor de código, probablemente las siguientes meta-etiquetas se generen automatícamente, con excepción de la etiqueta
+	code viewport
+	span .
+p.bloque
+	b 1.- 
+	span Actualmente más del 
+	b 70%
+	span de los sitios web existentes en internet son construidos bajo los últimos lineamientos que incorpora la
+	a(href="https://w3c.org") W3C
+	span , por este motivo debes incluir en tu documento
+	code index.html
+	span la meta etiqueta 
+	upper doctype
+	span  de html5.
+snippet
+	pre
+		tg &lt!DOCTYPE
+		at html
+		tg &gt
+p.bloque
+	b 2.- 
+	span Es recomendable incluir la etiqueta para la codificación de caracteres, con el fín evitar 
+	b símbolos extraños 
+	span en tus proyectos.
+snippet
+	pre
+		tg &ltmeta
+		at charset
+		vat "utf-8"
+		tg &gt
+p.bloque
+	b 3.- 
+	span En los ultimos años la necesidad de adaptar tus proyectos a diferentes dispositivos es practicamente
+	b obligatorío
+	span incluir en tu plantilla
+	code html5
+	span la meta etiqueta 
+	code viewport
+	span .
+snippet
+	pre
+		tg &ltmeta
+		at name=
+		vat "viewport"
+		at content=
+		vat "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		tg &gt
+p.bloque
+	b 4.- 
+	span Las
+	b fuentes tipograficas
+	span son aspecto muy importante en cualquier proyecto, realiza el enlace necesario para importar tus iconos y estilos de fuente. 
+row.is-distributed-tablet
+	column.tablet-6.padding-v-05
+		tags.is-group.is-boxed.link-fonts
+			tag.is-success.is-text-bolder Font-Awesome
+			tag
+				snippet.not-label
+					pre
+						tg &ltlink
+						at rel=
+						vat "stylesheet"
+						at href=
+						vat "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+						tg /&gt
+	column.tablet-6.padding-v-05
+		tags.is-group.is-boxed.link-fonts
+			tag.is-warning.is-text-bolder Material Icons
+			tag
+				snippet.not-label
+					pre
+						tg &ltlink
+						at rel=
+						vat "stylesheet"
+						at href=
+						vat "https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+						tg /&gt
+	column.tablet-6.padding-v-05
+		tags.is-group.is-boxed.link-fonts
+			tag.is-danger.is-text-bolder Open iconic
+			tag
+				snippet.not-label
+					pre
+						tg &ltlink
+						at rel=
+						vat "stylesheet"
+						at href=
+						vat "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+						tg /&gt
+h4#sys-mod.subtitle Añade 
+	b kimera 
+	span a tu proyecto.
+p.bloque Hemos implementado un
+	b sistema módular
+	span bastante sencillo que te permitirá importar a tu proyecto solamente lo necesario para trabajar.
+p.bloque para implementar este novedoso sistema necesitas crear el enlace a
+	code jquery.js
+	span y
+	code kimera.min.js
+	span antes de la etiqueta de cierre del elemento
+	code body
+	span en tu documento
+	code  index.html
+snippet
+	pre
+		tg &ltscript
+		at src=
+		vat "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		tg &gt&lt/script&gt
+		br
+		tg &ltscript
+		at src=
+		vat "https://cdn.jsdelivr.net/npm/kimera@0.4.3/js/kimera.min.js"
+		tg &gt&lt/script&gt
+p.bloque Una vez hecho esto solamente tienes que llamar en la etiqueta body, al atributo personalizado
+	code km-include
+	span , el cúal recibe como
+	b valor el nombre del
+	i componente o módulo
+	span  que deseas incluir en el proyecto, respetando los siguientes puntos.
+ol.default-browser
+	li Cada valor debe estar separado por un
+		b espacio en blanco.
+	li Los valores no pueden contener letras mayúsculas.
+snippet
+	pre
+		cm // Ejemplo: incluir toda la librería
+		tg &ltbody
+		at km-include=
+		vat "kimera"
+		tg &gt
+		cm   //Contenido del la página web
+		tg &lt/body&gt
+		cm // Ejemplo: incluir el sistema de rejilla y un menu vetical
+		tg &ltbody
+		at km-include=
+		vat "grid menus"
+		tg &gt
+		cm   //Contenido del la página web
+		tg &lt/body&gt
+		br
+		cm // Ejemplo: incluir todos los componentes y un acordeon
+		tg &ltbody
+		at km-include=
+		vat "components acordeon"
+		tg &gt
+		cm   //Contenido del la página web
+		tg &lt/body&gt
+		br
+		cm // Ejemplo: incluir solamente los botones, un slideshow, y los tooltip
+		tg &ltbody
+		at km-include=
+		vat "buttons slideshow tooltip"
+		tg &gt
+		cm   //Contenido del la página web
+		tg &lt/body&gt
+		br
+buttons.padding-v-1
+	button(modal="#valores-include").is-dark-outline Ver tabla de valores
+	button(modal="#valores-include2").is-dark-outline Ver tabla de componentes
+	button(modal="#valores-include3").is-dark-outline Ver tabla de módulos
+modal#valores-include
+	background(modal="#valores-include")
+	content.tablet-12
+		responsive.is-table
+			table.is-boxed
+				thead
+					tr
+						th.is-text-info Nombre
+						th.is-text-info Valor de atributo
+				tbody
+					tr
+						td: code kimera.min.css
+						td: small.is-text-bolder kimera
+					tr
+						td: code components/_all.scss
+						td: small.is-text-bolder components
+					tr
+						td: code layout/_all.scss
+						td: small.is-text-bolder grid
+					tr
+						td: code modules/_all.scss
+						td: small.is-text-bolder modules
+					tr
+						td: code utilities/_all.scss
+						td: small.is-text-bolder utilities
+		center.padding-v-1.is-hidden-tablet
+			button(modal="#valores-include").is-info Salir
+modal#valores-include2
+	background(modal="#valores-include2")
+	content.tablet-12
+		responsive.is-table
+			table.is-boxed
+				thead
+					tr
+						th.is-text-info Nombre
+						th.is-text-info Valor de atributo
+				tbody
+					tr
+						td: code components/_blockquote.scss
+						td: small.is-text-bolder blockquote
+					tr
+						td: code components/_box.scss
+						td: small.is-text-bolder box
+					tr
+						td: code components/_buttons.scss
+						td: small.is-text-bolder buttons
+					tr
+						td: code components/_forms.scss
+						td: small.is-text-bolder forms
+					tr
+						td: code components/_chip.scss
+						td: small.is-text-bolder chip
+					tr
+						td: code components/_dropdown.scss
+						td: small.is-text-bolder dropdown
+					tr
+						td: code components/_icons.scss
+						td: small.is-text-bolder icons
+					tr
+						td: code components/_progress.scss
+						td: small.is-text-bolder progress
+					tr
+						td: code components/_range.scss
+						td: small.is-text-bolder range
+					tr
+						td: code components/_tags.scss
+						td: small.is-text-bolder tags
+					tr
+						td: code components/_toggle-button.scss
+						td: small.is-text-bolder toggle
+					tr
+						td: code components/_tooltip.scss
+						td: small.is-text-bolder tooltip
+		center.padding-v-1.is-hidden-tablet
+			button(modal="#valores-include2").is-info Salir
+modal#valores-include3
+	background(modal="#valores-include3")
+	content.tablet-12
+		responsive.is-table
+			table.is-boxed
+				thead
+					tr
+						th.is-text-info Nombre
+						th.is-text-info Valor de atributo
+				tbody
+					tr
+						td: code modules/_acordeon.scss
+						td: small.is-text-bolder acordeon
+					tr
+						td: code modules/_breadcrumb.scss
+						td: small.is-text-bolder breadcrumb
+					tr
+						td: code modules/_card.scss
+						td: small.is-text-bolder card
+					tr
+						td: code modules/_group.scss
+						td: small.is-text-bolder group
+					tr
+						td: code modules/_media.scss
+						td: small.is-text-bolder media
+					tr
+						td: code modules/_mega.scss
+						td: small.is-text-bolder mega
+					tr
+						td: code modules/_menus.scss
+						td: small.is-text-bolder menus
+					tr
+						td: code modules/_message.scss
+						td: small.is-text-bolder message
+					tr
+						td: code modules/_modal.scss
+						td: small.is-text-bolder modal
+					tr
+						td: code modules/_navbar.scss
+						td: small.is-text-bolder navbar
+					tr
+						td: code modules/_notify.scss
+						td: small.is-text-bolder notify
+					tr
+						td: code modules/_social.scss
+						td: small.is-text-bolder social
+					tr
+						td: code modules/_tables.scss
+						td: small.is-text-bolder tables
+					tr
+						td: code modules/_tabs.scss
+						td: small.is-text-bolder tabs
+		center.padding-v-1.is-hidden-tablet
+			button(modal="#valores-include3").is-info Salir
+p.bloque En cualquier caso si deseas importar toda la librería sin añadir atributos, puedes añadir directamente dentro de las etiquetas
+	code &lthead&gt
+	span el link directo.
+row.bloque
+	column.tablet-is-half
+		p.subtitle Enlace 
+			a(href="https://jsdelivr.com").is-text-info JsDelivr
+			span y
+			b Github
+			span .
+		snippet
+			pre
+				tg &ltlink
+				at rel=
+				vat "stylesheet"
+				at href=
+				vat "https://cdn.jsdelivr.net/gh/JorgeAntrax/kimera@0.4.3/css/kimera.min.css"
+				tg &gt
+	column.tablet-is-half
+		p.subtitle Enlace
+			a(href="https://jsdelivr.com").is-text-info JsDelivr
+			span y
+			b NPM
+			span (recomendado).
+		snippet
+			pre
+				tg &ltlink
+				at rel=
+				vat "stylesheet"
+				at href=
+				vat "https://cdn.jsdelivr.net/npm/kimera@0.4.3/css/kimera.min.css"
+				tg &gt
+h4.subtitle Plantilla básica
+p.bloque
+	b Kimera 
+	span incluye un archivo
+	code index.html
+	span en la carpeta de descarga para que puedas comenzar de forma rápida,
+	span o puedes copiar y pegar en tu editor favorito esta
+	b estructura HTML.
+	span .
+snippet(value="template")
+	pre
+		tg &lt!DOCTYPE
+		at html
+		tg &gt
+		br
+		tg &lthtml&gt
+		br
+		tg   &lthead&gt
+		br
+		tg     &lttitle&gt
+		span Documento
+		tg &lt/title&gt
+		br
+		tg     &ltmeta
+		at charset=
+		vat "utf-8"
+		tg /&gt
+		br
+		tg     &ltmeta
+		at name=
+		vat "viewport"
+		at content=
+		vat "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		tg /&gt
+		br
+		tg   &lt/head&gt
+		br
+		tg   &ltbody
+		at km-include=
+		vat "kimera"
+		tg &gt
+		br
+		tg     &ltmega
+		at class=
+		vat "is-light is-full-center"
+		tg &gt
+		br
+		tg       &ltcenter&gt
+		br
+		tg         &lthgroup&gt
+		br
+		tg           &lth1
+		at class=
+		vat "is-text-danger"
+		tg &gt
+		span Felicitaciones
+		tg &lt/h1&gt
+		br
+		tg           &lth3
+		at class=
+		vat "is-subtitle"
+		tg &gt
+		span kimera se ha instalado correctamente en tu proyecto
+		tg &lt/h3&gt
+		br
+		tg         &lt/hgroup&gt
+		br
+		tg         &ltbutton
+		at inactive class=
+		vat "is-success is-rounded is-large"
+		tg &gt
+		span Ultima versión 0.4.3
+		tg &lt/button&gt
+		br
+		tg       &lt/center&gt
+		br
+		tg     &lt/mega&gt
+		br
+		tg     &ltscript
+		at src=
+		vat "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		tg &gt&lt/script&gt
+		br
+		tg     &ltscript
+		at src=
+		vat "https://cdn.jsdelivr.net/npm/kimera@0.4.3/js/kimera.min.js"
+		tg &gt&lt/script&gt
+		br
+		tg   &ltbody&gt
+		br
+		tg &lt/html&gt

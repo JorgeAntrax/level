@@ -1,0 +1,425 @@
+h1.title Tags
+tags.is-group
+	tag.is-info Path
+	tag _tags.scss
+	tag.is-success Colores
+p Pequeño componente para la creación de etiquetas.
+divider
+h4.subtitle Estilo predeterminado
+p Por defecto el estilo de las etiquetas es el siguiente:
+row.bloque
+	column.tablet-is-half
+		tag Tag
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttag&gt
+				span Tag
+				tg &lt/tag&gt
+h4.subtitle Colores
+p Para este componente se incluyen 
+	strong 7 colores
+	span base.
+row.bloque
+	column.tablet-is-half
+		div.padding-v-1
+			tag.is-dark Dark
+			tag.is-black Black
+			tag.is-primary Primary
+			tag.is-info Info
+			tag.is-success Success
+			tag.is-warning Warning
+			tag.is-danger Danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttag
+				at class=
+				vat "is-dark"&gt
+				span Dark
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-black"&gt
+				span Black
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-primary"&gt
+				span Primary
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-info"&gt
+				span Info
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-success"&gt
+				span Success
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-warning"&gt
+				span Warning
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-danger"&gt
+				span Danger
+				tg &lt/tag&gt
+				br
+h4.subtitle Tamaños
+p Con 2 variaciones de tamaño adicionales.
+row.bloque
+	column.tablet-is-half
+		tags
+			tag.is-info.is-small Small
+		tags
+			tag.is-large.is-success Large
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Tag sizes
+				tg &lttag
+				at class=
+				vat "is-small is-info"
+				tg &gt
+				span Small
+				tg &lt/tag&gt
+				br
+				tg &lttag
+				at class=
+				vat "is-large is-success"
+				tg &gt
+				span Large
+				tg &lt/tag&gt
+				br
+h4.title.subtitle Variaciones
+p.bloque Utilizando la clase
+code is-rounded
+span se genera una etiqueta
+b redondeada
+span .
+row.bloque
+	column.tablet-is-half
+		tag.is-rounded tag is rounded
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttag
+				at class=
+				vat "is-rounded"
+				tg &gt
+				span Tag is rounded
+				tg &lt/tag&gt
+p.bloque Incluso puedes crear
+	b etiquetas dinamicas
+	span .
+row.bloque
+	column.tablet-is-half
+		p
+			tag
+				span Dinamic tag
+				close
+		p
+			tag
+				span Dinamic tag
+				close
+					i.fa.fa-times-circle
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttag&gt
+				br
+				span     Dinamic tag
+				br
+				tg     &ltclose&gt&lt/close&gt
+				br
+				tg &lt/tag&gt
+				br
+				tg &lttag&gt
+				br
+				span     Dinamic tag
+				br
+				tg     &ltclose&gt
+				br
+				tg        &lti
+				at class=
+				vat "fa fa-times-circle"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/close&gt
+				br
+				tg &lt/tag&gt
+h4.title.subtitle Bloques de etiquetas
+p Ahora puedes crear un bloque de etiquetas utilizando la etiqueta personalizada
+	code tags
+	span .
+row.bloque
+	column.tablet-is-half
+		tags
+			tag Slack
+			tag Asana
+			tag Github
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttags&gt
+				br
+				tg     &lttag&gt
+				span Slack
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Asana
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Github
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+p.bloque En determinado punto tu
+	b bloque de etiquetas
+	span puede ser muy grande, de manera automática las etiquetas generarán
+	b mutiples lineas
+	span .
+row.bloque
+	column.tablet-is-half
+		tags
+			tag Slack
+			tag Asana
+			tag Github
+			tag Youtube
+			tag Twitter
+			tag Facebook
+			tag Microsoft
+			tag Gitter
+			tag Gitlab
+			tag Kimera
+			tag Html5
+			tag etc
+			tag • • •
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttags&gt
+				br
+				tg     &lttag&gt
+				span Slack
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Asana
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Github
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Youtube
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Twitter
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Facebook
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Microsoft
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Gitter
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Gitlab
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Kimera
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span Html5
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span etc
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span • • •
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+h4.title.subtitle Grupos de etiquetas
+p Añadiendo al contenedor
+	code tags
+	span la clase
+	code .is-group
+	span .
+row.bloque
+	column.tablet-is-half
+		tags.is-group
+			tag Package
+			tag.is-primary Kimera
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttags
+				at class=
+				vat "is-group"
+				tg &gt
+				br
+				tg     &lttag&gt
+				span Package
+				tg &lt/tag&gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-primary"
+				tg &gt
+				span Kimera
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+h4.title.subtitle Grupos redondeados
+p La clase
+	code .is-rounded
+	span tambien permite redondear grupos de etiquetas.
+row.bloque
+	column.tablet-is-half
+		tags.is-group.is-rounded
+			tag Kimera
+			tag.is-info 0.3.6
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttags
+				at class=
+				vat "is-group is-rounded"
+				tg &gt
+				br
+				tg     &lttag&gt
+				span Kimera
+				tg &lt/tag&gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-info"
+				tg &gt
+				span 0.3.6
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+p Los grupos de etiquetas tambien soportan los tamaños del elemento
+	code tag
+	span .
+row.bloque
+	column.tablet-is-half
+		tags.is-group.is-small
+			tag.is-black npm
+			tag.is-info 0.3.6
+		tags.is-group.is-large
+			tag.is-black Chat
+			tag.is-success on gitter
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Group tags
+				tg &lttags
+				at class=
+				vat "is-group is-small"
+				tg &gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-black"
+				tg &gt
+				span npm
+				tg &lt/tag&gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-info"
+				tg &gt
+				span 0.3.6
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+				br
+				tg &lttags
+				at class=
+				vat "is-group is-large"
+				tg &gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-black"
+				tg &gt
+				span Chat
+				tg &lt/tag&gt
+				br
+				tg     &lttag
+				at class=
+				vat "is-success"
+				tg &gt
+				span on gitter
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt
+h4.title.subtitle Box Group.
+p
+	span el atributo
+	code is-boxed
+	span modifica la alineación de los elementos
+	code tag
+	span a orientación vertical.
+row.bloque
+	column.tablet-is-half
+		tags.is-group.is-boxed
+			tag.is-info
+				icon.is-small
+					i.fa.fa-facebook
+			tag Facebook
+		tags.is-group.is-boxed
+			tag.is-dark
+				icon.is-small
+					i.fa.fa-github
+			tag GitHub
+		tags.is-group.is-boxed
+			tag.is-danger
+				icon.is-small
+					i.fa.fa-chrome
+			tag Chrome
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Group tags boxed
+				tg &lttags
+					at class=
+					vat "is-group is-boxed"
+				tg &gt
+				br
+				tg     &lttag&gt
+				span @content
+				tg &lt/tag&gt
+				br
+				tg     &lttag&gt
+				span @content
+				tg &lt/tag&gt
+				br
+				tg &lt/tags&gt

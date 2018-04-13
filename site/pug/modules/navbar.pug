@@ -1,0 +1,588 @@
+h1.title Navbar
+tags.is-group
+	tag.is-info Path
+	tag _navbar.scss
+	tag.is-success Actualizado
+divider
+p.bloque El módulo
+	code navbar
+	span es una barra de navegación completamente
+	b flexible
+	span con una barra de branding
+	code navbrand
+	span y un menu
+	code navmenu
+	span .
+h4.subtitle Estructura
+ul.default-browser
+	li Contenedor principal
+		code navbar
+		span .
+		ul.default-browser
+			li
+				code navbrand
+				span usualmente contiene un logo, y algunos iconos.
+				ul.default-browser
+					li
+						code logo
+						span elemento
+						b personalizado,
+						span para definir el logo o nombre del proyecto.
+						span .
+					li
+						span  La clase
+						code .is-toggle-navbar
+						span permite manipular la
+						b visibilidad
+						span del contenedor
+						code navmenu
+						span con jquery.
+			li
+				code navmenu
+				span menu de navegación, por defecto oculto en dispositivos
+				b tactiles.
+				ul.default-browser
+					li Items del menu
+						code nav-item
+						span .
+					li Elementos tipo
+						code button
+						span .
+					li Elementos tipo
+						code a
+						span .
+					li Componente
+						code dropdown
+						span .
+					li Controles de formulario
+						code field &gt control &gt input
+						span .
+snippet.bloque
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		br
+		tg     &ltlogo&gt
+		span •••
+		tg &lt/logo&gt
+		br
+		tg     &lticon
+		at class=
+		vat "is-toggle-navbar"
+		tg &gt
+		span •••
+		tg &lt/icon&gt
+		cm     etc...
+		tg   &lt/navbrand&gt
+		br
+		tg   &ltnavmenu&gt
+		br
+		tg     &ltnav-item&gt
+		span •••
+		tg &lt/nav-item&gt
+		br
+		tg     &lta&gt
+		span •••
+		tg &lt/a&gt
+		br
+		tg     &ltbutton&gt
+		span •••
+		tg &lt/button&gt
+		br
+		tg     &ltdropdown&gt
+		span •••
+		tg &lt/dropdown&gt
+		cm     etc...
+		tg   &lt/navmenu&gt
+		br
+		tg &lt/navbar&gt
+h4.subtitle Barra de branding
+p El contenedor
+	code navbrand
+	span puede contener:
+ul.default-browser
+	li
+		code logo
+		span contenedor del logo o imagén del sitio.
+	li
+		span Elemento con la clase
+		code .is-toggle-navbar
+		span normalmente el tipico icono de
+		b hamburguesa
+		span .
+	li
+		code nav-item
+		span nav-items del contenedor
+	li
+		code icon
+		span iconos directos.
+snippet.bloque
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		cm     &lt!-- logo, nav-item, iconos, y elemento .is-toggle-navbar --&gt
+		tg   &lt/navbrand&gt
+		br
+		tg &lt/navbar&gt
+message.is-primary.is-small
+	header Nota:
+	content
+		span El contenedor
+		code navbrand 
+		span siempre está
+		b visible
+		span en dispositivos táctiles y de escritorío.
+nav-item
+	h4.subtitle Logotipo
+	tag.is-rounded.is-success Nuevo!
+p pequeño componente para definir un logotipo en la barra de navegación.
+row.bloque
+	column.tablet-is-half
+		navbar
+			navbrand
+				logo(src='http://kimera.comli.com/img/logo.jpg')
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltnavbar&gt
+				br
+				tg   &ltnavbrand&gt
+				br
+				tg     &ltlogo
+				at src=
+				vat "img/logo.jpg"
+				tg &gt&lt/logo&gt
+				br
+				tg   &lt/navbrand&gt
+				br
+				tg &lt/navbar&gt
+p.bloque Este componente utiliza un pequeño script
+	b jquery
+	span que añade dinamicamente una imagén dentro del contenedor
+	code logo
+	span mediante el atributo
+	code src
+row.bloque
+	column.tablet-is-half
+		p Tu código html.
+		snippet
+			pre
+				tg &ltlogo
+				at src=
+				vat "img/tu-logo.jpg"
+				tg &gt&lt/logo&gt
+	column.tablet-is-half
+		p Código html en el inspector.
+		snippet
+			pre
+				tg &ltlogo&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "img/tu-logo.jpg"
+				tg /&gt
+				br
+				tg &lt/logo&gt
+message.is-info.is-small
+	header Nota:
+	content Por defecto el componente
+		code logo
+		span tiene un
+		code height: 3rem
+		span y un
+		code width: auto
+		span .
+.bloque
+	p Este componente soporta los siguientes atributos:
+	ul.default-browser
+		li: code src
+		li
+			code text
+			small (atributo personalizado).
+	p El atributo
+		code text
+		span te permite añadir un texto descriptivo al logo, lo cúal generá un elemento
+		code span
+		span con el valor de este atributo, y ser modificado de manera muy sencilla con
+		b css
+		span .
+row.bloque
+	column.tablet-is-half
+		navbar
+			navbrand
+				logo(src='http://kimera.comli.com/img/logo.jpg' text="<h4>Kimera</h4>")
+	column.tablet-is-half
+		snippet.margin-b-1
+			pre
+				tg &ltlogo
+				at src=
+				vat "img/tu-logo.jpg"
+				at text=
+				vat "kimera"
+				tg &gt&lt/logo&gt
+		snippet(value="css")
+			pre
+				tg logo span
+				at {
+				br
+				vat   font-size
+				at :
+				span 1.3rem
+				at ;
+				br
+				vat   font-weight
+				at :
+				span bold
+				at ;
+				br
+				at }
+.bloque
+	h4.subtitle Brand toggle
+	p La clase
+		code .is-toggle-navbar
+		span te permitirá mostrar u ocultar el contenedor
+		code navmenu
+		span mediante
+		b jquery
+		span .
+row.bloque
+	column
+		navbar
+			navbrand
+				logo(src='http://kimera.comli.com/img/logo.jpg' text="<h4>Brand logo</h4>")
+				icon.is-medium
+					i.fa.fa-bars
+snippet.bloque
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		br
+		tg     &ltlogo
+		at src=
+		vat "img/logo.jpg"
+		at text=
+		vat "Brand logo"
+		tg &gt&lt/logo&gt
+		br
+		tg     &lticon
+		at class=
+		vat "is-medium is-toggle-navbar"
+		tg &gt
+		br
+		tg       &lti
+		at class=
+		vat "fa fa-bars"
+		tg &gt&lt/i&gt
+		br
+		tg     &lt/icon&gt
+		br
+		tg   &lt/navbrand&gt
+		br
+		tg &lt/navbar&gt
+message.is-primary.is-small.margin-b-1
+	header Importante:
+	content
+		p Por defecto en una resolucion superior a 
+			code 768px
+			span  el elemento con la clase
+			code .is-toggle-navbar
+			span se oculta automaticamente.
+h4.subtitle Nav menu
+p.bloque El contenedor
+	code navmenu
+	span es un simple contenedor con la propiedad
+	code display: flex
+	span .
+snippet
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavmenu&gt
+		cm     &lt!-- nav-items, links, dropdown, etc --&gt
+		tg   &lt/navmenu&gt
+		br
+		tg &lt/navbar&gt
+p.bloque Los nav-items del contenedor
+	code navmenu
+	span se definen mediante el componente
+	code nav-item
+	span .
+row.bloque
+	column
+		navbar
+			navbrand
+				logo(src='http://kimera.comli.com/img/logo.jpg')
+				icon.is-medium.is-toggle-navbar
+					i.fa.fa-bars
+			navmenu
+				nav-item Inicio
+				nav-item Caracteristicas
+				nav-item Servicios
+				nav-item Ventas
+snippet.bloque
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		br
+		tg     &ltlogo
+		at src=
+		vat "img/logo.jpg"
+		tg &gt&lt/logo&gt
+		br
+		tg     &lticon
+		at class=
+		vat "is-medium is-toggle-navbar"
+		tg &gt
+		br
+		tg       &lti
+		at class=
+		vat "fa fa-bars"
+		tg &gt&lt/i&gt
+		br
+		tg     &lt/icon&gt
+		br
+		tg   &lt/navbrand&gt
+		cm   &lt!-- Contenedor navmenu  --&gt
+		tg   &ltnavmenu&gt
+		br
+		tg     &ltnav-item&gt
+		span Inicio
+		tg &lt/nav-item&gt
+		br
+		tg     &ltnav-item&gt
+		span Caracteristicas
+		tg &lt/nav-item&gt
+		br
+		tg     &ltnav-item&gt
+		span Servicios
+		tg &lt/nav-item&gt
+		br
+		tg     &ltnav-item&gt
+		span Ventas
+		tg &lt/nav-item&gt
+		br
+		tg   &lt/navmenu&gt
+		br
+		tg &lt/navbar&gt
+p.bloque De manera predeterminada los elementos
+	code nav-item
+	span son alineados hacía la derecha, pero puedes alinear el menu aplicando las siguientes clases:
+ul.default-browser
+	li: code .is-left
+	li: code .is-center
+row.bloque
+	column.tablet-is-half
+		navbar.margin-v-1.color-black-lighten-2
+			navmenu.is-left
+				nav-item.clear Servicios			
+				nav-item.clear Ventas
+		navbar.color-primary-darken-2
+			navmenu.is-center
+				nav-item.clear Servicios
+				nav-item.clear Ventas
+		navbar.margin-v-1.color-primary-lighten-4
+			navmenu
+				nav-item.clear Servicios
+				nav-item.clear Ventas
+	column.tablet-is-half
+		snippet
+			pre
+				cm &lt!-- navmenu left --&gt
+				tg &ltnavbar&gt
+				br
+				tg   &ltnavmenu
+				at class=
+				vat "is-left"
+				tg &gt
+				span •••
+				tg &lt/navmenu&gt
+				br
+				tg &ltnavbar&gt
+				cm &lt!-- navmenu center --&gt
+				tg &ltnavbar&gt
+				br
+				tg   &ltnavmenu
+				at class=
+				vat "is-center"
+				tg &gt
+				span •••
+				tg &lt/navmenu&gt
+				br
+				tg &ltnavbar&gt
+				cm &lt!-- navmenu default --&gt
+				tg &ltnavbar&gt
+				br
+				tg   &ltnavmenu&gt
+				span •••
+				tg &lt/navmenu&gt
+				br
+				tg &ltnavbar&gt
+message.is-info.is-small
+	header Importante:
+	content Estas clases de alineación, unicamente son aplicables en una resolución superior a
+		code 768px
+		span .
+h4.subtitle Formularios
+p.bloque Puedes añadir a la barra de navegación controles de formulario (revisa la documentación de formularios).
+row.bloque
+	column
+		navbar
+			navbrand
+				logo(src='http://kimera.comli.com/img/logo.jpg')
+				icon.is-medium.is-toggle-navbar
+					i.fa.fa-bars
+			navmenu
+				field.is-horizontal
+					control.is-expand: input(type="search" placeholder="Buscar").input.is-small.is-info
+					control: button.is-info.is-small Buscar
+snippet.bloque
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		br
+		tg     &ltlogo
+		at src=
+		vat "img/logo.jpg"
+		tg &gt&lt/logo&gt
+		br
+		tg     &lticon
+		at class=
+		vat "is-medium is-toggle-navbar"
+		tg &gt
+		br
+		tg       &lti
+		at class=
+		vat "fa fa-bars"
+		tg &gt&lt/i&gt
+		br
+		tg     &lt/icon&gt
+		br
+		tg   &lt/navbrand&gt
+		cm   &lt!-- Contenedor navmenu  --&gt
+		tg   &ltnavmenu&gt
+		br
+		tg     &ltfield
+		at class=
+		vat "is-horizontal"
+		tg &gt
+		br
+		tg       &ltcontrol
+		at class=
+		vat "is-expand"
+		tg &gt
+		br
+		tg         &ltinput
+		at type=
+		vat "text"
+		at class=
+		vat "input is-info is-small"
+		at placeholder=
+		vat "Buscar"
+		tg &gt
+		br
+		tg       &lt/control&gt
+		br
+		tg       &ltcontrol&gt
+		br
+		tg         &ltbutton
+		at class=
+		vat "is-info is-small"
+		tg &gt
+		span Buscar
+		tg &lt/button&gt
+		br
+		tg       &lt/control&gt
+		br
+		tg     &lt/field&gt
+		br
+		tg   &lt/navmenu&gt
+		br
+		tg &lt/navbar&gt
+h4.subtitle Navbar dropdown
+p.bloque Este módulo soporta completamente el componente
+	code dropdown
+	span.
+row.bloque
+	column
+		navbar
+			navbrand
+				logo(text="<h4>Brand</h4>")
+				icon.is-toggle-navbar.is-medium: i.fa.fa-bars
+			navmenu
+				nav-item Contacto
+				nav-item Servicios
+				dropdown.padding-h-1
+					a.is-text-info(href="#").is-toggle-dropdown
+						span dropdown
+						icon: i.fa.fa-angle-down
+					dropmenu.is-right
+						drop-item Perfil
+						drop-item Configuracion
+						drop-item Salir
+snippet
+	pre
+		tg &ltnavbar&gt
+		br
+		tg   &ltnavbrand&gt
+		br
+		tg     &ltlogo
+		at text=
+		vat "Brand"
+		tg &gt&lt/logo&gt
+		br
+		tg   &lt/navbrand&gt
+		br
+		tg   &ltnavmenu&gt
+		br
+		tg     &ltnav-item&gt
+		span Contacto
+		tg &lt/nav-item&gt
+		br
+		tg     &ltnav-item&gt
+		span Servicios
+		tg &lt/nav-item&gt
+		cm     //Navbar dropdown
+		tg     &ltdropdown&gt
+		br
+		tg       &lta
+		at href=
+		vat "#"
+		at class=
+		vat "is-toggle-dropdown"
+		tg &gt
+		br
+		span         dropdown
+		br
+		tg         &lticon&gt&lti
+		at class=
+		vat "fa fa-angle-down"
+		tg &lt/i&gt&lt/icon&gt
+		br
+		tg       &lt/a&gt
+		br
+		tg       &ltdropmenu&gt
+		br
+		tg         &ltdrop-item&gt
+		span Perfil
+		tg &lt/drop-item&gt
+		br
+		tg         &ltdrop-item&gt
+		span Configuración
+		tg &lt/drop-item&gt
+		br
+		tg         &ltdrop-item&gt
+		span Salir
+		tg &lt/drop-item&gt
+		br
+		tg       &lt/dropmenu&gt
+		br
+		tg     &lt/dropdown&gt
+		br
+		tg   &lt/navmenu&gt
+		br
+		tg &lt/navbar&gt

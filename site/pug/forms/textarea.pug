@@ -1,0 +1,361 @@
+h1.title Textarea
+tags.is-group
+	tag.is-info Path
+	tag _forms.scss
+	tag.is-success Colores
+divider
+h4.title.subtitle Colores
+p Los elementos de tipo
+	code textarea
+	span soportan la siguientes clases de color:
+ul.default-browser
+	li: code is-info
+	li: code is-success
+	li: code is-warning
+	li: code is-danger
+row.bloque
+	column.tablet-is-half
+		field
+			textarea(placeholder="default")
+		field
+			textarea(placeholder="info").is-info
+		field
+			textarea(placeholder="success").is-success
+		field
+			textarea(placeholder="warning").is-warning
+		field
+			textarea(placeholder="danger").is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttextarea
+				at placeholder=
+				vat "default"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-info"
+				at placeholder=
+				vat "info"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-success"
+				at placeholder=
+				vat "success"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-warning"
+				at placeholder=
+				vat "warning"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-danger"
+				at placeholder=
+				vat "danger"
+				tg /&gt&lt/textarea&gt
+h4.subtitle Estilo material design
+p.bloque Añadiendo la clase
+	code .is-material
+row.bloque
+	column.tablet-is-half
+		field
+			textarea(placeholder="default").is-material
+		field
+			textarea(placeholder="info").is-material.is-info
+		field
+			textarea(placeholder="success").is-material.is-success
+		field
+			textarea(placeholder="warning").is-material.is-warning
+		field
+			textarea(placeholder="danger").is-material.is-danger
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttextarea
+				at class=
+				vat "is-material"
+				at placeholder=
+				vat "default"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-info is-material"
+				at placeholder=
+				vat "info"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-success is-material"
+				at placeholder=
+				vat "success"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-warning is-material"
+				at placeholder=
+				vat "warning"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-danger is-material"
+				at placeholder=
+				vat "danger"
+				tg /&gt&lt/textarea&gt
+h4.title.subtitle Text area redondeado
+p Añadiendo la clase
+	code .is-rounded
+	span .
+row.bloque
+	column.tablet-is-half
+		field
+			textarea(placeholder="Text area redondeado").is-rounded
+		field
+			textarea(placeholder="Text area redondeado" rows="5").is-info.is-rounded
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttextarea
+				at class=
+				vat "is-rounded"
+				at placeholder=
+				vat "Text area redondeado"
+				tg /&gt&lt/textarea&gt
+				br
+				tg &lttextarea
+				at class=
+				vat "is-rounded is-info"
+				at rows=
+				vat "5"
+				at placeholder=
+				vat "Text area redondeado"
+				tg /&gt&lt/textarea&gt
+h4.subtitle Añadiendo iconos
+p El contenedor
+	code &ltcontrol&gt
+	span requiere una de las siguientes clases:
+ul.default-browser
+	li
+		code .is-icon-left
+		span le indica al contenedor que solo tendra un icono a la izquierda
+	li
+		code .is-icon-right
+		span le indica al contenedor que solo tendra un icono a la derecha
+message.is-success
+	content
+		p Los iconos son posicionados
+			b automaticamente
+			span sin añadir ninguna clase adicional.
+row.bloque
+	column.tablet-is-half
+		field
+			control.is-icon-left
+				textarea(placeholder="Message")
+				icon
+					i.fa.fa-comment
+		field
+			control.is-icon-right
+				textarea(placeholder="Message")
+				icon
+					i.fa.fa-lock
+	column.tablet-is-half
+		snippet
+			pre
+				cm // Ejemplo al añadir icono a la izquierda.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &lttextarea&gt&lt/textarea&gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				cm // Ejemplo al añadir icono a la derecha.
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-right"
+				tg &gt
+				br
+				tg     &lttextarea&gt&lt/textarea&gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h3.title Tamaños
+p.bloque Por defecto
+	b kimera
+	span incluye
+	b 4 tamaños
+	span para los elementos de tipo
+	code textarea
+	span añadiendo una de las siguientes clases:
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+row.bloque
+	column.tablet-is-half
+		field
+			control.is-icon-left
+				textarea(placeholder="small").is-small
+				icon.is-small
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				textarea(placeholder="default")
+				icon
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				textarea(placeholder="medium").is-medium
+				icon.is-medium
+					i.fa.fa-github
+		field
+			control.is-icon-left
+				textarea(placeholder="large").is-large
+				icon.is-large
+					i.fa.fa-github
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &lttextarea
+				at class=
+				vat "is-small"
+				tg &gt&lt/textarea&gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-small"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &lttextarea&gt&lt/textarea&gt
+				br
+				tg     &lticon&gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &lttextarea
+				at class=
+				vat "is-medium"
+				tg &gt&lt/textarea&gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-medium"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+				br
+				tg &ltfield&gt
+				br
+				tg   &ltcontrol
+				at class=
+				vat "is-icon-left"
+				tg &gt
+				br
+				tg     &lttextarea
+				at class=
+				vat "is-large"
+				tg &gt&lt/textarea&gt
+				br
+				tg     &lticon
+				at class=
+				vat "is-large"
+				tg &gt
+				span @Content
+				tg &lt/icon&gt
+				br
+				tg   &lt/control&gt
+				br
+				tg &lt/field&gt
+h4.subtitle Textarea fixed
+p Añadiendo la clase
+	code .is-fixed
+	span el elemento
+	code textarea
+	span no permite modificar su tamaño.
+row.bloque
+	column.tablet-is-half
+		textarea(placeholder="Textarea fixed").is-fixed
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttextarea
+				at class=
+				vat "is-fixed"
+				tg &gt&lt/textarea&gt
+h4.subtitle Readonly
+p Añadiendo el atributo
+	code [is-readonly]
+	span el elemento textarea se convierte en un campo de solo lectura, que no permite su edición.
+row.bloque
+	column.tablet-is-half
+		textarea(is-readonly) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi!
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttextarea
+				at is-readonly
+				tg &gt
+				span @Content
+				tg &lt/textarea&gt

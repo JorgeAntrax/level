@@ -1,0 +1,324 @@
+center.color-info.padding-1.is-small Excelente, la versión
+	b.is-text.medium 0.4.3
+	span esta lista.
+	a(modal="#cambios" href="#").is-text-cloud.is-text-underline Ver cambios.
+include features
+center.is-full-center#intro-header
+	center.padding-1
+		img(src=urlimage+'logo-azul-light.png' alt="kimera")#mega_logo
+		h1.is-text-primary.is-text-upper Kimera
+		p Un framework
+			b CSS 
+			span gratuito y open source basado en
+			b  flexbox
+			span y etiquetas personalizadas.
+		row.is-center
+			center
+				snippet.monokai.not-label
+					pre.is-text-bolder
+						warning npm  
+						at install  
+						danger kimera
+		a(href="https://github.com/JorgeAntrax/kimera/archive/master.zip" target="_blank").is-medium.button.is-success.margin-v-1 Descargar v0.4.3
+		buttons.is-center
+			a(href="https://twitter.com/@kimeracssframew").is-medium
+				icon
+					i.fa.fa-twitter
+			a(href="https://github.com/JorgeAntrax/kimera/fork" target="_blank").is-medium
+				icon.is-text-dark
+					i.fa.fa-code-fork
+			a(href="https://facebook.com/kimeraCSS").is-medium
+				icon.is-text-info
+					i.fa.fa-facebook
+mega.color-info
+	row#features
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				i.fa.fa-desktop
+				i.fa.fa-laptop
+				i.fa.fa-mobile
+			upper.is-text-medium.is-text-bolder.padding-v-1 mobile first
+			span
+				b Adaptable
+				span a diferentes dispositivos y basado en la metodología mobile first.
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				i.fa.fa-css3
+			upper.is-text-medium.is-text-bolder.padding-v-1 flexbox & grid
+			span Con todas las ventajas de flexbox y Grid CSS3, crea plantillas muy potentes.
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				i.fa.fa-codepen
+			upper.is-text-medium.is-text-bolder.padding-v-1 Integración jquery
+			span Kimera hace uso del framework
+				b JQuery
+				span para añadir la interacción necesaría.
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				i.fa.fa-cubes
+			upper.is-text-medium.is-text-bolder.padding-v-1 sistema modular
+			span Importa solo lo necesario mediante nuestro increible sistema de importación.
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				img(src=urlimage+"mit.png", alt="Open source MIT" style="width: 3rem; height: 3rem;")
+			upper.is-text-medium.is-text-bolder.padding-v-1 open source
+			span Kimera es un proyecto gratuito,
+				b Open source 
+				span que trabaja bajo la licencia
+				b MIT.
+		column.touch-is-half.tablet-6
+			icon.is-jumbo
+				i.fa.fa-simplybuilt
+			upper.is-text-medium.is-text-bolder.padding-v-1 Código limpio
+			span Basado en
+				b  etiquetas
+				span  personalizadas que facilitan su integración.
+include portafolio
+.is-full-center.color-success-lighten-4(style="display:flex; flex-direction: column;").is-separated
+	center
+		p.is-text-center Top screen
+		icon.is-medium
+			i.fa.fa-angle-up
+	center.padding-1
+		hgroup
+			h2 Centrado vertical absoluto
+			p.is-subtitle.is-text-center Tu contenido siempre centrado en pantalla completa.
+			snippet.monokai
+				pre
+					tg &ltdiv
+					at class=
+					vat "is-full-center"
+					tg &gt
+					cm     //Content
+					tg &ltdiv&gt
+	center
+		icon.is-medium
+			i.fa.fa-angle-down
+		p.is-text-center Bottom screen
+.is-full-center#demo-form
+	h3.subtitle Formularios
+		danger   impresionantes.
+	form
+		icon#user-form-demo.color-danger
+			i.fa.fa-user
+		small.is-text-bolder.is-text-danger Usuario
+		field
+			control
+				input(type="text" placeholder="Ingresa aquí tu usuario" required autocomplete="username").input.is-material
+				help.is-validate Por favor ingresa un nombre de usuario valido
+		small.is-text-bolder.is-text-danger Contraseña
+		field
+			control
+				input(type="password" placeholder="Ingresa tu contraseña" required autocomplete="current-password").input.is-material
+				help.is-validate Tu contraseña debe tener como minímo 6 carácteres.
+		checkbox.is-check.is-info#demof2
+		span Recordarme
+		center.padding-v-1
+			button(type="submit").is-rounded.is-danger-outline Iniciar sesión
+		center.is-small Olvide mis datos.
+row.bloque.padding-h-1
+	column.touch-8
+		h3.subtitle Botones intuitivos.
+	column.tablet12.padding-2
+		buttons
+			button Default
+			button.is-light Light
+			button.is-black Black
+			button.is-dark Dark
+		buttons
+			button.is-primary Primary
+			button.is-info Info
+			button.is-success Success
+			button.is-warning Warning
+			button.is-danger Danger
+row.bloque.padding-h-1
+	column.touch-8
+		h3.subtitle Dropdowns 
+	column.touch-12.padding-2
+		dropdown
+			button.is-toggle-dropdown.is-info
+				span Dropdown info
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+		dropdown
+			button.is-toggle-dropdown.is-success
+				span Dropdown success
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+		dropdown
+			button.is-toggle-dropdown.is-warning
+				span Dropdown warning
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+		dropdown
+			button.is-toggle-dropdown.is-danger
+				span Dropdown danger
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+row.bloque.padding-h-1
+	column.touch-8
+		h3.subtitle Barras de progreso increibles 
+	column.touch-12.padding-2
+		process(label="static" value="20%").is-slim.is-primary
+		process(label="static" value="40%").is-small.is-info
+		process(label="static" value="60%").is-success
+		process(label="static" value="80%").is-medium.is-warning
+		process(label="static" value="100%").is-large.is-danger
+mega.color-primary-darken-2
+	column.tablet-is-half
+		center.padding-1
+			h3.subtitle Ventanas modal increibles.
+			button(modal="#homedemo1").is-danger.bloque Demo
+		modal#homedemo1
+			background(modal="#homedemo1")
+			content(style="max-width: 700px; width: 100%;").is-paddingless
+				row
+					column.tablet-5.shadow--x
+						group.is-inline.mac
+							icon(modal="#homedemo1").is-small.is-text-danger
+								i.fa.fa-circle
+							icon.is-small.is-text-warning
+								i.fa.fa-circle
+							icon.is-small.is-text-success
+								i.fa.fa-circle
+						menu
+							item.is-tiny.is-label FAVORITES
+							item.is-small Air drop
+							item.is-small Cloud drive
+							item.is-small Applications
+							item.is-small Files
+							item.is-small Video
+							item.is-tiny.is-label DEVICES
+							item.is-small USB drive
+							item.is-small Hard drive
+					column.tablet-15.padding-2
+						p.is-small User
+						item.is-separated
+							hgroup
+								h4.op-03 Kimera
+							group.is-inline
+								icon
+									i.fa.fa-search
+								icon
+									i.fa.fa-th
+								icon
+									i.fa.fa-star-o
+								icon
+									i.fa.fa-trash-o
+						row.is-distributed-tablet.padding-v-2
+							column.tablet-6
+								blockquote.is-primary
+									small Applications
+								#img-mac
+									img(src="http://hdwarena.com/wp-content/uploads/2017/05/Cute-Wallpapers.jpg", alt="Pictures").is-bg
+									white Pictures
+							column.tablet-6
+								blockquote.is-success
+									small Design
+								blockquote.is-danger
+									small Documents
+								blockquote.is-dark.transparent
+									img(src="http://chulavista.mx/wp-content/uploads/2014/07/head3.jpg", alt="music").is-bg.is-blur-2
+									white Music
+							column.tablet-6
+								blockquote.is-warning
+									small Downloads
+row.bloque.is-distributed-desktop
+	right.tablet-is-half
+		h3.is-text-center.subtitle Barras de navegación muy versatiles.
+	column.tablet-is-half
+		mobile.tablet-8
+			navbar.color-black
+				navbrand
+					logo(text="<h4>Brand title</h4>")
+					icon.is-toggle-navbar.is-medium
+						i.fa.fa-bars
+				navmenu
+					nav-item Buscar
+					nav-item Productos
+					nav-item Servicios
+					nav-item Contactos
+		mobile.tablet-8
+			navbar.is-rtl
+				navbrand
+					logo(text="<h4>Brand title</h4>")
+					icon.is-toggle-navbar.is-medium
+						i.fa.fa-bars
+				navmenu
+					nav-item Buscar
+					nav-item Productos
+					nav-item Servicios
+					nav-item Contactos
+row.bloque.padding-h-1
+	column.tablet-is-half
+		h3.subtitle Componentes para redes sociales.
+	column.tablet-is-half
+		box
+			social
+				media
+					responsive.is-square-48
+						img(src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/25659728_1503334959787685_1657382726692292790_n.jpg?oh=5d22e1fe2efeb3d3d899e68a08916c96&oe=5AF990F3", alt="").is-rounded
+				content
+					header
+						textarea(placeholder="Descripción" rows="1").is-rounded.is-info
+					section
+						group.test-hover
+							item
+								icon.op-03.is-small
+									i.fa.fa-thumbs-o-up
+							item
+								icon.op-03.is-small
+									i.fa.fa-camera
+							item
+								icon.op-03.is-small
+									i.fa.fa-link
+							item
+								icon.op-03.is-small
+									i.fa.fa-plus-square-o
+				button.is-info.is-small
+					span Publicar
+row.bloque.padding-h-1
+	column.tablet-is-half
+		h3.subtitle Notificaciones simples.
+	column.tablet-is-half
+		notify Notificaciones flexibles
+		br
+		notify.is-info Una versatilidad impresionante
+		br
+		notify.is-success Con estilos increibles por defecto
+row.bloque.padding-h-1
+	column.tablet-is-half
+		h3.subtitle Tarjetas flexibles
+	column.tablet-is-half
+		card
+			responsive
+				img(src="https://images.pexels.com/photos/753337/pexels-photo-753337.jpeg?h=350&auto=compress&cs=tinysrgb", alt="pexels.com")
+			content
+				h4 John Smith
+				info.subtitle: h6 @JohnSmith
+				justify.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa et delectus, porro repellendus necessitatibus quaerat.
+				small
+					a(href="#") #Kimera
+					a(href="#") @kimeraCSS<br>
+				tiny.subtitle
+					i 10 • Feb • 2018 - 08:45 pm

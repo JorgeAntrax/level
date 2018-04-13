@@ -1,0 +1,182 @@
+h1.title Sistema modular
+tags.is-group
+	tag.is-success Soporte
+	tag Componentes y módulos
+p Solo importa lo que
+	b necesitas
+	span .
+divider
+h4.subtitle Estructura de carpetas.
+p Kimera tiene un total de 45 archivos
+	code .scss
+	span .
+snippet(value="txt").bloque
+	pre
+		info |----- kimera-master
+		br
+		span |--------- main.scss
+		br
+		cm |--------- css
+		span |------------- kimera.css
+		br
+		span |------------- kimera.min.css
+		br
+		cm |--------- js
+		span |------------- kimera.js
+		br
+		span |------------- kimera.min.js
+		br
+		cm |--------- scss
+		cm |------------- base  (dependencias obligatorias)
+		span |----------------- _all.scss
+		br
+		cm |------------- utilities (dependencias obligatorias)
+		span |----------------- _all.scss
+		br
+		cm |------------- layout
+		span |----------------- _all.scss
+		br
+		cm |------------- components
+		span |----------------- _all.scss
+		br
+		cm |------------- modules
+		span |----------------- _all.scss
+p Todos los módulos y componentes de kimera, requieren de las dependencías obligatorías.
+h4.subtitle Implementación
+message.is-info
+	content
+		p Es recomendable que ignores los archivos compilados de la carpeta
+		code css
+		span y el archivo
+		code main.scss
+		span , si vas a compilar solo lo necesario.
+p.bloque
+	b 1.-
+	span crea un archivo con extensión
+	code .scss
+	span o
+	code .sass
+	span , en la carpeta de tu proyecto.
+p
+	b 2.-
+	span Utiliza la directiva de sass
+	code @import
+	span , para importar lo que necesites de la siguiente manera.
+snippet(value="scss").bloque
+	pre
+		cm // Archivos de importación obligatorios
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/base/<info>_all.scss</info>"
+		at ;
+		br
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/utilities/<info>_all.scss</info>"
+		at ;
+		cm // Archivos modulares
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/layout/<info>archivo.scss</info>"
+		at ;
+		br
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/components/<info>archivo.scss</info>"
+		at ;
+		br
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/modules/<info>archivo.scss</info>"
+		at ;
+h4.subtitle Ejemplo
+p Para importar el sistema de rejilla se hace de la siguiente manera.
+snippet.bloque
+	pre
+		cm // Importando el grid
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/layout/_grid.scss"
+		at ;
+p.bloque Es todo, compilas y pruebas.
+snippet
+	pre
+		tg &ltrow&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "is-primary"
+		tg &gt
+		cm        column 1
+		tg     &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "is-info"
+		tg &gt
+		cm        column 2
+		tg     &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "is-success"
+		tg &gt
+		cm        column 3
+		tg     &lt/column&gt
+		br
+		tg     &ltcolumn
+		at class=
+		vat "is-warning"
+		tg &gt
+		cm        column 4
+		tg     &lt/column&gt
+		br
+		tg &lt/row&gt
+p.bloque Importando solamente los botones.
+snippet(value="scss")
+	pre
+		cm // Archivo de buttons
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/components/_buttons.scss"
+		at ;
+p.bloque Al importar cualquier componente o módulo puedes hacer uso de todas sus
+	b propiedades y características.
+snippet
+	pre
+		cm // Colores
+		tg &ltbutton
+		at class=
+		vat "is-black"
+		tg &gt
+		cm     @Content...
+		tg &lt/button&gt
+		br
+		tg &ltbutton
+		at class=
+		vat "is-dark"
+		tg &gt
+		cm     @Content...
+		tg &lt/button&gt
+		br
+		tg &ltbutton
+		at class=
+		vat "is-primary"
+		tg &gt
+		cm     @Content...
+		tg &lt/button&gt
+p.bloque Importando todos los componentes o módulos.
+snippet(value="scss")
+	pre
+		cm // Archivo de buttons
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/components/_all.scss"
+		at ;
+		br
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/modules/_all.scss"
+		at ;
+		br
+		at @import 
+		vat "<info>tu-proyecto</info>/kimera-master/scss/layout/_all.scss"
+		at ;
+message.is-info.is-small
+	content
+		p Dentro de cada carpeta que incluye
+			b kimera
+			span hay un archivo con el nombre
+			code _all.scss
+			span , el cual se encarga de cargar todos los archivos de esa carpeta.

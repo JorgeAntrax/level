@@ -1,0 +1,108 @@
+h1.title Funciones con SASS
+tags.is-group
+	tag.is-info Path
+	tag _functions.scss
+divider
+p.bloque Las funciones en
+	b SASS
+	span nos permiten darle más funcionalidad a nuestro
+	b CSS.
+p Por el momento
+	b kimera
+	span solo incluye 2 funciones:
+ul.default-browser
+	li: code grid(){...}
+	li: code rem(){...}
+p.bloque Como cualquier función en
+	b SASS
+	span simplemente llamas a la función como un valor.
+code: info propiedad css: <success>funciónSass()</success>;
+h4.subtitle Función Grid
+p.bloue Permite controlar el número de columnas que necesites construir.
+code grid(<info>$columns</info>,<info>$total-columns</info>);
+ul.default-browser
+	li
+		code
+			span $columns 
+		span (numero de columnas que abarca un elemento).
+	li
+		code
+			span $total-columns 
+		span (total de columnas en el grid).
+	li
+		code
+			span Si $total-columns 
+		span no se especifíca por defecto su valor es 20
+snippet.bloque
+	pre
+		at .caja 
+		vat {
+		br
+		span    <info>display:</info> flex
+			info ;
+		br
+		cm     /* Esta línea le dice a la clase .caja que tendrá un ancho del 50% */
+		span    <info>flex-basis:</info> grid(6, 12)
+			info ;
+		br
+		vat  }
+		br
+		at .caja 
+		vat {
+		br
+		span    <info>display:</info> flex
+			info ;
+		br
+		cm     /* Esta línea le dice a la clase .caja que tendrá un ancho del 30% */
+		span    <info>flex-basis:</info> grid(6)
+			info ;
+		br
+		vat  }
+h4.subtitle Función Rem
+p.bloque Permite convertir la unidad de
+	b pixeles
+	span en la unidad relativa
+	b rem
+	span .
+p Por defecto la función se basa en un tamaño de fuente de
+	b 16 px.
+code rem(<info>$size</info>,<info>$unity</info>);
+ul.default-browser
+	li
+		code $size 
+		span (medida a convertir en pixeles).
+	li
+		code $unity 
+		span (tamaño de fuente).
+	li
+		span Si
+		code $unity 
+		span no se especifica por defecto su valor es determinado por la variable 
+		code $text-default 
+		span del archivo 
+		code _variables.scss
+snippet.bloque
+	pre
+		at .caja 
+		vat {
+		br
+		span    <info>display:</info> flex
+			info ;
+		br
+		cm     /* Esta línea le dice a la clase .caja que tendrá un ancho de 300px en formato rem en base a 20px */
+		span    <info>flex-basis:</info> rem(300px, 20px)
+			info ;
+		br
+		vat  }
+		br
+		at .caja 
+		vat {
+		br
+		span    <info>display:</info> flex
+			info ;
+		br
+		cm     /* Esta línea le dice a la clase .caja que tendrá un ancho de 300px en formato rem */
+		span    <info>flex-basis:</info> rem(300px)
+			info ;
+		br
+		vat  }

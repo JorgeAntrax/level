@@ -1,0 +1,710 @@
+h1.title Dropdowns
+tags.is-group
+	tag.is-info Path
+	tag _dropdown.scss
+tags.is-group
+	tag.is-success Actualización
+	tag.is-warning.is-text-bolder JQuery 1.7
+divider
+p.bloque El componente
+	code dropdown
+	span es un simple contenedor en el cual colocar el botón que accionará el menú y el elemento
+	code dropmenu.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code dropdown
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code .is-toggle-dropdown
+				span Clase que se asigna al elemento que accionará del menu.
+			li
+				code dropmenu
+				span Contenedor del menu.
+				ul.default-browser
+					li
+						code drop-item
+						span Elemento individual del menu (opcional).
+					li
+						span Item con la clase
+						code .is-title
+						span indica que es un titulo dentro del menú.
+					li
+						code divider
+						span Una linea horizontal para separar los items del menu.
+row.bloque
+	column.tablet-is-half
+		dropdown
+			button.is-toggle-dropdown
+				span Simple dropdown
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				span     Dropdown
+				br
+				tg     &lticon&gt
+				tg &lti
+				at class=
+				vat "fa fa-angle-down"
+				tg &gt
+				tg &lt/i&gt
+				tg &lt/icon&gt
+				br
+				tg   &lt/button&gt
+				br
+				tg   &ltdropmenu&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es un item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es otro item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdivider&gt
+				br
+				tg     &ltdrop-item&gt
+				br
+				tg       &lta
+				at href=
+				vat "#"
+				tg &gt
+				span Este es un enlace
+				tg &lt/a&gt
+				br
+				tg     &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+h4.subtitle Dropdown hover
+p.bloque Añadiendo la clase
+	code .is-hoverable
+	span al contenedor
+	code dropdown
+	span el menu semuestra mediante la pseudo-clase
+	code :hover
+	span .
+row.bloque
+	column.tablet-is-half
+		dropdown.is-hoverable
+			button.is-toggle-dropdown
+				span Dropdown hover
+				icon
+					i.fa.fa-angle-down
+			dropmenu
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown
+				at class=
+				vat "is-hoverable"
+				tg &gt
+				cm   //Content
+				tg &lt/dropdown&gt
+h4.subtitle Visibilidad del menu
+p.bloque De manera predeterminada el elemento
+	code dropmenu
+	span permanece
+	b oculto
+	span , añadiendo la clase
+	code is-visible
+	span al menú, se aplica la propiedad css
+	code display: block
+	span .
+row.bloque
+row.bloque
+	column.tablet-is-half
+		dropdown
+			button.is-toggle-dropdown
+				span Dropdown visible
+				icon
+					i.fa.fa-angle-down
+			dropmenu(style="width: 200px").is-up.is-visible
+				drop-item Este es un item
+				drop-item Este es otro item
+				divider
+				drop-item: a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				span     Dropdown
+				br
+				tg     &lticon&gt
+				tg &lti
+				at class=
+				vat "fa fa-angle-down"
+				tg &gt
+				tg &lt/i&gt
+				tg &lt/icon&gt
+				br
+				tg   &lt/button&gt
+				br
+				tg   &ltdropmenu
+				at class=
+				vat "is-visible"
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es un item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es otro item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdivider&gt
+				br
+				tg     &ltdrop-item&gt
+				br
+				tg       &lta
+				at href=
+				vat "#"
+				tg &gt
+				span Este es un enlace
+				tg &lt/a&gt
+				br
+				tg     &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+h4.subtitle Añadiendo titulos
+p.bloque puedes generar titulos añadiendo al clase
+	code .is-title
+	span a un
+	code drop-item
+	span dentro del menu, también puedes añadir separadores mediante la etiqueta personalizada
+	code divider
+	span .
+row.bloque
+	column.tablet-is-half
+		dropdown
+			button.is-toggle-dropdown
+				span Dropdown con titulos
+				icon
+					i.fa.fa-angle-down
+			dropmenu.is-up
+				drop-item.is-title Este es un titulo
+				drop-item Este es un item
+				drop-item Este es otro item
+				drop-item.is-title Este es otro titulo
+				drop-item: a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				span     Dropdown con titulos
+				br
+				tg     &lticon&gt
+				tg &lti
+				at class=
+				vat "fa fa-angle-down"
+				tg &gt
+				tg &lt/i&gt
+				tg &lt/icon&gt
+				br
+				tg   &lt/button&gt
+				br
+				tg   &ltdropmenu
+				tg &gt
+				br
+				tg     &ltitem
+				at class=
+				vat "is-title"
+				tg &gt
+				span Este es un titulo
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es un item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es otro item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltitem
+				at class=
+				vat "is-title"
+				tg &gt
+				span Este es otro titulo
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				br
+				tg       &lta
+				at href=
+				vat "#"
+				tg &gt
+				span Este es un enlace
+				tg &lt/a&gt
+				br
+				tg     &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+h4.subtitle Alineación del menu
+p.bloque Añadiendo una de las siguientes clases podemos alinear al elemento
+	code dropmenu
+	span :
+ul.defaul-browser
+	li
+		code .is-up
+		small.is-text-bolder Despliega el menu hacia arriba.
+	li
+		code .is-right
+		small.is-text-bolder Despliega el menu desde la derecha.
+row.bloque
+	column.tablet-is-half
+		row.is-separated
+			div
+				dropdown
+					button.is-toggle-dropdown Left bottom
+					dropmenu
+						drop-item Item Drop 1
+						drop-item Item Drop 2
+						drop-item Item Drop 3
+			div
+				dropdown
+					button.is-toggle-dropdown Right bottom
+					dropmenu.is-right
+						drop-item Item Drop 1
+						drop-item Item Drop 2
+						drop-item Item Drop 3
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				span Left bottom
+				tg &lt/button&gt
+				br
+				tg   &ltdropmenu
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 1
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 2
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 3
+				tg &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+				br
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				span Right bottom
+				tg &lt/button&gt
+				br
+				tg   &ltdropmenu
+				at class=
+				vat "is-right"
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 1
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 2
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 3
+				tg &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+row.bloque
+	column.tablet-is-half
+		row.is-separated
+			div
+				dropdown
+					button.is-toggle-dropdown Left up
+					dropmenu.is-up
+						drop-item Item Drop 1
+						drop-item Item Drop 2
+						drop-item Item Drop 3
+			div
+				dropdown
+					button.is-toggle-dropdown Right up
+					dropmenu.is-up.is-right
+						drop-item Item Drop 1
+						drop-item Item Drop 2
+						drop-item Item Drop 3
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				span Left up
+				tg &lt/button&gt
+				br
+				tg   &ltdropmenu
+				at class=
+				vat "is-up"
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 1
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 2
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 3
+				tg &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+				br
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				span Right up
+				tg &lt/button&gt
+				br
+				tg   &ltdropmenu
+				at class=
+				vat "is-right is-up"
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 1
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 2
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Item Drop 3
+				tg &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+h4.subtitle Items activos
+p.bloque Añadiendo la clase
+	code .is-active
+	span a un elemento
+	code drop-item
+	span .
+row.bloque
+	column.tablet-is-half
+		dropdown
+			a(href="#").is-toggle-dropdown
+				span Seleccionar
+				icon
+					i.fa.fa-angle-down
+			dropmenu(style="width: 250px")
+				drop-item.is-active Este item esta seleccionado
+				drop-item Este item no esta seleccionado
+				divider
+				drop-item: a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &lta
+				at href=
+				vat "#"
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				span     Seleccionar
+				br
+				tg     &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &lt/a&gt
+				br
+				tg   &ltdropmenu
+				tg &gt
+				br
+				tg     &ltitem
+				at class=
+				vat "is-active"
+				tg &gt
+				span Este item esta seleccionado
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este item no esta seleccionado
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				br
+				tg     &ltdivider&gt&ltdivider&gt
+				br
+				tg       &lta
+				at href=
+				vat "#"
+				tg &gt
+				span Este es un enlace
+				tg &lta&gt
+				br
+				tg     &lt/drop-item&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+message.is-small.is-primary
+	header Tips
+	content Puedes añadir separadores dentro del menu añadiendo la etiqueta personalizada
+		code &ltdivider&gt
+		span .
+h4.subtitle Multi tareas
+p.bloque Sólo basta con añadir más elementos dentro del contenedor
+	code dropdown
+	span , y hacer una correcta referencía entre el elemento que accionará el menu, y el elemento
+	code dropmenu
+	span .
+row.bloque
+	column.tablet-is-half
+		dropdown
+			button Boton simple
+			button.is-toggle-dropdown
+				icon
+					i.fa.fa-angle-up
+			dropmenu.is-up.is-right
+				drop-item Este es un item
+				drop-item Este es otro item
+				drop-item
+					a(href="#") Este es un enlace
+	column.tablet-is-half
+		snippet
+			pre
+				cm // dropdown
+				tg &ltdropdown&gt
+				br
+				tg   &ltbutton&gt
+				span Button
+				tg &lt/button&gt
+				br
+				tg   &ltbutton
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				tg     &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &lt/button&gt
+				br
+				tg   &ltdropmenu
+				at class=
+				vat "is-up is-right"
+				tg &gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es un item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltdrop-item&gt
+				span Este es otro item
+				tg &lt/drop-item&gt
+				br
+				tg     &ltbutton
+				at class=
+				vat "is-info"
+				tg &gt
+				span Este es un botón
+				tg &lt/button&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+h4.subtitle Versatilidad
+p.bloque Kimera no te limita a una estructura, puedes añadir lo que tu quieras dentro de este componente.
+row.bloque
+	column.tablet-is-half
+		dropdown
+			a(href="#").is-toggle-dropdown
+				span Iniciar sesión
+				icon
+					i.fa.fa-caret-down
+			dropmenu(style="width: 250px")
+				center.padding-1.color-light Simple Login
+				form.padding-1
+					field.padding-v-05
+						input(type="text" placeholder="Username" autocomplete="username").input.is-material.is-danger
+					field.padding-v-05
+						input(type="password" placeholder="Password" autocomplete="current-password").input.is-material.is-danger
+					field.padding-v-05
+						button.color-danger-lighten-4.is-block Lets Go
+				center.is-tiny.padding-05 Forgot Password?
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltdropdown&gt
+				br
+				tg   &lta
+				at href=
+				vat "#"
+				at class=
+				vat "is-toggle-dropdown"
+				tg &gt
+				br
+				span     Iniciar sesión
+				tg &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg   &lt/a&gt
+				br
+				tg   &ltdropmenu&gt
+				br
+				tg     &ltcenter
+				at class=
+				vat "color-light padding-1"
+				tg &gt
+				span Simple Login
+				tg &lt/center&gt
+				br
+				tg     &ltform&gt
+				br
+				tg       &ltfield&gt
+				br
+				tg         &ltinput
+				at type=
+				vat "text"
+				at class=
+				vat "input is-danger is-material"
+				at placeholder=
+				vat "Username"
+				tg &gt
+				br
+				tg       &lt/field&gt
+				br
+				tg       &ltfield&gt
+				br
+				tg         &ltinput
+				at type=
+				vat "password"
+				at class=
+				vat "input is-danger is-material"
+				at placeholder=
+				vat "Password"
+				tg &gt
+				br
+				tg       &lt/field&gt
+				br
+				tg       &ltfield&gt
+				br
+				tg         &ltbutton
+				at type=
+				vat "submit"
+				at class=
+				vat "is-danger is-block"
+				tg &gt
+				span Lets Go
+				tg &lt/button&gt
+				br
+				tg       &lt/field&gt
+				br
+				tg     &lt/form&gt
+				br
+				tg     &ltcenter
+				at class=
+				vat "is-tiny"
+				tg &gt
+				span Forgot Password?
+				tg &lt/center&gt
+				br
+				tg   &lt/dropmenu&gt
+				br
+				tg &lt/dropdown&gt
+row.bloque
+	column.tablet-is-half
+		message.is-success.is-small
+			header Tips
+			content
+				p Puedes incluso añadir una rejilla dentro del contenedor
+					code dropmenu
+					span y crear una distribución completamente flexible.
+	column.tablet-is-half
+		message.is-info
+			header Tips
+			content
+				p Puedes restringir la
+					b altura máxima
+					span del contenedor
+					code dropmenu
+					span a
+					code 200px
+					span , añadiendo la clase
+					code .is-drop-scrolling
+					span , la cual mostrará un scroll vertical.

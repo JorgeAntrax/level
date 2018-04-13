@@ -1,0 +1,281 @@
+h1.title Cards
+tags.is-group
+	tag.is-info Path
+	tag _card.scss
+divider
+p Pequeño componente para la creación de tarjetas.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code card
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code header
+				span Cabecera de la tarjeta
+			li
+				code content
+				span Cuerpo de la tarjeta
+			li
+				code footer
+				span Pie de la tarjeta
+p.bloque Utilizando la biblioteca de color que incluye kimera, o definiendo tu propío estilo puedes crear tarjetas simples.
+row.bloque
+	column.tablet-8
+		card
+			content.color-danger-lighten-4
+				h1 "Lorem ipsum dolor sit amet."
+				small.subtitle @John Smith
+			footer
+				item View on
+					a(href="#") Twitter
+				item Share on
+					a(href="#") Facebook
+	column.tablet-12
+		snippet
+			pre
+				tg &ltcard&gt
+				br
+				tg   &ltcontent
+				at class=
+				vat "color-danger-lighten-4"
+				tg &gt
+				br
+				tg     &lth1&gt
+				span "Lorem ipsum dolor sit amet."
+				tg &lt/h1&gt
+				br
+				tg     &ltsmall&gt
+				span @John Smith
+				tg &lt/small&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltitem&gt
+				span View on
+				tg &lta&gt
+				span Twitter
+				tg &lt/a&gt
+				tg &lt/item&gt
+				br
+				tg     &ltitem&gt
+				span share on
+				tg &lta&gt
+				span Facebook
+				tg &lt/a&gt
+				tg &lt/item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/card&gt
+p.bloque Puedes crear algo más complejo como esto.
+row.bloque
+	column.tablet-8
+		card
+			header
+				b Módulo
+				a(href="#")
+					icon
+						i.fa.fa-angle-down
+			content
+				b John Smith
+				info: small @john-smith
+				br
+				justify Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa et delectus, porro repellendus necessitatibus quaerat.
+				tiny.subtitle: time 10 • Nov • 2017 - 08:45 pm
+			footer
+				item: a(href="#" rel="nofollow") Save
+				item: a(href="#" rel="nofollow") Cancel
+	column.tablet-12
+		snippet
+			pre
+				tg &ltcard&gt
+				br
+				tg   &ltheader&gt
+				br
+				tg     &ltb&gt
+				span Módulo
+				tg &lt/b&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-angle-down"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				tg   &lt/header&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltb&gt
+				span John Smith
+				tg &lt/b&gt
+				br
+				tg     &ltinfo&gt
+				span @john-smith
+				tg &lt/info&gt
+				br
+				tg     &ltjustify&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa et delectus, porro repellendus necessitatibus quaerat.
+				tg &lt/justify&gt
+				br
+				tg     &lttiny&gt
+				tg &lttime&gt
+				span 10 • Nov • 2017 - 08:45 pm
+				tg &lt/time&gt
+				tg &lt/tiny&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltitem&gt
+				span Save
+				tg &lt/item&gt
+				br
+				tg     &ltitem&gt
+				span Cancel
+				tg &lt/item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/card&gt
+p.bloque La versatilidad de este módulo permite
+	b omitir
+	span cualquiera de los contenedores predefinidos.
+h4.subtitle Card image
+p.bloque Puedes añadir imágenes sin ningún problema, incluso puedes añadir una imagen de fondo añadiendo la clase
+	code .is-bg
+	span a un elemento
+	code img
+	span .
+row.bloque
+	column.tablet-8
+		card
+			responsive
+				img(src="https://images.pexels.com/photos/753337/pexels-photo-753337.jpeg?h=350&auto=compress&cs=tinysrgb", alt="pexels.com")
+			content
+				h4 John Smith
+				info.subtitle: h6 @JohnSmith
+				justify.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa et delectus, porro repellendus necessitatibus quaerat.
+				small
+					a(href="#") #Kimera
+					a(href="#") #framework css
+					a(href="#") @Libraries CSS<br>
+				tiny.subtitle
+					i 10 • Nov • 2017 - 08:45 pm
+	column.tablet-12
+		snippet
+			pre
+				tg &ltcard&gt
+				br
+				tg   &ltresponsive&gt
+				br
+				tg     &ltimg
+				at src=
+				vat "pexels.com"
+				tg &gt
+				br
+				tg   &lt/responsive&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &lth4&gt
+				span John Smith
+				tg &lt/h4&gt
+				br
+				tg     &ltinfo&gt&lth6&gt
+				span @JohnSmith
+				tg &lt/h6&gt&lt/info&gt
+				br
+				tg     &ltjustify&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa et delectus, porro repellendus necessitatibus quaerat.
+				tg &lt/justify&gt
+				br
+				tg     &ltsmall&gt
+				br
+				tg       &lta&gt
+				span #kimera
+				tg &lt/a&gt
+				br
+				tg       &lta&gt
+				span #framework css
+				tg &lt/a&gt
+				br
+				tg       &lta&gt
+				span #Libraries CSS
+				tg &lt/a&gt
+				br
+				tg     &lt/small&gt
+				br
+				tg     &lttiny&gt
+				tg &lti&gt
+				time 10 • Nov • 2017 - 08:45 pm
+				tg &lt/i&gt
+				tg &lt/tiny&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/card&gt
+row.bloque
+	column.tablet-8
+		white
+			card
+				img(src="https://images.pexels.com/photos/7101/wood-coffee-iphone-notebook.jpg?w=940&h=650&auto=compress&cs=tinysrgb" style="height: 100%").is-bg
+				content
+					h1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, temporibus!
+				footer
+					item: a(href="#").is-text-cloud Descargar
+					item: a(href="#").is-text-cloud Compartir
+	column.tablet-12
+		snippet
+			pre
+				tg &ltcard&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "https://pexels.com"
+				at class=
+				vat "is-bg"
+				tg &gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &lth1&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, natus.
+				tg &lt/h1&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg   &ltfooter&gt
+				br
+				tg     &ltitem&gt
+				br
+				tg       &lta
+				at class=
+				vat "is-text-cloud"
+				tg &gt
+				span Descargar
+				tg &lt/a&gt
+				br
+				tg     &lt/item&gt
+				br
+				tg     &ltitem&gt
+				br
+				tg       &lta
+				at class=
+				vat "is-text-cloud"
+				tg &gt
+				span Compartir
+				tg &lt/a&gt
+				br
+				tg     &lt/item&gt
+				br
+				tg   &lt/footer&gt
+				br
+				tg &lt/card&gt

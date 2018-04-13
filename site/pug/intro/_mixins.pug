@@ -1,0 +1,33 @@
+h1.title Mixins
+tags.is-group
+	tag.is-info Path
+	tag _mixins.scss
+divider
+p.bloque Kimera incluye una serie de
+	b mixins
+	span que te ayudarán con algunas tareas básicas.
+responsive.is-table
+	table.is-cell
+		thead
+			tr
+				th Nombre
+				th Descripción
+		tbody
+			tr
+				td: code @mixin since ()
+				td: small.is-text.bolder Mixin responsive apartir de cierta resolución
+			tr
+				td: code @mixin only ()
+				td: small.is-text.bolder Mixin responsive soló en cierta resolución
+			tr
+				td: code Mixin until ()
+				td: small.is-text.bolder Mixin responsive hasta cierta resolución
+			tr
+				td: code @mixin color-picker ()
+				td: small.is-text.bolder Mixin que genera la paleta de colores.
+			tr
+				td: code @mixin border-shadow ()
+				td
+					small.is-text.bolder Mixin que genera bordes mediante la propiedad
+					code box-shadow
+					span .

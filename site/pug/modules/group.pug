@@ -1,0 +1,329 @@
+h1.title Groups
+tags.is-group
+	tag.is-info Path
+	tag _group.scss
+divider
+p Un módulo
+	b versatil
+	span para crear agrupaciones.
+h4.subtitle Estructura
+p.bloque Este módulo sólo te brinda una
+	b estructura flexible
+	span para generar grupos en forma horizontal y vertical, como un barra de herraminetas, entre muchas otras.
+row.bloque
+	column.tablet-is-half
+		group(style="max-width: 25em;").color-danger
+			group-item
+				icon.is-medium
+					i.fa.fa-phone
+			group-item
+				icon.is-medium
+					i.fa.fa-heart
+			group-item
+				icon.is-medium
+					i.fa.fa-user-circle
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltgroup
+				at class=
+				vat "color-danger"
+				tg &gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-phone"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				tg   &lt/group-item&gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-heart"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				tg   &lt/group-item&gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-user-circle"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				tg   &lt/group-item&gt
+				br
+				tg &lt/group&gt
+h4.subtitle Box group
+p Añadiendo la clase
+	code is-boxed
+	span al contenedor
+	code group
+	span , se aplica el siguiente efecto sobre los
+	code group-item
+	span .
+row.bloque
+	column.tablet-is-half
+		group(style="max-width: 25em;").color-danger.is-boxed
+			group-item
+				icon.is-medium
+					i.fa.fa-phone
+				small Llamar
+			group-item
+				icon.is-medium
+					i.fa.fa-heart
+				small Favoritos
+			group-item
+				icon.is-medium
+					i.fa.fa-user-circle
+				small Contactos
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltgroup
+				at class=
+				vat "color-danger is-boxed"
+				tg &gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-phone"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				span     Llamar
+				br
+				tg   &lt/group-item&gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-heart"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				span     Favoritos
+				br
+				tg   &lt/group-item&gt
+				br
+				tg   &ltgroup-item&gt
+				br
+				tg     &lticon&gt
+				br
+				tg       &lti
+				at class=
+				vat "fa fa-puser-circle"
+				tg &gt&lt/i&gt
+				br
+				tg     &lt/icon&gt
+				br
+				span     Contactos
+				br
+				tg   &lt/group-item&gt
+				br
+				tg &lt/group&gt
+h4.subtitle Grupos en linea
+p.bloque Haciendo uso de la clase
+	code .is-inline
+	span se aplica la propiedad
+	code display: inline-flex
+	span .
+row.bloque
+	column.tablet-is-half
+		group.color-danger.is-boxed.is-inline
+			group-item
+				icon.is-medium
+					i.fa.fa-phone
+				small Llamar
+			group-item
+				icon.is-medium
+					i.fa.fa-heart
+				small Favoritos
+			group-item
+				icon.is-medium
+					i.fa.fa-user-circle
+				small Contactos
+		group.color-light-darken-2.is-boxed.is-inline
+			group-item
+				icon.is-medium
+					i.fa.fa-picture-o
+				small Albums
+			group-item
+				icon.is-medium
+					i.fa.fa-camera
+				small Camará
+			group-item
+				icon.is-medium
+					i.fa.fa-music
+				small Música
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltgroup
+				at class=
+				vat "color-danger is-boxed is-inline"
+				tg &gt
+				cm   @Content
+				tg &lt/group&gt
+				br
+				tg &ltgroup
+				at class=
+				vat "color-light-darken-2 is-boxed is-inline"
+				tg &gt
+				cm   @Content
+				tg &lt/group&gt
+h4.subtitle Grupo de listas
+p.bloque Utilizando la etiqueta personalizada
+	code listgroup
+	span se genera una distribucion en bloques, muy util para generar listas como el siguiente ejemplo:
+row.bloque
+	column.tablet-is-half
+		listgroup(style="max-width: 25em;").color-light
+			list-item
+				p
+					icon.is-medium.is-text-danger
+						i.fa.fa-star
+					span Janet Perkins
+				group.is-inline
+					icon.is-medium
+						i.fa.fa-user-circle
+					icon.is-medium
+						i.fa.fa-pencil
+			list-item
+				p
+					icon.is-medium
+						i.fa.fa-star-o
+					span Peter Carlsson
+				group.is-inline
+					icon.is-medium
+						i.fa.fa-user-circle
+					icon.is-medium
+						i.fa.fa-pencil
+			list-item
+				p
+					icon.is-medium
+						i.fa.fa-star-o
+					span Trevor Hansen
+				group.is-inline
+					icon.is-medium
+						i.fa.fa-user-circle
+					icon.is-medium
+						i.fa.fa-pencil
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltlistgroup&gt
+				br
+				tg   &ltlist-item&gt
+				br
+				tg     &ltp&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				span      Janet Perkins
+				br
+				tg     &lt/p&gt
+				br
+				tg     &ltgroup
+				at class=
+				vat "is-inline"
+				tg &gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/group&gt
+				br
+				tg   &lt/list-item&gt
+				br
+				tg   &ltlist-item&gt
+				br
+				tg     &ltp&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				span      Peter Carlsson
+				br
+				tg     &lt/p&gt
+				br
+				tg     &ltgroup
+				at class=
+				vat "is-inline"
+				tg &gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/group&gt
+				br
+				tg   &lt/list-item&gt
+				br
+				tg   &ltlist-item&gt
+				br
+				tg     &ltp&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				span      Trevor Hansen
+				br
+				tg     &lt/p&gt
+				br
+				tg     &ltgroup
+				at class=
+				vat "is-inline"
+				tg &gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg       &lticon&gt
+				span •••
+				tg &lt/icon&gt
+				br
+				tg     &lt/group&gt
+				br
+				tg   &lt/list-item&gt
+				br
+				tg &lt/listgroup&gt

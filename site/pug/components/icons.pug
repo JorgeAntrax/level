@@ -1,0 +1,308 @@
+h1.title Iconos
+tags.is-group
+	tag.is-info Path
+	tag _icons.scss
+divider
+h4.subtitle Estructura
+row.bloque
+	column.tablet-is-half
+		icon
+			i.fa.fa-home
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lticon&gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+item
+	h4.subtitle Iconos personalizados
+	tag.is-success.is-rounded Nuevo!
+p Puedes crear el típico icono de
+	b hamburguesa
+	span .
+row.bloque
+	column.tablet-is-half
+		burger
+			span
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltburger&gt
+				br
+				tg   &ltspan&gt&lt/span&gt
+				br
+				tg &lt/burger&gt
+		snippet.margin-t-1
+			pre
+				cm // Como cambiar el color del icono burger
+				tg burger span
+				at {
+				br
+				tg   bakcground-color
+				at :
+				span red
+				at ;
+				br
+				at }
+p Icono de menú
+	b secundarío
+	span .
+row.bloque
+	column.tablet-is-half
+		ellipsis
+			span
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltellipsis&gt
+				br
+				tg   &ltspan&gt&lt/span&gt
+				br
+				tg &lt/ellipsis&gt
+		snippet.margin-t-1
+			pre
+				cm // Como cambiar el color del icono ellipsis
+				tg ellipsis span
+				at {
+				br
+				tg   bakcground-color
+				at :
+				span red
+				at ;
+				br
+				at }
+h4.subtitle Icon close
+p Mediante la etiqueta personalizada
+	code close
+	span puedes crear el típico icono de "
+	code &times;
+	span ".
+row.bloque
+	column.tablet-is-half
+		close
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltclose&gt&lt/close&gt
+row.bloque
+	column.tablet-is-half
+		tag
+			span Close
+			close
+		tag
+			span Close con icono
+			close
+				i.fa.fa-times-circle
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lttag&gt
+				br
+				span   Close
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/tag&gt
+				br
+				tg &lttag&gt
+				br
+				span   Close con icono
+				br
+				tg   &ltclose&gt
+				br
+				tg     &lti
+				at class=
+				vat "fa fa-times-circle"
+				tg &gt
+				tg &lt/i&gt
+				br
+				tg   &lt/close&gt
+				br
+				tg &lt/tag&gt
+message.is-small.is-primary
+	header Tips
+	content Cuando no añades ningun icono externo al elemento
+		code close
+		span automáticamente se dibuja una "
+		code &times;
+		span " mediante el uso del pseudo-elemento
+		code ::after
+		span , con la ayuda del selector
+		code :empty
+		span . 
+h4.subtitle Tamaños
+p Los tamaños de los iconos son aplicables utilizando las siguientes clases.
+ul.default-browser
+	li: code .is-small
+	li: code .is-medium
+	li: code .is-large
+	li: code .is-jumbo
+row.bloque
+	column.tablet-is-half
+		span
+			icon.is-small
+				i.fa.fa-home
+		span
+			icon
+				i.fa.fa-home
+		span
+			icon.is-medium
+				i.fa.fa-home
+		span
+			icon.is-large
+				i.fa.fa-home
+		span
+			icon.is-jumbo
+				i.fa.fa-home
+	column.tablet-is-half
+		snippet
+			pre
+				tg &lticon
+				at class=
+				vat "is-small"
+				tg &gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+				br
+				tg &lticon&gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+				br
+				tg &lticon
+				at class=
+				vat "is-medium"
+				tg &gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+				br
+				tg &lticon
+				at class=
+				vat "is-large"
+				tg &gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+				br
+				tg &lticon
+				at class=
+				vat "is-jumbo"
+				tg &gt
+				br
+				tg   &lti
+				at class=
+				vat "fa fa-home"
+				tg &gt
+				br
+				tg &lt/icon&gt
+h4.subtitle Espaciado
+p Por defecto el elemento
+	code icon
+	span añade una separacion automaticamente de su contenido.
+row.bloque
+	column.tablet-is-half
+		p
+			icon
+				i.fa.fa-bolt
+			span Icono a la izquierda
+		p
+			span Icono a la derecha
+			icon
+				i.fa.fa-bolt
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltp&gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg   &ltspan&gt
+				span Icono a la izquierda
+				tg &lt/span&gt
+				br
+				tg &lt/p&gt
+				br
+				tg &ltp&gt
+				br
+				tg   &ltspan&gt
+				span Icono a la izquierda
+				tg &lt/span&gt
+				br
+				tg   &lticon&gt
+				span ...
+				tg &lt/icon&gt
+				br
+				tg &lt/p&gt
+				br
+h4.subtitle Dimensiones
+message.is-info
+	content
+		p El color de fondo en el icono es unicamente con fines demostrativos.
+responsive.is-table.bloque
+	table.is-cell.is-block
+			thead
+				th Clase
+				th Tamaño del contenedor
+				th tamaño del icono
+				th Muestra
+			tbody
+				tr
+					td: code is-small
+					td: code.is-text-info 1rem x 1rem
+					td: small.is-text-bolder 0.7rem
+					td
+						icon.is-small.color-warning
+							i.fa.fa-github
+				tr
+					td: code Ninguno
+					td: code.is-text-info 1.5rem x 1.5rem
+					td: small.is-text-bolder 1rem
+					td
+						icon.color-warning
+							i.fa.fa-github
+				tr
+					td: code is-medium
+					td: code.is-text-info 1.5rem x 1.5rem
+					td: small.is-text-bolder 1.3rem
+					td
+						icon.is-medium.color-warning
+							i.fa.fa-github
+				tr
+					td: code is-large
+					td: code.is-text-info 2rem x 2rem
+					td: small.is-text-bolder 1.5rem
+					td
+						icon.is-large.color-warning
+							i.fa.fa-github
+				tr
+					td: code is-jumbo
+					td: code.is-text-info 2rem x 2rem
+					td: small.is-text-bolder 2rem
+					td
+						icon.is-jumbo.color-warning
+							i.fa.fa-github

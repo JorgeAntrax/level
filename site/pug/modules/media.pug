@@ -1,0 +1,392 @@
+h1.title Elementos multimedia
+tags.is-group
+	tag.is-info Path
+	tag _media.scss
+tag.is-success Nuevo!
+p Kimera brinda soporte para video, audio  e imagenes.
+divider
+h4.subtitle Estructura
+p.bloque Mediante el contenedor
+	code responsive
+	span podemos adaptar elementos multimedia como videos e imagenes
+row.bloque
+	column.tablet-is-half
+		responsive
+			img(src="https://images.pexels.com/photos/754902/pexels-photo-754902.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="pexels.com")
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltresponsive&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &lt/responsive&gt
+row.bloque
+	column.tablet-is-half
+		responsive
+			iframe(width="100%" height="315" src="https://www.youtube.com/embed/h3oyBL4y9jY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen)
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltresponsive&gt
+				br
+				tg   &ltvideo
+				at controls
+				tg &gt
+				br
+				tg     &ltsource
+				at src=
+				vat "https://youtube.com/"
+				at type=
+				vat "video/mp4"
+				tg &gt
+				br
+				tg   &lt/video&gt
+				br
+				tg &lt/responsive&gt
+h4.subtitle Imágenes cuadradas.
+p.bloque Kimera incluye un conjunto de clases que te permitirán
+	b cuadrar una imagen
+	span , muy útil para
+	i.is-text-bolder avatares, usuaríos, etc
+	span .
+p.bloque Las siguientes clases son aplicables al contenedor de la imagén, en este caso el contenedor
+	code responsive
+	span :
+ul.default-browser
+	li
+		code .is-square-16
+		span Cuadrado de 16px
+	li
+		code .is-square-24
+		span Cuadrado de 24px
+	li
+		code .is-square-32
+		span Cuadrado de 32px
+	li
+		code .is-square-48
+		span Cuadrado de 48px
+	li
+		code .is-square-64
+		span Cuadrado de 64px
+	li
+		code .is-square-96
+		span Cuadrado de 96px
+	li
+		code .is-square-128
+		span Cuadrado de 128px
+	li
+		code .is-square-256
+		span Cuadrado de 256px
+row.bloque
+	column
+		responsive.is-square-24
+			img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="")
+	column
+		responsive.is-square-32
+			img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="")
+	column
+		responsive.is-square-48
+			img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="")
+	column
+		responsive.is-square-64
+			img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg", alt="")
+snippet.bloque
+	pre
+		tg &ltresponsive
+		at class=
+		vat "is-square-24"
+		tg &gt
+		br
+		tg   &ltimg
+		at src=
+		vat "https://pexels.com"
+		tg &gt
+		br
+		tg &lt/responsive&gt
+		br
+		tg &ltresponsive
+		at class=
+		vat "is-square-32"
+		tg &gt
+		br
+		tg   &ltimg
+		at src=
+		vat "https://pexels.com"
+		tg &gt
+		br
+		tg &lt/responsive&gt
+		br
+		tg &ltresponsive
+		at class=
+		vat "is-square-48"
+		tg &gt
+		br
+		tg   &ltimg
+		at src=
+		vat "https://pexels.com"
+		tg &gt
+		br
+		tg &lt/responsive&gt
+		br
+		tg &ltresponsive
+		at class=
+		vat "is-square-64"
+		tg &gt
+		br
+		tg   &ltimg
+		at src=
+		vat "https://pexels.com"
+		tg &gt
+		br
+		tg &lt/responsive&gt
+h4.subtitle Imagénes redondeadas
+p.bloque Aplicando la clase
+	code .is-rounded
+	span a un elemento
+	code img
+	span .
+row.bloque
+	column.tablet-is-half
+		responsive.is-square-128
+			img(src="https://i.pinimg.com/736x/3a/d5/1a/3ad51aab9adb73ac6131b9b806c3416d--best-friend-goals-friendship.jpg", alt="rounded image").is-rounded
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltresponsive&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "https://pexels.com/"
+				at class=
+				vat "is-rounded"
+				tg &gt
+				br
+				tg &lt/responsive&gt
+h4.subtitle Imágenes de retina
+p.bloque Una
+	b imágen de retina
+	span se basa en su tamaño real reducido mediante css, por ejemplo en un contenedor de
+	code 256x256 
+	span puedes colocar una imágen de
+	code 512x512
+	span , como resultado se obtiene una imágen de alta calidad, debido a que los pixeles de la imágen se reducen significativamente.
+row.bloque
+	column.tablet-is-half
+		responsive.is-square-128
+			.demo-image: small 256x256
+	column.tablet-is-half
+		snippet.bloque
+			pre
+				tg &ltresponsive
+				at class=
+				vat "is-square-128"
+				tg &gt
+				br
+				tg   &ltimg
+				at src=
+				vat "img/image256x256.jpg"
+				tg &gt
+				br
+				tg &lt/responsive&gt
+h4.subtitle Imagénes de fondo
+p Es recomendable que el contenedor de la imagén posea la propiedad
+	code position: relative
+	span .
+p Mediante la clase
+	code .is-bg
+	span indicamos que el elemento
+	code img
+	span será el fondo de un contenedor.
+row.bloque
+	column.tablet-is-half
+		white
+			mega
+				img(src="https://images.pexels.com/photos/326424/pexels-photo-326424.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb", alt="Demo image").is-bg
+				header
+					h1 Background image
+				content
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, perferendis.
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltmega&gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg   &ltheader&gt
+				br
+				tg     &lth1&gt
+				span Background image
+				tg &lt/h1&gt
+				br
+				tg   &lt/header&gt
+				br
+				tg   &ltcontent&gt
+				br
+				tg     &ltp&gt
+				span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, perferendis.
+				tg &lt/p&gt
+				br
+				tg   &lt/content&gt
+				br
+				tg &lt/mega&gt
+h4.subtitle Añadiendo más de un fondo
+p Las siguientes clases te ayudara a definir la posición de diferentes fondos para un mismo
+	b contenedor
+	span , los cuales se posicionan con cierto nivel de la propiedad
+	code z-index
+row.bloque
+	column.tablet-is-half.is-table
+		table.is-cell
+			thead
+				tr
+					th: info Clase
+					th: info Valor
+			tbody
+				tr
+					td: code .is-bg
+					td: small.is-text-bolder z-index: -1
+				tr
+					td: code .is-bg-2
+					td: small.is-text-bolder z-index: -2
+				tr
+					td: code .is-bg-3
+					td: small.is-text-bolder z-index: -3
+				tr
+					td: code .is-bg-4
+					td: small.is-text-bolder z-index: -4
+				tr
+					td: code .is-bg-5
+					td: small.is-text-bolder z-index: -5
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltdiv
+				at style=
+				vat "position: relative"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg"
+				at src
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg-2"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg-3"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg-4"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg   &ltimg
+				at class=
+				vat "is-bg-5"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &lt/div&gt
+h4.subtitle Blur image
+p Las siguientes clases te ayudarán a añadir el famoso
+	b blur effect
+	span .
+row.bloque
+	column.tablet-is-half.is-table
+		table.is-cell
+			thead
+				tr
+					th: info Clase
+					th: info Valor
+			tbody
+				tr
+					td: code .blur-2
+					td: small.is-text-bolder filter: blur(2px);
+				tr
+					td: code .blur-4
+					td: small.is-text-bolder filter: blur(4px);
+				tr
+					td: code .blur-6
+					td: small.is-text-bolder filter: blur(6px);
+				tr
+					td: code .blur-8
+					td: small.is-text-bolder filter: blur(8px);
+				tr
+					td: code .blur-10
+					td: small.is-text-bolder filter: blur(10px);
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltimg
+				at class=
+				vat "blur-2"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &ltimg
+				at class=
+				vat "blur-4"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &ltimg
+				at class=
+				vat "blur-6"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &ltimg
+				at class=
+				vat "blur-8"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+				br
+				tg &ltimg
+				at class=
+				vat "blur-10"
+				at src=
+				vat "https://pexels.com/"
+				tg &gt
+row.is-distributed.is-multiline.bloque
+	column(style='overflow: hidden;').touch-6
+		img(src="https://images.pexels.com/photos/7101/wood-coffee-iphone-notebook.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="image blur-2").blur-2
+	column(style='overflow: hidden;').touch-6
+		img(src="https://images.pexels.com/photos/326424/pexels-photo-326424.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb" alt="image blur-5").blur-4
+	column(style='overflow: hidden;').touch-6
+		img(src="https://images.pexels.com/photos/754902/pexels-photo-754902.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="image blur-10").blur-6
+	column(style='overflow: hidden;').touch-6
+		img(src="https://images.pexels.com/photos/755709/pexels-photo-755709.jpeg?h=350&auto=compress&cs=tinysrgb" alt="image blur-20").blur-8
+	column(style='overflow: hidden;').touch-6
+		img(src="https://images.pexels.com/photos/326424/pexels-photo-326424.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb" alt="image blur-30").blur-10
+row.bloque
+	column
+		p Imagenes obtenidas de
+			a(href="https://pexels.com") pexels.com

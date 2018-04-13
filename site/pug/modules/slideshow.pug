@@ -1,0 +1,116 @@
+h1.title Slide de imagenes
+tags.is-group
+	tag.is-info Path
+	tag _slideshow.scss
+	tag.is-success Nuevo!
+p Pequeño módulo para la creación de slides de imágenes.
+divider
+p.bloque Este módulo te permitirá crear
+	b complejos slides
+	span de imágenes, basados en una
+	b estructura
+	span muy interesante.
+message.is-small.is-info
+	header Importante
+	content La interacción con
+		b Javascript
+		span no la incluye kimera.
+h4.subtitle Estructura
+ul.default-browser
+	li
+		code slideshow
+		span Contenedor principal.
+		ul.default-browser
+			li
+				code slides
+				span Contenedor de imagenes
+				ul.default-browser
+					li
+						code picture
+						span Contenedor de la imágen.
+						ul.default-browser
+							li
+								code img
+								span Elemento de tipo imágen.
+			li
+				code .next-slide
+				span Elemento para cambiar al
+				b siguiente
+				span slide (opcional).
+			li
+				code .previus-slide
+				span Elemento para cambiar al
+				b anterior
+				span slide (opcional).
+row.bloque
+	column.tablet-is-half
+		slideshow(style="height: 200px")
+			slides
+				picture
+					img(src="img/f1.jpg")
+				picture
+					img(src="img/f1.jpg")
+				picture
+					img(src="img/f1.jpg")
+				picture
+					img(src="img/f1.jpg")
+			icon.previus-slide.is-text-cloud
+				i.fa.fa-angle-left
+			icon.next-slide.is-text-cloud
+				i.fa.fa-angle-right
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltslideshow&gt
+				br
+				tg   &ltslides&gt
+				br
+				tg     &ltpicture&gt
+				br
+				tg       &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg     &lt/picture&gt
+				br
+				tg     &ltpicture&gt
+				br
+				tg       &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg     &lt/picture&gt
+				br
+				tg     &ltpicture&gt
+				br
+				tg       &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg     &lt/picture&gt
+				br
+				tg     &ltpicture&gt
+				br
+				tg       &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg     &lt/picture&gt
+				br
+				tg   &lt/slides&gt
+				br
+				tg   &lticon
+				at class=
+				vat "previus-slide is-text-cloud"
+				tg &gt&lt/icon&gt
+				br
+				tg   &lticon
+				at class=
+				vat "next-slide is-text-cloud"
+				tg &gt&lt/icon&gt
+				br
+				tg &lt/slideshow&gt

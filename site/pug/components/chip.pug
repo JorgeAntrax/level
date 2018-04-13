@@ -1,0 +1,179 @@
+h1.title Chips
+tags.is-group
+	tag.is-info Path
+	tag _chip.scss
+	tag.is-success Colores
+divider
+p.bloque Las fichas normalmente son utilizadas para representar pequeños
+	b bloques
+	span de información.
+row.bloque
+	column.tablet-is-half
+		chip
+			chiptext Apple
+			close
+		chip
+			chiptext Android
+			close
+		chip
+			chiptext Linux
+			close
+		chip
+			chiptext Microsoft
+			close
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltchip&gt
+				cm   //Content
+				tg &lt/chip&gt
+h4.subtitle Ficha de contacto
+p.bloque Para crear un ficha de contacto solamente tienes que añadir dentro del contenedor
+	code chip
+	span un elemento
+	code img
+	span .
+row.bloque
+	column.tablet-is-half
+		chip
+			img(src="https://i.pinimg.com/564x/ae/60/b9/ae60b913bc45fc579aa34af433fbf120--mixed-girls-mixed-chicks.jpg" alt="chip")
+			chiptext John Smith
+		chip
+			img(src="https://i.pinimg.com/236x/da/79/1f/da791f04f3b1ae8697fd45563413c7ca--paint-photography-colour-photography-portraits.jpg" alt="chip")
+			chiptext Jane Doe
+			close
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltchip&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span John Smith
+				tg &lt/chiptext&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip&gt
+				br
+				tg   &ltimg
+				at src=
+				vat "https://pexels.com"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Jane Doe
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+h4.subtitle Colores
+p.bloque Añadiendo una de las siguientes clases de color al elemento
+	code chip
+	span .
+row.bloque
+	column.tablet-is-half
+		chip.is-dark
+			chiptext Dark
+			close
+		chip.is-primary
+			chiptext Primary
+			close
+		chip.is-info
+			chiptext Info
+			close
+		chip.is-success
+			chiptext Success
+			close
+		chip.is-warning
+			chiptext Warning
+			close
+		chip.is-danger
+			chiptext Danger
+			close
+	column.tablet-is-half
+		snippet
+			pre
+				tg &ltchip
+				at class=
+				vat "is-dark"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Dark
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip
+				at class=
+				vat "is-primary"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Primary
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip
+				at class=
+				vat "is-info"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Info
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip
+				at class=
+				vat "is-success"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Success
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip
+				at class=
+				vat "is-warning"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Warning
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br
+				tg &ltchip
+				at class=
+				vat "is-danger"
+				tg &gt
+				br
+				tg   &ltchiptext&gt
+				span Danger
+				tg &lt/chiptext&gt
+				br
+				tg   &ltclose&gt&lt/close&gt
+				br
+				tg &lt/chip&gt
+				br

@@ -1,0 +1,10 @@
+{
+  "name": "kimeracss-website",
+  "version": "0.0.1",
+  "dependencies": {
+    "pug": "^2.0.3"
+  },
+  "scripts": {
+    "pugtohtml": "pug --output-style compressed -o ./ pug/index.pug"
+  }
+}
