@@ -14,7 +14,7 @@ $('#m1 menu-item').on('click', function () {
 });
 
 $('#show-password').on('click', function () {
-    let input = $(this).siblings('input').prop('type');
+    let input = <string>$(this).siblings('input').prop('type');
     let e = $(this).siblings('input');
     if (input === 'text') {
         e.prop('type', 'password');
