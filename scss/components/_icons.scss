@@ -11,11 +11,6 @@ $ellipsis-burger-dimentions: 2px;
     width: $width-icon;
     height: $width-icon;
     font-size: $text-default;
-    &.is-normal {
-        font-size: $text-default;
-        width: $width-icon;
-        height: $width-icon;
-    }
     &.#{$class-small} {
         width: $width-icon-small;
         height: $width-icon-small;

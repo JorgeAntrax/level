@@ -3,8 +3,9 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"module": "commonjs",
     "target": "es5",
-    "outDir": "js"
+		"outDir": "js"
   }
 }

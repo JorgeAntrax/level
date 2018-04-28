@@ -31,12 +31,10 @@
         align-items: center;
         position: relative;
         cursor: pointer;
-        min-height: 3rem;
         width: 100%;
         padding: 0 1rem;
         text-overflow: ellipsis;
         user-select: none;
-        border-radius: rem(3px);
     }
     #{$name-menu-footer} {
         padding: 0;

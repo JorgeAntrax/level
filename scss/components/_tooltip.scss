@@ -7,7 +7,6 @@ $arrow-tooltip-dimentions: 0.7rem;
     cursor: pointer;
     margin: 0 rem(5px);
     user-select: none;
-    border-bottom: 1px dotted darken(whitesmoke, 20);
     &::after,
     &::before {
         position: absolute;
@@ -35,50 +34,50 @@ $arrow-tooltip-dimentions: 0.7rem;
     &.#{$class-rounded}::after {
         border-radius: rem(100px);
     }
-    &.#{$class-up}::after,
-    &.#{$class-down}::after,
-    &.#{$class-up}::before,
-    &.#{$class-down}::before {
+    &.#{$class-up}-tooltip::after,
+    &.#{$class-down}-tooltip::after,
+    &.#{$class-up}-tooltip::before,
+    &.#{$class-down}-tooltip::before {
         left: ($tooltip-position / 2);
         transform: translateX(-($tooltip-position / 2));
     }
-    &.#{$class-up}::before,
-    &.#{$class-down}::before {
+    &.#{$class-up}-tooltip::before,
+    &.#{$class-down}-tooltip::before {
         transform: translateX(-($tooltip-position / 2) - 10) rotate(45deg);
     }
-    &.#{$class-left}::after,
-    &.#{$class-right}::after,
-    &.#{$class-left}::before,
-    &.#{$class-right}::before {
+    &.#{$class-left}-tooltip::after,
+    &.#{$class-right}-tooltip::after,
+    &.#{$class-left}-tooltip::before,
+    &.#{$class-right}-tooltip::before {
         top: ($tooltip-position / 2);
         transform: translateY(-($tooltip-position / 2));
     }
-    &.#{$class-left}::before,
-    &.#{$class-right}::before {
+    &.#{$class-left}-tooltip::before,
+    &.#{$class-right}-tooltip::before {
         transform: translateY(-($tooltip-position / 2) - 10) rotate(45deg);
     }
-    &.#{$class-up}::after {
+    &.#{$class-up}-tooltip::after {
         bottom: $tooltip-position;
     }
-    &.#{$class-down}::after {
+    &.#{$class-down}-tooltip::after {
         top: $tooltip-position;
     }
-    &.#{$class-up}::before {
+    &.#{$class-up}-tooltip::before {
         bottom: $tooltip-position - 15;
     }
-    &.#{$class-down}::before {
+    &.#{$class-down}-tooltip::before {
         top: $tooltip-position - 15;
     }
-    &.#{$class-left}::after {
+    &.#{$class-left}-tooltip::after {
         right: $tooltip-position;
     }
-    &.#{$class-right}::after {
+    &.#{$class-right}-tooltip::after {
         left: $tooltip-position;
     }
-    &.#{$class-left}::before {
+    &.#{$class-left}-tooltip::before {
         right: $tooltip-position - 2;
     }
-    &.#{$class-right}::before {
+    &.#{$class-right}-tooltip::before {
         left: $tooltip-position - 2;
     }
     @each $class,

@@ -32,11 +32,9 @@
         grid-area: footer;
     }
     &.#{$class-dashboard} {
-        overflow: hidden;
         & #{$name-layout-main},
         & #{$name-layout-sidebar} {
             height: 100vh;
-            overflow-x: hidden;
             overflow-y: auto;
         }
     }
@@ -66,5 +64,17 @@
     }
     #{$name-layout-module}:not(.#{$class-block}).#{$class-large-sidebar} {
         grid-template-columns: 30% 70%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-rtl}.#{$class-tiny-sidebar} {
+        grid-template-columns: 95% 5%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-rtl}.#{$class-small-sidebar} {
+        grid-template-columns: 85% 15%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-rtl}.#{$class-medium-sidebar} {
+        grid-template-columns: 75% 25%;
+    }
+    #{$name-layout-module}:not(.#{$class-block}).#{$class-rtl}.#{$class-large-sidebar} {
+        grid-template-columns: 70% 30%;
     }
 }

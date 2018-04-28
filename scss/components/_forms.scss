@@ -1,14 +1,11 @@
 @import '../base/_partials';
 // variables
-$input-border: $light;
 $input-padding: rem(5px) rem($text-default - 1px) !default;
-$input-line-height: 1.5 !default;
 $field-addons-rounded: rem(2000px) !default;
 $field-addons-default-rounded: rem(3px) !default;
 $select-padding: $input-padding !default;
 // input con clase input
 .#{$class-input},
-.#{$name-date-module},
 select,
 textarea {
     display: inline-flex;
@@ -17,10 +14,9 @@ textarea {
     position: relative;
     padding: $input-padding;
     border: none;
+    background-color: $light;
     transition: all .2s ease-out;
-    font-size: rem($text-default);
     width: 100%;
-    line-height: $input-line-height;
     margin: 0;
     outline: none;
     @each $class,
@@ -41,17 +37,19 @@ textarea {
     //estilo material design con atributo personalizado
     &.#{$class-material} {
         border: 0;
-        border-bottom: 1px solid darken($light, 5);
+        border-bottom: 1px solid $light;
         &:focus {
             border-color: $primary;
+            background-color: $cloud;
         }
     }
     // estilos para los que no tienen el atributo is-material
     &:not(.#{$class-material}) {
         border-radius: rem(3px);
-        border: 1px solid #ddd;
+        border: 1px solid $light;
         &:focus {
             border-color: $primary;
+            background-color: $cloud;
         }
         &:required:focus:invalid {
             box-shadow: 0 0 0 2px rgba($danger, .2);
@@ -132,8 +130,7 @@ textarea {
 
 // select box
 $arrow-dimentions: 0.7rem;
-#{$name-listbox-module},
-#{$name-date-module} {
+#{$name-listbox-module} {
     display: inline-flex;
     position: relative;
     align-items: center;
@@ -163,9 +160,8 @@ $arrow-dimentions: 0.7rem;
             top: 2px;
             right: 1px;
             z-index: 4;
-            width: 2.3rem;
-            height: 2rem;
-            background-color: $cloud;
+            width: 2rem;
+            height: 1.5rem;
         }
     }
     select,
@@ -174,8 +170,6 @@ $arrow-dimentions: 0.7rem;
         cursor: pointer;
         padding: $select-padding;
         background-color: $cloud;
-        -webkit-appearance: none;
-        -moz-appearance: none;
         border: none;
         outline: none;
         padding-right: 2.5rem;
@@ -194,7 +188,6 @@ $arrow-dimentions: 0.7rem;
         @else {
             &.is-#{$class} select:focus {
                 border: 1px solid $color;
-                box-shadow: 0 0 0 2px rgba($color, .2);
             }
             &.is-#{$class}::before {
                 border-color: $color;
@@ -339,7 +332,7 @@ field {
         #{$name-control-module}:not(.is-expand) {
             width: auto;
         }
-        #{$name-control-module}:not(:last-child) {
+        &:not(.#{$class-addons}) #{$name-control-module}:not(:last-child) {
             margin-bottom: 0;
             margin-right: .5rem;
         }
@@ -387,16 +380,28 @@ field {
 //*********  check & radio Button  ***********
 checkbox,
 radio {
-    display: inline-flex;
     min-width: 1.5rem;
     height: 1.5rem;
-    align-items: center;
-    justify-content: center;
+    &,
+    label {
+        display: inline-flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
     input {
         display: none;
     }
     label {
         margin: 0;
+    }
+    &.is-small>label::before {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    &.is-tiny>label::before {
+        width: 0.7rem;
+        height: 0.7rem;
     }
     &>label::before {
         content: '';
@@ -405,8 +410,8 @@ radio {
         background-color: transparent;
         display: inline-block;
         text-overflow: ellipsis;
-        width: 1rem;
-        height: 1rem;
+        width: 0.85rem;
+        height: 0.85rem;
         border: 1px solid $dark;
         border-radius: rem(3px);
         cursor: pointer;

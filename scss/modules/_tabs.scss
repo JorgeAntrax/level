@@ -3,6 +3,7 @@
 $border-color-tab: rgba($dark, .1) !default;
 $border-tabs: 1px solid $border-color-tab !default;
 #{$name-tabs-module} {
+    border-bottom: $border-tabs;
     &,
     &.#{$class-boxed},
     &.#{$class-toggle} {
@@ -59,6 +60,7 @@ $border-tabs: 1px solid $border-color-tab !default;
     }
     &.#{$class-toggle},
     &.#{$class-boxed} {
+        border: none;
         #{$name-tabs-item} {
             &:before {
                 display: none;
