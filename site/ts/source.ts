@@ -28,7 +28,7 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.5/css/'; // path CDN
+const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
 
 let includeCSS: string[];
 if (kmInclude) {
@@ -377,8 +377,8 @@ function removeAttr(el: Element, attr: string) {
 // select all previous elements siblings
 /* @param element - type: DOM objet */
 function prevSiblings(target: Element): Element[] {
-    let siblings: Element[] = [];
-    let n = target;
+    let siblings: Element[] = [],
+		 n = target;
     if (n !== null && n !== undefined && n+'' !== '') {
         while (n = n.previousElementSibling) {
             siblings.push(n);
