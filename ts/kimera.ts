@@ -28,7 +28,7 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.5/css/'; // path CDN
+const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
 
 let includeCSS: string[];
 if (kmInclude) {
@@ -143,15 +143,9 @@ role initializes a elment type renage
 @param el: The parent element <range></range> selected
 */
 function initRange(el: Element) {
-<<<<<<< HEAD
 	let input = el.querySelector('input'),
 		label = el.querySelector('label'),
 		position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
-=======
-    let input = el.querySelector('input');
-    let label = el.querySelector('label');
-    let position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
 
 	label.style.left = `${((parseInt(input.value) * position) - 10)}px`;
 	label.textContent = input.value;
@@ -383,7 +377,6 @@ function removeAttr(el: Element, attr: string) {
 // select all previous elements siblings
 /* @param element - type: DOM objet */
 function prevSiblings(target: Element): Element[] {
-<<<<<<< HEAD
 	let siblings: Element[] = [],
 		n = target;
 	if (n !== null && n !== undefined && n + '' !== '') {
@@ -394,18 +387,7 @@ function prevSiblings(target: Element): Element[] {
 	} else {
 		return siblings;
 	}
-=======
-    let siblings: Element[] = [];
-    let n = target;
-    if (n !== null && n !== undefined && n+'' !== '') {
-        while (n = n.previousElementSibling) {
-            siblings.push(n);
-        }
-        return siblings;
-    } else {
-        return siblings;
-    }
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
+
 }
 
 // select all next elements siblings
@@ -426,15 +408,9 @@ function nextSiblings(target: Element): Element[] {
 // save all previous and next elements siblings in array objet
 /* @param element - type: DOM objet */
 function siblings(target: Element): Element[] {
-<<<<<<< HEAD
 	let previus = prevSiblings(target) || [],
 		next = nextSiblings(target) || [];
 	return previus.concat(next);
-=======
-    let previus:Element[] = prevSiblings(target) || [];
-    let next:Element[] = nextSiblings(target) || [];
-    return previus.concat(next);
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
 }
 
 // fab, dropdown event listener

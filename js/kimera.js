@@ -14,14 +14,6 @@ var range = document.querySelectorAll('range');
 var slideshow = document.querySelectorAll('slideshow');
 var tabs = document.querySelectorAll('tabs');
 var tabsContent = document.querySelectorAll('tabs-content');
-<<<<<<< HEAD
-=======
-//unused vars
-// let close_button = document.querySelectorAll('close');
-// let form_color: NodeListOf<Element> = document.querySelectorAll('color');
-// let process_bar: NodeListOf<Element> = document.querySelectorAll('process');
-// let toggle_button: NodeListOf<Element> = document.querySelectorAll('toggle');
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
 // initializes dynamic components
 init('checkbox');
 init('radio');
@@ -32,22 +24,14 @@ init('logo');
 init('range');
 /* ================== Import system CSS ==================== */
 var kmInclude = body.getAttribute('km-include'); //get attribute km-include
-<<<<<<< HEAD
-var PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.5/css/'; // path CDN
-=======
-var PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.4/css/'; // path CDN
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
+var PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
 var includeCSS;
 if (kmInclude) {
     includeCSS = ("base " + kmInclude).split(' ');
     var hasKimera = validateArray(includeCSS, 'kimera');
     var url_include = void 0;
     if (hasKimera) {
-<<<<<<< HEAD
         url_include = PATH_URL + "kimera.min.css"; // url to file base.min.css
-=======
-        url_include = PATH_URL + "kimera.min.css}"; // url to file base.min.css
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
         head.appendChild(createLink(url_include));
     }
     else {
@@ -138,13 +122,7 @@ role initializes a elment type renage
 @param el: The parent element <range></range> selected
 */
 function initRange(el) {
-<<<<<<< HEAD
     var input = el.querySelector('input'), label = el.querySelector('label'), position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
-=======
-    var input = el.querySelector('input');
-    var label = el.querySelector('label');
-    var position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
     label.style.left = ((parseInt(input.value) * position) - 10) + "px";
     label.textContent = input.value;
     onEventListener(input, 'input mousedown', updateRange);
@@ -246,25 +224,15 @@ function init(component) {
         var currentElement = element[i], id = currentElement.id;
         var text = currentElement.getAttribute('text');
         var check = currentElement.getAttribute('checked');
-<<<<<<< HEAD
         var require = currentElement.getAttribute('required');
         var form = currentElement.getAttribute('form');
         var name = currentElement.getAttribute('name');
-=======
-        var require_1 = currentElement.getAttribute('required');
-        var form = currentElement.getAttribute('form');
-        var name_1 = currentElement.getAttribute('name');
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
         var value = currentElement.getAttribute('value');
         switch (component) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-<<<<<<< HEAD
                     "<input type=\"" + component + "\"" + (id ? ' id="' + id + '"' : '') + (value ? ' value="' + value + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + (require ? require : '') + "/><label " + (id ? ' for="' + id + '"' : '') + ">" + (text ? text : '') + "</label>";
-=======
-                    "<input type=\"" + component + "\"" + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + (require_1 ? require_1 : '') + "/><label " + (id ? ' for="' + id + '"' : '') + ">" + (text ? text : '') + "</label>";
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
                 break;
             case 'color':
                 currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
@@ -275,7 +243,7 @@ function init(component) {
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + ' ' + (require_1 ? require_1 : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
                 break;
             case 'logo':
                 var value_src = currentElement.getAttribute('src');
@@ -365,12 +333,7 @@ function removeAttr(el, attr) {
 // select all previous elements siblings
 /* @param element - type: DOM objet */
 function prevSiblings(target) {
-<<<<<<< HEAD
     var siblings = [], n = target;
-=======
-    var siblings = [];
-    var n = target;
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
     if (n !== null && n !== undefined && n + '' !== '') {
         while (n = n.previousElementSibling) {
             siblings.push(n);
@@ -399,12 +362,7 @@ function nextSiblings(target) {
 // save all previous and next elements siblings in array objet
 /* @param element - type: DOM objet */
 function siblings(target) {
-<<<<<<< HEAD
     var previus = prevSiblings(target) || [], next = nextSiblings(target) || [];
-=======
-    var previus = prevSiblings(target) || [];
-    var next = nextSiblings(target) || [];
->>>>>>> c47447dea24cc2a52aafe194467cab0bda20944c
     return previus.concat(next);
 }
 // fab, dropdown event listener

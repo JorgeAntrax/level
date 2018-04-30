@@ -1,0 +1,76 @@
+@import '../base/_partials';
+$pagination-border-radius: rem(4px);
+$pagination-border-rounded: 10rem;
+$pagination-padding: 0.5rem 1rem;
+$class-page-next: 'page-next';
+$class-page-prev: 'page-prev';
+#{$name-module-pagination} {
+    min-height: 3rem;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    &,
+    #{$name-pagination-item} {
+        display: flex;
+        align-items: center;
+    }
+    #{$name-pagination-item} {
+        justify-content: center;
+        border: 1px solid $light;
+        padding: $pagination-padding;
+        user-select: none;
+        transition: all .2s ease;
+        cursor: pointer;
+        color: $primary;
+        margin: rem(4px);
+        border-radius: $pagination-border-radius;
+        &:not(.#{$class-active}):hover {
+            background-color: $light;
+        }
+        &.#{$class-active} {
+            background-color: $primary;
+            border-color: $primary;
+            color: $cloud;
+        }
+        &[disabled] {
+            color: $dark;
+        }
+    }
+    &.#{$class-rounded} #{$name-pagination-item} {
+        border-radius: $pagination-border-rounded;
+    }
+    &.#{$class-material} #{$name-pagination-item} {
+        background-color: $light;
+        color: $dark;
+        &:not(.#{$class-active}):hover {
+            background-color: $cloud;
+            border-color: $cloud;
+            color: $primary;
+        }
+        &.#{$class-active} {
+            background-color: $cloud;
+        }
+        &[disabled] {
+            background-color: transparent;
+            border: none;
+            opacity: 0.5;
+        }
+    }
+    @include until(tablet) {
+        #{$name-pagination-item} {
+            &.#{$class-page-next},
+            &.#{$class-page-prev} {
+                order: 5;
+            }
+        }
+    }
+    @include until(touch) {
+        #{$name-pagination-item} {
+            &.#{$class-page-next},
+            &.#{$class-page-prev} {
+                width: 45%;
+            }
+        }
+    }
+}

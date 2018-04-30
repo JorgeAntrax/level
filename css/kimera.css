@@ -1,9 +1,9 @@
 /*
- Kimera 0.4.5 | MIT License
+ Kimera 0.4.6 | MIT License
  GitHub: github.com/JorgeAntrax/kimera
  Doc: https://jorgeantrax.github.io/kimeracss/
  Autor: Leonardo Quintana
- Resolve a small bugs
+ New module pagination
 */
 .is-small,
 .is-small * {
@@ -3702,6 +3702,21 @@ modal {
         modal.is-visible:not(.is-fluid) > content {
           border-radius: 0.25rem; } }
 
+mega {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  padding: 3rem;
+  overflow: hidden; }
+  mega > header {
+    letter-spacing: .2rem;
+    margin-bottom: 1rem; }
+  mega > content {
+    text-align: justify;
+    letter-spacing: .05rem; }
+
 item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-item, listgroup list-item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3860,20 +3875,69 @@ navbar {
     navbar .is-toggle-navbar {
       display: none; } }
 
-mega {
-  display: block;
-  width: 100%;
+pagination {
+  min-height: 3rem;
   max-width: 100%;
-  height: auto;
-  position: relative;
-  padding: 3rem;
-  overflow: hidden; }
-  mega > header {
-    letter-spacing: .2rem;
-    margin-bottom: 1rem; }
-  mega > content {
-    text-align: justify;
-    letter-spacing: .05rem; }
+  width: 100%;
+  padding: 0 1rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  pagination,
+  pagination page-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  pagination page-item {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 1px solid whitesmoke;
+    padding: 0.5rem 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    cursor: pointer;
+    color: #1fadff;
+    margin: 0.25rem;
+    border-radius: 0.25rem; }
+    pagination page-item:not(.is-active):hover {
+      background-color: whitesmoke; }
+    pagination page-item.is-active {
+      background-color: #1fadff;
+      border-color: #1fadff;
+      color: #FFFFFF; }
+    pagination page-item[disabled] {
+      color: #444444; }
+  pagination.is-rounded page-item {
+    border-radius: 10rem; }
+  pagination.is-material page-item {
+    background-color: whitesmoke;
+    color: #444444; }
+    pagination.is-material page-item:not(.is-active):hover {
+      background-color: #FFFFFF;
+      border-color: #FFFFFF;
+      color: #1fadff; }
+    pagination.is-material page-item.is-active {
+      background-color: #FFFFFF; }
+    pagination.is-material page-item[disabled] {
+      background-color: transparent;
+      border: none;
+      opacity: 0.5; }
+  @media screen and (max-width: 768px) {
+    pagination page-item.page-next, pagination page-item.page-prev {
+      -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+      order: 5; } }
+  @media screen and (max-width: 480px) {
+    pagination page-item.page-next, pagination page-item.page-prev {
+      width: 45%; } }
 
 tabs {
   border-bottom: 1px solid rgba(68, 68, 68, 0.1); }
