@@ -22,11 +22,11 @@ $class-page-prev: 'page-prev';
         user-select: none;
         transition: all .2s ease;
         cursor: pointer;
-        color: $primary;
         margin: rem(4px);
         border-radius: $pagination-border-radius;
         &:not(.#{$class-active}):hover {
-            background-color: $light;
+            border-color: rgba($dark, 0.4);
+            color: $info;
         }
         &.#{$class-active} {
             background-color: $primary;
@@ -35,6 +35,8 @@ $class-page-prev: 'page-prev';
         }
         &[disabled] {
             color: $dark;
+            background-color: $light;
+            border: none;
         }
     }
     &.#{$class-rounded} #{$name-pagination-item} {
@@ -55,6 +57,11 @@ $class-page-prev: 'page-prev';
             background-color: transparent;
             border: none;
             opacity: 0.5;
+        }
+    }
+    &.is-rounded {
+        #{$name-pagination-item} {
+            border-radius: 10rem;
         }
     }
     @include until(tablet) {

@@ -1,0 +1,83 @@
+@import '../base/_partials';
+// variables
+listbox {
+    max-width: 400px;
+    position: relative;
+    &,
+    list,
+    list-item,
+    .input {
+        display: flex;
+        flex-direction: column;
+    }
+    .input {
+        flex-direction: row;
+        padding-right: 2em;
+        cursor: pointer;
+        &:focus~.listbox-icon {
+            opacity: 1;
+        }
+    }
+    .listbox-icon,
+    .is-toggle-listbox {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    .listbox-icon {
+        left: 0.3rem;
+        opacity: 0.6;
+        transition: all .2s ease;
+    }
+    .is-toggle-listbox {
+        color: $primary;
+        right: 0.3rem;
+        font-size: 1.5rem;
+    }
+    list {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        max-height: 0;
+        background-color: $cloud;
+        z-index: 10;
+        box-shadow: 0 10px 20px -5px rgba($black, .2);
+        font-size: 0.8rem;
+        overflow: hidden;
+        transition: max-height .2s ease;
+        &.is-visible {
+            max-height: 100vh;
+        }
+        &-item {
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            &:not(.is-active):hover {
+                background-color: whitesmoke;
+            }
+            &.is-active {
+                color: $cloud;
+                background-color: $primary;
+            }
+        }
+    }
+    @each $class,
+    $color in $colores {
+        @if ($class=='light') or ($class=='black') or ($class=='primary') {}
+        @else {
+            &.is-#{$class} .#{$class-input}:focus {
+                border-color: $color;
+            }
+            &.is-#{$class} .is-toggle-listbox {
+                color: $color;
+            }
+            &.is-#{$class} list-item.is-active {
+                background-color: $color;
+            }
+        }
+    }
+}

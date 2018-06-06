@@ -2,15 +2,14 @@
     "name": "kimera",
     "version": "0.4.6",
     "description": "A Modern CSS and JS framework based on flexbox and custom tags",
-    "main": "css/kimera.css",
+    "main": "gulpfile.js",
     "scripts": {
         "test": "mocha --recursive",
         "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
         "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
-        "compile:ts": "tsc && npm run uglifyjs",
-        "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
+        "gulp_tasks": "gulp",
         "scss:test": "node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
-        "posttest": "npm run scss && npm run scss_minified && npm run compile:ts"
+        "posttest": "npm run scss && npm run scss_minified && npm run gulp_tasks"
     },
     "repository": {
         "type": "git",
@@ -45,11 +44,21 @@
         "@types/jquery": "^3.3.1",
         "@types/npm": "^2.0.29",
         "chai": "^4.1.2",
+        "gulp": "^3.9.1",
         "mocha": "^5.0.5",
         "node-sass": "^4.8.3",
+        "typescript": "^2.9.1",
         "uglify-js": "^3.3.16"
     },
     "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "gulp-babel": "^7.0.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-typescript": "^4.0.2",
+        "gulp-uglify": "^3.0.0",
+        "gulp-uglify-es": "^1.0.4",
         "sass-true": "^3.1.0"
     }
 }

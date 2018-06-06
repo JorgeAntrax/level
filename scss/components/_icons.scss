@@ -1,11 +1,19 @@
-@import '../base/_partials',
-'../base/_placeholders';
+@import '../base/_partials';
+//variables
 $width-icon-small: 1rem;
 $width-icon-medium: 1.5rem;
 $width-icon-large: 2rem;
 $width-icon-jumbo: 2rem;
 $width-icon: 1.5rem;
 $ellipsis-burger-dimentions: 2px;
+//placeholder
+%icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//styles
 #{$name-icon-module} {
     @extend %icon;
     width: $width-icon;
