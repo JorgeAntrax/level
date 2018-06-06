@@ -64,11 +64,13 @@ $button-padding: rem(5px) rem($text-default - 1px) !default;
         display: flex;
     }
     #{$name-icon-module} {
-        &:first-child {
-            justify-content: flex-start;
+        &:first-child:not(:last-child) {
+            width: auto;
+            margin-right: 0.5rem;
         }
-        &:last-child {
-            justify-content: flex-end;
+        &:last-child:not(:first-child) {
+            width: auto;
+            margin-left: 0.5rem;
         }
         &:first-child:last-child {
             justify-content: center;
@@ -114,21 +116,21 @@ $button-padding: rem(5px) rem($text-default - 1px) !default;
             }
         }
     }
-    &[disabled] {
-        border: none;
+    &[class*="-outline"],
+    &[class*="-inverse"] {
+        background-color: transparent;
     }
-    &[class$="-outline"],
-    &[class$="-invert"],
-    &[class$="-inverse"]:hover::before {
+    &[class*="-inverse"] {
+        border: 1px solid #fff;
+        color: #fff;
+    }
+    &[class*="-invert"],
+    &[class*="-inverse"]:hover::before {
         background-color: $cloud;
     }
+    &[disabled],
     &[class$='-invert'] {
-        border-color: $cloud;
-    }
-    &[class$='-inverse'] {
-        background-color: transparent;
-        border: $button-border-size solid $cloud;
-        color: $cloud;
+        border: none;
     }
     // clase que hace un boton flotante
     &[type='floating'] {

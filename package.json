@@ -2,15 +2,17 @@
   "name": "kimera",
     "version": "0.4.6",
   "description": "A Modern CSS and JS framework based on flexbox and custom tags",
-  "main": "css/kimera.css",
+    "main": "css/kimera.css",
   "scripts": {
     "test": "mocha --recursive",
     "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
     "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
-    "compile:ts": "tsc && npm run uglifyjs",
-    "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
+        "compile:ts": "tsc && npm run uglifyjs",
+        "uglifyjs": "uglifyjs ./js/kimera.js --compress --mangle toplevel --./js/kimera.js > ./js/kimera.min.js",
+      "gulp_tasks": "gulp",
     "scss:test": "node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
     "posttest": "npm run scss && npm run scss_minified && npm run compile:ts",
+      "posttest_gulp": "npm run scss && npm run scss_minified && npm run gulp_tasks",
     "pugtohtml": "pug --output-style compressed -o ./ site/pug/index.pug"
   },
   "repository": {

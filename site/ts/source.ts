@@ -192,60 +192,6 @@ function showContentTab(id: string) {
     }
 }
 
-/* =============== Slideshow ================ */
-
-/*if (slideshow.length > 0) {
-    for (let i = 0; i < slideshow.length; i++) {
-        let nextSlider = slideshow[i].querySelector('.next-slide');
-        let previuSlider = slideshow[i].querySelector('.previus-slide');
-        let intervalSlide = slideshow[i].getAttribute('interval') || 5000;
-        let slider = slideshow[i].querySelectorAll('slider');
-        let ctrl = 0;
-
-        slider[0].classList.add('is-visible');
-        for (let h = 0; h < slider.length; h++) {
-            let sliderImg = slider[h].getAttribute('src');
-            let sliderAlt = slider[h].getAttribute('alt');
-            let img = document.createElement('img');
-            img.setAttribute('src', sliderImg);
-            img.setAttribute('alt', sliderAlt);
-            slider[h].appendChild(img);
-            removeAttr(slider[h], 'src alt');
-        }
-
-        onEventListener(nextSlider, 'click', function() {
-            if (ctrl === slider.length - 1) ctrl = -1;
-            controlSlide(1);
-        });
-
-        onEventListener(previuSlider, 'click', function() {
-            if (ctrl === 0) ctrl = slider.length;
-            controlSlide(-1);
-        });
-
-        if (slideshow[i].hasAttribute('autoplay')) {
-            setInterval(controlSlide(1), intervalSlide);
-        }
-
-        function controlSlide(c) {
-            clearSlides();
-            if (c > 0) {
-                ctrl++;
-                slider[ctrl].classList.add('is-visible');
-            } else {
-                ctrl--;
-                slider[ctrl].classList.add('is-visible');
-            }
-        }
-
-        function clearSlides() {
-            for (let i = 0; i < slider.length; i++) {
-                slider[i].classList.remove('is-visible');
-            }
-        }
-    }
-}*/
-
 /*
 initialized function for dinamic components.
 @params
