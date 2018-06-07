@@ -1,18 +1,18 @@
 /* modules and components saved in variables */
 
 let acordeon: NodeListOf<Element> = document.querySelectorAll('acordeon');
-let body = document.querySelector('body');
-let head = document.querySelector('head');
-let checkbox: NodeListOf<Element> = document.querySelectorAll('checkbox');
+let body: HTMLBodyElement = document.querySelector('body');
+let head: HTMLHeadElement = document.querySelector('head');
+let checkbox: NodeListOf<HTMLInputElement> = document.querySelectorAll('checkbox');
 let dropdown: NodeListOf<Element> = document.querySelectorAll('dropdown');
 let dropmenu: NodeListOf<Element> = document.querySelectorAll('dropmenu');
 let radio: NodeListOf<Element> = document.querySelectorAll('radio');
 let fab: NodeListOf<Element> = document.querySelectorAll('fab');
-let fabmenu: NodeListOf<Element> = document.querySelectorAll('fabmenu');
+//let fabmenu: NodeListOf<Element> = document.querySelectorAll('fabmenu');
 let navbar: NodeListOf<Element> = document.querySelectorAll('navbar');
 let modal: NodeListOf<Element> = document.querySelectorAll('[modal]');
 let range: NodeListOf<Element> = document.querySelectorAll('range');
-let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
+// let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 let tabs: NodeListOf<Element> = document.querySelectorAll('tabs');
 let tabsContent: NodeListOf<Element> = document.querySelectorAll('tabs-content');
 
@@ -28,8 +28,7 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
-
+const PATH_URL: string = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
 let includeCSS: string[];
 if (kmInclude) {
     includeCSS = (`base ${kmInclude}`).split(' ');
@@ -47,8 +46,8 @@ if (kmInclude) {
     }
 }
 
-// hide a element
-/* @param el: DOM element, classContain:  */
+/* hides an element.
+@param el: DOM element, classContain: class of the element */
 function hideSelector(el: NodeListOf<Element>, classContain: string) {
     if (el.length > 0) {
         for (let i = 0; i < el.length; i++) {
@@ -202,14 +201,14 @@ function init(component: string) {
     let element: NodeListOf<Element> = document.querySelectorAll(component);
 
     for (let i = 0; i < element.length; i++) {
-		let currentElement: Element = element[i],
-			id = currentElement.id;
+        let currentElement: Element = element[i];
+        let id: string = currentElement.id;
         let text: string = currentElement.getAttribute('text');
-		let check = currentElement.getAttribute('checked');
-		let require = currentElement.getAttribute('required');
-		let form = currentElement.getAttribute('form');
-		let name = currentElement.getAttribute('name');
-		let value = currentElement.getAttribute('value');
+        let check: string = currentElement.getAttribute('checked');
+        let require: string = currentElement.getAttribute('required');
+        let form: string = currentElement.getAttribute('form');
+        let name: string = currentElement.getAttribute('name');
+        let value: string = currentElement.getAttribute('value');
 
         switch (component) {
             case 'checkbox':
@@ -252,10 +251,12 @@ create link element
 url: Dynamic URL for import system
 type: string
 */
-function createLink(url: string) {
-	let link = document.createElement('link');
+function createLink(url: string): HTMLLinkElement {
+    let link: HTMLLinkElement = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', url);
+    // link.rel = 'stylesheet';
+    // link.href = url;
     return link;
 }
 
@@ -358,8 +359,8 @@ function siblings(target: Element): Element[] {
     return previus.concat(next);
 }
 
-// fab, dropdown event listener
-function showToggle(e: Event) {
+/**fab, dropdown event listener*/
+function showToggle(e: Event): void {
     e.stopPropagation();
     this.nextElementSibling.classList.toggle('is-visible');
 }
