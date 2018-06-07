@@ -1,11 +1,10 @@
-const
-    gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    ts = require('gulp-typescript'),
-    tsProject = ts.createProject('tsconfig.json', {
-        outFile: 'kimera.js'
-    });
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json', {
+    outFile: 'kimera.js'
+});
 
 // task defecto (When execute `gulp` comand in the console)
 
