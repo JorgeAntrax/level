@@ -44,7 +44,7 @@
     border-radius: rem(3px);
     background-color: $light;
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='cloud') {}
         @else {
             &.is-#{$class} {

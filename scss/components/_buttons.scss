@@ -79,7 +79,7 @@ $button-padding: rem(5px) rem($text-default - 1px) !default;
         }
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if $class=='cloud' {}
         @else {
             &.is-#{$class} {
