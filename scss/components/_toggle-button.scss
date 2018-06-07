@@ -79,7 +79,7 @@
     }
     /*mixins que generan el color y estilo del toggle*/
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if $class=='black' {}
         @else {
             &.is-#{$class} {

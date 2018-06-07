@@ -97,7 +97,7 @@ $preload-dimentions-large: rem(50px) !default;
         border-radius: rem(500px);
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='black') {}
         @else {
             &.is-#{$class} #{$name-complete-module},
@@ -138,7 +138,7 @@ preload {
     margin: .5em;
     animation-duration: 1s;
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='black') {}
         @else {
             &.is-#{$class} {

@@ -81,14 +81,14 @@ $arrow-tooltip-dimentions: 0.7rem;
         left: $tooltip-position - 2;
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         &.is-#{$class} {
             color: inherit;
             &::after,
             &::before {
                 background-color: $color;
                 @if $class=='warning' {
-                    color: map-get($colores, dark);
+                    color: map-get($colors, dark);
                 }
             }
         }

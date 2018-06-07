@@ -8,7 +8,7 @@
 // palete color
 //@mixin color-picker ($class, $base-color, $number-colors: 5, $interval-color: 2)
 @each $class,
-$color in $colores {
+$color in $colors {
     @include color-picker ($class, $color, 4, 5);
 }
 

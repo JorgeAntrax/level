@@ -22,7 +22,7 @@
         padding-right: 1.5rem;
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if $class=='light' {}
         @else {
             &.is-#{$class} {

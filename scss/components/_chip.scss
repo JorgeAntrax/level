@@ -33,7 +33,7 @@
         }
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='cloud') or ($class=='black') {}
         @else {
             &.is-#{$class}:hover {

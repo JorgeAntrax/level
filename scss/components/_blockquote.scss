@@ -14,7 +14,7 @@ $border-left-size: rem(4px);
     font-style: italic;
     margin: 0;
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='cloud') or ($class=='light') or ($class=='black') {}
         @else {
             &.is-#{$class} {

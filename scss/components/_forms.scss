@@ -20,7 +20,7 @@ textarea {
     margin: 0;
     outline: none;
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='black') or ($class=='dark') or ($class=='primary') {}
         @else {
             &.is-#{$class}:not(.is-material):focus {
@@ -367,7 +367,7 @@ radio {
         box-shadow: none;
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='light') or ($class=='dark') or ($class=='cloud') or ($class=='black') {}
         @else {
             &.is-#{$class}>label::before {

@@ -13,7 +13,7 @@
         right: .4rem;
     }
     @each $class,
-    $color in $colores {
+    $color in $colors {
         @if ($class=='cloud') or ($class=='light') {}
         @else {
             &.is-#{$class} {
