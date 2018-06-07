@@ -7,11 +7,11 @@ var dropdown = document.querySelectorAll('dropdown');
 var dropmenu = document.querySelectorAll('dropmenu');
 var radio = document.querySelectorAll('radio');
 var fab = document.querySelectorAll('fab');
-var fabmenu = document.querySelectorAll('fabmenu');
+//let fabmenu: NodeListOf<Element> = document.querySelectorAll('fabmenu');
 var navbar = document.querySelectorAll('navbar');
 var modal = document.querySelectorAll('[modal]');
 var range = document.querySelectorAll('range');
-var slideshow = document.querySelectorAll('slideshow');
+// let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 var tabs = document.querySelectorAll('tabs');
 var tabsContent = document.querySelectorAll('tabs-content');
 // initializes dynamic components
@@ -41,8 +41,8 @@ if (kmInclude) {
         }
     }
 }
-// hide a element
-/* @param el: DOM element, classContain:  */
+/* hides an element.
+@param el: DOM element, classContain: class of the element */
 function hideSelector(el, classContain) {
     if (el.length > 0) {
         for (var i = 0; i < el.length; i++) {
@@ -169,10 +169,11 @@ type: string
 function init(component) {
     var element = document.querySelectorAll(component);
     for (var i = 0; i < element.length; i++) {
-        var currentElement = element[i], id = currentElement.id;
+        var currentElement = element[i];
+        var id = currentElement.id;
         var text = currentElement.getAttribute('text');
         var check = currentElement.getAttribute('checked');
-        var require = currentElement.getAttribute('required');
+        var require_1 = currentElement.getAttribute('required');
         var form = currentElement.getAttribute('form');
         var name_1 = currentElement.getAttribute('name');
         var value = currentElement.getAttribute('value');
@@ -180,7 +181,7 @@ function init(component) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-                    "<input type=\"" + component + "\"" + (id ? ' id="' + id + '"' : '') + (value ? ' value="' + value + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + (require ? require : '') + "/><label " + (id ? ' for="' + id + '"' : '') + ">" + (text ? text : '') + "</label>";
+                    "<input type=\"" + component + "\"" + (id ? ' id="' + id + '"' : '') + (value ? ' value="' + value + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + (require_1 ? require_1 : '') + "/><label " + (id ? ' for="' + id + '"' : '') + ">" + (text ? text : '') + "</label>";
                 break;
             case 'color':
                 currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
@@ -191,7 +192,7 @@ function init(component) {
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + ' ' + (require_1 ? require_1 : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
                 break;
             case 'logo':
                 var value_src = currentElement.getAttribute('src');
@@ -218,6 +219,8 @@ function createLink(url) {
     var link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', url);
+    // link.rel = 'stylesheet';
+    // link.href = url;
     return link;
 }
 // multiple Add event listeners (element, events, function)
@@ -313,16 +316,16 @@ function siblings(target) {
     var previus = prevSiblings(target) || [], next = nextSiblings(target) || [];
     return previus.concat(next);
 }
-// fab, dropdown event listener
+/**fab, dropdown event listener*/
 function showToggle(e) {
     e.stopPropagation();
     this.nextElementSibling.classList.toggle('is-visible');
 }
 /* Class for the listbox component */
 var Listbox = /** @class */ (function () {
-    /* Construct function */
-    /* @params obj: array object */
-    /* {
+    /** Construct function
+     * @params obj: array object
+     {
             el: the id container component.
             hasTwoIcons: true or false -> this property add padding-left to the input element.
             iconToggleClass: 'fa fa-caret-down', // classes for icon toggle.
@@ -343,16 +346,20 @@ var Listbox = /** @class */ (function () {
     /* this method added interactivity for component listbox */
     Listbox.prototype.watch = function () {
         var _this = this;
-        var input = this.el.querySelector('.input'), toggle = this.el.querySelector('.is-toggle-listbox'), list = this.el.querySelector('list'), listItems = list.querySelectorAll('list-item'), activo = 0;
+        var input = this.el.querySelector('.input');
+        var list = this.el.querySelector('list');
+        var listItems = list.querySelectorAll('list-item');
         input.value = listItems[0].getAttribute('text');
         input.readOnly = true;
         listItems[0].classList.add('is-active');
         input.addEventListener('click', function () {
             list.classList.toggle('is-visible');
         }, false);
+        var toggle = this.el.querySelector('.is-toggle-listbox');
         toggle.addEventListener('click', function () {
             list.classList.toggle('is-visible');
         }, false);
+        var activo = 0;
         listItems.forEach(function (item) {
             item.addEventListener('click', function () {
                 listItems.forEach(function (el) {
@@ -365,10 +372,10 @@ var Listbox = /** @class */ (function () {
             }, false);
         });
     };
-    /* this method update the value property in the input element */
-    /* @params
-    input: the input element selected in DOM,
-    activo: the list-item element with class is-active */
+    /** this method update the value property in the input element
+     *
+     * @param input the input element selected in DOM
+     * @param activo the list-item element with class is-active */
     Listbox.prototype.update = function (input, activo) {
         input.value = activo.getAttribute('text');
     };
