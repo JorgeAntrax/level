@@ -13,7 +13,7 @@
       "gulp_tasks": "gulp",
     "scss:test": "node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
     "posttest": "npm run scss && npm run scss_minified && npm run compile:ts",
-      "posttest_gulp": "npm run scss && npm run scss_minified && npm run gulp_tasks",
+      "posttest_gulp": "npm run scss && npm run scss_minified && gulp_task",
     "pugtohtml": "pug --output-style compressed -o ./ site/pug/index.pug"
   },
   "repository": {
