@@ -30,10 +30,11 @@ class Listbox {
 
     /* this method added interactivity for component listbox */
     watch() {
-        let input: HTMLInputElement = this.el.querySelector('.input');
-        let list: HTMLElement = this.el.querySelector('list');
-        let listItems: NodeListOf<HTMLElement> = list.querySelectorAll('list-item');
-        input.value = listItems[0].getAttribute('text');
+        let input = this.el.querySelector('.input');
+        let list = this.el.querySelector('list');
+        let listItems = list.querySelectorAll('list-item');
+				
+				input.value = listItems[0].getAttribute('text');
         input.readOnly = true;
 
         listItems[0].classList.add('is-active');

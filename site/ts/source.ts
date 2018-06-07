@@ -59,7 +59,7 @@ function hideSelector(el: NodeListOf<Element>, classContain: string) {
     }
 }
 
-document.querySelector('body').onclick = function () {
+body.onclick = function () {
     hideSelector(dropmenu, 'is-visible');
     hideSelector(fab, 'is-visible');
 };
@@ -87,10 +87,10 @@ if (modal.length > 0) {
         onEventListener(modal[i], 'click', modalToggle);
 
         function modalToggle() {
-			let modalId = this.getAttribute('modal');
-			let el = document.querySelector(modalId);
-			let modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
-			let modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
+            let modalId: string = this.getAttribute('modal');
+            let el: Element= document.querySelector(modalId);
+            let modalClass: Array<string> = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
+            let modalClassSub: Array<string> = ['zoom-in', 'slide-up', 'slide-down'];
 
             for (let j = 0; j < modalClass.length; j++) {
                 if (el.classList.contains(modalClass[j])) el.classList.toggle(modalClassSub[j]);
@@ -103,7 +103,7 @@ if (modal.length > 0) {
 /* =================== Navbar Js ======================= */
 
 if (navbar.length > 0) {
-	let el = document.querySelectorAll('.is-toggle-navbar');
+	let el: NodeListOf<HTMLElement> = document.querySelectorAll('.is-toggle-navbar');
     for (let i = 0; i < el.length; i++) {
         onEventListener(el[i], 'click', navToggle);
     }
@@ -116,14 +116,14 @@ if (navbar.length > 0) {
 /* =================== Js acordeon ===================== */
 
 if (acordeon.length > 0) {
-	let acordeonItem = document.querySelectorAll('acordeon-item');
+	let acordeonItem: NodeListOf<HTMLElement> = document.querySelectorAll('acordeon-item');
     for (let i = 0; i < acordeonItem.length; i++) {
         onEventListener(acordeonItem[i], 'click', acordeonToggle);
     }
 
     /* shows, hides, and controls behavior module accordion */
     function acordeonToggle() {
-		let contentAcordeon = this.parentNode.querySelectorAll('content');
+			let contentAcordeon: NodeListOf<HTMLElement> = this.parentNode.querySelectorAll('content');
         if (this.parentNode.hasAttribute('is-multiple')) {
             this.nextElementSibling.classList.toggle('is-visible');
         } else {
@@ -214,28 +214,29 @@ function init(component: string) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-					`<input type="${component}"${id ? ' id="' + id + '"' : ''}${value ? ' value="' + value + '"' : ''}${form ? ' form="' + form + '"' : ''}${name ? ' name="' + name + '"' : ''}${check ? check : ''}${require ? require : ''}/><label ${id ? ' for="' + id + '"' : ''}>${text ? text : ''}</label>`;
+                    `<input type="${component}"${id ? ` id="${id}"` : ''}${value ? ` value="${value}"` : ''}${form ? ` form="${form}"` : ''}${name ? ` name="${name}"` : ''}${check ? ' checked' : ''}${require ? ' required' : ''}/><label ${id ? ` for="${id}"` : ''}>${text ? text : ''}</label>`;
                 break;
             case 'color':
-				currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
+								currentElement.innerHTML =
+										`<input type="color" ${id ? ` id="${id}"` : ''}${value ? ` value="${value}"` : ''}/>`;
                 break;
             case 'process':
-				currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
+                currentElement.innerHTML = `<complete${value ? ` value="${value}"` : ''}></complete>`;
                 let querySelector:HTMLElement = currentElement.querySelector('complete');
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-				currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+								currentElement.innerHTML =`<input type="checkbox" ${id ? ` id="${id}"` : ''}${form ? ` form="${form}"` : ''}${name ? ` name="${name}"` : ''}${check ? ' checked' : ''}${require ? ' required' : ''}/><label ${id ? ` for="${id}"` : ''} ></label>`;
                 break;
             case 'logo':
                 let value_src = currentElement.getAttribute('src');
-				currentElement.innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
+                currentElement.innerHTML = `<img ${value_src ? ` src="${value_src}"` : ''}/>${text ? `<span>${text}</span>` : ''}`;
                 break;
             case 'range':
-				let min = currentElement.getAttribute('min'),
-					max = currentElement.getAttribute('max'),
-					step = currentElement.getAttribute('step');
-				currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
+                let min = currentElement.getAttribute('min');
+                let max = currentElement.getAttribute('max');
+              let step = currentElement.getAttribute('step');
+                currentElement.innerHTML = `<input type="`${component}`" ${id ? ` id="${id}"` : ''}${min ? ` min="${min}"` : ''}${max ? ` max="${max}"` : ''}${step ? ` step="${step}"` : ''}/><label ${id ? ` for="${id}"` : ''}${value ? ` value="${value}"` : ''}></label>`;
                 initRange(currentElement);
                 break;
             default:
@@ -284,6 +285,7 @@ function that valid a value within an array, and return true
 array: collection of data to be scanned
 value: value to look for in the array
 */
+
 function validateArray(array: string[], value: string): boolean {
     return array.indexOf(value) !== -1;
 }
@@ -294,6 +296,7 @@ function validateArray(array: string[], value: string): boolean {
 array: collection of data to travel
 target: class to remove
 */
+
 function removeClass(array: Element[], target: string) {
     if (array.length > 0) {
         for (let i = 0; i < array.length; i++) {
@@ -311,6 +314,7 @@ Function tha removes multiple attributes to an element.
 element: the objet DOM selected;
 Array: string - List of attributes separated by space ej. 'id class value required'
 */
+
 function removeAttr(el: Element, attr: string) {
     let array = attr.split(' ');
     for (let i = 0; i < array.length; i++) {
@@ -323,6 +327,7 @@ function removeAttr(el: Element, attr: string) {
 
 // select all previous elements siblings
 /* @param element - type: DOM objet */
+
 function prevSiblings(target: Element): Element[] {
     let siblings: Element[] = [],
 		 n = target;
