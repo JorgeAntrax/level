@@ -1,18 +1,19 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var ts = require('gulp-typescript');
-var tsProject = ts.createProject('tsconfig.json', {
-    outFile: 'kimera.js'
-});
-// La tarea por defecto (cuando ejecutas `gulp` desde la consola)
-gulp.task('default', [
-    'compile:ts',
-    'minify',
-    'watch'
-]);
+const
+    gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    ts = require('gulp-typescript'),
+    tsProject = ts.createProject('tsconfig.json', {
+        outFile: 'kimera.js'
+    });
 
-// Tarea que compila el typescript
+// task defecto (When execute `gulp` comand in the console)
+
+gulp.task('default', () => {
+    gulp.watch('ts/*.ts', ['compile:ts', 'minify']);
+});
+
+// Task that compiles typescript
 
 gulp.task('compile:ts', function() {
     var tsResult = gulp.src("ts/*.ts")
@@ -21,14 +22,11 @@ gulp.task('compile:ts', function() {
     return tsResult.js.pipe(gulp.dest('js/'));
 });
 
-gulp.task('watch', ['compile:ts'], function() {
-    gulp.watch('ts/*.ts', ['compile:ts', 'minify']);
-});
 
-// Minifica y combina todos los archivos JavaScript indicados en el array 'files'.
-gulp.task('minify', function() {
+// Minify kimera.js
+
+gulp.task('minify', () => {
     return gulp.src('js/kimera.js')
-        .pipe(concat('kimera.min.js'))
         .pipe(uglify({ compress: { drop_console: true }, mangle: false }).on('error', function(e) {
             console.log('Error uglify: ' + e);
         }))

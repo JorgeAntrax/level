@@ -3,6 +3,7 @@
     "version": "0.4.6",
   "description": "A Modern CSS and JS framework based on flexbox and custom tags",
     "main": "css/kimera.css",
+    "main_gulp": "gulpfile.js",
   "scripts": {
     "test": "mocha --recursive",
     "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
@@ -59,6 +60,7 @@
     "jquery": "^3.5.1",
     "mocha": "^8.0.1",
     "node-sass": "^4.14.1",
+        "gulp-sass": "^4.0.1",
     "pug": "^3.0.0",
     "pug-generate": "^1.2.0",
     "sass-true": "^5.0.0",
