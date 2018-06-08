@@ -53,7 +53,7 @@ function hideSelector(el, classContain) {
         }
     }
 }
-document.querySelector('body').onclick = function () {
+body.onclick = function () {
     hideSelector(dropmenu, 'is-visible');
     hideSelector(fab, 'is-visible');
 };
@@ -173,7 +173,7 @@ function init(component) {
         var id = currentElement.id;
         var text = currentElement.getAttribute('text');
         var check = currentElement.getAttribute('checked');
-        var require_1 = currentElement.getAttribute('required');
+        var require = currentElement.getAttribute('required');
         var form = currentElement.getAttribute('form');
         var name_1 = currentElement.getAttribute('name');
         var value = currentElement.getAttribute('value');
@@ -181,26 +181,29 @@ function init(component) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-                    "<input type=\"" + component + "\"" + (id ? ' id="' + id + '"' : '') + (value ? ' value="' + value + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + (require_1 ? require_1 : '') + "/><label " + (id ? ' for="' + id + '"' : '') + ">" + (text ? text : '') + "</label>";
+                    "<input type=\"" + component + "\"" + (id ? " id=\"" + id + "\"" : '') + (value ? " value=\"" + value + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + ">" + (text ? text : '') + "</label>";
                 break;
             case 'color':
-                currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
+                currentElement.innerHTML =
+                    "<input type=\"color\" " + (id ? " id=\"" + id + "\"" : '') + (value ? " value=\"" + value + "\"" : '') + "/>";
                 break;
             case 'process':
-                currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
+                currentElement.innerHTML = "<complete" + (value ? " value=\"" + value + "\"" : '') + "></complete>";
                 var querySelector = currentElement.querySelector('complete');
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name_1 ? ' name="' + name_1 + '"' : '') + (check ? check : '') + ' ' + (require_1 ? require_1 : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+                currentElement.innerHTML = "<input type=\"checkbox\" " + (id ? " id=\"" + id + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + " ></label>";
                 break;
             case 'logo':
                 var value_src = currentElement.getAttribute('src');
-                currentElement.innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
+                currentElement.innerHTML = "<img " + (value_src ? " src=\"" + value_src + "\"" : '') + "/>" + (text ? "<span>" + text + "</span>" : '');
                 break;
             case 'range':
-                var min = currentElement.getAttribute('min'), max = currentElement.getAttribute('max'), step = currentElement.getAttribute('step');
-                currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
+                var min = currentElement.getAttribute('min');
+                var max = currentElement.getAttribute('max');
+                var step = currentElement.getAttribute('step');
+                currentElement.innerHTML = "<input type=\"" + component + "\" " + (id ? " id=\"" + id + "\"" : '') + (min ? " min=\"" + min + "\"" : '') + (max ? " max=\"" + max + "\"" : '') + (step ? " step=\"" + step + "\"" : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + (value ? " value=\"" + value + "\"" : '') + "></label>";
                 initRange(currentElement);
                 break;
             default:
@@ -284,7 +287,8 @@ function removeAttr(el, attr) {
 // select all previous elements siblings
 /* @param element - type: DOM objet */
 function prevSiblings(target) {
-    var siblings = [], n = target;
+    var siblings = [];
+    var n = target;
     if (n !== null && n !== undefined && n + '' !== '') {
         while (n = n.previousElementSibling) {
             siblings.push(n);
@@ -348,7 +352,7 @@ var Listbox = /** @class */ (function () {
         var _this = this;
         var input = this.el.querySelector('.input');
         var list = this.el.querySelector('list');
-        var listItems = list.querySelectorAll('list-item');
+        var listItems = this.el.querySelectorAll('list-item');
         input.value = listItems[0].getAttribute('text');
         input.readOnly = true;
         listItems[0].classList.add('is-active');
@@ -359,7 +363,7 @@ var Listbox = /** @class */ (function () {
         toggle.addEventListener('click', function () {
             list.classList.toggle('is-visible');
         }, false);
-        var activo = 0;
+        var activo;
         listItems.forEach(function (item) {
             item.addEventListener('click', function () {
                 listItems.forEach(function (el) {
