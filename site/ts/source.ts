@@ -236,7 +236,7 @@ function init(component: string) {
                 let min = currentElement.getAttribute('min');
                 let max = currentElement.getAttribute('max');
               let step = currentElement.getAttribute('step');
-                currentElement.innerHTML = `<input type="`${component}`" ${id ? ` id="${id}"` : ''}${min ? ` min="${min}"` : ''}${max ? ` max="${max}"` : ''}${step ? ` step="${step}"` : ''}/><label ${id ? ` for="${id}"` : ''}${value ? ` value="${value}"` : ''}></label>`;
+                currentElement.innerHTML = `<input type="${component}" ${id ? ` id="${id}"` : ''}${min ? ` min="${min}"` : ''}${max ? ` max="${max}"` : ''}${step ? ` step="${step}"` : ''}/><label ${id ? ` for="${id}"` : ''}${value ? ` value="${value}"` : ''}></label>`;
                 initRange(currentElement);
                 break;
             default:
@@ -329,8 +329,8 @@ function removeAttr(el: Element, attr: string) {
 /* @param element - type: DOM objet */
 
 function prevSiblings(target: Element): Element[] {
-    let siblings: Element[] = [],
-		 n = target;
+    let siblings: Element[] = [];
+    let n = target;
     if (n !== null && n !== undefined && n+'' !== '') {
         while (n = n.previousElementSibling) {
             siblings.push(n);

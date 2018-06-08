@@ -30,9 +30,9 @@ class Listbox {
 
     /* this method added interactivity for component listbox */
     watch() {
-        let input = this.el.querySelector('.input');
-        let list = this.el.querySelector('list');
-        let listItems = list.querySelectorAll('list-item');
+        let input: HTMLInputElement = this.el.querySelector('.input');
+        let list: Element = this.el.querySelector('list');
+        let listItems = this.el.querySelectorAll('list-item');
 				
 				input.value = listItems[0].getAttribute('text');
         input.readOnly = true;
@@ -48,7 +48,7 @@ class Listbox {
             list.classList.toggle('is-visible');
         }, false);
 
-        let activo = 0;
+        let activo: NodeListOf<Element>;
 
         listItems.forEach((item: any) => {
             item.addEventListener('click', () => {
@@ -60,7 +60,6 @@ class Listbox {
                 list.classList.remove('is-visible');
                 this.update(input, activo);
             }, false);
-
         });
     }
 
