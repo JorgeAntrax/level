@@ -69,6 +69,9 @@ listbox {
     $color in $colors {
         @if ($class=='light') or ($class=='black') or ($class=='primary') {}
         @else {
+            &.is-#{$class} {
+                color: inherit;
+            }
             &.is-#{$class} .#{$class-input}:focus {
                 border-color: $color;
             }
@@ -77,6 +80,9 @@ listbox {
             }
             &.is-#{$class} list-item.is-active {
                 background-color: $color;
+                @if $class=='warning' {
+                    color: $dark;
+                }
             }
         }
     }

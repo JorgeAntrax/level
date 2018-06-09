@@ -364,17 +364,22 @@ var Listbox = /** @class */ (function () {
             list.classList.toggle('is-visible');
         }, false);
         var activo;
-        listItems.forEach(function (item) {
-            item.addEventListener('click', function () {
-                listItems.forEach(function (el) {
-                    el.classList.remove('is-active');
-                });
-                item.classList.add('is-active');
-                activo = item;
+        var _loop_1 = function (i) {
+            listItems[i].addEventListener('click', function () {
+                for (var j = 0; j < listItems.length; j++) {
+                    if (listItems[j].classList.contains('is-active')) {
+                        listItems[j].classList.remove('is-active');
+                    }
+                }
+                listItems[i].classList.add('is-active');
+                activo = listItems[i];
                 list.classList.remove('is-visible');
                 _this.update(input, activo);
             }, false);
-        });
+        };
+        for (var i = 0; i < listItems.length; i++) {
+            _loop_1(i);
+        }
     };
     /** this method update the value property in the input element
      *

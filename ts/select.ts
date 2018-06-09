@@ -32,7 +32,8 @@ class Listbox {
     watch() {
         let input: HTMLInputElement = this.el.querySelector('.input');
         let list: Element = this.el.querySelector('list');
-        let listItems = this.el.querySelectorAll('list-item');
+				let listItems = this.el.querySelectorAll('list-item');
+				
 				
 				input.value = listItems[0].getAttribute('text');
         input.readOnly = true;
@@ -48,19 +49,23 @@ class Listbox {
             list.classList.toggle('is-visible');
         }, false);
 
-        let activo: NodeListOf<Element>;
+				let activo: Element;
 
-        listItems.forEach((item: any) => {
-            item.addEventListener('click', () => {
-                listItems.forEach((el: any) => {
-                    el.classList.remove('is-active');
-                });
-                item.classList.add('is-active');
-                activo = item;
-                list.classList.remove('is-visible');
-                this.update(input, activo);
-            }, false);
-        });
+				for (let i = 0; i < listItems.length; i++) {
+					listItems[i].addEventListener('click', () => {
+						for (let j = 0;j < listItems.length; j++) {
+							if(listItems[j].classList.contains('is-active')) {
+								listItems[j].classList.remove('is-active');
+							}
+						}
+
+						listItems[i].classList.add('is-active');
+						activo = listItems[i];
+						list.classList.remove('is-visible');
+						this.update(input, activo);
+					}, false);
+				}
+				
     }
 
     /** this method update the value property in the input element
