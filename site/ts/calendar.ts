@@ -16,6 +16,8 @@
     iconPosition: 'left' // icon toggle position
 	}
 */
+import {meses_en, meses_es} from "./constants";
+
 class Calendar {
     static languaje: string;
     static year: any;
