@@ -1,5 +1,6 @@
 'use strict';
-/* 
+
+/*
 	the class Calendar create a calendar picker and added listener for controls of calendar
 	@params
 	object o {
@@ -15,6 +16,8 @@
     iconPosition: 'left' // icon toggle position
 	}
 */
+import { meses_en, meses_es } from "./constants";
+
 class Calendar {
 	static languaje: string;
 	static year: any;
@@ -30,6 +33,7 @@ class Calendar {
 	labelYear: Element;
 	labelMonth: Element;
 	value: Array<string>;
+
 	// create a template calendar and cached components
 	constructor(o: any) {
 		this.el = document.querySelector(o.el);
@@ -65,6 +69,7 @@ class Calendar {
 					</div>
 				</div>
 			`;
+		this.el.classList.add('is-' + o.style);
 		this.value = o.value.split('/');
 		this.input = this.el.querySelector('.input');
 		this.toggle = this.el.querySelector('.toggle-calendar');
@@ -79,7 +84,6 @@ class Calendar {
 
 	//this method configure all calendar parameters
 	init() {
-		this
 		Calendar.setDay(parseInt(this.value[0]));
 		Calendar.setMonth(parseInt(this.value[1]));
 		Calendar.setYear(parseInt(this.value[2]));
@@ -135,7 +139,7 @@ class Calendar {
 			} else {
 				btn.innerText = index;
 			}
-			if (index == 1) {
+			if (index == 0) {
 				btn.style.gridColumnStart = day + 1;
 			}
 			grid.appendChild(btn);
@@ -146,10 +150,10 @@ class Calendar {
 	}
 
 	//this method add the event click for the icon toggle
-	/* 
-		@params
-		el: parent calendar container with class contains .calendar
-		toggle: element toggle for calendar component
+	/*
+			@params
+			el: parent calendar container with class contains .calendar
+			toggle: element toggle for calendar component
 	*/
 	watchInput(el: Element, toggle: Element) {
 		toggle.addEventListener('click', function () {
@@ -159,15 +163,15 @@ class Calendar {
 
 	//this static method add event click for all buttons in to calendar-grid container
 	/*
-		@params
-		label: the element selector is .calendar-label
-		buttons: array with total buttons into grid container
-		input: the element control input for update content
-		calendar: the calendar container for toggle visibility
+			@params
+			label: the element selector is .calendar-label
+			buttons: array with total buttons into grid container
+			input: the element control input for update content
+			calendar: the calendar container for toggle visibility
 	*/
 	static watchCalendar(label: Element, buttons: NodeListOf<Element>, input: Element, calendar: Element) {
 		for (let i = 0; i < buttons.length; i++) {
-			buttons[i].addEventListener('click', function() {
+			buttons[i].addEventListener('click', function () {
 				for (let i = 0; i < buttons.length; i++) {
 					buttons[i].classList.remove('is-active');
 				}
@@ -183,14 +187,14 @@ class Calendar {
 
 	// this method  added events click for a control months and update calendar.
 	/*
-		@párams
-		controls: [array] all elements with class contains .calendar-control-item into .calenar-control-month
+			@párams
+			controls: [array] all elements with class contains .calendar-control-item into .calenar-control-month
 	*/
 
 	watchMonths(controls: NodeListOf<Element>) {
 
 		for (let i = 0; i < controls.length; i++) {
-			controls[i].addEventListener('click', ()=> {
+			controls[i].addEventListener('click', () => {
 				if (controls[i].classList.contains('control-next')) {
 					Calendar.setMonth(Calendar.getMonth >= 12 ? 1 : Calendar.getMonth + 1);
 				} else if (controls[i].classList.contains('control-prev')) {
@@ -199,14 +203,14 @@ class Calendar {
 				Calendar.updateInput(this.input);
 				Calendar.updateMonth(this.labelMonth);
 				Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
-			}, false);	
+			}, false);
 		}
 	}
 
 	// this method  added events click for a control years and update calendar.
 	/*
-		@párams
-		controls: [array] all elements with class contains .calendar-control-item into .calenar-control-year
+			@párams
+			controls: [array] all elements with class contains .calendar-control-item into .calenar-control-year
 	*/
 
 	watchYear(controls: NodeListOf<Element>) {
@@ -225,66 +229,58 @@ class Calendar {
 	}
 
 	// this method return day
-
 	static get getDay() {
 		return this.day;
 	}
 
 	// this method update day
-
 	static setDay(value: number) {
 		this.day = value;
 	}
 
 	//this method return month
-
 	static get getMonth() {
 		return this.month;
 	}
 
 	//this method update month
-
 	static setMonth(value: number) {
 		this.month = value;
 	}
 
 	// this method return year
-
 	static get getYear() {
 		return this.year;
 	}
 
 	//this method update year
-
 	static setYear(value: number) {
 		this.year = value;
 	}
 
 	//this method update the label day
-
 	static updateLabel(el: Element) {
 		el.innerHTML = this.getDay;
 	}
 
 	//this method update content input control
-
 	static updateInput(el: any) {
 		el.value = `${this.getDay}/${this.getMonth}/${this.getYear}`;
 	}
 
 	//this method update month
-
 	static updateMonth(el: Element) {
-		let meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-		if (Calendar.languaje != 'es') {
-			meses[0] = 'jan';
-			meses[11] = 'dec';
+		switch (Calendar.languaje) {
+			case 'es':
+				el.innerHTML = meses_es[Calendar.getMonth - 1];
+				break;
+			case 'en':
+				el.innerHTML = meses_en[Calendar.getMonth - 1];
+				break;
 		}
-		el.innerHTML = meses[Calendar.getMonth - 1];
 	}
 
 	// this method update year
-
 	static updateYear(el: Element) {
 		el.innerHTML = Calendar.getYear;
 	}
