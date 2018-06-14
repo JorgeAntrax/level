@@ -1,4 +1,5 @@
 *.log
 *.rb
 /nbproject/private/
-node_modules
+node_modules/
+js/src/

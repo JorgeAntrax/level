@@ -1,241 +1,299 @@
-System.register("constants", [], function (exports_1, context_1) {
-    "use strict";
-    var meses_es, meses_en;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [],
-        execute: function () {
-            exports_1("meses_es", meses_es = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']);
-            exports_1("meses_en", meses_en = ['jan', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dec']);
-        }
+/*
+    the class Calendar create a calendar picker and added listener for controls of calendar
+    @params
+    object o {
+        el: '#demo', // the Id container with class calendar-picker
+        languaje: 'es | us', languaje for calendar component
+    value: '20/2/2018', //default value calendar with the next format:  d/m/yyyy
+    inputName: 'namedemo', // the name attribute for control input
+    inputId: 'input123', // the id for control input
+    style: 'danger', // style for the calendar
+    classIconPrev: 'fa fa-angle-up', // the classes for the icon previus control
+    classIconNext: 'fa fa-angle-down', // the classess for the icon next control
+    classIconInput: 'fa fa-calendar', // classes for de icon toggle calendar
+    iconPosition: 'left' // icon toggle position
+    }
+*/
+var Calendar = /** @class */ (function () {
+    // create a template calendar and cached components
+    function Calendar(o) {
+        this.el = document.querySelector(o.el);
+        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input is-" + o.style + "\" name=\"" + o.inputName + "\" id=\"" + o.inputId + "\">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
+        this.value = o.value.split('/');
+        this.input = this.el.querySelector('.input');
+        this.toggle = this.el.querySelector('.toggle-calendar');
+        this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
+        this.labelYear = this.el.querySelector('.calendar-control-year .calendar-label-control');
+        this.controlsMonth = this.el.querySelectorAll('.calendar-control-month .calendar-control-item');
+        this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
+        this.grid = this.el.querySelector('.calendar-grid');
+        this.label = this.el.querySelector('.calendar-label');
+        this.init();
+    }
+    //this method configure all calendar parameters
+    Calendar.prototype.init = function () {
+        Calendar.setDay(parseInt(this.value[0]));
+        Calendar.setMonth(parseInt(this.value[1]));
+        Calendar.setYear(parseInt(this.value[2]));
+        Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
+        Calendar.updateInput(this.input);
+        Calendar.updateMonth(this.labelMonth);
+        Calendar.updateYear(this.labelYear);
+        this.watchInput(this.el, this.toggle);
+        this.watchMonths(this.controlsMonth);
+        this.watchYear(this.controlsYear);
     };
-});
-System.register("calendar", ["constants"], function (exports_2, context_2) {
-    'use strict';
-    var constants_1, Calendar;
-    var __moduleName = context_2 && context_2.id;
-    return {
-        setters: [
-            function (constants_1_1) {
-                constants_1 = constants_1_1;
+    //this static method build the calendar using native class date()
+    Calendar.buildCalendar = function (el, grid, label, input) {
+        var fecha = new Date(), mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('button'), day, index, btn;
+        fecha.setFullYear(anio, mes, 1);
+        day = fecha.getDay();
+        if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
+            forMes = 31;
+        }
+        else if (mes == 1) {
+            forMes = 28;
+        }
+        else {
+            forMes = 30;
+        }
+        Calendar.updateLabel(label);
+        if (buttons !== undefined) {
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].remove();
             }
-        ],
-        execute: function () {
-            Calendar = /** @class */ (function () {
-                // create a template calendar and cached components
-                function Calendar(o) {
-                    this.el = document.querySelector(o.el);
-                    this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input is-" + o.style + "\" name=\"" + o.inputName + "\" id=\"" + o.inputId + "\">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
-                    this.el.classList.add('is-' + o.style);
-                    this.value = o.value.split('/');
-                    this.input = this.el.querySelector('.input');
-                    this.toggle = this.el.querySelector('.toggle-calendar');
-                    this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
-                    this.labelYear = this.el.querySelector('.calendar-control-year .calendar-label-control');
-                    this.controlsMonth = this.el.querySelectorAll('.calendar-control-month .calendar-control-item');
-                    this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
-                    this.grid = this.el.querySelector('.calendar-grid');
-                    this.label = this.el.querySelector('.calendar-label');
-                    this.init();
+        }
+        for (index = 1; index <= forMes; index++) {
+            btn = document.createElement('button');
+            btn.classList.add('is-rounded');
+            if (index == Calendar.getDay) {
+                btn.classList.add('is-active');
+            }
+            if (index < 10) {
+                btn.innerText = '0' + index;
+            }
+            else {
+                btn.innerText = index;
+            }
+            if (index == 0) {
+                btn.style.gridColumnStart = day + 1;
+            }
+            grid.appendChild(btn);
+        }
+        buttons = grid.querySelectorAll('button');
+        Calendar.watchCalendar(label, buttons, input, calendar);
+    };
+    //this method add the event click for the icon toggle
+    /*
+            @params
+            el: parent calendar container with class contains .calendar
+            toggle: element toggle for calendar component
+    */
+    Calendar.prototype.watchInput = function (el, toggle) {
+        toggle.addEventListener('click', function () {
+            el.querySelector('.calendar').classList.toggle('is-visible');
+        }, false);
+    };
+    //this static method add event click for all buttons in to calendar-grid container
+    /*
+            @params
+            label: the element selector is .calendar-label
+            buttons: array with total buttons into grid container
+            input: the element control input for update content
+            calendar: the calendar container for toggle visibility
+    */
+    Calendar.watchCalendar = function (label, buttons, input, calendar) {
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function () {
+                for (var i_1 = 0; i_1 < buttons.length; i_1++) {
+                    buttons[i_1].classList.remove('is-active');
                 }
-                //this method configure all calendar parameters
-                Calendar.prototype.init = function () {
-                    Calendar.setDay(parseInt(this.value[0]));
-                    Calendar.setMonth(parseInt(this.value[1]));
-                    Calendar.setYear(parseInt(this.value[2]));
-                    Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
-                    this.watchInput(this.el, this.toggle);
-                    this.watchMonths(this.controlsMonth);
-                    this.watchYear(this.controlsYear);
-                    Calendar.updateInput(this.input);
-                    Calendar.updateMonth(this.labelMonth);
-                    Calendar.updateYear(this.labelYear);
-                };
-                //this static method build the calendar using native class date()
-                Calendar.buildCalendar = function (el, grid, label, input) {
-                    var fecha = new Date(), mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('button'), day, index, btn;
-                    fecha.setFullYear(anio, mes, 1);
-                    day = fecha.getDay();
-                    if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
-                        forMes = 31;
-                    }
-                    else if (mes == 1) {
-                        forMes = 28;
-                    }
-                    else {
-                        forMes = 30;
-                    }
-                    Calendar.updateLabel(label);
-                    if (buttons !== undefined) {
-                        for (var i = 0; i < buttons.length; i++) {
-                            buttons[i].remove();
-                        }
-                    }
-                    for (index = 1; index <= forMes; index++) {
-                        btn = document.createElement('button');
-                        btn.classList.add('is-rounded');
-                        if (index == Calendar.getDay) {
-                            btn.classList.add('is-active');
-                        }
-                        if (index < 10) {
-                            btn.innerText = '0' + index;
-                        }
-                        else {
-                            btn.innerText = index;
-                        }
-                        if (index == 0) {
-                            btn.style.gridColumnStart = day + 1;
-                        }
-                        grid.appendChild(btn);
-                    }
-                    buttons = grid.querySelectorAll('button');
-                    Calendar.watchCalendar(label, buttons, input, calendar);
-                };
-                //this method add the event click for the icon toggle
-                /*
-                    @params
-                    el: parent calendar container with class contains .calendar
-                    toggle: element toggle for calendar component
-                */
-                Calendar.prototype.watchInput = function (el, toggle) {
-                    toggle.addEventListener('click', function () {
-                        el.querySelector('.calendar').classList.toggle('is-visible');
-                    }, false);
-                };
-                //this static method add event click for all buttons in to calendar-grid container
-                /*
-                    @params
-                    label: the element selector is .calendar-label
-                    buttons: array with total buttons into grid container
-                    input: the element control input for update content
-                    calendar: the calendar container for toggle visibility
-                */
-                Calendar.watchCalendar = function (label, buttons, input, calendar) {
-                    for (var i = 0; i < buttons.length; i++) {
-                        buttons[i].addEventListener('click', function () {
-                            for (var i_1 = 0; i_1 < buttons.length; i_1++) {
-                                buttons[i_1].classList.remove('is-active');
-                            }
-                            this.classList.add('is-active');
-                            Calendar.setDay(this.outerText);
-                            Calendar.updateLabel(label);
-                            Calendar.updateInput(input);
-                            calendar.classList.remove('is-visible');
-                        }, false);
-                    }
-                };
-                // this method  added events click for a control months and update calendar.
-                /*
-                    @párams
-                    controls: [array] all elements with class contains .calendar-control-item into .calenar-control-month
-                */
-                Calendar.prototype.watchMonths = function (controls) {
-                    var _this = this;
-                    var _loop_1 = function (i) {
-                        controls[i].addEventListener('click', function () {
-                            if (controls[i].classList.contains('control-next')) {
-                                Calendar.setMonth(Calendar.getMonth >= 12 ? 1 : Calendar.getMonth + 1);
-                            }
-                            else if (controls[i].classList.contains('control-prev')) {
-                                Calendar.setMonth(Calendar.getMonth <= 1 ? 12 : Calendar.getMonth - 1);
-                            }
-                            Calendar.updateInput(_this.input);
-                            Calendar.updateMonth(_this.labelMonth);
-                            Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
-                        }, false);
-                    };
-                    for (var i = 0; i < controls.length; i++) {
-                        _loop_1(i);
-                    }
-                };
-                // this method  added events click for a control years and update calendar.
-                /*
-                    @párams
-                    controls: [array] all elements with class contains .calendar-control-item into .calenar-control-year
-                */
-                Calendar.prototype.watchYear = function (controls) {
-                    var _this = this;
-                    var _loop_2 = function (i) {
-                        controls[i].addEventListener('click', function () {
-                            if (controls[i].classList.contains('control-next')) {
-                                Calendar.setYear(Calendar.getYear + 1);
-                            }
-                            else if (controls[i].classList.contains('control-prev')) {
-                                Calendar.setYear(Calendar.getYear - 1);
-                            }
-                            Calendar.updateInput(_this.input);
-                            Calendar.updateYear(_this.labelYear);
-                            Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
-                        }, false);
-                    };
-                    for (var i = 0; i < controls.length; i++) {
-                        _loop_2(i);
-                    }
-                };
-                Object.defineProperty(Calendar, "getDay", {
-                    // this method return day
-                    get: function () {
-                        return this.day;
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
-                // this method update day
-                Calendar.setDay = function (value) {
-                    this.day = value;
-                };
-                Object.defineProperty(Calendar, "getMonth", {
-                    //this method return month
-                    get: function () {
-                        return this.month;
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
-                //this method update month
-                Calendar.setMonth = function (value) {
-                    this.month = value;
-                };
-                Object.defineProperty(Calendar, "getYear", {
-                    // this method return year
-                    get: function () {
-                        return this.year;
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
-                //this method update year
-                Calendar.setYear = function (value) {
-                    this.year = value;
-                };
-                //this method update the label day
-                Calendar.updateLabel = function (el) {
-                    el.innerHTML = this.getDay;
-                };
-                //this method update content input control
-                Calendar.updateInput = function (el) {
-                    el.value = this.getDay + "/" + this.getMonth + "/" + this.getYear;
-                };
-                //this method update month
-                Calendar.updateMonth = function (el) {
-                    switch (Calendar.languaje) {
-                        case 'es':
-                            el.innerHTML = constants_1.meses_es[Calendar.getMonth - 1];
-                            break;
-                        case 'en':
-                            el.innerHTML = constants_1.meses_en[Calendar.getMonth - 1];
-                            break;
-                    }
-                };
-                // this method update year
-                Calendar.updateYear = function (el) {
-                    el.innerHTML = Calendar.getYear;
-                };
-                return Calendar;
-            }());
+                this.classList.add('is-active');
+                Calendar.setDay(this.outerText);
+                Calendar.updateLabel(label);
+                Calendar.updateInput(input);
+                calendar.classList.remove('is-visible');
+            }, false);
         }
     };
-});
+    // this method  added events click for a control months and update calendar.
+    /*
+            @párams
+            controls: [array] all elements with class contains .calendar-control-item into .calenar-control-month
+    */
+    Calendar.prototype.watchMonths = function (controls) {
+        var _this = this;
+        var _loop_1 = function (i) {
+            controls[i].addEventListener('click', function () {
+                if (controls[i].classList.contains('control-next')) {
+                    Calendar.setMonth(Calendar.getMonth >= 12 ? 1 : Calendar.getMonth + 1);
+                }
+                else if (controls[i].classList.contains('control-prev')) {
+                    Calendar.setMonth(Calendar.getMonth <= 1 ? 12 : Calendar.getMonth - 1);
+                }
+                Calendar.updateInput(_this.input);
+                Calendar.updateMonth(_this.labelMonth);
+                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
+            }, false);
+        };
+        for (var i = 0; i < controls.length; i++) {
+            _loop_1(i);
+        }
+    };
+    // this method  added events click for a control years and update calendar.
+    /*
+            @párams
+            controls: [array] all elements with class contains .calendar-control-item into .calenar-control-year
+    */
+    Calendar.prototype.watchYear = function (controls) {
+        var _this = this;
+        var _loop_2 = function (i) {
+            controls[i].addEventListener('click', function () {
+                if (controls[i].classList.contains('control-next')) {
+                    Calendar.setYear(Calendar.getYear + 1);
+                }
+                else if (controls[i].classList.contains('control-prev')) {
+                    Calendar.setYear(Calendar.getYear - 1);
+                }
+                Calendar.updateInput(_this.input);
+                Calendar.updateYear(_this.labelYear);
+                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
+            }, false);
+        };
+        for (var i = 0; i < controls.length; i++) {
+            _loop_2(i);
+        }
+    };
+    Object.defineProperty(Calendar, "getDay", {
+        // this method return day
+        get: function () {
+            return this.day;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    // this method update day
+    Calendar.setDay = function (value) {
+        this.day = value;
+    };
+    Object.defineProperty(Calendar, "getMonth", {
+        //this method return month
+        get: function () {
+            return this.month;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    //this method update month
+    Calendar.setMonth = function (value) {
+        this.month = value;
+    };
+    Object.defineProperty(Calendar, "getYear", {
+        // this method return year
+        get: function () {
+            return this.year;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    //this method update year
+    Calendar.setYear = function (value) {
+        this.year = value;
+    };
+    //this method update the label day
+    Calendar.updateLabel = function (el) {
+        el.innerHTML = this.getDay;
+    };
+    //this method update content input control
+    Calendar.updateInput = function (el) {
+        el.value = this.getDay + "/" + this.getMonth + "/" + this.getYear;
+    };
+    //this method update month
+    Calendar.updateMonth = function (el) {
+        switch (Calendar.languaje || 'es') {
+            case 'es':
+                el.innerHTML = meses_es[Calendar.getMonth - 1];
+                break;
+            case 'en':
+                el.innerHTML = meses_en[Calendar.getMonth - 1];
+                break;
+        }
+    };
+    // this method update year
+    Calendar.updateYear = function (el) {
+        el.innerHTML = Calendar.getYear;
+    };
+    return Calendar;
+}());
+
+var meses_es = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+var meses_en = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dec'];
+
+/* Class for the listbox component */
+/* @params obj: array object
+{
+             el: the id container component.
+             hasTwoIcons: true or false -> this property add padding-left to the input element.
+             iconToggleClass: 'fa fa-caret-down', // classes for icon toggle.
+             iconLabelClass: 'fa fa-lock', //classes for icon left component.
+             rounded: true // this property apply the class is-rounded for the input element
+             name: //the name for the input element
+             id: //id for the input element
+} */
+var Listbox = /** @class */ (function () {
+    function Listbox(obj) {
+        this.el = document.querySelector(obj.el);
+        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input " + (obj.rounded ? 'is-rounded' : '') + " " + (obj.hasTwoIcons ? 'padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
+        this.init();
+    }
+    /* the iit method, add the listeners for input and toggle icon elements */
+    Listbox.prototype.init = function () {
+        this.watch();
+    };
+    /* this method added interactivity for component listbox */
+    Listbox.prototype.watch = function () {
+        var _this = this;
+        var input = this.el.querySelector('.input');
+        var list = this.el.querySelector('list');
+        var listItems = this.el.querySelectorAll('list-item');
+        input.value = listItems[0].getAttribute('text');
+        input.readOnly = true;
+        listItems[0].classList.add('is-active');
+        input.addEventListener('click', function () {
+            list.classList.toggle('is-visible');
+        }, false);
+        var toggle = this.el.querySelector('.is-toggle-listbox');
+        toggle.addEventListener('click', function () {
+            list.classList.toggle('is-visible');
+        }, false);
+        var activo;
+        var _loop_1 = function (i) {
+            listItems[i].addEventListener('click', function () {
+                for (var j = 0; j < listItems.length; j++) {
+                    if (listItems[j].classList.contains('is-active')) {
+                        listItems[j].classList.remove('is-active');
+                    }
+                }
+                listItems[i].classList.add('is-active');
+                activo = listItems[i];
+                list.classList.remove('is-visible');
+                _this.update(input, activo);
+            }, false);
+        };
+        for (var i = 0; i < listItems.length; i++) {
+            _loop_1(i);
+        }
+    };
+    /* * this method update the value property in the input element
+     *
+     * @param input the input element selected in DOM
+     * @param activo the list-item element with class is-active */
+    Listbox.prototype.update = function (input, activo) {
+        input.value = activo.getAttribute('text');
+    };
+    return Listbox;
+}());
+
 /* modules and components saved in variables */
 var acordeon = document.querySelectorAll('acordeon');
 var body = document.querySelector('body');
@@ -311,18 +369,18 @@ if (dropdown.length > 0) {
 if (modal.length > 0) {
     for (var i = 0; i < modal.length; i++) {
         onEventListener(modal[i], 'click', modalToggle);
-        function modalToggle() {
-            var modalId = this.getAttribute('modal');
-            var el = document.querySelector(modalId);
-            var modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
-            var modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
-            for (var j = 0; j < modalClass.length; j++) {
-                if (el.classList.contains(modalClass[j]))
-                    el.classList.toggle(modalClassSub[j]);
-            }
-            el.classList.toggle('is-visible');
-        }
     }
+}
+function modalToggle() {
+    var modalId = this.getAttribute('modal');
+    var el = document.querySelector(modalId);
+    var modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
+    var modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
+    for (var j = 0; j < modalClass.length; j++) {
+        if (el.classList.contains(modalClass[j]))
+            el.classList.toggle(modalClassSub[j]);
+    }
+    el.classList.toggle('is-visible');
 }
 /* =================== Navbar Js ======================= */
 if (navbar.length > 0) {
@@ -330,9 +388,9 @@ if (navbar.length > 0) {
     for (var i = 0; i < el.length; i++) {
         onEventListener(el[i], 'click', navToggle);
     }
-    function navToggle() {
-        this.parentNode.parentElement.querySelector('navmenu').classList.toggle('is-visible');
-    }
+}
+function navToggle() {
+    this.parentNode.parentElement.querySelector('navmenu').classList.toggle('is-visible');
 }
 /* =================== Js acordeon ===================== */
 if (acordeon.length > 0) {
@@ -340,18 +398,18 @@ if (acordeon.length > 0) {
     for (var i = 0; i < acordeonItem.length; i++) {
         onEventListener(acordeonItem[i], 'click', acordeonToggle);
     }
-    /* shows, hides, and controls behavior module accordion */
-    function acordeonToggle() {
-        var contentAcordeon = this.parentNode.querySelectorAll('content');
-        if (this.parentNode.hasAttribute('is-multiple')) {
-            this.nextElementSibling.classList.toggle('is-visible');
+}
+/* shows, hides, and controls behavior module accordion */
+function acordeonToggle() {
+    var contentAcordeon = this.parentNode.querySelectorAll('content');
+    if (this.parentNode.hasAttribute('is-multiple')) {
+        this.nextElementSibling.classList.toggle('is-visible');
+    }
+    else {
+        for (var i = 0; i < contentAcordeon.length; i++) {
+            contentAcordeon[i].classList.remove('is-visible');
         }
-        else {
-            for (var i = 0; i < contentAcordeon.length; i++) {
-                contentAcordeon[i].classList.remove('is-visible');
-            }
-            this.nextElementSibling.classList.toggle('is-visible');
-        }
+        this.nextElementSibling.classList.toggle('is-visible');
     }
 }
 /* ======================== range =========================== */
@@ -381,11 +439,11 @@ for (var i = 0; i < tabsContent.length; i++) {
 var tab = document.querySelectorAll('tab');
 for (var i = 0; i < tab.length; i++) {
     onEventListener(tab[i], 'click', tabToggle);
-    function tabToggle() {
-        removeClass(siblings(this), 'is-active');
-        this.classList.add("is-active");
-        showContentTab(this.getAttribute('data-id'));
-    }
+}
+function tabToggle() {
+    removeClass(siblings(this), 'is-active');
+    this.classList.add("is-active");
+    showContentTab(this.getAttribute('data-id'));
 }
 /*
 function that adds class is-visible to the container with id
@@ -411,7 +469,7 @@ function init(component) {
         var id = currentElement.id;
         var text = currentElement.getAttribute('text');
         var check = currentElement.getAttribute('checked');
-        var require_1 = currentElement.getAttribute('required');
+        var require = currentElement.getAttribute('required');
         var form = currentElement.getAttribute('form');
         var name_1 = currentElement.getAttribute('name');
         var value = currentElement.getAttribute('value');
@@ -419,7 +477,7 @@ function init(component) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-                    "<input type=\"" + component + "\"" + (id ? " id=\"" + id + "\"" : '') + (value ? " value=\"" + value + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require_1 ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + ">" + (text ? text : '') + "</label>";
+                    "<input type=\"" + component + "\"" + (id ? " id=\"" + id + "\"" : '') + (value ? " value=\"" + value + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + ">" + (text ? text : '') + "</label>";
                 break;
             case 'color':
                 currentElement.innerHTML =
@@ -431,7 +489,7 @@ function init(component) {
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                currentElement.innerHTML = "<input type=\"checkbox\" " + (id ? " id=\"" + id + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require_1 ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + " ></label>";
+                currentElement.innerHTML = "<input type=\"checkbox\" " + (id ? " id=\"" + id + "\"" : '') + (form ? " form=\"" + form + "\"" : '') + (name_1 ? " name=\"" + name_1 + "\"" : '') + (check ? ' checked' : '') + (require ? ' required' : '') + "/><label " + (id ? " for=\"" + id + "\"" : '') + " ></label>";
                 break;
             case 'logo':
                 var value_src = currentElement.getAttribute('src');
@@ -563,68 +621,3 @@ function showToggle(e) {
     e.stopPropagation();
     this.nextElementSibling.classList.toggle('is-visible');
 }
-/* Class for the listbox component */
-var Listbox = /** @class */ (function () {
-    /** Construct function
-     * @params obj: array object
-     {
-            el: the id container component.
-            hasTwoIcons: true or false -> this property add padding-left to the input element.
-            iconToggleClass: 'fa fa-caret-down', // classes for icon toggle.
-            iconLabelClass: 'fa fa-lock', //classes for icon left component.
-            rounded: true // this property apply the class is-rounded for the input element
-            name: //the name for the input element
-            id: //id for the input element
-    } */
-    function Listbox(obj) {
-        this.el = document.querySelector(obj.el);
-        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input " + (obj.rounded ? 'is-rounded' : '') + " " + (obj.hasTwoIcons ? 'padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
-        this.init();
-    }
-    /* the iit method, add the listeners for input and toggle icon elements */
-    Listbox.prototype.init = function () {
-        this.watch();
-    };
-    /* this method added interactivity for component listbox */
-    Listbox.prototype.watch = function () {
-        var _this = this;
-        var input = this.el.querySelector('.input');
-        var list = this.el.querySelector('list');
-        var listItems = this.el.querySelectorAll('list-item');
-        input.value = listItems[0].getAttribute('text');
-        input.readOnly = true;
-        listItems[0].classList.add('is-active');
-        input.addEventListener('click', function () {
-            list.classList.toggle('is-visible');
-        }, false);
-        var toggle = this.el.querySelector('.is-toggle-listbox');
-        toggle.addEventListener('click', function () {
-            list.classList.toggle('is-visible');
-        }, false);
-        var activo;
-        var _loop_3 = function (i) {
-            listItems[i].addEventListener('click', function () {
-                for (var j = 0; j < listItems.length; j++) {
-                    if (listItems[j].classList.contains('is-active')) {
-                        listItems[j].classList.remove('is-active');
-                    }
-                }
-                listItems[i].classList.add('is-active');
-                activo = listItems[i];
-                list.classList.remove('is-visible');
-                _this.update(input, activo);
-            }, false);
-        };
-        for (var i = 0; i < listItems.length; i++) {
-            _loop_3(i);
-        }
-    };
-    /** this method update the value property in the input element
-     *
-     * @param input the input element selected in DOM
-     * @param activo the list-item element with class is-active */
-    Listbox.prototype.update = function (input, activo) {
-        input.value = activo.getAttribute('text');
-    };
-    return Listbox;
-}());

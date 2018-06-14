@@ -1,5 +1,3 @@
-'use strict';
-
 /*
 	the class Calendar create a calendar picker and added listener for controls of calendar
 	@params
@@ -16,7 +14,6 @@
     iconPosition: 'left' // icon toggle position
 	}
 */
-import { meses_en, meses_es } from "./constants";
 
 class Calendar {
 	static languaje: string;
@@ -69,7 +66,6 @@ class Calendar {
 					</div>
 				</div>
 			`;
-		this.el.classList.add('is-' + o.style);
 		this.value = o.value.split('/');
 		this.input = this.el.querySelector('.input');
 		this.toggle = this.el.querySelector('.toggle-calendar');
@@ -89,12 +85,12 @@ class Calendar {
 		Calendar.setYear(parseInt(this.value[2]));
 		Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
 
-		this.watchInput(this.el, this.toggle);
-		this.watchMonths(this.controlsMonth);
-		this.watchYear(this.controlsYear);
 		Calendar.updateInput(this.input);
 		Calendar.updateMonth(this.labelMonth);
 		Calendar.updateYear(this.labelYear);
+		this.watchInput(this.el, this.toggle);
+		this.watchMonths(this.controlsMonth);
+		this.watchYear(this.controlsYear);
 	}
 
 	//this static method build the calendar using native class date()
@@ -270,7 +266,7 @@ class Calendar {
 
 	//this method update month
 	static updateMonth(el: Element) {
-		switch (Calendar.languaje) {
+		switch (Calendar.languaje || 'es') {
 			case 'es':
 				el.innerHTML = meses_es[Calendar.getMonth - 1];
 				break;

@@ -1,19 +1,16 @@
 /* Class for the listbox component */
+/* @params obj: array object
+{
+			 el: the id container component.
+			 hasTwoIcons: true or false -> this property add padding-left to the input element.
+			 iconToggleClass: 'fa fa-caret-down', // classes for icon toggle.
+			 iconLabelClass: 'fa fa-lock', //classes for icon left component.
+			 rounded: true // this property apply the class is-rounded for the input element
+			 name: //the name for the input element
+			 id: //id for the input element
+} */
 class Listbox {
     el: Element;
-
-    /** Construct function
-     * @params obj: array object
-     {
-            el: the id container component.
-            hasTwoIcons: true or false -> this property add padding-left to the input element.
-            iconToggleClass: 'fa fa-caret-down', // classes for icon toggle.
-            iconLabelClass: 'fa fa-lock', //classes for icon left component.
-            rounded: true // this property apply the class is-rounded for the input element
-            name: //the name for the input element
-            id: //id for the input element
-    } */
-
     constructor(obj: any) {
         this.el = document.querySelector(obj.el);
         this.el.innerHTML += `<input ${obj.name ? `name="${obj.name}"` : ''} ${obj.id ? `id="${obj.id}"` : ''} type="text" class="input ${obj.rounded ? 'is-rounded' : ''} ${obj.hasTwoIcons ? 'padding-l-2' : ''}">
@@ -68,7 +65,7 @@ class Listbox {
 				
     }
 
-    /** this method update the value property in the input element
+    /* * this method update the value property in the input element
      *
      * @param input the input element selected in DOM
      * @param activo the list-item element with class is-active */

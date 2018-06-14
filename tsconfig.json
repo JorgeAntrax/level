@@ -1,10 +1,9 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "module": "system",
-    "sourceMap": true,
+		"module": "commonjs",
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es5"
+		"target": "es5"
   }
 }
