@@ -1,0 +1,154 @@
+@import '../base/_partials';
+calendar {
+    position: relative;
+    &,
+    .calendar {
+        display: inline-flex;
+        flex-direction: column;
+    }
+    .input {
+        min-width: 300px;
+        color: lighten($dark, 10);
+    }
+    .toggle-calendar {
+        cursor: pointer;
+        transition: all .2s ease-out;
+        &:hover {
+            color: $black;
+        }
+    }
+    .calendar {
+        max-height: 0;
+        min-width: 300px;
+        max-width: 350px;
+        box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+        overflow: hidden;
+        user-select: none;
+        transition: max-height .2s ease;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: $cloud;
+        z-index: 1000;
+        &.is-visible {
+            max-height: 100vh;
+        }
+        * {
+            font-size: 0.7rem;
+        }
+        &-controls,
+        .label-grid-days,
+        &-control-month,
+        &-control-year,
+        &-label {
+            display: flex;
+        }
+        &-controls {
+            padding: 1rem;
+            align-items: center;
+            text-transform: uppercase;
+            .calendar-control-month,
+            .calendar-control-year {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span {
+                    text-align: center;
+                }
+            }
+        }
+        &-controls,
+        .label-grid-days,
+        &-label {
+            align-items: center;
+            justify-content: space-between;
+        }
+        .label-grid-days {
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0.6;
+            color: $dark;
+        }
+        & button {
+            max-width: 2rem;
+            max-height: 2rem;
+            width: 2rem;
+            height: 2rem;
+        }
+        &-controls button {
+            background-color: transparent;
+        }
+        &-label {
+            justify-content: center;
+            font-size: 5rem;
+            line-height: 2rem;
+            padding: 0 1rem;
+        }
+        &-label-control {
+            font-size: 1.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &-control-item {
+            padding: 0.15rem 1rem;
+            border-radius: rem(4px);
+            cursor: pointer;
+            transition: all .2s ease;
+            &:hover {
+                background-color: rgba($black, .15);
+            }
+        }
+        &-grid {
+            padding: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            justify-items: center;
+            align-items: center;
+            button {
+                margin-top: 0.25rem;
+                &[disabled] {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    @each $class,
+    $color in $colors {
+        @if ($class=='black') or ($class=='primary') {}
+        @else {
+            &.is-#{$class} .calendar-controls,
+            &.is-#{$class} .is-active {
+                background-color: $color;
+                @if $class=='warning' {
+                    color: $dark;
+                }
+            }
+        }
+    }
+    & .calendar-controls,
+    & .is-active {
+        background-color: $primary;
+        color: $cloud;
+    }
+    &.is-primary,
+    &.is-info,
+    &.is-success,
+    &.is-danger {
+        & .calendar-controls,
+        & .is-active {
+            color: #fff;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        & {
+            position: initial;
+            .calendar.is-visible {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 10px 40px -5px rgba(0, 0, 0, .3);
+            }
+        }
+    }
+}

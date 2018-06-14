@@ -65,7 +65,6 @@ class Calendar {
 					</div>
 				</div>
 			`;
-		this.el.classList.add('is-' + o.style);
 		this.value = o.value.split('/');
 		this.input = this.el.querySelector('.input');
 		this.toggle = this.el.querySelector('.toggle-calendar');
@@ -136,7 +135,7 @@ class Calendar {
 			} else {
 				btn.innerText = index;
 			}
-			if (index == 0) {
+			if (index == 1) {
 				btn.style.gridColumnStart = day + 1;
 			}
 			grid.appendChild(btn);
