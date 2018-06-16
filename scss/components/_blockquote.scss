@@ -18,7 +18,6 @@ $border-left-size: rem(4px);
         @if ($class=='cloud') or ($class=='light') or ($class=='black') {}
         @else {
             &.is-#{$class} {
-                color: inherit;
                 border-color: $color;
                 icon {
                     color: $color;

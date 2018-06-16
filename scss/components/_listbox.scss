@@ -1,7 +1,8 @@
 @import '../base/_partials';
 // variables
 listbox {
-    max-width: 400px;
+    min-width: rem(50px);
+    max-width: rem(400px);
     position: relative;
     &,
     list,

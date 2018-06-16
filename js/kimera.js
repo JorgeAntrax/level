@@ -19,7 +19,6 @@ var Calendar = /** @class */ (function () {
     function Calendar(o) {
         this.el = document.querySelector(o.el);
         this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input is-" + o.style + "\" name=\"" + o.inputName + "\" id=\"" + o.inputId + "\">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
-        this.value = o.value.split('/');
         this.input = this.el.querySelector('.input');
         this.toggle = this.el.querySelector('.toggle-calendar');
         this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
@@ -28,14 +27,17 @@ var Calendar = /** @class */ (function () {
         this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
         this.grid = this.el.querySelector('.calendar-grid');
         this.label = this.el.querySelector('.calendar-label');
+        this.style = o.style;
+        this.date = new Date();
         this.init();
     }
     //this method configure all calendar parameters
     Calendar.prototype.init = function () {
-        Calendar.setDay(parseInt(this.value[0]));
-        Calendar.setMonth(parseInt(this.value[1]));
-        Calendar.setYear(parseInt(this.value[2]));
-        Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
+        this.el.classList.add("is-" + this.style);
+        Calendar.setDay(this.date.getDate());
+        Calendar.setMonth(this.date.getMonth() + 1);
+        Calendar.setYear(this.date.getFullYear());
+        Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
         Calendar.updateInput(this.input);
         Calendar.updateMonth(this.labelMonth);
         Calendar.updateYear(this.labelYear);
@@ -44,19 +46,11 @@ var Calendar = /** @class */ (function () {
         this.watchYear(this.controlsYear);
     };
     //this static method build the calendar using native class date()
-    Calendar.buildCalendar = function (el, grid, label, input) {
-        var fecha = new Date(), mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('button'), day, index, btn;
-        fecha.setFullYear(anio, mes, 1);
-        day = fecha.getDay();
-        if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
-            forMes = 31;
-        }
-        else if (mes == 1) {
-            forMes = 28;
-        }
-        else {
-            forMes = 30;
-        }
+    Calendar.buildCalendar = function (el, grid, label, input, date) {
+        var mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('button'), day, index, btn;
+        date.setFullYear(anio, mes, 1);
+        day = date.getDay();
+        forMes = Calendar.getDays(mes);
         Calendar.updateLabel(label);
         if (buttons !== undefined) {
             for (var i = 0; i < buttons.length; i++) {
@@ -75,7 +69,7 @@ var Calendar = /** @class */ (function () {
             else {
                 btn.innerText = index;
             }
-            if (index == 0) {
+            if (index == 1) {
                 btn.style.gridColumnStart = day + 1;
             }
             grid.appendChild(btn);
@@ -133,7 +127,7 @@ var Calendar = /** @class */ (function () {
                 }
                 Calendar.updateInput(_this.input);
                 Calendar.updateMonth(_this.labelMonth);
-                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
+                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input, _this.date);
             }, false);
         };
         for (var i = 0; i < controls.length; i++) {
@@ -157,11 +151,25 @@ var Calendar = /** @class */ (function () {
                 }
                 Calendar.updateInput(_this.input);
                 Calendar.updateYear(_this.labelYear);
-                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input);
+                Calendar.buildCalendar(_this.el, _this.grid, _this.label, _this.input, _this.date);
             }, false);
         };
         for (var i = 0; i < controls.length; i++) {
             _loop_2(i);
+        }
+    };
+    /** this method return total days per month
+     * @param mes get value type number
+    */
+    Calendar.getDays = function (mes) {
+        if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
+            return 31;
+        }
+        else if (mes == 1) {
+            return 28;
+        }
+        else {
+            return 30;
         }
     };
     Object.defineProperty(Calendar, "getDay", {
@@ -202,7 +210,7 @@ var Calendar = /** @class */ (function () {
     };
     //this method update the label day
     Calendar.updateLabel = function (el) {
-        el.innerHTML = this.getDay;
+        el.innerHTML = "" + this.getDay;
     };
     //this method update content input control
     Calendar.updateInput = function (el) {
@@ -221,7 +229,7 @@ var Calendar = /** @class */ (function () {
     };
     // this method update year
     Calendar.updateYear = function (el) {
-        el.innerHTML = Calendar.getYear;
+        el.innerHTML = "" + Calendar.getYear;
     };
     return Calendar;
 }());

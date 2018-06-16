@@ -37,4 +37,22 @@
             }
         }
     }
+    &.is {
+        &-primary,
+        &-info,
+        &-success,
+        &-danger,
+        &-dark,
+        &-black {
+            #{$name-message-header} {
+                color: $cloud;
+            }
+        }
+        &-light,
+        &-warning {
+            #{$name-message-header} {
+                color: $dark;
+            }
+        }
+    }
 }

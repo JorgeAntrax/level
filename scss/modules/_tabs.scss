@@ -128,8 +128,11 @@ $border-tabs: 1px solid $border-color-tab !default;
     }
     #{$name-tabs-content-item} {
         display: none;
+        opacity: 0;
+        transition: all .2s ease-out;
         &.#{$class-active} {
             display: block;
+            opacity: 1;
         }
     }
 }

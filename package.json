@@ -1,6 +1,6 @@
 {
     "name": "kimera",
-    "version": "0.4.7",
+    "version": "0.5.0",
     "description": "A Modern CSS and JS framework based on flexbox and custom tags",
     "main": "gulpfile.js",
     "scripts": {

@@ -16,10 +16,12 @@
 */
 
 class Calendar {
+	style: any;
+	date: Date;
 	static languaje: string;
-	static year: any;
-	static month: any;
-	static day: any;
+	static year: number;
+	static month: number;
+	static day: number;
 	el: Element;
 	input: Element;
 	toggle: Element;
@@ -66,7 +68,6 @@ class Calendar {
 					</div>
 				</div>
 			`;
-		this.value = o.value.split('/');
 		this.input = this.el.querySelector('.input');
 		this.toggle = this.el.querySelector('.toggle-calendar');
 		this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
@@ -75,15 +76,18 @@ class Calendar {
 		this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
 		this.grid = this.el.querySelector('.calendar-grid');
 		this.label = this.el.querySelector('.calendar-label');
+		this.style = o.style;
+		this.date = new Date();
 		this.init();
 	}
 
 	//this method configure all calendar parameters
 	init() {
-		Calendar.setDay(parseInt(this.value[0]));
-		Calendar.setMonth(parseInt(this.value[1]));
-		Calendar.setYear(parseInt(this.value[2]));
-		Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
+		this.el.classList.add(`is-${this.style}`);
+		Calendar.setDay(this.date.getDate());
+		Calendar.setMonth(this.date.getMonth() + 1);
+		Calendar.setYear(this.date.getFullYear());
+		Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
 
 		Calendar.updateInput(this.input);
 		Calendar.updateMonth(this.labelMonth);
@@ -94,9 +98,8 @@ class Calendar {
 	}
 
 	//this static method build the calendar using native class date()
-	static buildCalendar(el: Element, grid: Element, label: Element, input: Element) {
+	static buildCalendar(el: Element, grid: Element, label: Element, input: Element, date: Date) {
 		let
-			fecha: any = new Date(),
 			mes: any = Calendar.getMonth - 1,
 			anio: any = Calendar.getYear,
 			forMes: number = 0,
@@ -104,16 +107,10 @@ class Calendar {
 			buttons: NodeListOf<Element> = grid.querySelectorAll('button'),
 			day: number, index: number, btn: any;
 
-		fecha.setFullYear(anio, mes, 1);
-		day = fecha.getDay();
+		date.setFullYear(anio, mes, 1);
+		day = date.getDay();
 
-		if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
-			forMes = 31;
-		} else if (mes == 1) {
-			forMes = 28;
-		} else {
-			forMes = 30;
-		}
+		forMes = Calendar.getDays(mes);
 
 
 		Calendar.updateLabel(label);
@@ -135,7 +132,7 @@ class Calendar {
 			} else {
 				btn.innerText = index;
 			}
-			if (index == 0) {
+			if (index == 1) {
 				btn.style.gridColumnStart = day + 1;
 			}
 			grid.appendChild(btn);
@@ -198,7 +195,7 @@ class Calendar {
 				}
 				Calendar.updateInput(this.input);
 				Calendar.updateMonth(this.labelMonth);
-				Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
+				Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
 			}, false);
 		}
 	}
@@ -219,8 +216,22 @@ class Calendar {
 				}
 				Calendar.updateInput(this.input);
 				Calendar.updateYear(this.labelYear);
-				Calendar.buildCalendar(this.el, this.grid, this.label, this.input);
+				Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
 			}, false);
+		}
+	}
+
+	/** this method return total days per month
+	 * @param mes get value type number
+	*/
+
+	static getDays(mes: number): any {
+		if (mes == 0 || mes == 2 || mes == 4 || mes == 6 || mes == 7 || mes == 9 || mes == 11) {
+			return 31;
+		} else if (mes == 1) {
+			return 28;
+		} else {
+			return 30;
 		}
 	}
 
@@ -256,7 +267,7 @@ class Calendar {
 
 	//this method update the label day
 	static updateLabel(el: Element) {
-		el.innerHTML = this.getDay;
+		el.innerHTML = `${this.getDay}`;
 	}
 
 	//this method update content input control
@@ -278,6 +289,6 @@ class Calendar {
 
 	// this method update year
 	static updateYear(el: Element) {
-		el.innerHTML = Calendar.getYear;
+		el.innerHTML = `${Calendar.getYear}`;
 	}
 }

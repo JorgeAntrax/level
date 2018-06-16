@@ -55,19 +55,6 @@
 .is-text-danger {
   color: #ff0051; }
 
-.is-dark,
-.is-primary,
-.is-black,
-.is-info,
-.is-success,
-.is-danger {
-  color: #FFFFFF; }
-
-.is-light,
-.is-warning,
-.is-cloud {
-  color: #444444; }
-
 .is-text-right,
 .is-text-right * {
   text-align: right; }
@@ -1033,37 +1020,30 @@ blockquote {
   font-style: italic;
   margin: 0; }
   blockquote.is-dark {
-    color: inherit;
     border-color: #444444; }
     blockquote.is-dark icon {
       color: #444444; }
   blockquote.is-black {
-    color: inherit;
     border-color: #000; }
     blockquote.is-black icon {
       color: #000; }
   blockquote.is-primary {
-    color: inherit;
     border-color: #1fadff; }
     blockquote.is-primary icon {
       color: #1fadff; }
   blockquote.is-info {
-    color: inherit;
     border-color: #2367cd; }
     blockquote.is-info icon {
       color: #2367cd; }
   blockquote.is-success {
-    color: inherit;
     border-color: #23cd5e; }
     blockquote.is-success icon {
       color: #23cd5e; }
   blockquote.is-warning {
-    color: inherit;
     border-color: #ffd438; }
     blockquote.is-warning icon {
       color: #ffd438; }
   blockquote.is-danger {
-    color: inherit;
     border-color: #ff0051; }
     blockquote.is-danger icon {
       color: #ff0051; }
@@ -2320,7 +2300,8 @@ radio :checked ~ label.is-check::before {
   border-radius: 100%; }
 
 listbox {
-  max-width: 400px;
+  min-width: 3.125rem;
+  max-width: 25rem;
   position: relative; }
   listbox,
   listbox list,
@@ -2981,6 +2962,10 @@ tag, badge {
     background-color: #ffd438; }
   tag.is-danger, badge.is-danger {
     background-color: #ff0051; }
+  tag.is-primary, badge.is-primary, tag.is-info, badge.is-info, tag.is-success, badge.is-success, tag.is-danger, badge.is-danger, tag.is-dark, badge.is-dark, tag.is-black, badge.is-black {
+    color: #FFFFFF; }
+  tag.is-warning, badge.is-warning {
+    color: #444444; }
 
 tags.is-rounded,
 tag.is-rounded,
@@ -3166,8 +3151,8 @@ box {
   overflow: hidden;
   border: 1px solid rgba(68, 68, 68, 0.085);
   border-radius: .2rem;
-  -webkit-box-shadow: 0 0.1875rem 0.3125rem -0.125rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0.1875rem 0.3125rem -0.125rem rgba(0, 0, 0, 0.15); }
+  -webkit-box-shadow: 0 0.625rem 1.875rem -0.3125rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.625rem 1.875rem -0.3125rem rgba(0, 0, 0, 0.15); }
   box.is-mobile {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3261,6 +3246,10 @@ notify {
     background-color: #ffd438; }
   notify.is-danger {
     background-color: #ff0051; }
+  notify.is-primary, notify.is-info, notify.is-success, notify.is-danger, notify.is-dark, notify.is-black {
+    color: #FFFFFF; }
+  notify.is-light, notify.is-warning {
+    color: #444444; }
 
 breadcrumb {
   overflow-x: auto;
@@ -3782,6 +3771,10 @@ message {
     message.is-danger content {
       background-color: rgba(255, 0, 81, 0.05);
       color: #990030; }
+  message.is-primary header, message.is-info header, message.is-success header, message.is-danger header, message.is-dark header, message.is-black header {
+    color: #FFFFFF; }
+  message.is-light header, message.is-warning header {
+    color: #444444; }
 
 modal {
   -webkit-box-align: center;
@@ -3930,14 +3923,14 @@ navbar {
     navbar navbrand > icon, navbar navbrand > icon[class^="is-"],
     navbar navmenu > icon,
     navbar navmenu > icon[class^="is-"] {
-      min-width: 3rem;
-      min-height: 3rem; }
+      min-width: 4rem;
+      min-height: 4rem; }
     navbar navbrand field,
     navbar navmenu field {
-      min-height: 3rem;
+      min-height: 4rem;
       padding: 0 16px; }
   navbar navbrand {
-    min-height: 3rem;
+    min-height: 4rem;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between; }
@@ -3950,7 +3943,7 @@ navbar {
       align-items: center;
       -ms-flex-line-pack: center;
       align-content: center;
-      height: 3rem;
+      height: 4rem;
       padding: 0.5rem;
       width: auto; }
       navbar navbrand logo img {
@@ -3969,8 +3962,8 @@ navbar {
   navbar nav-item,
   navbar dropdown,
   navbar .is-toggle-navbar {
-    min-height: 3rem;
-    min-width: 3rem;
+    min-height: 4rem;
+    min-width: 4rem;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     margin: 0;
@@ -3997,7 +3990,7 @@ navbar {
     width: 100%; }
     navbar dropdown .is-toggle-dropdown,
     navbar dropdown drop-item {
-      line-height: 3rem;
+      line-height: 4rem;
       padding: 0 16px; }
     navbar dropdown dropmenu {
       border-radius: 0;
@@ -4212,9 +4205,14 @@ tabs-content {
     max-width: 100%;
     width: 100%; }
   tabs-content tab-content {
-    display: none; }
+    display: none;
+    opacity: 0;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out; }
     tabs-content tab-content.is-active {
-      display: block; }
+      display: block;
+      opacity: 1; }
 
 table {
   border-collapse: collapse;
