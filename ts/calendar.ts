@@ -5,8 +5,8 @@
 		el: '#demo', // the Id container with class calendar-picker
 		languaje: 'es | us', languaje for calendar component
     value: '20/2/2018', //default value calendar with the next format:  d/m/yyyy
-    inputName: 'namedemo', // the name attribute for control input
-    inputId: 'input123', // the id for control input
+    name: 'namedemo', // the name attribute for control input
+    id: 'input123', // the id for control input
     style: 'danger', // style for the calendar
     classIconPrev: 'fa fa-angle-up', // the classes for the icon previus control
     classIconNext: 'fa fa-angle-down', // the classess for the icon next control
@@ -16,7 +16,7 @@
 */
 
 class Calendar {
-	style: any;
+	style: string;
 	date: Date;
 	static languaje: string;
 	static year: number;
@@ -39,7 +39,7 @@ class Calendar {
 		this.el.innerHTML = `
 				<field>
 					<control class="is-icon-${o.iconPosition}">
-						<input type="text" class="input is-${o.style}" name="${o.inputName}" id="${o.inputId}">
+						<input type="text" class="input${o.style ? ` is-${o.style}` : ''}"${o.name ? ` name="${o.name}"` : ''}${o.id ? ` id="${o.id}"` : ''}>
 						<icon class="toggle-calendar"><i class="${o.classIconInput}"></i></icon>
 					</control>
 				</field>

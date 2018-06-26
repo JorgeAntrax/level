@@ -13,7 +13,7 @@ class Listbox {
     el: Element;
     constructor(obj: any) {
         this.el = document.querySelector(obj.el);
-        this.el.innerHTML += `<input ${obj.name ? `name="${obj.name}"` : ''} ${obj.id ? `id="${obj.id}"` : ''} type="text" class="input ${obj.rounded ? 'is-rounded' : ''} ${obj.hasTwoIcons ? 'padding-l-2' : ''}">
+        this.el.innerHTML += `<input ${obj.name ? `name="${obj.name}"` : ''} ${obj.id ? `id="${obj.id}"` : ''} type="text" class="input${obj.rounded ? ' is-rounded' : ''} ${obj.hasTwoIcons ? 'padding-l-2' : ''}">
 				<icon class="is-toggle-listbox"><i class="${obj.iconToggleClass}"></i></icon>
 				${obj.iconLabelClass ? `<icon class="listbox-icon"><i class="${obj.iconLabelClass}"></i></icon>` : ''}`;
         this.init();

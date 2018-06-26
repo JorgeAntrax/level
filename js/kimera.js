@@ -5,8 +5,8 @@
         el: '#demo', // the Id container with class calendar-picker
         languaje: 'es | us', languaje for calendar component
     value: '20/2/2018', //default value calendar with the next format:  d/m/yyyy
-    inputName: 'namedemo', // the name attribute for control input
-    inputId: 'input123', // the id for control input
+    name: 'namedemo', // the name attribute for control input
+    id: 'input123', // the id for control input
     style: 'danger', // style for the calendar
     classIconPrev: 'fa fa-angle-up', // the classes for the icon previus control
     classIconNext: 'fa fa-angle-down', // the classess for the icon next control
@@ -18,7 +18,7 @@ var Calendar = /** @class */ (function () {
     // create a template calendar and cached components
     function Calendar(o) {
         this.el = document.querySelector(o.el);
-        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input is-" + o.style + "\" name=\"" + o.inputName + "\" id=\"" + o.inputId + "\">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
+        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input" + (o.style ? " is-" + o.style : '') + "\"" + (o.name ? " name=\"" + o.name + "\"" : '') + (o.id ? " id=\"" + o.id + "\"" : '') + ">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
         this.input = this.el.querySelector('.input');
         this.toggle = this.el.querySelector('.toggle-calendar');
         this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
@@ -251,7 +251,7 @@ var meses_en = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'ago', 'sep', '
 var Listbox = /** @class */ (function () {
     function Listbox(obj) {
         this.el = document.querySelector(obj.el);
-        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input " + (obj.rounded ? 'is-rounded' : '') + " " + (obj.hasTwoIcons ? 'padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
+        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input" + (obj.rounded ? ' is-rounded' : '') + " " + (obj.hasTwoIcons ? 'padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
         this.init();
     }
     /* the iit method, add the listeners for input and toggle icon elements */
@@ -318,6 +318,7 @@ var range = document.querySelectorAll('range');
 // let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 var tabs = document.querySelectorAll('tabs');
 var tabsContent = document.querySelectorAll('tabs-content');
+var btn_ripple = document.querySelectorAll('button, .button');
 // initializes dynamic components
 init('checkbox');
 init('radio');
@@ -343,6 +344,23 @@ if (kmInclude) {
             url_include = "" + PATH_URL + includeCSS[i] + ".min.css";
             head.appendChild(createLink(url_include));
         }
+    }
+}
+/** Add ripple effect for al buttons elements*/
+if (btn_ripple) {
+    for (var i = 0; i < btn_ripple.length; i++) {
+        btn_ripple[i].innerHTML += "<div class=\"ripple-container\"><span class=\"ripple-effect\"></span></div>";
+        btn_ripple[i].addEventListener('click', function (e) {
+            var ripple = this.querySelector('.ripple-effect');
+            var parent = this.querySelector('.ripple-container');
+            var offset = this.getBoundingClientRect();
+            ripple.style.top = e.pageY - offset.top + "px";
+            ripple.style.left = e.pageX - offset.left + "px";
+            ripple.classList.add('ripple-active');
+            setTimeout(function () {
+                ripple.classList.remove('ripple-active');
+            }, 2000);
+        }, false);
     }
 }
 /* hides an element.
@@ -390,11 +408,39 @@ function modalToggle() {
     }
     el.classList.toggle('is-visible');
 }
-/* =================== Navbar Js ======================= */
+/**
+ * Add a listener toggle button in navbar and  controll the sticky navbar on scroll
+*/
 if (navbar.length > 0) {
     var el = document.querySelectorAll('.is-toggle-navbar');
     for (var i = 0; i < el.length; i++) {
         onEventListener(el[i], 'click', navToggle);
+    }
+    var _loop_1 = function (i) {
+        if (navbar[i].hasAttribute('on-sticky')) {
+            var data_1 = navbar[i].getAttribute('on-sticky').split(': ');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > parseInt(data_1[1])) {
+                    if (data_1[0] == 'top') {
+                        navbar[i].classList.add('is-fixed-top');
+                    }
+                    else {
+                        navbar[i].classList.add('is-fixed-bottom');
+                    }
+                }
+                else {
+                    if (navbar[i].classList.contains('is-fixed-top')) {
+                        navbar[i].classList.remove('is-fixed-top');
+                    }
+                    else if (navbar[i].classList.contains('is-fixed-bottom')) {
+                        navbar[i].classList.remove('is-fixed-bottom');
+                    }
+                }
+            }, false);
+        }
+    };
+    for (var i = 0; i < navbar.length; i++) {
+        _loop_1(i);
     }
 }
 function navToggle() {

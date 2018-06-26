@@ -15,6 +15,7 @@ let range: NodeListOf<Element> = document.querySelectorAll('range');
 // let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 let tabs: NodeListOf<Element> = document.querySelectorAll('tabs');
 let tabsContent: NodeListOf<Element> = document.querySelectorAll('tabs-content');
+let btn_ripple: NodeListOf<Element> = document.querySelectorAll('button, .button');
 
 // initializes dynamic components
 init('checkbox');
@@ -44,6 +45,27 @@ if (kmInclude) {
             head.appendChild(createLink(url_include));
         }
     }
+}
+
+/** Add ripple effect for al buttons elements*/
+
+if(btn_ripple) {
+	for (let i = 0; i < btn_ripple.length; i++) {
+		btn_ripple[i].innerHTML += `<div class="ripple-container"><span class="ripple-effect"></span></div>`;
+		btn_ripple[i].addEventListener('click', function(e: any){
+			let ripple: HTMLElement = this.querySelector('.ripple-effect');
+			let parent: HTMLElement = this.querySelector('.ripple-container');
+			let offset: any = this.getBoundingClientRect();
+			ripple.style.top = `${e.pageY - offset.top}px`;
+			ripple.style.left = `${e.pageX - offset.left}px`;
+			ripple.classList.add('ripple-active');
+
+			setTimeout(()=>{
+				ripple.classList.remove('ripple-active');
+			}, 2000);
+
+		},false);
+	}
 }
 
 /* hides an element.
@@ -99,12 +121,34 @@ function modalToggle() {
 		el.classList.toggle('is-visible');
 }
 
-/* =================== Navbar Js ======================= */
+/**
+ * Add a listener toggle button in navbar and  controll the sticky navbar on scroll
+*/
 
 if (navbar.length > 0) {
 	let el: NodeListOf<HTMLElement> = document.querySelectorAll('.is-toggle-navbar');
 	for (let i = 0; i < el.length; i++) {
 			onEventListener(el[i], 'click', navToggle);
+	}
+	for (let i = 0; i < navbar.length; i++) {
+		if(navbar[i].hasAttribute('on-sticky')) {
+			let data: Array<string> = navbar[i].getAttribute('on-sticky').split(': ');
+			window.addEventListener('scroll', function () {
+				if (window.scrollY > parseInt(data[1])) {
+					if(data[0] == 'top') {
+						navbar[i].classList.add('is-fixed-top');
+					}else {
+						navbar[i].classList.add('is-fixed-bottom');
+					}
+				} else {
+					if(navbar[i].classList.contains('is-fixed-top')) {
+						navbar[i].classList.remove('is-fixed-top');
+					} else if(navbar[i].classList.contains('is-fixed-bottom')) {
+						navbar[i].classList.remove('is-fixed-bottom');
+					}
+				}
+			}, false);
+		}
 	}
 }
 function navToggle() {

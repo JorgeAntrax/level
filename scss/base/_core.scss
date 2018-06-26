@@ -151,25 +151,6 @@ mark {
 }
 
 
-/* listas para revision */
-
-ol:not(.default-browser),
-ul:not(.default-browser) {
-    &,
-    & ul,
-    & ol {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-}
-
-ol,
-ul {
-    padding-left: 1rem;
-}
-
-
 /*replace scroll*/
 
 * ::-webkit-scrollbar {

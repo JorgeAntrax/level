@@ -73,6 +73,20 @@ $navbar-height: 4rem !default;
             border-top-right-radius: 0;
         }
     }
+    &.#{$class-fixed-top},
+    &.#{$class-fixed-bottom} {
+        position: fixed;
+        left: 0;
+        width: 100%;
+    }
+    &.#{$class-fixed-top} {
+        top: 0;
+        box-shadow: 0 rem(10px) rem(40px) rem(-10px) rgba($black, .1);
+    }
+    &.#{$class-fixed-bottom} {
+        bottom: 0;
+        box-shadow: 0 rem(-10px) rem(40px) rem(-10px) rgba($black, .1);
+    }
 }
 
 @include until (tablet) {

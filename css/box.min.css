@@ -1,1 +1,1 @@
-box{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1rem;max-width:100%;overflow:hidden;border:1px solid rgba(68, 68, 68, 0.085);border-radius:.2rem;box-shadow:0 0.625rem 1.875rem -0.3125rem rgba(0, 0, 0, 0.15)}box.is-mobile{flex-direction:row}
+box{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1rem;max-width:100%;overflow:hidden;border-radius:.2rem;box-shadow:0 0.625rem 1.875rem -0.3125rem rgba(0, 0, 0, 0.15)}box.is-mobile{flex-direction:row}

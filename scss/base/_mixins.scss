@@ -1,6 +1,11 @@
 //check the variables in _variables.scss and _setnames.scss
 @mixin since ($breakpoint) {
-    @if $breakpoint==$bp-touch {
+    @if $breakpoint==$bp-mobile {
+        @media screen and (min-width: $mobile) {
+            @content
+        }
+    }
+    @else if $breakpoint==$bp-touch {
         @media screen and (min-width: $touch) {
             @content
         }

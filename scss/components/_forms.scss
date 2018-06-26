@@ -1,10 +1,10 @@
 @import '../base/_partials';
 // variables
-$input-padding: rem(5px) rem($text-default - 1px) !default;
+$input-padding: rem($text-default / 2) rem($text-default - 1px) !default;
 $field-addons-rounded: rem(2000px) !default;
 $field-addons-default-rounded: rem(3px) !default;
 $select-padding: $input-padding !default;
-// input con clase input
+// component with class input
 .#{$class-input},
 select,
 textarea {
@@ -13,60 +13,36 @@ textarea {
     vertical-align: top;
     position: relative;
     padding: $input-padding;
-    border: none;
     background-color: $light;
     transition: all .2s ease-out;
     width: 100%;
     margin: 0;
     outline: none;
-    @each $class,
-    $color in $colors {
-        @if ($class=='light') or ($class=='black') or ($class=='dark') or ($class=='primary') {}
-        @else {
-            &.is-#{$class}:not(.is-material):focus {
-                border: 1px solid $color;
-            }
-            &.is-material.is-#{$class}:focus {
-                border-color: $color;
-            }
-            &.is-#{$class} {
-                color: $dark;
-            }
-        }
-    }
-    //estilo material design con atributo personalizado
-    &.#{$class-material} {
-        border: 0;
-        border-bottom: 1px solid $light;
-        &:focus {
-            border-color: $primary;
-            background-color: $cloud;
-        }
-    }
-    // estilos para los que no tienen el atributo is-material
-    &:not(.#{$class-material}) {
-        border-radius: rem(3px);
-        border: 1px solid $light;
-        &:focus {
-            border-color: $primary;
-            background-color: $cloud;
-        }
-        &:required:focus:invalid {
-            box-shadow: 0 0 0 2px rgba($danger, .2);
-        }
-        &:required:valid {
-            box-shadow: 0 0 0 2px rgba($success, .2);
-        }
-    }
-    // conponentes redondeados
+    border-radius: rem(3px);
+    border: 1px solid $light;
+    font-size: $text-default;
+    // conponents rounded
     &.#{$class-rounded} {
-        border-radius: 1.5rem;
+        border-radius: 3rem;
     }
-    //validación de formularios
+    //validate forms
     &:focus~icon {
         color: $black;
     }
-    &~.#{$class-validate},
+    &:focus {
+        border-color: $primary;
+        background-color: $cloud;
+        &:required:invalid {
+            border-color: rgba($danger, 0.8);
+            background-color: rgba($danger, 0.1);
+        }
+    }
+    &:required:valid {
+        border-color: rgba($success, 0.8);
+        background-color: rgba($success, 0.1);
+    }
+    //the validation label colors
+    &:required~.#{$class-validate},
     &:required:valid~.#{$class-validate} {
         opacity: 0;
         color: $success;
@@ -76,15 +52,33 @@ textarea {
         opacity: 1;
         color: $danger;
     }
-    &:required:focus:invalid {
-        border-color: $danger;
+    //material design style
+    &.#{$class-material} {
+        background-color: $cloud;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 2px solid $light;
+        &:focus {
+            border-color: $primary;
+        }
+        &:required:focus:invalid,
+        &:required:valid {
+            background-color: $cloud;
+        }
     }
-    &:required:valid {
-        border-color: $success;
+    //Color styles
+    @each $class,
+    $color in $colors {
+        @if ($class=='light') or ($class=='black') or ($class=='primary') {}
+        @else {
+            &.is-#{$class}:focus {
+                border-color: $color;
+            }
+        }
     }
 }
 
-//contenedor input type color
+//container input type color
 #{$name-color-module} {
     width: 1.5rem;
     height: 1.5rem;
@@ -128,24 +122,25 @@ textarea {
     }
 }
 
+//styles for help tag in forms validation
 #{$name-help-module} {
     display: block;
     padding: 0.25rem 0;
     font-size: $text-x-small;
 }
 
+//label styles form
 label {
     display: block;
     text-align: left;
     margin-bottom: .5rem;
 }
 
-//############# Fin de estilos del input ###########
 //variables
-$icon-gap: rem(36px) !default;
-$icon-gap-small: rem(30px) !default;
-$icon-gap-medium: rem(42px) !default;
-$icon-gap-large: rem(48px) !default;
+$icon-gap: rem(43px) !default;
+$icon-gap-small: rem(38px) !default;
+$icon-gap-medium: rem(50px) !default;
+$icon-gap-large: rem(58px) !default;
 //control group
 #{$name-control-module} {
     display: flex;
@@ -157,17 +152,17 @@ $icon-gap-large: rem(48px) !default;
         top: 0;
         color: lighten($dark, 40);
         width: $icon-gap;
-        height: 2.25rem;
+        height: 2.5rem;
         &.#{$class-small} {
-            height: rem(32px);
+            height: rem(38px);
             width: $icon-gap-small;
         }
         &.#{$class-medium} {
-            height: rem(43px);
+            height: rem(50px);
             width: $icon-gap-medium;
         }
         &.#{$class-large} {
-            height: rem(50px);
+            height: rem(58px);
             width: $icon-gap-large;
         }
     }
@@ -245,20 +240,14 @@ $icon-gap-large: rem(48px) !default;
     }
 }
 
-field {
+#{$name-module-field} {
     display: flex;
     flex-direction: column;
     &:not(.#{$class-addons}) {
         justify-content: center;
         #{$name-control-module} {
             width: 100%;
-            &:not(:last-of-type) {
-                margin-bottom: rem(20px);
-            }
         }
-    }
-    &:not(:last-child) {
-        margin-bottom: .5rem;
     }
     &.#{$class-horizontal} {
         #{$name-control-module}:not(.is-expand) {

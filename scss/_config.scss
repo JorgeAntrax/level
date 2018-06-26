@@ -45,6 +45,7 @@ $name-row-module: 'row';
 // column module
 $name-column-module: 'column';
 // ************************** Form controls ********************
+$name-module-field: 'field';
 //Checkbox and radio component
 $name-checkbox-module: 'checkbox';
 $name-radio-module: 'radio';
@@ -194,7 +195,7 @@ $class-narrow: 'is-narrow';
 //used on textarea
 $class-fixed: 'is-fixed';
 //used on: modal, tabs
-$class-fluid: 'is-fluid';
+$class-fluid: 'is-fluid-container';
 //Classes used in all modules and components.
 $class-tiny: 'is-tiny';
 $class-small: 'is-small';
@@ -276,6 +277,10 @@ $class-darken-prefix: 'darken';
 // prefix for class lighten
 // ej: .color-#{$class-lighten-prefix}-1 = .color-lighten-1
 $class-lighten-prefix: 'lighten';
+$class-fluid: 'is-fluid'; //the container height 100vh
+$class-wrapper: 'is-wrapper'; // the container max width 1000px
+$class-fixed-top: 'is-fixed-top'; //the position fixed navbar sticky
+$class-fixed-bottom: 'is-fixed-bottom'; //the position fixed navbar sticky
 // **************************************************************************************
 // *************************************  Variables *************************************
 // **************************************************************************************

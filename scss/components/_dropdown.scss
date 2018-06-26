@@ -36,13 +36,13 @@ $dropmenu-max-height: 100vh; // Define the max height for slide effect
 
 #{$name-dropmenu-module} {
     width: 100%;
-    min-width: 8em;
+    min-width: 15em;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     background-color: $cloud;
-    box-shadow: 0 3px 8px -1px rgba($black, .1);
+    box-shadow: 0 10px 40px -10px rgba($black, .1);
     transition: max-height .2s linear;
     border-radius: rem(4px);
     text-align: justify;
@@ -64,11 +64,10 @@ $dropmenu-max-height: 100vh; // Define the max height for slide effect
     }
     #{$name-dropmenu-item} {
         @extend %item;
-        min-height: 2rem;
-        padding: 0 1em;
-        font-size: $text-small;
+        padding: 0.75rem 1em;
         cursor: pointer;
         user-select: none;
+        word-break: break-all;
         &.#{$class-title} {
             color: #aaa;
             font-size: $text-x-small;

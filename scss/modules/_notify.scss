@@ -7,6 +7,7 @@
     background-color: $light;
     border-radius: rem(5px);
     padding: 1rem 2rem 1rem 1rem;
+    user-select: none;
     #{$name-close-module} {
         position: absolute;
         top: .25rem;

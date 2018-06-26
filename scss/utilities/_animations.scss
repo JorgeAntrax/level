@@ -1,150 +1,171 @@
 //zoom
-
 @keyframes zoom-in {
-	from {
-		transform-origin: center center;
-		transform: scale(0);
-	}
-	to {
-		transform-origin: center center;
-		transform: scale(1);
-	}
+    from {
+        transform-origin: center center;
+        transform: scale(0);
+    }
+    to {
+        transform-origin: center center;
+        transform: scale(1);
+    }
 }
+
 .zoom-in {
-	animation: zoom-in 0.25s ease-out;
+    animation: zoom-in 0.25s ease-out;
+}
+
+@keyframes rippleEffect {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.4;
+    }
+    100% {
+        padding: 200%;
+        opacity: 0;
+    }
 }
 
 @keyframes slide-up {
-	from {
-		top: 210%;
-	}
-	to {
-		top: 0;
-	}
+    from {
+        top: 210%;
+    }
+    to {
+        top: 0;
+    }
 }
+
 .slide-up {
-	animation: slide-up 0.25s ease-out;
+    animation: slide-up 0.25s ease-out;
 }
 
 @keyframes slide-down {
-	from {
-		top: -110%;
-	}
-	to {
-		top: 0;
-	}
+    from {
+        top: -110%;
+    }
+    to {
+        top: 0;
+    }
 }
+
 .slide-down {
-	animation: slide-down 0.25s ease-out;
+    animation: slide-down 0.25s ease-out;
 }
 
 //zoom out
-
 @keyframes zoom-out {
-	from {
-		transform-origin: center center;
-		transform: scale(1);
-	}
-	to {
-		transform-origin: center center;
-		transform: scale(0);
-	}
+    from {
+        transform-origin: center center;
+        transform: scale(1);
+    }
+    to {
+        transform-origin: center center;
+        transform: scale(0);
+    }
 }
+
 .zoom-out {
-	animation: zoom-out 0.6s;
+    animation: zoom-out 0.6s;
 }
 
 // animacion designada a pogress bar infinite.
 @keyframes process {
-	0% {
-		width: 0;
-		left: 0;
-	}
-	15% {
-		width: 25%;
-		left: 20%;
-	}
-	40% {
-		width: 40%;
-		left: 50%;
-	}
-	65% {
-		width: 25%;
-		left: 80%;
-	}
-	100% {
-		width: 15%;
-		left: 100%;
-	}
+    0% {
+        width: 0;
+        left: 0;
+    }
+    15% {
+        width: 25%;
+        left: 20%;
+    }
+    40% {
+        width: 40%;
+        left: 50%;
+    }
+    65% {
+        width: 25%;
+        left: 80%;
+    }
+    100% {
+        width: 15%;
+        left: 100%;
+    }
 }
+
 // fade 
-
 @keyframes fade-in {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-.fade-in {
-	animation: fade-in 0.2s;
-}
-@keyframes fade-out {
-	from {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
-	}
-}
-.fade-out {
-	animation: fade-out 0.2s;
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
- @-webkit-keyframes preload {
- 	0% {
- 		transform: rotate(0);
- 	}
- 	100% {
- 		transform: rotate(360deg);
- 	}
- }
- @-moz-keyframes preload {
- 	0% {
- 		transform: rotate(0);
- 	}
- 	100% {
- 		transform: rotate(360deg);
- 	}
- }
- @keyframes preload {
- 	0% {
- 		transform: rotate(0);
- 	}
- 	100% {
- 		transform: rotate(360deg);
- 	}
- }
- @keyframes preload-dinamic {
- 	0% {
- 		transform: rotate(0);
- 	}
- 	20% {
- 		border-color: $info;
- 		border-top-color: transparent;
- 	}
- 	40% {
- 		border-color: $success;
- 		border-top-color: transparent;
- 	}
- 	70% {
- 		border-color: $danger;
- 		border-top-color: transparent;
- 	}
- 	100% {
- 		transform: rotate(360deg);
- 		border-color: $primary;
- 		border-top-color: transparent;
- 	}
- }
+.fade-in {
+    animation: fade-in 0.2s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fade-out 0.2s;
+}
+
+@-webkit-keyframes preload {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes preload {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preload {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preload-dinamic {
+    0% {
+        transform: rotate(0);
+    }
+    20% {
+        border-color: $info;
+        border-top-color: transparent;
+    }
+    40% {
+        border-color: $success;
+        border-top-color: transparent;
+    }
+    70% {
+        border-color: $danger;
+        border-top-color: transparent;
+    }
+    100% {
+        transform: rotate(360deg);
+        border-color: $primary;
+        border-top-color: transparent;
+    }
+}
