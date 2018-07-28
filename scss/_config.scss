@@ -195,7 +195,7 @@ $class-narrow: 'is-narrow';
 //used on textarea
 $class-fixed: 'is-fixed';
 //used on: modal, tabs
-$class-fluid: 'is-fluid-container';
+$class-fluid: 'is-fluid';
 //Classes used in all modules and components.
 $class-tiny: 'is-tiny';
 $class-small: 'is-small';
@@ -277,77 +277,7 @@ $class-darken-prefix: 'darken';
 // prefix for class lighten
 // ej: .color-#{$class-lighten-prefix}-1 = .color-lighten-1
 $class-lighten-prefix: 'lighten';
-$class-fluid: 'is-fluid'; //the container height 100vh
+$class-fluid-container: 'is-fluid-container'; //the container height 100vh
 $class-wrapper: 'is-wrapper'; // the container max width 1000px
 $class-fixed-top: 'is-fixed-top'; //the position fixed navbar sticky
 $class-fixed-bottom: 'is-fixed-bottom'; //the position fixed navbar sticky
-// **************************************************************************************
-// *************************************  Variables *************************************
-// **************************************************************************************
-//colores predefinidos
-$cloud: #FFFFFF !default;
-$dark: #444444 !default;
-$black: #000 !default;
-$light: hsla(0, 0, 96, 255) !default;
-$primary: hsla(202, 100, 56, 255) !default;
-$info: hsla(216, 71, 47, 255) !default;
-$success: hsla(141, 71, 47, 255) !default;
-$warning: hsla(47, 100, 61, 255) !default;
-$danger: hsla(341, 100, 50, 255) !default;
-//color link
-$color-link: $primary;
-$color-link-hover: $black;
-//breakpoints
-$mobile: '200px' !default;
-$touch: '480px' !default;
-$tablet: '768px' !default;
-$desktop: '1024px' !default;
-$widescreen: '1300px' !default;
-//breakpoints entre min y max width
-$only-touch: '767px' !default;
-$only-tablet: '1023px' !default;
-$only-desktop: '1299px' !default;
-//breakpoint names
-$bp-mobile: 'mobile';
-$bp-touch: 'touch';
-$bp-tablet: 'tablet';
-$bp-desktop: 'desktop';
-$bp-widescreen: 'widescreen';
-//breakpoint maps
-$breakpoint: ( $bp-mobile: '200px', $bp-touch: '480px', $bp-tablet: '768px', $bp-desktop: '1024px', $bp-widescreen: '1300px');
-$only-breakpoint: ( only-#{$bp-touch}: '767px', only-#{$bp-tablet}: '1023px', only-#{$bp-desktop}: '1299px', );
-// font family
-$family: sans-serif !default; // nombre de la fuente a importar
-$family-icons: 'FontAwesome' !default;
-$family-code: monospace !default;
-$font-space: 0.075rem !default;
-//color de texto por default
-$text-color: #555 !default;
-// variables para tamaño de texto
-$text-x-small: 0.7rem !default;
-$text-small: 0.8rem !default;
-$text-default: 16px !default;
-$text-medium: 1.3rem !default;
-$text-large: 1.6rem !default;
-$text-x-large: 2rem !default;
-$text-bold: bold !default;
-$text-upper: uppercase !default;
-$text-lower: lowercase !default;
-// rendering text
-$smooting-text: antialiased !default;
-$render-text: optimizeLegibility !default;
-// Tamaño de encabezados
-$h1-size: 2em !default;
-$h2-size: 1.8em !default;
-$h3-size: 1.6em !default;
-$h4-size: 1.3em !default;
-$h5-size: 1em !default;
-$h6-size: .7em !default;
-$heading-color: $black !default;
-// estilos compartidos
-$line-height-default: 1.5 !default; // line-height initial
-$share-padding: 0.5rem !default;
-$share-border-radius: 0.2rem !default;
-//maps
-//colores base
-$colors: ( dark: $dark, black: $black, cloud: $cloud, light: $light, primary: $primary, info: $info, success: $success, warning: $warning, danger: $danger);

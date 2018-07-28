@@ -20,7 +20,6 @@ textarea {
     outline: none;
     border-radius: rem(3px);
     border: 1px solid $light;
-    font-size: $text-default;
     // conponents rounded
     &.#{$class-rounded} {
         border-radius: 3rem;

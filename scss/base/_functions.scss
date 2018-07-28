@@ -1,10 +1,10 @@
 //funcion que general el grid system
-@function grid($cols, $total-cols: 20){
-	@return percentage($cols / $total-cols);
+@function grid($cols, $total-cols: 20) {
+    @return percentage($cols / $total-cols);
 }
 
 // function para convertir px en rem
 @function rem ($size, $unity: $text-default) {
-	$remSize: $size / $unity;
-	@return $remSize * 1rem;
+    $remSize: $size / $unity;
+    @return $remSize * 1rem;
 }

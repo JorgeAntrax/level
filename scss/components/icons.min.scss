@@ -1,0 +1,137 @@
+@import '../base/_partials';
+//variables
+$width-icon-small: 1rem;
+$width-icon-medium: 1.5rem;
+$width-icon-large: 2rem;
+$width-icon-jumbo: 2rem;
+$width-icon: 1.5rem;
+$ellipsis-burger-dimentions: 2px;
+$translate-d: 0.4rem;
+//placeholder
+%icon {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+//styles
+#{$name-icon-module} {
+    @extend %icon;
+    width: $width-icon;
+    height: $width-icon;
+    font-size: $text-default;
+    &.#{$class-small} {
+        width: $width-icon-small;
+        height: $width-icon-small;
+    }
+    &.#{$class-medium} {
+        width: $width-icon-medium;
+        height: $width-icon-medium;
+    }
+    &.#{$class-large} {
+        width: $width-icon-large;
+        height: $width-icon-large;
+    }
+    &.#{$class-jumbo} {
+        width: $width-icon-jumbo;
+        height: $width-icon-jumbo;
+    }
+}
+
+#{$name-close-module} {
+    @extend %icon;
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .2s ease-out;
+    width: auto;
+    height: $width-icon;
+    &:hover {
+        opacity: 1;
+    }
+    &:empty {
+        &::after {
+            content: '\d7';
+        }
+    }
+}
+
+#{$name-burger-module},
+#{$name-ellipsis-module} {
+    @extend %icon;
+    width: $width-icon;
+    height: $width-icon;
+    padding: 0.25rem;
+    position: relative;
+    cursor: pointer;
+    span {
+        transition: all .2s ease-out;
+        position: absolute;
+        display: block;
+        border-radius: 1rem;
+        background-color: #444;
+        &:first-child {
+            transform: translateY(-$translate-d);
+        }
+        &:last-child {
+            transform: translateY($translate-d);
+        }
+    }
+    &.is-active {
+        span {
+            transform-origin: center center;
+            transform: translateY(0) rotate(45deg);
+            &:nth-child(2) {
+                transform: scale(0);
+            }
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+        &.is-arrow-left,
+        &.is-arrow-right {
+            span:nth-child(2) {
+                transform: scale(1);
+            }
+            span:first-child,
+            span:last-child {
+                width: $width-icon / 2;
+            }
+        }
+        &.is-arrow-left span {
+            transform-origin: left;
+            &:first-child {
+                transform: translateX(-$width-icon / 3) rotate(45deg);
+            }
+            &:last-child {
+                transform: translateX(-$width-icon / 3) rotate(-45deg);
+            }
+        }
+        &.is-arrow-right span {
+            transform-origin: right;
+            &:first-child {
+                transform: translateX($width-icon / 3) rotate(45deg);
+            }
+            &:last-child {
+                transform: translateX($width-icon / 3) rotate(-45deg);
+            }
+        }
+    }
+}
+
+#{$name-ellipsis-module} {
+    span {
+        width: $ellipsis-burger-dimentions;
+        height: $ellipsis-burger-dimentions;
+    }
+    &.is-active span {
+        width: $width-icon;
+    }
+}
+
+#{$name-burger-module} {
+    span {
+        width: $width-icon;
+        height: $ellipsis-burger-dimentions;
+    }
+}

@@ -1,4 +1,4 @@
-//check the variables in _variables.scss and _setnames.scss
+//check the variables in _variables.scss
 @mixin since ($breakpoint) {
     @if $breakpoint==$bp-mobile {
         @media screen and (min-width: $mobile) {

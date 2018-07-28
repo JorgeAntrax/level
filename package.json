@@ -1,11 +1,11 @@
 {
-    "name": "kimera",
-    "version": "0.5.2",
+    "name": "level",
+    "version": "0.5.3",
     "description": "A Modern CSS and JS framework based on flexbox and custom tags",
     "main": "gulpfile.js",
     "scripts": {
         "test": "mocha --recursive",
-        "scss_minified": "node-sass --output-style compressed ./scss/kimera.scss > ./css/kimera.min.css",
+        "scss_minified": "node-sass --output-style compressed ./scss/level.scss > ./css/level.min.css",
         "scss": "npm run scss_minified && node-sass --recursive --output-style expanded --output css --source-map true --source-map-contents scss",
         "gulp_tasks": "gulp",
         "scss:test": "node-sass test/scss/base/_mixins_spec.scss -o test/scss/base test/scss/base/_mixins_spec.css --include-path ./node_modules/sass-true/sass/_true.scss",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/JorgeAntrax/kimera.git"
+        "url": "git+https://github.com/JorgeAntrax/level.git"
     },
     "keywords": [
         "css",
@@ -34,12 +34,12 @@
     "email": "spicer_94@hotmail.com",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/JorgeAntrax/kimera/issues"
+        "url": "https://github.com/JorgeAntrax/level/issues"
     },
     "contributors": [
         "Ruslan López Carro"
     ],
-    "homepage": "https://jorgeantrax.github.io/kimeracss/",
+    "homepage": "https://jorgeantrax.github.io/level-css/",
     "dependencies": {
         "@types/jquery": "^3.3.1",
         "@types/npm": "^2.0.29",

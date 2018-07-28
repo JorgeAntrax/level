@@ -16,6 +16,8 @@ let range: NodeListOf<Element> = document.querySelectorAll('range');
 let tabs: NodeListOf<Element> = document.querySelectorAll('tabs');
 let tabsContent: NodeListOf<Element> = document.querySelectorAll('tabs-content');
 let btn_ripple: NodeListOf<Element> = document.querySelectorAll('button, .button');
+let burger: NodeListOf<Element> = document.querySelectorAll('burger');
+let ellipsis: NodeListOf<Element> = document.querySelectorAll('ellipsis');
 
 // initializes dynamic components
 init('checkbox');
@@ -29,15 +31,15 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL: string = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
+const PATH_URL: string = '//cdn.jsdelivr.net/npm/level@0.5.3/css/'; // path CDN
 let includeCSS: string[];
 if (kmInclude) {
     includeCSS = (`base ${kmInclude}`).split(' ');
-    let hasKimera: boolean = validateArray(includeCSS, 'kimera');
+    let hasLevel: boolean = validateArray(includeCSS, 'level');
     let url_include: string;
 
-    if (hasKimera) {
-        url_include = `${PATH_URL}kimera.min.css`; // url to file base.min.css
+    if (hasLevel) {
+        url_include = `${PATH_URL}level.min.css`; // url to file base.min.css
         head.appendChild(createLink(url_include));
     } else {
         for (let i = 0; i < includeCSS.length; i++) {
@@ -47,17 +49,39 @@ if (kmInclude) {
     }
 }
 
+
+/** add template in toggle icon burger and ellipsis */
+if(burger) {
+	for (let i = 0; i < burger.length; i++) {
+		burger[i].innerHTML ='<span></span><span></span><span></span>';
+		burger[i].addEventListener('click', function(){
+			this.classList.toggle('is-active');
+		},false);
+	}
+}
+
+if (ellipsis) {
+	for (let i = 0; i < ellipsis.length; i++) {
+		ellipsis[i].innerHTML = '<span></span><span></span><span></span>';
+		ellipsis[i].addEventListener('click', function () {
+			this.classList.toggle('is-active');
+		}, false);
+	}
+}
+
 /** Add ripple effect for al buttons elements*/
+
 
 if(btn_ripple) {
 	for (let i = 0; i < btn_ripple.length; i++) {
 		btn_ripple[i].innerHTML += `<div class="ripple-container"><span class="ripple-effect"></span></div>`;
 		btn_ripple[i].addEventListener('click', function(e: any){
+			e.stopPropagation();
 			let ripple: HTMLElement = this.querySelector('.ripple-effect');
 			let parent: HTMLElement = this.querySelector('.ripple-container');
 			let offset: any = this.getBoundingClientRect();
-			ripple.style.top = `${e.pageY - offset.top}px`;
-			ripple.style.left = `${e.pageX - offset.left}px`;
+			ripple.style.top = `${e.clientY - offset.top}px`;
+			ripple.style.left = `${e.clientX - offset.left}px`;
 			ripple.classList.add('ripple-active');
 
 			setTimeout(()=>{

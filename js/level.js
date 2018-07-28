@@ -11,14 +11,16 @@
     classIconPrev: 'fa fa-angle-up', // the classes for the icon previus control
     classIconNext: 'fa fa-angle-down', // the classess for the icon next control
     classIconInput: 'fa fa-calendar', // classes for de icon toggle calendar
-    iconPosition: 'left' // icon toggle position
+        iconPosition: 'left' // icon toggle position
+        required: true, //if required input control
+        value
     }
 */
 var Calendar = /** @class */ (function () {
     // create a template calendar and cached components
     function Calendar(o) {
         this.el = document.querySelector(o.el);
-        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input type=\"text\" class=\"input" + (o.style ? " is-" + o.style : '') + "\"" + (o.name ? " name=\"" + o.name + "\"" : '') + (o.id ? " id=\"" + o.id + "\"" : '') + ">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
+        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input" + (o.required ? ' required ' : ' ') + "type=\"text\" class=\"input" + (o.style ? " is-" + o.style : '') + "\"" + (o.name ? " name=\"" + o.name + "\"" : '') + (o.id ? " id=\"" + o.id + "\"" : '') + ">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
         this.input = this.el.querySelector('.input');
         this.toggle = this.el.querySelector('.toggle-calendar');
         this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
@@ -29,14 +31,17 @@ var Calendar = /** @class */ (function () {
         this.label = this.el.querySelector('.calendar-label');
         this.style = o.style;
         this.date = new Date();
+        this.defaultValue = this.el.getAttribute('value').split('/');
         this.init();
     }
     //this method configure all calendar parameters
     Calendar.prototype.init = function () {
         this.el.classList.add("is-" + this.style);
-        Calendar.setDay(this.date.getDate());
-        Calendar.setMonth(this.date.getMonth() + 1);
-        Calendar.setYear(this.date.getFullYear());
+        if (this.defaultValue != undefined) {
+            Calendar.setDay(parseInt(this.defaultValue[0]) || this.date.getDate());
+            Calendar.setMonth(parseInt(this.defaultValue[1]) || this.date.getMonth() + 1);
+            Calendar.setYear(parseInt(this.defaultValue[2]) || this.date.getFullYear());
+        }
         Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
         Calendar.updateInput(this.input);
         Calendar.updateMonth(this.labelMonth);
@@ -319,6 +324,8 @@ var range = document.querySelectorAll('range');
 var tabs = document.querySelectorAll('tabs');
 var tabsContent = document.querySelectorAll('tabs-content');
 var btn_ripple = document.querySelectorAll('button, .button');
+var burger = document.querySelectorAll('burger');
+var ellipsis = document.querySelectorAll('ellipsis');
 // initializes dynamic components
 init('checkbox');
 init('radio');
@@ -329,14 +336,14 @@ init('logo');
 init('range');
 /* ================== Import system CSS ==================== */
 var kmInclude = body.getAttribute('km-include'); //get attribute km-include
-var PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.6/css/'; // path CDN
+var PATH_URL = '//cdn.jsdelivr.net/npm/level@0.5.3/css/'; // path CDN
 var includeCSS;
 if (kmInclude) {
     includeCSS = ("base " + kmInclude).split(' ');
-    var hasKimera = validateArray(includeCSS, 'kimera');
+    var hasLevel = validateArray(includeCSS, 'level');
     var url_include = void 0;
-    if (hasKimera) {
-        url_include = PATH_URL + "kimera.min.css"; // url to file base.min.css
+    if (hasLevel) {
+        url_include = PATH_URL + "level.min.css"; // url to file base.min.css
         head.appendChild(createLink(url_include));
     }
     else {
@@ -346,16 +353,34 @@ if (kmInclude) {
         }
     }
 }
+/** add template in toggle icon burger and ellipsis */
+if (burger) {
+    for (var i = 0; i < burger.length; i++) {
+        burger[i].innerHTML = '<span></span><span></span><span></span>';
+        burger[i].addEventListener('click', function () {
+            this.classList.toggle('is-active');
+        }, false);
+    }
+}
+if (ellipsis) {
+    for (var i = 0; i < ellipsis.length; i++) {
+        ellipsis[i].innerHTML = '<span></span><span></span><span></span>';
+        ellipsis[i].addEventListener('click', function () {
+            this.classList.toggle('is-active');
+        }, false);
+    }
+}
 /** Add ripple effect for al buttons elements*/
 if (btn_ripple) {
     for (var i = 0; i < btn_ripple.length; i++) {
         btn_ripple[i].innerHTML += "<div class=\"ripple-container\"><span class=\"ripple-effect\"></span></div>";
         btn_ripple[i].addEventListener('click', function (e) {
+            e.stopPropagation();
             var ripple = this.querySelector('.ripple-effect');
             var parent = this.querySelector('.ripple-container');
             var offset = this.getBoundingClientRect();
-            ripple.style.top = e.pageY - offset.top + "px";
-            ripple.style.left = e.pageX - offset.left + "px";
+            ripple.style.top = e.clientY - offset.top + "px";
+            ripple.style.left = e.clientX - offset.left + "px";
             ripple.classList.add('ripple-active');
             setTimeout(function () {
                 ripple.classList.remove('ripple-active');

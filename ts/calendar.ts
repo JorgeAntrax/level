@@ -11,7 +11,9 @@
     classIconPrev: 'fa fa-angle-up', // the classes for the icon previus control
     classIconNext: 'fa fa-angle-down', // the classess for the icon next control
     classIconInput: 'fa fa-calendar', // classes for de icon toggle calendar
-    iconPosition: 'left' // icon toggle position
+		iconPosition: 'left' // icon toggle position
+		required: true, //if required input control
+		value
 	}
 */
 
@@ -31,7 +33,7 @@ class Calendar {
 	controlsYear: NodeListOf<Element>;
 	labelYear: Element;
 	labelMonth: Element;
-	value: Array<string>;
+	defaultValue: any;
 
 	// create a template calendar and cached components
 	constructor(o: any) {
@@ -39,7 +41,7 @@ class Calendar {
 		this.el.innerHTML = `
 				<field>
 					<control class="is-icon-${o.iconPosition}">
-						<input type="text" class="input${o.style ? ` is-${o.style}` : ''}"${o.name ? ` name="${o.name}"` : ''}${o.id ? ` id="${o.id}"` : ''}>
+						<input${o.required ? ' required ' : ' '}type="text" class="input${o.style ? ` is-${o.style}` : ''}"${o.name ? ` name="${o.name}"` : ''}${o.id ? ` id="${o.id}"` : ''}>
 						<icon class="toggle-calendar"><i class="${o.classIconInput}"></i></icon>
 					</control>
 				</field>
@@ -78,15 +80,18 @@ class Calendar {
 		this.label = this.el.querySelector('.calendar-label');
 		this.style = o.style;
 		this.date = new Date();
+		this.defaultValue = this.el.getAttribute('value').split('/');
 		this.init();
 	}
 
 	//this method configure all calendar parameters
 	init() {
 		this.el.classList.add(`is-${this.style}`);
-		Calendar.setDay(this.date.getDate());
-		Calendar.setMonth(this.date.getMonth() + 1);
-		Calendar.setYear(this.date.getFullYear());
+		if(this.defaultValue != undefined) {
+			Calendar.setDay(parseInt(this.defaultValue[0]) || this.date.getDate());
+			Calendar.setMonth(parseInt(this.defaultValue[1]) || this.date.getMonth() + 1);
+			Calendar.setYear(parseInt(this.defaultValue[2]) || this.date.getFullYear());
+		}
 		Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
 
 		Calendar.updateInput(this.input);
