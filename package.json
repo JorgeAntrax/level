@@ -1,5 +1,5 @@
 {
-    "name": "level",
+    "name": "level-css-framework",
     "version": "0.5.3",
     "description": "A Modern CSS and JS framework based on flexbox and custom tags",
     "main": "gulpfile.js",

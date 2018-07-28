@@ -23,18 +23,18 @@ hosted at JsDelivr CDN:
 # CDN Github
 
 // development file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level@0.5.1/css/level.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.css
 
 // distribution file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level@0.5.1/css/level.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.min.css
 
 # CDN Node Package Manager
 
 // development file
-https://cdn.jsdelivr.net/npm/level@0.5.1/css/level.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.css
 
 // distribution file
-https://cdn.jsdelivr.net/npm/level@0.5.1/css/level.min.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.min.css
 
 Thank you for using level, we appreciate your wupport with a star so the project can still be growing.
 
@@ -74,18 +74,18 @@ hosteado en CDN JsDelivr:
 # CDN Github
 
 // archivo de desarrollo
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level@0.5.1/css/level.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level@0.5.1/css/level.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.min.css
 
 # CDN Node Package Manager
 
 // archivo de desarrollo
-https://cdn.jsdelivr.net/npm/level@0.5.1/css/level.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/npm/level@0.5.1/css/level.min.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.min.css
 
 Gracias por utilizar level, te agradecemos no apoyes con una estrellita
 para que el proyecto siga creciendo.
