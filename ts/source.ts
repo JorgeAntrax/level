@@ -31,7 +31,7 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL: string = '//cdn.jsdelivr.net/npm/level@0.5.3/css/'; // path CDN
+const PATH_URL: string = '//cdn.jsdelivr.net/npm/level-css-framework@0.5.5/css/'; // path CDN
 let includeCSS: string[];
 if (kmInclude) {
     includeCSS = (`base ${kmInclude}`).split(' ');

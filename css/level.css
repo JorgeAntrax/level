@@ -2694,17 +2694,11 @@ toggle[disabled] > label:hover::before {
   left: 0; }
 
 box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  display: block;
   padding: 1rem;
   max-width: 100%;
-  overflow: hidden;
   border-radius: .2rem;
   box-shadow: 0 0.625rem 1.875rem -0.3125rem rgba(0, 0, 0, 0.15); }
-  box.is-mobile {
-    flex-direction: row; }
 
 item, dropmenu drop-item, acordeon acordeon-item, navbar nav-item, group group-item, listgroup list-item {
   display: flex;

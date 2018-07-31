@@ -1,16 +1,9 @@
 @import '../base/_partials';
 // component box, is a simple flexbox container  with a shadow and padding 1rem
 #{$name-box-module} {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    &.#{$class-mobile} {
-        flex-direction: row;
-    }
+    display: block;
     padding: 1rem;
     max-width: 100%;
-    overflow: hidden;
     border-radius: .2rem;
     box-shadow: 0 rem(10px) rem(30px) rem(-5px) rgba(#000, .15);
 }

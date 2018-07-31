@@ -13,7 +13,6 @@
     classIconInput: 'fa fa-calendar', // classes for de icon toggle calendar
         iconPosition: 'left' // icon toggle position
         required: true, //if required input control
-        value
     }
 */
 var Calendar = /** @class */ (function () {
@@ -31,16 +30,16 @@ var Calendar = /** @class */ (function () {
         this.label = this.el.querySelector('.calendar-label');
         this.style = o.style;
         this.date = new Date();
-        this.defaultValue = this.el.getAttribute('value').split('/');
+        this.defaultValue = this.el.getAttribute('value') ? this.el.getAttribute('value').split('/') : false;
         this.init();
     }
     //this method configure all calendar parameters
     Calendar.prototype.init = function () {
         this.el.classList.add("is-" + this.style);
         if (this.defaultValue != undefined) {
-            Calendar.setDay(parseInt(this.defaultValue[0]) || this.date.getDate());
-            Calendar.setMonth(parseInt(this.defaultValue[1]) || this.date.getMonth() + 1);
-            Calendar.setYear(parseInt(this.defaultValue[2]) || this.date.getFullYear());
+            Calendar.setDay(this.defaultValue ? parseInt(this.defaultValue[0]) : this.date.getDate());
+            Calendar.setMonth(this.defaultValue ? parseInt(this.defaultValue[1]) : this.date.getMonth() + 1);
+            Calendar.setYear(this.defaultValue ? parseInt(this.defaultValue[2]) : this.date.getFullYear());
         }
         Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
         Calendar.updateInput(this.input);
@@ -336,7 +335,7 @@ init('logo');
 init('range');
 /* ================== Import system CSS ==================== */
 var kmInclude = body.getAttribute('km-include'); //get attribute km-include
-var PATH_URL = '//cdn.jsdelivr.net/npm/level@0.5.3/css/'; // path CDN
+var PATH_URL = '//cdn.jsdelivr.net/npm/level-css-framework@0.5.5/css/'; // path CDN
 var includeCSS;
 if (kmInclude) {
     includeCSS = ("base " + kmInclude).split(' ');
