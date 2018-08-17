@@ -1,38 +1,19 @@
     @import '../base/_partials';
-    //variables
-    $button-background-color: $light !default;
-    $button-border-color: rgba($black, 0.1) !default;
-    $button-border-size: 1px !default;
-    $button-border-radius: rem(3px);
-    $button-circle: 1000em !default;
-    $button-floating-position: 100% !default;
-    $button-floating-shadow: 0 2px 5px -1px rgba($black, .1) !default;
-    $button-floating-shadow-hover: 0 6px 15px -2px rgba($black, .1) !default;
-    $button-hovered: 0 4 10em -2px rgba($black, 0.2) !default;
-    $button-padding: rem($text-default / 2) rem($text-default - 1px) !default;
     //styles
     #{$name-button-module},
     .#{$name-button-module} {
-        transition: all .1s ease-out;
+        @include flex('inline-flex', 'center', 'center');
         background-color: $button-background-color;
-        border: 0;
-        font-size: rem($text-default);
-        outline: none;
-        cursor: pointer;
-        z-index: 1;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        vertical-align: top;
-        user-select: none;
         border-radius: $button-border-radius;
+        border: $button-border-default;
         padding: $button-padding;
         position: relative;
+        user-select: none;
         overflow: hidden;
-        white-space: pre;
-        &:hover {
-            box-shadow: $button-hovered;
-        }
+        outline: none;
+        cursor: pointer;
+        transition: all .2s linear;
+
         //Add the ripple effect in event click
         .ripple-container {
             position: absolute;
@@ -57,24 +38,8 @@
                 }
             }
         }
-        &,
-        a {
-            color: inherit;
-        }
-        &.#{$class-rounded} {
-            border-radius: $button-circle;
-        }
-        // block estyle button
-        &.#{$class-block} {
-            display: flex;
-        }
-        #{$name-icon-module} {
-            width: auto;
-            &:first-child:last-child {
-                margin-left: rem(-$text-default);
-                margin-right: rem(-$text-default);
-            }
-        }
+
+        //style buttons
         @each $class,
         $color in $colors {
             @if $class=='cloud' {}
@@ -144,42 +109,38 @@
         }
         &[disabled],
         &[class$='-invert'] {
-            border: none;
+            border-color: transparent;
         }
+
+        &[is-icon] {
+            padding: $button-icon-padding;
+        }
+
+        &,
+        a {
+            color: inherit;
+        }
+
+        &.#{$class-rounded} {
+            border-radius: $button-rounded;
+        }
+        // block estyle button
+        &.#{$class-block} {
+            display: flex;
+        }
+
+        &:hover {
+            box-shadow: $button-hovered;
+        }
+
         // Create a button floating
         &[type='floating'] {
-            z-index: 40;
+            z-index: layer(index-1);
             margin: rem(5px);
-            border-radius: $button-circle;
+            border-radius: $button-rounded;
             box-shadow: $button-floating-shadow;
             &:hover {
                 box-shadow: $button-floating-shadow-hover;
-            }
-            &.is-small {
-                width: rem(32px);
-                height: rem(32px);
-            }
-            & {
-                width: rem(40px);
-                height: rem(40px);
-            }
-            &.is-medium {
-                width: rem(44px);
-                height: rem(44px);
-            }
-            &.is-large {
-                width: rem(50px);
-                height: rem(50px);
-            }
-        }
-        &[inactive] {
-            &,
-            &:active,
-            &:focus,
-            &:hover {
-                cursor: default;
-                pointer-events: none;
-                box-shadow: 0 0 0 transparent;
             }
         }
     }
@@ -187,13 +148,15 @@
     #{$name-buttons-module} {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         &.#{$class-addons} {
             flex-wrap: nowrap;
             &,
             &.#{$class-rounded} {
-                * {
+                *:not(:last-child) {
                     border-radius: 0;
-                    margin-right: -1px;
+                    margin-right: 0;
                 }
             }
              :first-child {
@@ -206,20 +169,17 @@
             }
             &.#{$class-rounded} {
                  :first-child {
-                    border-top-left-radius: $button-circle;
-                    border-bottom-left-radius: $button-circle;
+                    border-top-left-radius: $button-rounded;
+                    border-bottom-left-radius: $button-rounded;
                 }
                  :last-child {
-                    border-top-right-radius: $button-circle;
-                    border-bottom-right-radius: $button-circle;
+                    border-top-right-radius: $button-rounded;
+                    border-bottom-right-radius: $button-rounded;
                 }
             }
         }
         &:not(.#{$class-addons}) {
-            #{$name-button-module},
-            .#{$name-button-module} {
-                margin: .2rem;
-            }
+            justify-content: space-around;
         }
     }
     
@@ -228,7 +188,7 @@
         position: relative;
         align-items: center;
         justify-content: center;
-        z-index: 100;
+        z-index: (layer(index-1) + 10);
         #{$name-fabmenu-module} {
             display: none;
             flex-direction: column;

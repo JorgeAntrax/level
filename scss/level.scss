@@ -1,7 +1,5 @@
 /*
- Level 0.5.3 | MIT  License
- GitHub: github.com/JorgeAntrax/kimera
- Doc: https://jorgeantrax.github.io/kimeracss/
+ Level 0.6.0 | MIT  License
  Autor: Leonardo Quintana
 
  Integration with gulp [
@@ -11,8 +9,8 @@
 */
 
 @charset "utf-8";
-@import 'base/base.min',
+
+@import
+'base/base.min',
 'layout/layouts.min',
-'components/components.min',
-'modules/modules.min',
-'utilities/utilities.min';
+'components/components.min';

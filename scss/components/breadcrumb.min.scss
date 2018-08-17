@@ -1,10 +1,10 @@
 @import '../base/_partials';
-$breadcrumb-item-padding: 1rem !default;
+$breadcrumb-item-padding: rem($text-default) !default;
+
 #{$name-breadcrumb-module} {
     overflow-x: auto;
     display: flex;
-    max-width: 100%;
-    padding: rem(4px) 0;
+    width: 100%;
     #{$name-breadcrumb-item} {
         flex: 0 0 auto;
         cursor: pointer;
@@ -16,13 +16,14 @@ $breadcrumb-item-padding: 1rem !default;
         &:after {
             content: '\\';
             position: absolute;
+            width: rem($text-default - 2);
+            right: rem(-$text-default / 2);
             font-family: $family-icons;
-            width: 0.8rem;
-            right: -.4rem;
             text-align: center;
-            font-size: $text-small;
+            font-size: inherit;
             top: 50%;
             transform: translateY(-50%);
+            pointer-events: none;
         }
         &:after {
             display: none;

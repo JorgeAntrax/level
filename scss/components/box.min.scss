@@ -1,9 +1,10 @@
 @import '../base/_partials';
 // component box, is a simple flexbox container  with a shadow and padding 1rem
+
 #{$name-box-module} {
     display: block;
-    padding: 1rem;
-    max-width: 100%;
-    border-radius: .2rem;
-    box-shadow: 0 rem(10px) rem(30px) rem(-5px) rgba(#000, .15);
+    width: 100%;
+    padding: $box-padding;
+    border-radius: $box-border-radius;
+    box-shadow: 0 rem(10px) rem(30px) rem(-5px) rgba($box-color-shadow, $box-opacity-shadow);
 }

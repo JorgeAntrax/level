@@ -31,16 +31,18 @@ html {
 body {
     color: $dark;
     max-width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     overflow-x: hidden;
-    background-color: #fff;
+    overflow-y: auto;
+    background-color: $cloud;
     letter-spacing: $font-space;
     margin: 0;
+    padding: 0;
     &,
     p,
     button,
     input,
-    {
+    textarea {
         font-size: $text-default;
         line-height: $line-height-default;
     }
@@ -89,6 +91,9 @@ address {
     opacity: 1;
 }
 
+
+/*code pre*/
+
 small,
 pre,
 code {
@@ -96,9 +101,6 @@ code {
     font-weight: normal;
     margin: 0;
 }
-
-
-/*code pre*/
 
 code,
 pre,
@@ -115,6 +117,13 @@ code {
     margin-left: rem(3px);
     margin-right: rem(3px);
     border-radius: .15rem;
+}
+
+ul,
+ol {
+    margin-left: 1rem;
+    padding: 0;
+    padding-left: 1rem;
 }
 
 
@@ -155,6 +164,7 @@ mark {
 
 * ::-webkit-scrollbar {
     background-color: rgba($dark, 0.05);
+    transition: background-color .2s ease-out;
     width: rem(4px);
     height: rem(4px);
     position: relative;
@@ -173,14 +183,14 @@ mark {
 }
 
 * ::-webkit-scrollbar-thumb {
-    background-color: rgba($dark, 0.1);
+    background-color: rgba($dark, 0.5);
     border-radius: 1rem;
     cursor: pointer;
     -webkit-transition: all .2s ease-out;
-    transition: all .2s ease-out;
+    transition: background-color .2s ease-out;
     &:hover,
     &:active {
-        background-color: rgba($black, 0.2);
+        background-color: $primary;
     }
 }
 

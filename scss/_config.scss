@@ -1,6 +1,7 @@
 // *************************************************************
 // ****************** Set name components **********************
 // *************************************************************
+
 //divider
 $name-divider-element: 'divider';
 //blockquote component
@@ -54,6 +55,7 @@ $name-field-module: 'field';
 $name-control-module: 'control';
 $name-help-module: 'help';
 $name-listbox-module: 'listbox';
+$name-calendar-module: 'calendar';
 $name-color-module: 'color';
 // *************************************************************
 // ****************** Set name layout **************************
@@ -119,6 +121,14 @@ $name-social-media: 'media';
 $name-social-content: 'content';
 $name-social-header: 'header';
 $name-social-footer: 'footer';
+//slideshow module
+$slide-name-module: 'slideshow';
+$sliders-name: 'sliders';
+$slider-item: 'slider';
+$slider-control: 'slider-control';
+$slider-next: 'slider-next';
+$slider-prev: 'slider-prev';
+$slider-caption: 'slider-caption';
 //table module
 $name-table-module: 'table';
 //tabs module
@@ -268,6 +278,8 @@ $class-padding-vertical: 'padding-v';
 $class-padding-horizontal: 'padding-h';
 //class name opacity
 $class-opacity: 'opacity';
+// class name shadow
+$class-shadow: 'is-shadow';
 // class name color picker
 //color name picker ej: #{$class-color-picker}-primary = .color-primary
 $class-color-picker: 'color';

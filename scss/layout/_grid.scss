@@ -34,7 +34,13 @@
 .#{$class-distributed} {
     justify-content: space-around;
 }
+.#{$class-block-grid} {
+    width: 100%;
+}
 
+.#{$class-half-grid} {
+    width: 50%;
+}
 
 /*clases flexbox fila y columna*/
 
@@ -52,10 +58,7 @@
     }
     &-invert {
         @extend #{$name-row-module};
-        flex-direction: row-reverse;
-    }
-    &.#{$class-boxed} {
-        flex-direction: column;
+        flex-direction: row-reverse !important;
     }
     #{$name-column-module} {
         display: block;
@@ -63,14 +66,6 @@
         max-width: 100%;
         min-width: 5%;
     }
-}
-
-.#{$class-block-grid} {
-    width: 100%;
-}
-
-.#{$class-half-grid} {
-    width: 50%;
 }
 
 [class*="mobile-"],
@@ -151,3 +146,4 @@ $value in $breakpoint {
         }
     }
 }
+

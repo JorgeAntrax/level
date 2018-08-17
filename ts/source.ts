@@ -1,4 +1,4 @@
-/* modules and components saved in variables */
+/* All components saved in variables */
 
 let acordeon: NodeListOf<Element> = document.querySelectorAll('acordeon');
 let body: HTMLBodyElement = document.querySelector('body');
@@ -30,11 +30,11 @@ init('range');
 
 /* ================== Import system CSS ==================== */
 
-let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
+let lvInclude: string = body.getAttribute('@include'); //get attribute @include
 const PATH_URL: string = '//cdn.jsdelivr.net/npm/level-css-framework@0.5.5/css/'; // path CDN
 let includeCSS: string[];
-if (kmInclude) {
-    includeCSS = (`base ${kmInclude}`).split(' ');
+if (lvInclude) {
+    includeCSS = (`base ${lvInclude}`).split(' ');
     let hasLevel: boolean = validateArray(includeCSS, 'level');
     let url_include: string;
 
@@ -47,6 +47,7 @@ if (kmInclude) {
             head.appendChild(createLink(url_include));
         }
     }
+    body.removeAttribute('@include');
 }
 
 
@@ -190,7 +191,7 @@ if (acordeon.length > 0) {
 /* shows, hides, and controls behavior module accordion */
 function acordeonToggle() {
 	let contentAcordeon: NodeListOf<HTMLElement> = this.parentNode.querySelectorAll('content');
-		if (this.parentNode.hasAttribute('is-multiple')) {
+		if (this.parentNode.hasAttribute('multiple')) {
 				this.nextElementSibling.classList.toggle('is-visible');
 		} else {
 				for (let i = 0; i < contentAcordeon.length; i++) {
@@ -282,8 +283,8 @@ function init(component: string) {
                     `<input type="${component}"${id ? ` id="${id}"` : ''}${value ? ` value="${value}"` : ''}${form ? ` form="${form}"` : ''}${name ? ` name="${name}"` : ''}${check ? ' checked' : ''}${require ? ' required' : ''}/><label ${id ? ` for="${id}"` : ''}>${text ? text : ''}</label>`;
                 break;
             case 'color':
-								currentElement.innerHTML =
-										`<input type="color" ${id ? ` id="${id}"` : ''}${value ? ` value="${value}"` : ''}/>`;
+				currentElement.innerHTML =
+					`<input type="color" ${id ? ` id="${id}"` : ''}${value ? ` value="${value}"` : ''}/>`;
                 break;
             case 'process':
                 currentElement.innerHTML = `<complete${value ? ` value="${value}"` : ''}></complete>`;
@@ -291,7 +292,7 @@ function init(component: string) {
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-								currentElement.innerHTML =`<input type="checkbox" ${id ? ` id="${id}"` : ''}${form ? ` form="${form}"` : ''}${name ? ` name="${name}"` : ''}${check ? ' checked' : ''}${require ? ' required' : ''}/><label ${id ? ` for="${id}"` : ''} ></label>`;
+				currentElement.innerHTML =`<input type="checkbox" ${id ? ` id="${id}"` : ''}${form ? ` form="${form}"` : ''}${name ? ` name="${name}"` : ''}${check ? ' checked' : ''}${require ? ' required' : ''}/><label ${id ? ` for="${id}"` : ''} ></label>`;
                 break;
             case 'logo':
                 let value_src = currentElement.getAttribute('src');

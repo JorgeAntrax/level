@@ -7,7 +7,6 @@ $navbar-height: 4rem !default;
     width: 100%;
     max-width: 100%;
     align-items: stretch;
-    z-index: 10;
     &,
     #{$name-navmenu-module} {
         flex-direction: column;
@@ -78,15 +77,17 @@ $navbar-height: 4rem !default;
         position: fixed;
         left: 0;
         width: 100%;
+        z-index: layer(index-4);
     }
     &.#{$class-fixed-top} {
         top: 0;
-        box-shadow: 0 rem(10px) rem(40px) rem(-10px) rgba($black, .1);
+        box-shadow: 0 rem(10px) rem(40px) rem(-10px) rgba($black, $opacity-shadow);
     }
     &.#{$class-fixed-bottom} {
         bottom: 0;
-        box-shadow: 0 rem(-10px) rem(40px) rem(-10px) rgba($black, .1);
+        box-shadow: 0 rem(-10px) rem(40px) rem(-10px) rgba($black, $opacity-shadow);
     }
+
 }
 
 @include until (tablet) {

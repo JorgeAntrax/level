@@ -13,9 +13,7 @@ const DIR_JS_SRC = './js/src/';
 const SASS_FILES = [
     './scss/base/*.scss',
     './scss/components/*.scss',
-    './scss/layout/*.scss',
-    './scss/modules/*.scss',
-    './scss/utilities/*.scss'
+    './scss/layout/*.scss'
 ];
 
 /**Default task (runs when executing `gulp` comand in the console)*/

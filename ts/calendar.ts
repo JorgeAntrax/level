@@ -32,7 +32,6 @@ class Calendar {
 	controlsYear: NodeListOf<Element>;
 	labelYear: Element;
 	labelMonth: Element;
-	defaultValue: any;
 
 	// create a template calendar and cached components
 	constructor(o: any) {
@@ -40,66 +39,74 @@ class Calendar {
 		this.el.innerHTML = `
 				<field>
 					<control class="is-icon-${o.iconPosition}">
-						<input${o.required ? ' required ' : ' '}type="text" class="input${o.style ? ` is-${o.style}` : ''}"${o.name ? ` name="${o.name}"` : ''}${o.id ? ` id="${o.id}"` : ''}>
-						<icon class="toggle-calendar"><i class="${o.classIconInput}"></i></icon>
+						<input${o.required ? ' required ' : ' '}type="text" ${this.el.hasAttribute('default-value') ? `value="${this.el.getAttribute('default-value')}"` : ''} class="input calendar-input${o.style ? ` is-${o.style}` : ''}"${o.name ? ` name="${o.name}"` : ''}${o.id ? ` id="${o.id}"` : ''}>
+						<icon class="calendar-toggle"><i class="${o.classIconInput}"></i></icon>
 					</control>
 				</field>
 				<div class="calendar">
 					<div class="calendar-controls">
-						<div class="calendar-control-month">
-							<span class="calendar-control-item control-prev"><i class="${o.classIconPrev}"></i></span>
-							<span class="calendar-label-control"></span>
-							<span class="calendar-control-item control-next"><i class="${o.classIconNext}"></i></span>
+						<div class="calendar-controls-month">
+							<span class="calendar-controls-item control-prev"><i class="${o.classIconPrev}"></i></span>
+							<span class="calendar-controls-label"></span>
+							<span class="calendar-controls-item control-next"><i class="${o.classIconNext}"></i></span>
 						</div>
 						<span class="calendar-label"></span>
-						<div class="calendar-control-year">
-							<span class="calendar-control-item control-prev"><i class="${o.classIconPrev}"></i></span>
-							<span class="calendar-label-control"></span>
-							<span class="calendar-control-item control-next"><i class="${o.classIconNext}"></i></span>
+						<div class="calendar-controls-year">
+							<span class="calendar-controls-item control-prev"><i class="${o.classIconPrev}"></i></span>
+							<span class="calendar-controls-label"></span>
+							<span class="calendar-controls-item control-next"><i class="${o.classIconNext}"></i></span>
 						</div>
 					</div>
 					<div class="calendar-grid">
-						<span class="label-grid-days">${o.languaje != 'es' ? 'su' : 'd'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'm' : 'l'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'tu' : 'm'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'we' : 'mi'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'th' : 'j'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'f' : 'v'}</span>
-						<span class="label-grid-days">${o.languaje != 'es' ? 'sa' : 's'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'su' : 'd'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'm' : 'l'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'tu' : 'm'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'we' : 'mi'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'th' : 'j'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'f' : 'v'}</span>
+						<span class="calendar-grid-days">${o.languaje != 'es' ? 'sa' : 's'}</span>
 					</div>
 				</div>
 			`;
-		this.input = this.el.querySelector('.input');
-		this.toggle = this.el.querySelector('.toggle-calendar');
-		this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
-		this.labelYear = this.el.querySelector('.calendar-control-year .calendar-label-control');
-		this.controlsMonth = this.el.querySelectorAll('.calendar-control-month .calendar-control-item');
-		this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
+		this.input = this.el.querySelector('.calendar-input');
+		this.toggle = this.el.querySelector('.calendar-toggle');
+		this.labelMonth = this.el.querySelector('.calendar-controls-month .calendar-controls-label');
+		this.labelYear = this.el.querySelector('.calendar-controls-year .calendar-controls-label');
+		this.controlsMonth = this.el.querySelectorAll('.calendar-controls-month .calendar-controls-item');
+		this.controlsYear = this.el.querySelectorAll('.calendar-controls-year .calendar-controls-item');
 		this.grid = this.el.querySelector('.calendar-grid');
 		this.label = this.el.querySelector('.calendar-label');
-		this.style = o.style;
+		this.style = o.style || 'light';
 		this.date = new Date();
-		this.defaultValue = this.el.getAttribute('value') ? this.el.getAttribute('value').split('/'): false;
 		this.init();
 	}
 
 	//this method configure all calendar parameters
 	init() {
+		let hasValue: boolean = false;
+		let val: Array<string>;
 		this.el.classList.add(`is-${this.style}`);
-		if(this.defaultValue != undefined) {
-			Calendar.setDay(this.defaultValue ? parseInt(this.defaultValue[0]) : this.date.getDate());
-			Calendar.setMonth(this.defaultValue ? parseInt(this.defaultValue[1]) : this.date.getMonth() + 1);
-			Calendar.setYear(this.defaultValue ? parseInt(this.defaultValue[2]) : this.date.getFullYear());
+
+		if(this.input.hasAttribute('value')) {
+			val = this.input.value.split('/');
+			hasValue = true;
 		}
-		Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
+
+		Calendar.setDay(hasValue ? parseInt(val[0]) : this.date.getDate());
+		Calendar.setMonth(hasValue ? parseInt(val[1]) : this.date.getMonth() + 1);
+		Calendar.setYear(hasValue ? parseInt(val[2]) : this.date.getFullYear());
 
 		Calendar.updateInput(this.input);
+		Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
+
 		Calendar.updateMonth(this.labelMonth);
 		Calendar.updateYear(this.labelYear);
 		this.watchInput(this.el, this.toggle);
 		this.watchMonths(this.controlsMonth);
 		this.watchYear(this.controlsYear);
 	}
+
+
 
 	//this static method build the calendar using native class date()
 	static buildCalendar(el: Element, grid: Element, label: Element, input: Element, date: Date) {
@@ -108,7 +115,7 @@ class Calendar {
 			anio: any = Calendar.getYear,
 			forMes: number = 0,
 			calendar: Element = grid.parentElement,
-			buttons: NodeListOf<Element> = grid.querySelectorAll('button'),
+			buttons: NodeListOf<Element> = grid.querySelectorAll('.calendar-grid-button'),
 			day: number, index: number, btn: any;
 
 		date.setFullYear(anio, mes, 1);
@@ -127,6 +134,8 @@ class Calendar {
 
 		for (index = 1; index <= forMes; index++) {
 			btn = document.createElement('button');
+			btn.setAttribute('is-icon', 'true');
+			btn.classList.add('calendar-grid-button');
 			btn.classList.add('is-rounded');
 			if (index == Calendar.getDay) {
 				btn.classList.add('is-active');
@@ -142,7 +151,7 @@ class Calendar {
 			grid.appendChild(btn);
 		}
 
-		buttons = grid.querySelectorAll('button');
+		buttons = grid.querySelectorAll('.calendar-grid-button');
 		Calendar.watchCalendar(label, buttons, input, calendar);
 	}
 

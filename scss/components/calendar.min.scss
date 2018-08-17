@@ -1,54 +1,57 @@
 @import '../base/_partials';
-calendar {
+
+$calendar-border-radius: $border-radius;
+#{$name-calendar-module} {
     position: relative;
-    &,
-    .calendar {
-        display: inline-flex;
-        flex-direction: column;
-    }
-    .input {
-        min-width: 300px;
-        color: lighten($dark, 10);
-    }
-    .toggle-calendar {
-        cursor: pointer;
-        transition: all .2s ease-out;
-        &:hover {
-            color: $black;
-        }
-    }
-    .calendar {
-        max-height: 0;
+    display: inline-flex;
+    flex-direction: column;
+    
+    .#{&} {
+        @extend #{$name-calendar-module};
+        position: absolute;
+        user-select: none;
+        overflow: hidden;
         min-width: 300px;
         max-width: 350px;
-        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, .2);
-        overflow: hidden;
-        user-select: none;
-        transition: max-height .2s ease;
-        position: absolute;
-        left: 0;
+        max-height: 0;
         top: 100%;
+        left: 0;
+        z-index: layer(index-2);
+        transition: max-height .2s ease;
+        box-shadow: 0 10px 40px -10px rgba($black, $opacity-shadow);
         background-color: $cloud;
-        z-index: 1000;
         &.is-visible {
             max-height: 100vh;
         }
         * {
-            font-size: 0.7rem;
+            font-size: $text-small;
         }
+
+        &-input {
+            min-width: 300px;
+            color: lighten($dark, 10);
+        }
+        &-toggle {
+            cursor: pointer;
+            transition: all .2s ease-out;
+            &:hover {
+                color: $black;
+            }
+        }
+
         &-controls,
-        .label-grid-days,
-        &-control-month,
-        &-control-year,
+        &-grid-days,
+        &-controls-month,
+        &-controls-year,
         &-label {
             display: flex;
         }
         &-controls {
-            padding: 1rem;
+            padding: rem($text-default);
             align-items: center;
-            text-transform: uppercase;
-            .calendar-control-month,
-            .calendar-control-year {
+            text-transform: $text-upper;
+            &-month,
+            &-year {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -56,101 +59,90 @@ calendar {
                     text-align: center;
                 }
             }
+            &-label {
+                font-size: $text-large;
+                overflow: hidden;
+                word-break: no-all;
+                text-overflow: ellipsis;
+            }
+
+            &-item {
+                padding: 0.15rem rem($text-default);
+                border-radius: $calendar-border-radius;
+                cursor: pointer;
+                transition: all .2s ease;
+                &:hover {
+                    background-color: rgba($black, $opacity-shadow);
+                }
+            }
         }
+
         &-controls,
-        .label-grid-days,
+        &-grid-days,
         &-label {
             align-items: center;
             justify-content: space-between;
         }
-        .label-grid-days {
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            opacity: 0.6;
-            color: $dark;
-        }
-        & button {
-            max-width: 2rem;
-            max-height: 2rem;
-            width: 2rem;
-            height: 2rem;
-        }
-        &-controls button {
-            background-color: transparent;
-        }
+        
         &-label {
             justify-content: center;
-            font-size: 5rem;
-            line-height: 2rem;
-            padding: 0 1rem;
+            font-size: rem($text-default * 5);
+            line-height: 1;
+            padding: 0 rem($text-default);
         }
-        &-label-control {
-            font-size: 1.5rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        &-control-item {
-            padding: 0.15rem 1rem;
-            border-radius: rem(4px);
-            cursor: pointer;
-            transition: all .2s ease;
-            &:hover {
-                background-color: rgba($black, .15);
-            }
-        }
+
         &-grid {
-            padding: 1rem 0;
+            padding: rem($text-default) 0;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             justify-items: center;
             align-items: center;
-            button {
-                margin-top: 0.25rem;
+
+            &-days {
+                padding-bottom: rem($text-default / 2);
+                text-transform: $text-upper;
+                font-weight: $text-bold;
+                opacity: 0.6;
+                color: $dark;
+            }
+
+            &-button {
+                margin-top: rem($text-default / 4);
+                max-width: 2rem;
+                max-height: 2rem;
+                width: 2rem;
+                height: 2rem;
                 &[disabled] {
-                    opacity: 0.5;
+                    opacity: $opacity-shadow * 3;
                 }
             }
         }
     }
+
     @each $class,
     $color in $colors {
-        @if ($class=='black') or ($class=='primary') {}
-        @else {
-            &.is-#{$class} .calendar-controls,
-            &.is-#{$class} .is-active {
-                background-color: $color;
-                @if $class=='warning' {
-                    color: $dark;
-                }
+        &.is-#{$class} .calendar-controls,
+        &.is-#{$class} .is-active {
+            background-color: $color;
+            @if $class=='warning' or $class=='cloud' or $class=='light' {
+                color: $dark;
+            }@else {
+                color: $cloud;
             }
         }
     }
-    & .calendar-controls,
-    & .is-active {
-        background-color: $primary;
-        color: $cloud;
-    }
-    &.is-primary,
-    &.is-info,
-    &.is-success,
-    &.is-danger {
-        & .calendar-controls,
-        & .is-active {
-            color: #fff;
-        }
-    }
+
     @include until(touch) {
         & {
             position: initial;
-            .calendar.is-visible {
+            .#{&}.is-visible {
                 max-width: 100%;
                 width: 100%;
                 position: fixed;
                 top: 0;
                 left: 50%;
                 transform: translateX(-50%);
-                box-shadow: 0 10px 500000em 10000em rgba(0, 0, 0, .3);
+                box-shadow: 0 10px 500000em 10000em rgba($black, $opacity-shadow * 2);
             }
         }
     }

@@ -19,30 +19,33 @@ var Calendar = /** @class */ (function () {
     // create a template calendar and cached components
     function Calendar(o) {
         this.el = document.querySelector(o.el);
-        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input" + (o.required ? ' required ' : ' ') + "type=\"text\" class=\"input" + (o.style ? " is-" + o.style : '') + "\"" + (o.name ? " name=\"" + o.name + "\"" : '') + (o.id ? " id=\"" + o.id + "\"" : '') + ">\n\t\t\t\t\t\t<icon class=\"toggle-calendar\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-control-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-control-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-label-control\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-control-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"label-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
-        this.input = this.el.querySelector('.input');
-        this.toggle = this.el.querySelector('.toggle-calendar');
-        this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
-        this.labelYear = this.el.querySelector('.calendar-control-year .calendar-label-control');
-        this.controlsMonth = this.el.querySelectorAll('.calendar-control-month .calendar-control-item');
-        this.controlsYear = this.el.querySelectorAll('.calendar-control-year .calendar-control-item');
+        this.el.innerHTML = "\n\t\t\t\t<field>\n\t\t\t\t\t<control class=\"is-icon-" + o.iconPosition + "\">\n\t\t\t\t\t\t<input" + (o.required ? ' required ' : ' ') + "type=\"text\" " + (this.el.hasAttribute('default-value') ? "value=\"" + this.el.getAttribute('default-value') + "\"" : '') + " class=\"input calendar-input" + (o.style ? " is-" + o.style : '') + "\"" + (o.name ? " name=\"" + o.name + "\"" : '') + (o.id ? " id=\"" + o.id + "\"" : '') + ">\n\t\t\t\t\t\t<icon class=\"calendar-toggle\"><i class=\"" + o.classIconInput + "\"></i></icon>\n\t\t\t\t\t</control>\n\t\t\t\t</field>\n\t\t\t\t<div class=\"calendar\">\n\t\t\t\t\t<div class=\"calendar-controls\">\n\t\t\t\t\t\t<div class=\"calendar-controls-month\">\n\t\t\t\t\t\t\t<span class=\"calendar-controls-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-controls-label\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-controls-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"calendar-label\"></span>\n\t\t\t\t\t\t<div class=\"calendar-controls-year\">\n\t\t\t\t\t\t\t<span class=\"calendar-controls-item control-prev\"><i class=\"" + o.classIconPrev + "\"></i></span>\n\t\t\t\t\t\t\t<span class=\"calendar-controls-label\"></span>\n\t\t\t\t\t\t\t<span class=\"calendar-controls-item control-next\"><i class=\"" + o.classIconNext + "\"></i></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"calendar-grid\">\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'su' : 'd') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'm' : 'l') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'tu' : 'm') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'we' : 'mi') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'th' : 'j') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'f' : 'v') + "</span>\n\t\t\t\t\t\t<span class=\"calendar-grid-days\">" + (o.languaje != 'es' ? 'sa' : 's') + "</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t";
+        this.input = this.el.querySelector('.calendar-input');
+        this.toggle = this.el.querySelector('.calendar-toggle');
+        this.labelMonth = this.el.querySelector('.calendar-controls-month .calendar-controls-label');
+        this.labelYear = this.el.querySelector('.calendar-controls-year .calendar-controls-label');
+        this.controlsMonth = this.el.querySelectorAll('.calendar-controls-month .calendar-controls-item');
+        this.controlsYear = this.el.querySelectorAll('.calendar-controls-year .calendar-controls-item');
         this.grid = this.el.querySelector('.calendar-grid');
         this.label = this.el.querySelector('.calendar-label');
-        this.style = o.style;
+        this.style = o.style || 'light';
         this.date = new Date();
-        this.defaultValue = this.el.getAttribute('value') ? this.el.getAttribute('value').split('/') : false;
         this.init();
     }
     //this method configure all calendar parameters
     Calendar.prototype.init = function () {
+        var hasValue = false;
+        var val;
         this.el.classList.add("is-" + this.style);
-        if (this.defaultValue != undefined) {
-            Calendar.setDay(this.defaultValue ? parseInt(this.defaultValue[0]) : this.date.getDate());
-            Calendar.setMonth(this.defaultValue ? parseInt(this.defaultValue[1]) : this.date.getMonth() + 1);
-            Calendar.setYear(this.defaultValue ? parseInt(this.defaultValue[2]) : this.date.getFullYear());
+        if (this.input.hasAttribute('value')) {
+            val = this.input.value.split('/');
+            hasValue = true;
         }
-        Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
+        Calendar.setDay(hasValue ? parseInt(val[0]) : this.date.getDate());
+        Calendar.setMonth(hasValue ? parseInt(val[1]) : this.date.getMonth() + 1);
+        Calendar.setYear(hasValue ? parseInt(val[2]) : this.date.getFullYear());
         Calendar.updateInput(this.input);
+        Calendar.buildCalendar(this.el, this.grid, this.label, this.input, this.date);
         Calendar.updateMonth(this.labelMonth);
         Calendar.updateYear(this.labelYear);
         this.watchInput(this.el, this.toggle);
@@ -51,7 +54,7 @@ var Calendar = /** @class */ (function () {
     };
     //this static method build the calendar using native class date()
     Calendar.buildCalendar = function (el, grid, label, input, date) {
-        var mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('button'), day, index, btn;
+        var mes = Calendar.getMonth - 1, anio = Calendar.getYear, forMes = 0, calendar = grid.parentElement, buttons = grid.querySelectorAll('.calendar-grid-button'), day, index, btn;
         date.setFullYear(anio, mes, 1);
         day = date.getDay();
         forMes = Calendar.getDays(mes);
@@ -63,6 +66,8 @@ var Calendar = /** @class */ (function () {
         }
         for (index = 1; index <= forMes; index++) {
             btn = document.createElement('button');
+            btn.setAttribute('is-icon', 'true');
+            btn.classList.add('calendar-grid-button');
             btn.classList.add('is-rounded');
             if (index == Calendar.getDay) {
                 btn.classList.add('is-active');
@@ -78,7 +83,7 @@ var Calendar = /** @class */ (function () {
             }
             grid.appendChild(btn);
         }
-        buttons = grid.querySelectorAll('button');
+        buttons = grid.querySelectorAll('.calendar-grid-button');
         Calendar.watchCalendar(label, buttons, input, calendar);
     };
     //this method add the event click for the icon toggle
@@ -255,7 +260,7 @@ var meses_en = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'ago', 'sep', '
 var Listbox = /** @class */ (function () {
     function Listbox(obj) {
         this.el = document.querySelector(obj.el);
-        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input" + (obj.rounded ? ' is-rounded' : '') + " " + (obj.hasTwoIcons ? 'padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
+        this.el.innerHTML += "<input " + (obj.name ? "name=\"" + obj.name + "\"" : '') + " " + (obj.id ? "id=\"" + obj.id + "\"" : '') + " type=\"text\" class=\"input" + (obj.rounded ? ' is-rounded' : '') + (obj.hasTwoIcons ? ' padding-l-2' : '') + "\">\n\t\t\t\t<icon class=\"is-toggle-listbox\"><i class=\"" + obj.iconToggleClass + "\"></i></icon>\n\t\t\t\t" + (obj.iconLabelClass ? "<icon class=\"listbox-icon\"><i class=\"" + obj.iconLabelClass + "\"></i></icon>" : '');
         this.init();
     }
     /* the iit method, add the listeners for input and toggle icon elements */
@@ -268,7 +273,7 @@ var Listbox = /** @class */ (function () {
         var input = this.el.querySelector('.input');
         var list = this.el.querySelector('list');
         var listItems = this.el.querySelectorAll('list-item');
-        input.value = listItems[0].getAttribute('text');
+        input.value = listItems[0].hasAttribute('text') ? listItems[0].getAttribute('text') : listItems[0].getAttribute('value');
         input.readOnly = true;
         listItems[0].classList.add('is-active');
         input.addEventListener('click', function () {
@@ -306,7 +311,179 @@ var Listbox = /** @class */ (function () {
     return Listbox;
 }());
 
-/* modules and components saved in variables */
+var Slider = /** @class */ (function () {
+    function Slider(object) {
+        this.el = document.querySelector(object.el);
+        this.height = parseInt(this.el.getAttribute('height'));
+        this.controls = object.controls;
+        this.nextControl = object.nextControl;
+        this.prevControl = object.prevControl;
+        this.autoplay = object.autoplay || false;
+        this.interval = object.interval || 0;
+        this.init();
+    }
+    Slider.prototype.init = function () {
+        this.buildSliders();
+    };
+    Slider.prototype.buildSliders = function () {
+        var $container = this.el.querySelector('sliders');
+        var elSlider = this.el.querySelectorAll('slider');
+        var slide, slideType;
+        this.el.style.height = this.height + 'px';
+        for (var i = 0; i < elSlider.length; i++) {
+            elSlider[i].innerHTML += "\n            " + (elSlider[i].hasAttribute('src') ? "<img src='" + elSlider[i].getAttribute('src') + "'/>" : '') + (elSlider[i].hasAttribute('caption') ? "<div class=\"slider-caption\">" + elSlider[i].getAttribute('caption') + "</div>" : '');
+        }
+        if (this.el.hasAttribute('animation')) {
+            var animate = this.el.getAttribute('animation');
+            if (animate == 'slide') {
+                slide = true;
+                slideType = 'horizontal';
+                console.log($container + elSlider.length);
+                $container.style.minWidth = (elSlider.length * 100) + '%';
+            }
+            if (animate == 'slide-vertical') {
+                slide = true;
+                slideType = 'vertical';
+                for (var i = 0; i < elSlider.length; i++) {
+                    elSlider[i].style.height = this.height + 'px';
+                }
+                $container.style.minHeight = (elSlider.length * this.height) + '%';
+            }
+            if (animate == 'fade') {
+                slide = false;
+            }
+        }
+        if (this.controls) {
+            this.el.innerHTML += "\n\t\t\t\t\t\t<span class=\"slider-control slider-prev\">\n\t\t\t\t\t\t\t<icon class=\"is-medium\"><i class=\"" + this.nextControl + "\"></i></icon>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<span class=\"slider-control slider-next\">\n\t\t\t\t\t\t\t<icon class=\"is-medium\"><i class=\"" + this.prevControl + "\"></i></icon>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t";
+        }
+        if (slide) {
+            this.watchSlide(slideType);
+        }
+        else {
+            this.watchFade();
+        }
+    };
+    Slider.prototype.watchSlide = function (type) {
+        var _this = this;
+        var controls = this.el.querySelectorAll('.slider-control'), slidersT = this.el.querySelectorAll('slider'), container = this.el.querySelector('sliders'), sliders = slidersT.length, control = 0;
+        if (this.autoplay) {
+            control = this.autoPlay(this.interval, type);
+        }
+        var _loop_1 = function (i) {
+            var btn = controls[i];
+            btn.addEventListener('click', function () {
+                var ctrl = btn.classList.contains('slider-next') ? 1 : -1;
+                if (type == 'horizontal') {
+                    if (ctrl == 1) {
+                        (control < (sliders - 1)) ? control++ : control = 0;
+                        container.style.left = (control * -100) + '%';
+                    }
+                    else {
+                        (control == 0) ? control = sliders - 1 : control--;
+                        container.style.left = (control * -100) + '%';
+                    }
+                }
+                else {
+                    if (ctrl == 1) {
+                        (control < (sliders - 1)) ? control++ : control = 0;
+                        container.style.top = (control * -_this.height) + 'px';
+                    }
+                    else {
+                        (control == 0) ? control = sliders - 1 : control--;
+                        container.style.top = (control * -_this.height) + 'px';
+                    }
+                }
+            }, false);
+        };
+        for (var i = 0; i < controls.length; i++) {
+            _loop_1(i);
+        }
+    };
+    Slider.prototype.autoPlay = function (interval, type) {
+        var _this = this;
+        var container = this.el.querySelector('sliders');
+        var sliders = container.querySelectorAll('slider');
+        switch (type) {
+            case 'horizontal':
+                var control_1 = 0;
+                var cont1 = sliders.length;
+                setInterval(function (cont1) {
+                    (control_1 < (cont1 - 1)) ? control_1++ : control_1 = 0;
+                    container.style.left = (control_1 * -100) + '%';
+                    return control_1;
+                }, interval);
+                break;
+            case 'vertical':
+                var control1_1 = 0;
+                var cont2 = sliders.length;
+                setInterval(function (cont2) {
+                    (control1_1 < (cont2 - 1)) ? control1_1++ : control1_1 = 0;
+                    container.style.top = (control1_1 * -_this.height) + 'px';
+                    return control1_1;
+                }, interval);
+                break;
+            default:
+                var ctrl_1 = 0;
+                var cont_1 = sliders.length;
+                sliders[0].classList.add('is-active');
+                setInterval(function () {
+                    for (var i = 0; i < sliders.length; i++) {
+                        if (sliders[i].classList.contains('is-active')) {
+                            sliders[i].classList.remove('is-active');
+                            ctrl_1 = i + 1;
+                        }
+                    }
+                    if (ctrl_1 < cont_1) {
+                        sliders[ctrl_1].classList.add('is-active');
+                    }
+                    else {
+                        ctrl_1 = 0;
+                        sliders[ctrl_1].classList.add('is-active');
+                    }
+                }, interval);
+                break;
+        }
+    };
+    Slider.prototype.watchFade = function () {
+        var controls = this.el.querySelectorAll('.slider-control'), slidersT = this.el.querySelectorAll('slider'), activo = 0;
+        slidersT[activo].classList.add('is-active');
+        if (this.autoplay) {
+            this.autoPlay(this.interval, '');
+        }
+        var _loop_2 = function (i) {
+            var btn = controls[i];
+            btn.addEventListener('click', function () {
+                var ctrl = btn.classList.contains('slider-next') ? 1 : -1, sliders = slidersT.length, activo = 0;
+                for (var i_1 = 0; i_1 < sliders; i_1++) {
+                    if (slidersT[i_1].classList.contains('is-active')) {
+                        activo = i_1;
+                        slidersT[activo].classList.remove('is-active');
+                        break;
+                    }
+                }
+                if (ctrl == 1) {
+                    activo++;
+                    if (activo == slidersT.length) {
+                        activo = 0;
+                    }
+                }
+                else {
+                    activo--;
+                    if (activo < 0) {
+                        activo = slidersT.length - 1;
+                    }
+                }
+                slidersT[activo].classList.add('is-active');
+            }, false);
+        };
+        for (var i = 0; i < controls.length; i++) {
+            _loop_2(i);
+        }
+    };
+    return Slider;
+}());
+
+/* All components saved in variables */
 var acordeon = document.querySelectorAll('acordeon');
 var body = document.querySelector('body');
 var head = document.querySelector('head');
@@ -334,11 +511,11 @@ init('color');
 init('logo');
 init('range');
 /* ================== Import system CSS ==================== */
-var kmInclude = body.getAttribute('km-include'); //get attribute km-include
+var lvInclude = body.getAttribute('@include'); //get attribute @include
 var PATH_URL = '//cdn.jsdelivr.net/npm/level-css-framework@0.5.5/css/'; // path CDN
 var includeCSS;
-if (kmInclude) {
-    includeCSS = ("base " + kmInclude).split(' ');
+if (lvInclude) {
+    includeCSS = ("base " + lvInclude).split(' ');
     var hasLevel = validateArray(includeCSS, 'level');
     var url_include = void 0;
     if (hasLevel) {
@@ -351,6 +528,7 @@ if (kmInclude) {
             head.appendChild(createLink(url_include));
         }
     }
+    body.removeAttribute('@include');
 }
 /** add template in toggle icon burger and ellipsis */
 if (burger) {
@@ -480,7 +658,7 @@ if (acordeon.length > 0) {
 /* shows, hides, and controls behavior module accordion */
 function acordeonToggle() {
     var contentAcordeon = this.parentNode.querySelectorAll('content');
-    if (this.parentNode.hasAttribute('is-multiple')) {
+    if (this.parentNode.hasAttribute('multiple')) {
         this.nextElementSibling.classList.toggle('is-visible');
     }
     else {

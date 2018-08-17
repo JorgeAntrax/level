@@ -1,10 +1,9 @@
 @import '../base/_partials';
 //variables
-$width-icon-small: 1rem;
-$width-icon-medium: 1.5rem;
-$width-icon-large: 2rem;
-$width-icon-jumbo: 2rem;
-$width-icon: 1.5rem;
+$icon-size-small: 1.25rem !default;
+$icon-size-medium: 1.75rem !default;
+$icon-size-large: 2rem !default;
+$icon-size-default: 1.5rem;
 $ellipsis-burger-dimentions: 2px;
 $translate-d: 0.4rem;
 //placeholder
@@ -13,39 +12,21 @@ $translate-d: 0.4rem;
     align-items: center;
     align-content: center;
     justify-content: center;
+    width: $icon-size-default;
+    height: $icon-size-default;
 }
 
 //styles
 #{$name-icon-module} {
     @extend %icon;
-    width: $width-icon;
-    height: $width-icon;
     font-size: $text-default;
-    &.#{$class-small} {
-        width: $width-icon-small;
-        height: $width-icon-small;
-    }
-    &.#{$class-medium} {
-        width: $width-icon-medium;
-        height: $width-icon-medium;
-    }
-    &.#{$class-large} {
-        width: $width-icon-large;
-        height: $width-icon-large;
-    }
-    &.#{$class-jumbo} {
-        width: $width-icon-jumbo;
-        height: $width-icon-jumbo;
-    }
 }
 
 #{$name-close-module} {
     @extend %icon;
     cursor: pointer;
-    opacity: .6;
+    opacity: .7;
     transition: opacity .2s ease-out;
-    width: auto;
-    height: $width-icon;
     &:hover {
         opacity: 1;
     }
@@ -59,8 +40,6 @@ $translate-d: 0.4rem;
 #{$name-burger-module},
 #{$name-ellipsis-module} {
     @extend %icon;
-    width: $width-icon;
-    height: $width-icon;
     padding: 0.25rem;
     position: relative;
     cursor: pointer;
@@ -95,25 +74,25 @@ $translate-d: 0.4rem;
             }
             span:first-child,
             span:last-child {
-                width: $width-icon / 2;
+                width: $icon-size-default / 2;
             }
         }
         &.is-arrow-left span {
             transform-origin: left;
             &:first-child {
-                transform: translateX(-$width-icon / 3) rotate(45deg);
+                transform: translateX(-$icon-size-default / 3) rotate(45deg);
             }
             &:last-child {
-                transform: translateX(-$width-icon / 3) rotate(-45deg);
+                transform: translateX(-$icon-size-default / 3) rotate(-45deg);
             }
         }
         &.is-arrow-right span {
             transform-origin: right;
             &:first-child {
-                transform: translateX($width-icon / 3) rotate(45deg);
+                transform: translateX($icon-size-default / 3) rotate(45deg);
             }
             &:last-child {
-                transform: translateX($width-icon / 3) rotate(-45deg);
+                transform: translateX($icon-size-default / 3) rotate(-45deg);
             }
         }
     }
@@ -125,13 +104,31 @@ $translate-d: 0.4rem;
         height: $ellipsis-burger-dimentions;
     }
     &.is-active span {
-        width: $width-icon;
+        width: $icon-size-default;
     }
 }
 
 #{$name-burger-module} {
     span {
-        width: $width-icon;
+        width: $icon-size-default;
         height: $ellipsis-burger-dimentions;
+    }
+}
+
+#{$name-icon-module},
+#{$name-close-module},
+#{$name-burger-module},
+#{$name-ellipsis-module} {
+    &.is-small {
+        width: $icon-size-small;
+        height: $icon-size-small;
+    }
+    &.is-medium {
+        width: $icon-size-medium;
+        height: $icon-size-medium;
+    }
+    &.is-large {
+        width: $icon-size-large;
+        height: $icon-size-large;
     }
 }

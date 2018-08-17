@@ -43,7 +43,6 @@
     justify-content: center;
     border-radius: rem(3px);
     background-color: $light;
-    user-select: none;
     @each $class,
     $color in $colors {
         @if ($class=='light') or ($class=='cloud') {}

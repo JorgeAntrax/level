@@ -1,0 +1,30 @@
+@import '../base/_partials';
+
+//container input type color
+
+#{$name-color-module} {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: rem(3px);
+    &.#{$class-rounded} {
+        border-radius: 50%;
+    }
+    &[disabled] {
+        box-shadow: none;
+    }
+    // input type color
+    input[type='color'] {
+        cursor: pointer !important;
+        overflow: hidden !important;
+        outline: none;
+        border: 0;
+        -moz-appearance: button;
+        -webkit-appearance: button;
+        min-height: 4rem;
+        min-width: 4rem;
+    }
+}
