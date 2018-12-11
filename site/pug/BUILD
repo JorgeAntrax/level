@@ -31,7 +31,7 @@ nodejs_binary(
     data = [
         "server",
         "//scss:kimera",
-        "//ts:kimerajs",
+        "//site/ts:kimerajs",
         "//views:index.pug",
         "//views/components:_all.pug",
         "//views/components:blockquote.pug",

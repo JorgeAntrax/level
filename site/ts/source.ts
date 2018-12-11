@@ -15,11 +15,6 @@ let range: NodeListOf<Element> = document.querySelectorAll('range');
 let slideshow: NodeListOf<Element> = document.querySelectorAll('slideshow');
 let tabs: NodeListOf<Element> = document.querySelectorAll('tabs');
 let tabsContent: NodeListOf<Element> = document.querySelectorAll('tabs-content');
-//unused vars
-// let close_button = document.querySelectorAll('close');
-// let form_color: NodeListOf<Element> = document.querySelectorAll('color');
-// let process_bar: NodeListOf<Element> = document.querySelectorAll('process');
-// let toggle_button: NodeListOf<Element> = document.querySelectorAll('toggle');
 
 // initializes dynamic components
 init('checkbox');
@@ -33,7 +28,7 @@ init('range');
 /* ================== Import system CSS ==================== */
 
 let kmInclude: string = body.getAttribute('km-include'); //get attribute km-include
-const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.4/css/'; // path CDN
+const PATH_URL = '//cdn.jsdelivr.net/npm/kimera@0.4.5/css/'; // path CDN
 
 let includeCSS: string[];
 if (kmInclude) {
@@ -42,7 +37,7 @@ if (kmInclude) {
     let url_include: string;
 
     if (hasKimera) {
-        url_include = `${PATH_URL}kimera.min.css}`; // url to file base.min.css
+        url_include = `${PATH_URL}kimera.min.css`; // url to file base.min.css
         head.appendChild(createLink(url_include));
     } else {
         for (let i = 0; i < includeCSS.length; i++) {
@@ -93,23 +88,23 @@ if (modal.length > 0) {
         onEventListener(modal[i], 'click', modalToggle);
 
         function modalToggle() {
-            let modalId = this.getAttribute('modal');
-            let el = document.querySelector(modalId);
-            let modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
-            let modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
+			let modalId = this.getAttribute('modal');
+			let el = document.querySelector(modalId);
+			let modalClass = ['is-zoom-in', 'is-slide-up', 'is-slide-down'];
+			let modalClassSub = ['zoom-in', 'slide-up', 'slide-down'];
 
             for (let j = 0; j < modalClass.length; j++) {
                 if (el.classList.contains(modalClass[j])) el.classList.toggle(modalClassSub[j]);
             }
             el.classList.toggle('is-visible');
         }
-    }
+	}
 }
 
 /* =================== Navbar Js ======================= */
 
 if (navbar.length > 0) {
-    let el = document.querySelectorAll('.is-toggle-navbar');
+	let el = document.querySelectorAll('.is-toggle-navbar');
     for (let i = 0; i < el.length; i++) {
         onEventListener(el[i], 'click', navToggle);
     }
@@ -122,14 +117,14 @@ if (navbar.length > 0) {
 /* =================== Js acordeon ===================== */
 
 if (acordeon.length > 0) {
-    let acordeonItem = document.querySelectorAll('acordeon-item');
+	let acordeonItem = document.querySelectorAll('acordeon-item');
     for (let i = 0; i < acordeonItem.length; i++) {
         onEventListener(acordeonItem[i], 'click', acordeonToggle);
     }
 
     /* shows, hides, and controls behavior module accordion */
     function acordeonToggle() {
-        let contentAcordeon = this.parentNode.querySelectorAll('content');
+		let contentAcordeon = this.parentNode.querySelectorAll('content');
         if (this.parentNode.hasAttribute('is-multiple')) {
             this.nextElementSibling.classList.toggle('is-visible');
         } else {
@@ -148,9 +143,9 @@ role initializes a elment type renage
 @param el: The parent element <range></range> selected
 */
 function initRange(el: Element) {
-    let input = el.querySelector('input');
-    let label = el.querySelector('label');
-    let position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
+    let input = el.querySelector('input'),
+        label = el.querySelector('label'),
+        position = parseInt(window.getComputedStyle(input, null).getPropertyValue('width')) / 100;
 
     label.style.left = `${((parseInt(input.value) * position) - 10)}px`;
     label.textContent = input.value;
@@ -261,41 +256,41 @@ function init(component: string) {
     let element: NodeListOf<Element> = document.querySelectorAll(component);
 
     for (let i = 0; i < element.length; i++) {
-        let currentElement: Element = element[i],
-            id = currentElement.id;
+		let currentElement: Element = element[i],
+			id = currentElement.id;
         let text: string = currentElement.getAttribute('text');
-        let check = currentElement.getAttribute('checked');
-        let require = currentElement.getAttribute('required');
-        let form = currentElement.getAttribute('form');
-        let name = currentElement.getAttribute('name');
-        let value = currentElement.getAttribute('value');
+		let check = currentElement.getAttribute('checked');
+		let require = currentElement.getAttribute('required');
+		let form = currentElement.getAttribute('form');
+		let name = currentElement.getAttribute('name');
+		let value = currentElement.getAttribute('value');
 
         switch (component) {
             case 'checkbox':
             case 'radio':
                 currentElement.innerHTML =
-                    `<input type="${component}"${id ? ' id="' + id + '"' : ''}${form ? ' form="' + form + '"' : ''}${name ? ' name="' + name + '"' : ''}${check ? check : ''}${ require ? require : ''}/><label ${id ? ' for="' + id + '"' : ''}>${text ? text : ''}</label>`;
+					`<input type="${component}"${id ? ' id="' + id + '"' : ''}${value ? ' value="' + value + '"' : ''}${form ? ' form="' + form + '"' : ''}${name ? ' name="' + name + '"' : ''}${check ? check : ''}${require ? require : ''}/><label ${id ? ' for="' + id + '"' : ''}>${text ? text : ''}</label>`;
                 break;
             case 'color':
-                currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
+				currentElement.innerHTML = '<input type="color"' + (id ? 'id="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '/>';
                 break;
             case 'process':
-                currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
+				currentElement.innerHTML = '<complete ' + (value ? 'value="' + value + '"' : '') + '></complete>';
                 let querySelector:HTMLElement = currentElement.querySelector('complete');
                 querySelector.style.width = currentElement.getAttribute('value');
                 break;
             case 'toggle':
-                currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
+				currentElement.innerHTML = '<input type="checkbox"' + (id ? ' id="' + id + '"' : '') + (form ? ' form="' + form + '"' : '') + (name ? ' name="' + name + '"' : '') + (check ? check : '') + ' ' + (require ? require : '') + '/><label' + (id ? ' for="' + id + '"' : '') + '></label>';
                 break;
             case 'logo':
                 let value_src = currentElement.getAttribute('src');
-                currentElement.innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
+				currentElement.innerHTML = '<img ' + (value_src ? 'src="' + value_src + '"' : '') + '/>' + (text ? '<span>' + text + '</span>' : '');
                 break;
             case 'range':
-                let min = currentElement.getAttribute('min'),
-                    max = currentElement.getAttribute('max'),
-                    step = currentElement.getAttribute('step');
-                currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
+				let min = currentElement.getAttribute('min'),
+					max = currentElement.getAttribute('max'),
+					step = currentElement.getAttribute('step');
+				currentElement.innerHTML = '<input type="' + component + '"' + (id ? ' id="' + id + '"' : '') + (min ? ' min="' + min + '"' : '') + (max ? ' max="' + max + '"' : '') + (step ? ' step="' + step + '"' : '') + '/><label' + (id ? ' for="' + id + '"' : '') + (value ? 'value="' + value + '"' : '') + '></label>';
                 initRange(currentElement);
                 break;
             default:
@@ -312,7 +307,7 @@ url: Dynamic URL for import system
 type: string
 */
 function createLink(url: string) {
-    let link = document.createElement('link');
+	let link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', url);
     return link;
@@ -412,8 +407,8 @@ function nextSiblings(target: Element): Element[] {
 // save all previous and next elements siblings in array objet
 /* @param element - type: DOM objet */
 function siblings(target: Element): Element[] {
-    let previus:Element[] = prevSiblings(target) || [];
-    let next:Element[] = nextSiblings(target) || [];
+    let previus = prevSiblings(target) || [],
+        next = nextSiblings(target) || [];
     return previus.concat(next);
 }
 

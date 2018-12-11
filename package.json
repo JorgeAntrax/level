@@ -1,6 +1,6 @@
 {
   "name": "kimera",
-  "version": "0.4.4",
+    "version": "0.4.5",
   "description": "A Modern CSS and JS framework based on flexbox and custom tags",
   "main": "css/kimera.css",
   "scripts": {
@@ -41,7 +41,7 @@
   "contributors": [
     "Ruslan López Carro"
   ],
-  "homepage": "http://kimera.comli.com",
+    "homepage": "https://jorgeantrax.github.io/kimeracss/",
   "dependencies": {
     "@types/jquery": "^3.3.1",
     "@types/npm": "^2.0.29",
