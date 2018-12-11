@@ -1,0 +1,23 @@
+directories:
+  .
+
+targets:
+  //...:all
+  
+
+
+additional_languages:
+  # Uncomment any additional languages you want supported
+  # android
+  # dart
+  # go
+  javascript
+  # kotlin
+  # python
+  # scala
+  typescript
+
+ts_config_rules:
+  # substitute your own project's 'ts_config' rules here :tsconfig,json
+  #//tsconfig:tsconfig,json
+  @kimera//:tsconfig.json

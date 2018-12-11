@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
-    "outDir": "js"
+    "outDir": "js",
+    "allowSyntheticDefaultImports": true
   }
 }

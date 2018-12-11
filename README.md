@@ -6,7 +6,14 @@
 For now it seems no to be working on windows.
 
 Instalar paquetes:
-> sudo bazel run @nodejs//:npm install
+# > bazel run @nodejs//:npm install
+> bazel run  @nodejs//:yarn install
+
+Compilar
+> bazel build //...
+
+Obtener todos los posibles targets para hacer build
+> bazel query ...
 
 Bazel branch, please ignore the following.
 
