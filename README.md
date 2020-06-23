@@ -17,14 +17,17 @@ You can perform a modular installation using the attribute '<a href="http://kime
 # CDN Unpkg
 
 CSS file: [https://unpkg.com/level-css-framework@0.6.0/css/level.min.css](https://unpkg.com/level-css-framework@0.6.0/css/level.min.css)
+
 JS file:  [https://unpkg.com/level-css-framework@0.6.0/js/level.min.js](https://unpkg.com/level-css-framework@0.6.0/js/level.min.js)
 
 # CDN Github
 
-// development file
+
+development file
 https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.css
 
-// distribution file
+
+distribution file
 https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.min.css
 
 # CDN Node Package Manager
@@ -69,6 +72,7 @@ de la siguiente forma
 # CDN Unpkg
 
 CSS file: [https://unpkg.com/level-css-framework@0.6.0/css/level.min.css](https://unpkg.com/level-css-framework@0.6.0/css/level.min.css)
+
 JS file:  [https://unpkg.com/level-css-framework@0.6.0/js/level.min.js](https://unpkg.com/level-css-framework@0.6.0/js/level.min.js)
 
 
@@ -77,10 +81,10 @@ hosteado en CDN JsDelivr:
 # CDN Github
 
 // archivo de desarrollo
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.min.css
 
 # CDN Node Package Manager
 
@@ -88,7 +92,7 @@ https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.min.
 https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.css
 
 // archivo de distribución
-https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.min.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.6.0/css/level.min.css
 
 Gracias por utilizar level, te agradecemos no apoyes con una estrellita
 para que el proyecto siga creciendo.
