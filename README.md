@@ -10,31 +10,30 @@ Installation
 You can perform a modular installation using the attribute '<a href="http://kimera.comli.com">km-include</a>' alongside javascript in the following manner:
 
  ``` 
-<pre>
-	<body km-include="components acordeon">
-		<!-- Contenido de tu web -->
-	</body>
-</pre>
+<body km-include="components acordeon">
+	<!-- Contenido de tu web -->
+</body>
 ```
+# CDN Unpkg
 
-
-hosted at JsDelivr CDN:
+CSS file: [https://unpkg.com/level-css-framework@0.6.0/css/level.min.css](https://unpkg.com/level-css-framework@0.6.0/css/level.min.css)
+JS file:  [https://unpkg.com/level-css-framework@0.6.0/js/level.min.js](https://unpkg.com/level-css-framework@0.6.0/js/level.min.js)
 
 # CDN Github
 
 // development file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.css
 
 // distribution file
-https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.5.3/css/level.min.css
+https://cdn.jsdelivr.net/gh/JorgeAntrax/level-css-framework@0.6.0/css/level.min.css
 
 # CDN Node Package Manager
 
 // development file
-https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.6.0/css/level.css
 
 // distribution file
-https://cdn.jsdelivr.net/npm/level-css-framework@0.5.3/css/level.min.css
+https://cdn.jsdelivr.net/npm/level-css-framework@0.6.0/css/level.min.css
 
 Thank you for using level, we appreciate your wupport with a star so the project can still be growing.
 
@@ -59,14 +58,18 @@ Instalación
 
 // Puedes hacer una instalación módular mediante el atributo
 
-'<a href="http://level.comli.com">km-include</a>' en conjunto con javascript
+'<a href="#">km-include</a>' en conjunto con javascript
 
 de la siguiente forma
-```<pre>
-	&ltbody km-include="components acordeon"&gt
-		&lt!-- Contenido de tu web --&gt
-	&lt/body&gt
-</pre>```
+```
+<body km-include="components acordeon">
+	<!-- Contenido de tu web -->
+</body>
+```
+# CDN Unpkg
+
+CSS file: [https://unpkg.com/level-css-framework@0.6.0/css/level.min.css](https://unpkg.com/level-css-framework@0.6.0/css/level.min.css)
+JS file:  [https://unpkg.com/level-css-framework@0.6.0/js/level.min.js](https://unpkg.com/level-css-framework@0.6.0/js/level.min.js)
 
 
 hosteado en CDN JsDelivr:
