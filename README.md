@@ -12,6 +12,9 @@ Instalar paquetes:
 Compilar
 > bazel build //...
 
+En caso de tener problemas compilar mediante
+bazel build //... --worker_sandboxing --strategy TypeScriptCompile=local
+
 Obtener todos los posibles targets para hacer build
 > bazel query ...
 
@@ -21,6 +24,14 @@ grafo de compilación
 Versión simplificada
 
 > bazel query --noimplicit_deps --output=graph  ... | dot -Tpng > simplified_graph.png
+
+If you ever find
+
+    ERROR: no such package '@nodejs_windows_amd64//'
+
+run the folklowing command
+
+    bazel shutdown
 
 Bazel branch, please ignore the following.
 

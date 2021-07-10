@@ -79,24 +79,25 @@ node_repositories()
 
 ####################################
 # Fetch and install the Sass rules
-git_repository(
-    name = "io_bazel_rules_sass",
-    remote = "https://github.com/bazelbuild/rules_sass.git",
-    tag = "1.26.9.",
-)
-#http_archive(
+#git_repository(
 #    name = "io_bazel_rules_sass",
-#    strip_prefix = "rules_sass-1.15.1",
-#    url = "https://github.com/bazelbuild/rules_sass/archive/1.26.9.zip",
+#    remote = "https://github.com/bazelbuild/rules_sass.git",
+#    tag = "1.35.2",
 #)
 
-load("@io_bazel_rules_sass//:defs.bzl", "sass_repositories")
+http_archive(
+    name = "io_bazel_rules_sass",
+    # Make sure to check for the latest version when you install
+    url = "https://github.com/bazelbuild/rules_sass/archive/1.26.3.zip",
+    strip_prefix = "rules_sass-1.26.3",
+    sha256 = "9dcfba04e4af896626f4760d866f895ea4291bc30bf7287887cefcf4707b6a62",
+)
 
 #load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 load("@io_bazel_rules_sass//:package.bzl", "rules_sass_dependencies")
-
 rules_sass_dependencies()
 
+load("@io_bazel_rules_sass//:defs.bzl", "sass_repositories")
 sass_repositories()
 
 ####################################
