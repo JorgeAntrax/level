@@ -15,6 +15,13 @@ Compilar
 Obtener todos los posibles targets para hacer build
 > bazel query ...
 
+grafo de compilación
+> bazel query --output=graph ... | dot -Tpng > graph.png
+
+Versión simplificada
+
+> bazel query --noimplicit_deps --output=graph  ... | dot -Tpng > simplified_graph.png
+
 Bazel branch, please ignore the following.
 
 Installation

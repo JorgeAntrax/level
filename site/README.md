@@ -11,3 +11,6 @@ install project dependencies
 Generate html using 
 
 > npm run pugtohtml
+
+
+bazel query --noimplicit_deps 'deps(//scss:kimera)' --output graph > simplified_graph.in dot -Tpng < simplified_graph.in > graph_simplified.png
