@@ -13,7 +13,8 @@ Compilar
 > bazel build //...
 
 En caso de tener problemas compilar mediante
-bazel build //... --worker_sandboxing --strategy TypeScriptCompile=local
+
+   bazel build //... --worker_sandboxing --strategy TypeScriptCompile=local
 
 Obtener todos los posibles targets para hacer build
 > bazel query ...

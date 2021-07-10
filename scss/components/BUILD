@@ -9,10 +9,12 @@ sass_library(
         "blockquote",
         "box",
         "buttons",
+        "calendar",
         "chip",
         "dropdown",
         "forms",
         "icons",
+        "listbox",
         "progress",
         "range",
         "tags",
@@ -21,6 +23,18 @@ sass_library(
         "//scss/base:partials",
         "//scss/base:placeholders",
     ],
+)
+
+sass_library(
+    name = "listbox",
+    srcs = ["_listbox.scss"],
+    deps = ["//scss/base:partials"],
+)
+
+sass_library(
+    name = "calendar",
+    srcs = ["_calendar.scss"],
+    deps = ["//scss/base:partials"],
 )
 
 sass_library(
