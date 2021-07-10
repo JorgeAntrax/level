@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 #load("@angular//:index.bzl", "ng_module")
 
@@ -32,6 +32,7 @@ filegroup(
             "node_modules/**/* *",
         ],
     ),
+     visibility = ["//visibility:public"]
 )
 
 # Create a tsc_wrapped compiler rule to use in the ts_library
@@ -52,4 +53,14 @@ filegroup(
 #    node_modules = ["//:node_modules"],
 #)
 
+# Create a tsc_wrapped compiler rule to use in the ts_library
+# compiler attribute when using self-managed dependencies
+#nodejs_binary(
+#    name = "@bazel/typescript/tsc_wrapped",
+#    entry_point = "@npm//:node_modules/@bazel/typescript/internal/tsc_wrapped/tsc_wrapped.js",
+    # Point bazel to your node_modules to find the entry point
+#    node_modules = "//:node_modules",
+#)
+
 exports_files(["tsconfig.json"])
+#exports_files(["tsconfig.json"], visibility = ["//visibility:public"])

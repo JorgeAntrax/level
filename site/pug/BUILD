@@ -1,7 +1,10 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm", "nodejs_binary")
+#load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+#load("@npm_bazel_typescript//:index.bzl", "ts_library")
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+#load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 #ts_library(
 #    name = "appts",
@@ -17,7 +20,15 @@ ts_library(
         "@npm//express",
         "@npm//@types/express",
     ],
+    #node_modules = "//:node_modules",
 )
+
+#pkg_npm(
+#    name = 'pkg',
+#    srcs = ['package.json'],
+#    deps = [':lib'],
+#    visibility = ['//visibility:public'],
+#)
 
 #genrule(
 #    name = "copy_pugsite",
@@ -95,5 +106,5 @@ nodejs_binary(
         "@npm//pug",
     ],
     entry_point = "kimera/site/pug/server.js",
-    install_source_map_support = False,
+#    install_source_map_support = False,
 )
